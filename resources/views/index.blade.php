@@ -2,7 +2,8 @@
 @section('content')  
 
      
-      @include('layout.body.home')
+      
+      @include('layout.body.signin')
     
 
 @endsection
