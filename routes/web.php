@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SigninController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
+Route::post('/login', [LoginController::class,'save']);
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('index');
+    return view('main.index');
+});
+Route::get('/log-in', function () {
+    return view('main.layout.body.login');
+});
+Route::get('/sign-in', function () {
+    return view('main.layout.body.signin');
+});
+Route::get('/terms', function () {
+    return view('main.layout.body.terms');
+});
+Route::get('/nav', function () {
+    return view('main.layout.header');
 });

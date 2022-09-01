@@ -1,0 +1,21 @@
+@media only screen and (max-width:800px)
+{
+.col-1
+{
+    display: none;
+}
+.col-2
+{
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+.signin-col-1
+{
+    display: none;
+}
+.signin-col-2
+{
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+}
