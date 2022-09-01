@@ -1,0 +1,144 @@
+#signin
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+    padding-bottom: 50px;
+   
+}
+#signin-logo
+{
+    margin-top: 30px;
+    width: 180px;
+}
+.h3
+{
+    font-family: 'Inter',sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 24px;
+
+}
+.terms
+{
+    font-family: 'Inter',sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
+.signin-row
+{
+    width: auto;
+    display: flex;
+    height: 100%;
+    /* box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25); */
+}
+.signin-col-1
+{
+    background-color: #18CF77;
+    width: 390px;
+    height: 720px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
+}
+.signin-col-2
+{
+    background-color: #F5FAFF;
+    width: 390px;
+    height: 720px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+    text-align: center;
+    align-items: center;
+    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
+    
+    
+}
+
+.signin-password input , .signin-button_login input , .signin-fname input , .signin-lname input ,
+.signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg input , .signin-email input
+{
+    height: 38px;
+    width: 320px;
+    border-radius: 40px;
+    border: 0.5px solid #BCBCBC;
+}
+.signin-password input , .signin-fname input , .signin-lname input ,
+.signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
+{
+    margin-bottom: 10px;
+    font-family: 'Inter',sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #B8AFAF;
+    
+}
+.gender
+{
+    display: flex;
+    justify-content: left;
+    margin-left: 30px;
+
+}
+.gender input
+{
+    -webkit-appearance: none;
+    /* box-sizing: border-box; */
+
+}
+.gender label
+{
+    border: 0.5px solid #B8AFAF;
+    height: 28px;
+    width: 110px;
+    color: #000;
+    padding-top: 8px;
+   
+    /* position: relative;
+    margin: auto; */
+
+}
+
+.gender input:checked+ label
+{ 
+    background-color: #000000;
+    color: #fff;
+    border: #fff 1px solid;
+    transition: 0.5s;
+}
+/* .gender #femaleradio:checked + label
+{ 
+    background-color: #EA2A63;
+    color: #fff;
+    border: #fff 1px solid;
+    transition: 0.5s;
+} */
+.signin-button_fb input
+{
+    background-color: #1877F2;
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+}
+.signin-button_gg input
+{
+    background-color: #FF0000;
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+}
+.signin-button_login input
+{
+    background-color: #18CF77;
+    font-family: 'Inter',sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+}

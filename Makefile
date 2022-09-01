@@ -5,6 +5,8 @@
 
 env:
 	cp .env.example .env
+alias:
+	./vendor/bin/sail artisan shell
 	
 up:
 	./vendor/bin/sail up -d

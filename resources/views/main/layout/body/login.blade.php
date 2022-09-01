@@ -1,10 +1,14 @@
-<section id="signin">
+@extends('main.layout.master')
+@section('content') 
+<section id="login">
 <div class="row">
     <div class="col-1"></div>
     <div class="col-2">
        <div class="wrapper">
         <img src="images/LOGO.png" alt="Logo" id="logo">
         <h3 class="h3">Welcome Back</h3>
+        <form action="{{url('/login')}}" method="post">
+                @csrf
         <div class="username">
             <input type="text" name="email"  placeholder="  Username"  required>
         </div>
@@ -14,6 +18,7 @@
         <div class="button_login">
             <input type="submit" value="LOG IN">
         </div>
+</form>
 
         <div class="group-1">
         <div class="line"></div>
@@ -69,7 +74,7 @@
             <div class="line-3">
             </div>
             <div class="link">
-                <p>New member?<br><strong><a href="#">Sign-up here.</a></strong></p>
+                <p>New member?<br><strong><a href="/sign-in">Sign-up here.</a></strong></p>
             </div>
 
             </div>
@@ -80,3 +85,6 @@
         
 </div>
 </section>
+
+@endsection
+
