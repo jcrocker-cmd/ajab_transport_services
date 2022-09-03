@@ -5,6 +5,6 @@
 
 @section('content') 
     @include('main.layout.header')
-    @include('main.components.login')
+    @include('main.components.signin')
     @include('main.layout.footer2')
 @endsection

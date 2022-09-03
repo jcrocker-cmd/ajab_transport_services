@@ -1,5 +1,3 @@
-@extends('main.layout.master')
-@section('content') 
 <section id="login">
 <div class="row">
     <div class="col-1"></div>
@@ -85,6 +83,4 @@
         
 </div>
 </section>
-
-@endsection
 
