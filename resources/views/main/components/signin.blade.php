@@ -1,6 +1,3 @@
-<!-- @extends('main.layout.header') -->
-@extends('main.layout.master')
-@section('content') 
 <section id="signin">
 <div class="signin-row">
     <div class="signin-col-1"></div>
@@ -282,7 +279,7 @@
         </select>
 
         <div class="gender">
-            <input type="radio" name="gender"  value="male" id="maleradio" required> 
+            <input type="radio" name="gender"  value="male" id="maleradio" class="radio"required> 
             <label for="maleradio">Male</label>
             <input type="radio" name="gender"  value="female"  id="femaleradio">
             <label for="femaleradio">Female</label>
@@ -304,5 +301,3 @@
     </div>
 </div>
 </section>
-<a href="http://"></a>
-@endsection

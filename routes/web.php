@@ -24,15 +24,22 @@ Route::get('/welcome', function () {
 Route::get('/', function () {
     return view('main.index');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
 Route::get('/log-in', function () {
-    return view('main.layout.body.login');
+    return view('main.login');
 });
 Route::get('/sign-in', function () {
-    return view('main.layout.body.signin');
+    return view('main.signin');
 });
-Route::get('/terms', function () {
-    return view('main.layout.body.terms');
-});
+
 Route::get('/nav', function () {
     return view('main.layout.header');
+});
+Route::get('/footer', function () {
+    return view('main.layout.footer');
+});
+Route::get('/footer2', function () {
+    return view('main.layout.footer2');
 });

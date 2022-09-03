@@ -1,16 +1,13 @@
 #signin
 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 50px;
-    padding-bottom: 50px;
+    margin-top: 150px;
+    /* margin-bottom: 100px; */
+
    
 }
 #signin-logo
 {
-    margin-top: 30px;
+    margin-top: 35px;
     width: 180px;
 }
 .h3
@@ -19,6 +16,8 @@
     font-weight: 100;
     font-size: 15px;
     line-height: 24px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 
 }
 .terms
@@ -35,7 +34,7 @@
     width: auto;
     display: flex;
     height: 100%;
-    /* box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25); */
+    justify-content: center;
 }
 .signin-col-1
 {
@@ -71,7 +70,7 @@
 .signin-password input , .signin-fname input , .signin-lname input ,
 .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
 {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
     font-family: 'Inter',sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -82,26 +81,22 @@
 {
     display: flex;
     justify-content: left;
-    margin-left: 30px;
+    margin-left: 33px;
+    gap: 5px;
 
 }
 .gender input
 {
     -webkit-appearance: none;
-    /* box-sizing: border-box; */
 
 }
 .gender label
 {
     border: 0.5px solid #B8AFAF;
-    height: 28px;
+    height: 35px;
     width: 110px;
     color: #000;
-    padding-top: 8px;
-   
-    /* position: relative;
-    margin: auto; */
-
+    padding-top: 7px;
 }
 
 .gender input:checked+ label
@@ -111,13 +106,6 @@
     border: #fff 1px solid;
     transition: 0.5s;
 }
-/* .gender #femaleradio:checked + label
-{ 
-    background-color: #EA2A63;
-    color: #fff;
-    border: #fff 1px solid;
-    transition: 0.5s;
-} */
 .signin-button_fb input
 {
     background-color: #1877F2;

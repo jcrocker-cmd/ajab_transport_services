@@ -17,15 +17,18 @@ nav{
     justify-content: center;
     align-items: center;
     transition: 0.6s;
-    background:	#D7EAE6;  
+    background:	#fff;  
     padding: 20px;
     z-index: 1;
+    box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
     /* gap: 100px; */
 }
 .header-col-1 , .header-col-2
 {
     gap: 40px;
-    width: 500px;
+    /* width: 500px; */
 }
 nav div {
     position: relative;
@@ -50,4 +53,6 @@ nav div li a{
 nav div li a:hover
 {
 	color: 	#007F66;
+    transition: 0.5s;
+
 }
