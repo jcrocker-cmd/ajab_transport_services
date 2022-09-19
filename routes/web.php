@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,12 @@ Route::get('/footer', function () {
 Route::get('/footer2', function () {
     return view('main.layout.footer2');
 });
+
+
+// Google Auth
+Route::get('/auth/google/redirect', [SocialiteController::class, 'googleredirect']);
+Route::get('/auth/google/callback', [SocialiteController::class, 'googlecallback']);
+
+//Facebook Auth
+Route::get('/auth/facebook/redirect', [SocialiteController::class, 'facebookredirect']);
+Route::get('/auth/facebook/callback', [SocialiteController::class, 'facebookcallback']);
