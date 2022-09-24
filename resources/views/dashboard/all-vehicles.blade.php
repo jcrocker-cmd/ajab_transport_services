@@ -12,8 +12,8 @@
     
     
     <ul class ="list-unstyled px-2">
-      <li class="active"><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home"></i>   Dashboard</a></li>
-      <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>   Registered Vehicles</a></li>
+      <li class=""><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home"></i>   Dashboard</a></li>
+      <li class="active"><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>   Registered Vehicles</a></li>
       <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car"></i>   Available Cars</a></li>
       <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building"></i>   Rented Cars</a></li>
 
@@ -61,7 +61,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    
     <div class="collapse navbar-collapse justify-content-end" id="navbarText">
           <div class="dropdown">
           <img src="user.jpg" alt=""
@@ -85,7 +85,7 @@
   </nav>
 
   @section('content')
-    @include('dashboard.components.dashboard-content')
+    @include('dashboard.components.all-vehicles-content')
 
   </div>
 </div>
