@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 body
 {
-    background-color: #fff;
+    background-color: hsl(0, 0%, 94%);
 }
 #side_nav
 {
@@ -22,7 +24,8 @@ hr.hr-1
 hr.hr-2
 {
     border-top: 2px solid;
-    background-color: #000000;
+    background-color: #000;
+    color: #000;
 
 }
 .sidebar li.active
@@ -55,4 +58,101 @@ hr.hr-2
     {
         margin-left: 0;
     }
+}
+
+.row-card
+{
+    width: 15rem;
+    display: flex;
+    border-radius: 10px;
+}
+.col-1
+{
+    width: 65%;
+    margin: auto;
+}
+.col-2
+{
+   margin: auto;
+   width: 35%;
+}
+.icon
+{
+    size: 100px;
+}
+
+/* Dashboard Table */
+.table
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+
+/* ADD Car */
+.add-row
+{
+    gap: 40px;
+}
+
+.add-col
+{
+    width: 50%;
+}
+input.purok
+{
+    width: 50px;
+    
+}
+
+
+/* ACCOUNT LINK */
+.account-link , .account-dropdowns
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+
+}
+
+
+/* NOTIFICATION */
+.notif-col-1
+{
+    width: 70%;
+
+}
+.notif-col-2
+{
+    width: 30%;
+    
+}
+/* DASHBOARD LOGIN */
+.dashboard-login-div
+{
+    font-family: 'Poppins', sans-serif;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.dashboard-login
+{
+    height: 100vh;
+    background: linear-gradient(to right,#ff512f, #dd2476);
+}
+.dashboard-login-button
+{
+    background: linear-gradient(to right, #dd2476,#ff512f);
+    border: none;
+
+}
+.dashboard-login h2
+{
+    /* box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25); */
+    font-weight: 600;
+    font-size: 25px;
+
+    
 }
