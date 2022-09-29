@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AddcarController;
 use App\Http\Controllers\SocialiteController;
 
@@ -21,18 +22,27 @@ Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
 Route::post('/login', [LoginController::class,'save']);
 Route::post('/addcar', [AddcarController::class,'save']);
 
+Route::get('/all-vehicles',function() {
+    return view('dashboard.all-vehicles');
+ });
+
+//  Route::post('/getallVehicles','LinkController@getallVehicles');
+// Route::get('/getallVehicles', [LinkController::class,'allVehicles']);
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('main.index');
+    return view('main.homepage');
 });
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
-Route::get('/all-vehicles', function () {
-    return view('dashboard.all-vehicles');
-});
+// Route::get('/all-vehicles', function () {
+//     return view('dashboard.all-vehicles');
+// });
+
+
 Route::get('/rented', function () {
     return view('dashboard.rented-cars');
 });

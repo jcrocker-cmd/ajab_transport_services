@@ -46,11 +46,18 @@
     </div>
 
   </td>
-  <td> Rented <span class="text-danger">Toyota Vios</span> owned by <span class="text-primary">John Christian Narbaja</span></td>
+  <td> Rented <span class="text-danger">Toyota Vios  for <span>8 days</span></span> owned by <span class="text-primary">John Christian Narbaja</span></td>
   <td>
     <span class="badge bg-success rounded-pill">ACTIVE</span>
   </td>
-  <td>2021</td>
+  <td>
+    <div class=
+    ''>
+        <p class="fw-bold mb-1">12-07-22</p>
+        <p class="text-muted mb-0">1 Minute Ago</p>
+
+    </div>
+  </td>
   </tr>
 
   <tr class="file">

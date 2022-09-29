@@ -3,13 +3,36 @@
 body
 {
     background-color: hsl(0, 0%, 94%);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+
 }
+.nav-notif , .nav-notif-badge
+{
+    margin-right: 25px;
+    margin-top: 5px;
+
+}
+.nav-msg , .nav-msg-badge
+{
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.nav-notif-badge , .nav-msg-badge
+{
+    font-size: 10px;
+}
+
+
 #side_nav
 {
     background-color: #000;
     min-width: 250px;
     max-width: 250px;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 .content
 {
@@ -26,6 +49,8 @@ hr.hr-2
     border-top: 2px solid;
     background-color: #000;
     color: #000;
+    margin-top: 8px;
+    margin-bottom: 14px;
 
 }
 .sidebar li.active
@@ -45,24 +70,11 @@ hr.hr-2
 {
     font-size: 12px;
 }
-@media(max-width: 767px)
-{
-    #side_nav
-    {
-        margin-left: -250px;
-        position: fixed;
-        min-height: 100vh;
-        z-index: 1;
-    }
-    #side_nav.active
-    {
-        margin-left: 0;
-    }
-}
+
 
 .row-card
 {
-    width: 15rem;
+    width: 16rem;
     display: flex;
     border-radius: 10px;
 }
@@ -80,6 +92,7 @@ hr.hr-2
 {
     size: 100px;
 }
+
 
 /* Dashboard Table */
 .table
@@ -152,7 +165,87 @@ input.purok
 {
     /* box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25); */
     font-weight: 600;
-    font-size: 25px;
+    font-size: 25px;    
+}
+.dashboard-div
+{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,#ff512f, #dd2476);
+    height: 100vh;
 
+}
+.form-box
+{
+    height: 490px;
+    width: 400px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.forms
+{
+    display: flex;
+}
+
+
+/* DASHBOARD CONTENT */
+
+/* .dashboard-content
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+
+.row-card
+{
+    margin-left: -8px;
+}
+
+.db-bottom-row
+{
+    display: flex;
+    gap: 20px;
+}
+
+.db-bottom-col1
+{
+    width: 55%;
     
+}
+
+.db-bottom-col2
+{
+    /* height: 300px; */
+    height: 45.8vh;
+    overflow-y:scroll;
+    width: 45%;
+    border-radius: 10px;
+    /* box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25); */
+
+}
+
+.db-chart
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+
+}
+.for-border
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    
+
+}
+
+/* ALLVEHICLES TABLE */
+.allvehicles-table
+{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+
 }

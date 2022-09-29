@@ -8,3 +8,6 @@
     @include('main.components.login')
     @include('main.layout.footer2')
 @endsection
+
+@section('styles')
+    @include('main.assets.script')
