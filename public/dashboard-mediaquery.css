@@ -1,0 +1,33 @@
+@media only screen and (max-width:800px)
+{
+/* DASHBOARD BOTTOM */
+.db-bottom-row
+{
+	flex-direction: column;
+
+}
+.db-bottom-col1 , .db-bottom-col2
+{
+    width: 100%;
+}
+.db-bottom-col2
+{
+    margin-bottom: 20px;
+}
+
+}
+
+@media(max-width: 767px)
+{
+    #side_nav
+    {
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    #side_nav.active
+    {
+        margin-left: 0;
+    }
+}

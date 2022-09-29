@@ -2,7 +2,7 @@
 <div class="table-responsive px-3 pt-4">
     
     <h2 class="fs-3 pb-4">All Registered Vehicles</h2>
-<div class="dashboard-table">
+<div class="allvehicles-table">
 <table class="table table-hover align-middle mb-0 bg-light">
 <thead class="table table-dark">
 <tr>
@@ -61,5 +61,6 @@
 </tbody>
 </table>
 </div>
+
 </div>
 

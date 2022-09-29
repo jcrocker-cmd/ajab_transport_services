@@ -11,9 +11,9 @@
     </div>
     
     
-    <ul class ="list-unstyled px-2">
+    <ul class ="list-unstyled px-2 ">
       <li class="active"><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home"></i>   Dashboard</a></li>
-      <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list"></i>   Registered Vehicles</a></li>
+      <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block" onclick="routeToAllVehicle()"><i class="fal fa-list"></i>   Registered Vehicles</a></li>
       <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car"></i>   Available Cars</a></li>
       <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building"></i>   Rented Cars</a></li>
 
@@ -34,7 +34,12 @@
     <ul class="list-unstyled px-2">
 
     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i>  Settings</a></li>
-    <li class=""><a href="/notification" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bell"></i>  Notification</a></li>
+
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+      <span><i class="fal fa-bell"></i>  Notification</span>
+      <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
+      </a>
+      </li>
       
     </ul>
 
@@ -63,6 +68,25 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      
+
+    <button type="button" class="btn position-relative nav-msg"><a href="#" class="text-decoration-none text-dark"><i class="fal fa-comment"></i>
+      <span class="nav-msg-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread messages</span>
+      </span>
+      </a>
+      </button>
+    
+
+      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-dark"><i class="fal fa-bell"></i>
+      <span class="nav-notif-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread notification</span>
+      </span>
+    </a>
+      </button>
+
           <div class="dropdown">
           <img src="user.jpg" alt=""
             style="height: 35px; width: 35px;" 
@@ -83,9 +107,10 @@
 
   </div>
   </nav>
-
+  <div id="dashboard-content">
   @section('content')
     @include('dashboard.components.dashboard-content')
+</div>
 
   </div>
 </div>

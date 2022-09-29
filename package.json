@@ -12,6 +12,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "chart.js": "^3.9.1",
         "scrollreveal": "^4.0.9"
     }
 }

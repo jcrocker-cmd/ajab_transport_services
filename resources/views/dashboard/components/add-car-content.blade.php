@@ -4,7 +4,7 @@
 
 
 <!-- FORM ACTION START -->
-<form action="addcar" method="post">
+<form action="addcar" method="post" class="addform">
 @csrf
 
 <!-- ROW 1 -->
@@ -112,7 +112,8 @@
 </div>
 
 <!-- <a href="#" class="btn btn-primary stretched-link mt-3">Next Form</a> -->
-<button type="submit" class="btn btn-primary">Submit</button>
+<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+<a class="btn btn-primary" role="button">Primary link</a>
 </div>
 
 
@@ -120,7 +121,7 @@
 
 </div>
 
-<!-- <hr class="hr-2">
+<hr class="hr-2">
 
 <div class="px-4 py-2"><h2 class="fs-3 pb-2">Personal Information</h2></div>
 
@@ -152,7 +153,7 @@
 </div>
 
 
-</div> -->
+</div>
 
 
 

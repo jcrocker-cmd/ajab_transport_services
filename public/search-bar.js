@@ -16,7 +16,7 @@ $(document).ready(function(){
               if(found == 'true')  
               {  
                    $(this).show(); 
-                   $('#tr-none').hide();
+               //     $('#tr-none').hide();
                 //    $('#notif-head').show();
 
                    
@@ -24,7 +24,7 @@ $(document).ready(function(){
               else  
               {  
                    $(this).hide(); 
-                   $('#tr-none').show();
+               //     $('#tr-none').show();
                 //    $('#notif-head').hide();
               }  
          });  

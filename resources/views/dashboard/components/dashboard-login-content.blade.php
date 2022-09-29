@@ -4,8 +4,6 @@
 <div class="dashboard-login-div bg-white">
 <h2 class="text-center px-4 pb-4 pt-4">YOU DRIVE ADMIN</h2>
 
-
-<!-- Pills navs -->
 <ul class="nav nav-pills nav-justified mb-3 px-4" id="ex1" role="tablist">
   <li class="nav-item" role="presentation">
     <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
@@ -18,7 +16,7 @@
 </ul>
 
 
-<form action="addcar" method="post">
+<form action="addcar" class="login" method="post">
 @csrf
 <div class="mb-3 px-4 pt-3" >
   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" required>
@@ -47,5 +45,23 @@
         <p>Register another admin? <a href="#!">Register</a></p>
       </div>
 </form>
+
+
+
+
+
+
+
 </div>
+</section>
+
+
+<!-- <section class="dashboard-div">
+
+<div class="form-box">
+
+</div> -->
+
+
+
 </section>

@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 header
 {
 	width: 100%;
@@ -17,13 +18,14 @@ nav{
     justify-content: center;
     align-items: center;
     transition: 0.6s;
-    background:	#fff;  
+    background:	#EEEFF1;  
     padding: 20px;
     z-index: 1;
-    box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
-	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
-	-moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
     /* gap: 100px; */
+    padding-left: 100px;
+    padding-right: 100px;
+    justify-content: space-between;
+    font-weight: 500;
 }
 .header-col-1 , .header-col-2
 {
@@ -45,9 +47,9 @@ nav div li a{
     position: relative;
     text-decoration: none;
     color:#000000;
-    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     transition: 0.6s;
-    font-family: 'Inter',sans-serif;
     font-size: 13px;
 }
 nav div li a:hover
@@ -56,3 +58,78 @@ nav div li a:hover
     transition: 0.5s;
 
 }
+
+nav.sticky{
+    padding: 15px 120px;
+    background: #fff;
+	box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+
+}
+nav li a::after
+{
+    content: "";
+    width: 0;
+    height: 3px;
+    background: #007F66;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.5s;
+
+}
+nav li a:hover:after
+{
+    width: 100%;
+    justify-content: center;
+}
+
+.home
+{
+    position: relative;
+    background-image: url("images/home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  	background-position: center;
+    margin-top: 70px;
+    height: 100vh;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.homepage-row
+{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+.homepage-col1 , .homepage-col2
+{
+    width: 50%;
+}
+.homepage-col1
+{
+    padding: 0px 100px;
+    align-items: center;
+}
+
+.homepage-col1 h2
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+ 
+}
+.homepage-button
+{
+    gap: 20px;
+}
+.homepage-button input
+{
+    width: 90px;
+}
+
+
+
