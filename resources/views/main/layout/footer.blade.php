@@ -1,51 +1,48 @@
 <footer>
     <div class="footer-row">
-        <div class="footer-col-1">
-        <img src="images/LOGO.png" alt="Logo" id="footer-logo">
-        <div class="footer-social">
-       <p>DEVELOPED BY: JCROCKER</p>
-            </div>
+        <div class="footer-col">
+            <img src="images/LOGO-WHITE.png" alt="Youdrive" class="footer-logo">
+            <p class="pr-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime vitae, perferendis, adipisci optio repudiandae dolorem quis eum dicta amet.</p>
         </div>
-        <div class="footer-col-2">
-            <div class="footer-group-1">
-                <div class="c1">
+        
+        <div class="footer-col">
+            <h3>OFFICE<div class="under-line"><span></span></div></h3>
+            <p>ITPL Road <br>
+            Whitefield, Bangalore <br>
+            Salvador, Sierra Bullones</p>
+            <p class="email-id">narbajajcgmail.com</p>
+            <p >+63 912 772 5518</p>
+        </div>
 
-                    <ul>
-                        <li><h2>COMPANY</h2></li>
-                        <li><a href="#features">About us</a></li>
-                        <li><a href="#howitworks">Our Story</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Terms of Services</a></li>
-                        
-                    </ul>
-
-                </div>
-                <div class="c2">
-                    <ul>
-                        <li><h2>RENTAL</h2></li>
-                        <li><a href="#features">How it works</a></li>
-                        <li><a href="#howitworks">Rent a Car</a></li>
-                        <li><a href="">Insurance</a></li>
-                        
-                    </ul>
-
-                </div>
-                <div class="c3">
-                    <ul>
-                        <li><h2>CONTACT US</h2></li>
-                        <li><a href="#features">0912 772 5518</a></li>
-                        <li><a href="#howitworks">narbajajc@gmail.com</a></li>
-                        
-                    </ul>
-
-                </div>
-            </div>
-            <div class="footer-group-2">
-                <div class="footer-line"></div>
-                <p>You-Drive Car Rental Copyright 2020</p>
-
-            </div>
+        <div class="footer-col">
+            <h3>LINKS<div class="under-line"><span></span></div></h3>
+            
+            <li><a href="">Home</a></li>
+            <li><a href="">How It Works</a></li>
+            <li><a href="">Features</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact Us</a></li>
+           
 
         </div>
+        <div class="footer-col">
+            <h3>NEWSLETTER<div class="under-line"><span></span></div></h3>
+            <form class="footer-col-form">
+            <i class="fas fa-envelope"></i>
+                <input type="email" name="" id="" placeholder="Enter your email id" required>
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </form>
+
+            <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-pinterest"></i>
+            </div>
+        </div>
+        
     </div>
+    <hr class="footer-hr">
+    <p class="copyright">
+        You-Drive 2020 - All Rights Reserved
+    </p>
 </footer>

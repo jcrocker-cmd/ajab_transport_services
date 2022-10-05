@@ -8,11 +8,7 @@
     </div>
 
     <div class="header-col-middle">
-                <li> <a href=".home">Home</a></li>
-                <li> <a href="">Features</a></li>
-                <li> <a href=".howitworks">How it Works</a></li>
-                <li> <a href="">About</a></li>
-                <li> <a href=".contact-us">Contact Us</a></li>
+                <li> <a href="/">Back to Homepage</a></li>
     </div>
 
     <div class="header-col-2">

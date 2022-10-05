@@ -4,7 +4,6 @@
     @include('main.assets.style')
 
 @section('content') 
-    @include('main.layout.header')
+    @include('main.layout.header-for-logsign')
     @include('main.components.signin')
-    @include('main.layout.footer2')
 @endsection

@@ -16,10 +16,7 @@
 
 
     @yield('content')
-    <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-    <script src="scrollreveal.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
     <!-- <script>
         $(window).on("load",function(){
           $(".container").fadeOut("slow");
