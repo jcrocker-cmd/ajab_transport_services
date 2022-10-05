@@ -1,7 +1,7 @@
 #signin
 {
     margin-top: 150px;
-    /* margin-bottom: 100px; */
+    padding-bottom: 150px;
 
    
 }
@@ -40,7 +40,7 @@
 {
     background-color: #18CF77;
     width: 390px;
-    height: 720px;
+    height: 740px;
     border-top-left-radius: 60px;
     border-bottom-left-radius: 60px;
     box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
@@ -49,7 +49,7 @@
 {
     background-color: #F5FAFF;
     width: 390px;
-    height: 720px;
+    height: 740px;
     border-top-right-radius: 60px;
     border-bottom-right-radius: 60px;
     text-align: center;

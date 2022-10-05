@@ -3,8 +3,7 @@
 
 #howitworks
 {
-    background-color: #333;
-    align-items: center;
+    background: linear-gradient(45deg, #ffaf00, #bb02ff);
     /* min-height: 50vh; */
     /* height: 100%; */
     align-items: center;
@@ -13,6 +12,7 @@
     padding-right: 100px; */
     padding: 100px 100px;
     font-family: 'Poppins', sans-serif;
+    /* min-height: 100vh; */
     width: 100%;
     
 
@@ -33,136 +33,132 @@
 {
     font-size: 20px;
 }
-.card-container
-{
-    display: flex;
-    position: relative;
-    width: 100%;
-    justify-content: space-between;
-}
-.how-card
-{
-    position: relative;
-}
-
-.face
-{
-    width: 300px;
-    height: 200px;
-    transition: 0.5s;
-
-}
-
-.face-1
-
-{
-    position: relative;
-    background: rgb(39, 38, 38);
-    /* background: #FD5D3C; */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* z-index: 1; */
-}
-.how-card .face-1 .how-content
-{
-    opacity: 0.2;
-    transition: 0.5s;
-}
-.how-card:hover .face-1 .how-content
-{
-    opacity: 1;
-}
-.how-card:hover .face-1
-{
-    background-color: #FD613C;
-}
-
-.face-2
-{
-    position: relative;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    box-shadow: 0 20px 50x rgba(0,0,0,0.8);
-}
-.how-content p
-{
-    margin: 0;
-    padding: 0;
-}
-
-.how-content a
-{
-    margin: 15px 0 0;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 900;
-    color: #333;
-    padding: 5px;
-    border:  1px solid #333;
-}
-
-.how-content a:hover
-{
-    background: #333;
-    color: #fff;
-}
-
-/* .floating-btn
-{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-decoration: none;
-    height: 40px;
-    width: 40px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    border-radius: 50%;
-    right: 20px;
-    bottom: -20%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
-}
-.floating-btn:hover
-{
-    transition: 0.5s;
-}
-/* Show scroll */
 
 
+.how-container
+{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.how-container .how-card
+{
+  position: relative;
+  width: 300px;
+  height: 420px;
+  background: #fff;
+  /* margin: 20px; */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  transition: 0.5s;
+}
+.card-logo
+{
+    padding-top: 30px;
+}
+.how-container:hover .how-card
+{
+ 
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+.how-container .how-card:hover
+{
+ 
+  transform: scale(1.1);
+  opacity: 1;
+}
+.how-container .how-card .circle
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  clip-path: circle(180px at center 0);
+  text-align: center;
+}
 
-  .scrollup {
+.how-container .how-card .content
+{
+  position: absolute;
+  bottom: -5px;
+  padding: 20px;
+  text-align: center;
+
+}
+.how-container .how-card .content p
+{
+  color: #666;
+  
+}
+.how-container .how-card .content a
+{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+.how-container .how-card:nth-child(1) .circle,
+.how-container .how-card:nth-child(1) .content a
+{
+  background: #ffaf00;
+}
+.how-container .how-card:nth-child(2) .circle,
+.how-container .how-card:nth-child(2) .content a
+{
+  background: #da2268;
+}
+.how-container .how-card:nth-child(3) .circle,
+.how-container .how-card:nth-child(3) .content a
+{
+  background: #bb02ff;
+}
+
+
     
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-decoration: none;
-    height: 40px;
-    width: 40px;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    border-radius: 50%;
-    right: 20px;
-    bottom: -20%;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
-    transition: .6s;
-  }
+@media(max-width: 600px)
+{
+    #howitworks
+    {
+        padding: 100px 0px;
+        
+    }
+}
   
-  .scrollup:hover {
-    transition: 0.5s;
-    
-  }
-  
-  
-  /* Show scroll */
-  .show-scroll {
-    bottom: 1rem;
-  }
-  
+
+/* @media(max-width: 900px)
+{
+    #howitworks
+    {
+        padding: 0 0;
+        width: 100%;
+        justify-content: center;
+    }
+    .how-card
+    {
+        justify-content: center;
+    }
+    .how-card:nth-child(1) , .how-card:nth-child(2)
+    {
+        margin-bottom: 40px;
+    }
+}
+
+@media(max-width: 880px)
+{
+    #howitworks
+    {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+} */

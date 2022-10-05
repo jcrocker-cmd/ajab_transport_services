@@ -1,11 +1,11 @@
-<section id="howitworks" >
+<section id="howitworks" class="howitworks" >
 
     <div class="how-title">
         <p>How it Works?</p>
         <h2>Rent with 3 Easy Steps</h2>
     </div>
 
-    <div class="card-container">
+    <!-- <div class="how-card-container">
         <div class="how-card" id="howcard-1">
             <div class="face face-1">
                 <div class="how-content">
@@ -55,8 +55,45 @@
                     <a href="http://">Read More</a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
+
+        <div class="how-container">
+
+<div class="how-card" id="howcard-1">
+  <div class="circle">
+    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-user fa-3x"></i></div>
+    <div class="text-white"><h4>Enter Credentials</h4></div>
+  </div>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<div class="how-card" id="howcard-2">
+  <div class="circle">
+    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-calendar-alt fa-3x"></i></div>
+    <div class="text-white"><h4>Pick a Date</h4></div>
+  </div>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+<div class="how-card" id="howcard-3">
+  <div class="circle">
+    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-bookmark fa-3x"></i></div>
+    <div class="text-white"><h4>Book a Car</h4></div>
+  </div>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+</div>
 
       
 
