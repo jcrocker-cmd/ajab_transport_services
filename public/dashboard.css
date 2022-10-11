@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*
+{
+    font-family: 'Poppins', sans-serif;
+}
 body
 {
     background-color: hsl(0, 0%, 94%);
-    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 
@@ -58,10 +61,22 @@ hr.hr-2
     background: #fff;
     border-radius: 8px;
 }
-.sidebar li.active a , .sidebar li.actice a:hover
+.sidebar li.active a , .sidebar li.active a:hover
 {
     color: #000;
 }
+/* .sidebar li:hover
+{
+    background: #fff;
+    border-radius: 8px;
+    opacity: 0.1;
+
+}
+.sidebar li:hover a
+{
+    color: #fff;
+} */
+
 .sidebar li a
 {
     color: #fff;
@@ -106,6 +121,7 @@ hr.hr-2
 .add-row
 {
     gap: 40px;
+    display: flex;
 }
 
 .add-col
@@ -117,6 +133,7 @@ input.purok
     width: 50px;
     
 }
+
 
 
 /* ACCOUNT LINK */
@@ -248,4 +265,70 @@ input.purok
     overflow: hidden;
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
 
+}
+.actions
+{
+    gap: 20px;
+}
+.actions button
+{
+    font-size: 13px;
+    width: 70px;
+    margin-right: 10px;
+}
+
+.all-vehicles-section table , .all-vehicles-section thead
+{
+    font-size: 14px;
+}
+
+
+
+/* SETTINGS */
+.settings-title
+{
+    border-bottom: 1px solid rgb(159, 155, 155);
+
+}
+
+.settings p , .settings label , .settings input
+{
+    font-size: 14px;
+}
+.settings-row
+{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+.settings-col-1
+{
+    flex-basis: 30%;
+}
+.settings-col-2
+{
+    flex-basis: 70%;
+}
+
+.settings-image , .settings-password , .settings-edit-profile
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+
+}
+
+.settings input
+{
+    height: 30px;
+}
+
+.settings-image button , .settings-password button , .settings-edit-profile button
+{
+    font-size: 13px;
+    height: 30px;
+
+}
+
+.settings img
+{
+    border: 0.5px solid #000;
 }

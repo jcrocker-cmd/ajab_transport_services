@@ -12,12 +12,12 @@
 .contact-us h2
 {
     margin-bottom: 10px;
-    font-weight: 700;
 
 }
 .contact-us p
 {
     margin-bottom: 40px;
+    font-weight: 300;
 
 
 }
@@ -136,7 +136,7 @@
 .contact-box p
 {
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 @media(max-width: 1015px)
@@ -178,5 +178,14 @@
     padding: 40px 60px;
 
    }
+   .contact-col-1 , .contact-col-2
 
+   {
+    -webkit-tranform: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+}
 }

@@ -17,6 +17,9 @@
 
 }
 
+
+/* DASHBOARD SIDE NAV */
+
 @media(max-width: 767px)
 {
     #side_nav
@@ -31,3 +34,74 @@
         margin-left: 0;
     }
 }
+
+
+/* ADD CAR */
+@media(max-width: 500px)
+{
+    .add-row , .add-full-name
+    {
+        flex-direction: column;
+
+        
+    }
+    .add-col
+    {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1010px)
+{
+    .add-full-name
+    {
+        flex-direction: column;
+
+        
+    }
+}
+
+
+
+
+/* SETTINGS */
+
+@media(max-width: 1258px)
+{
+    .settings-col-1
+    {
+        flex-basis: 50%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 50%;
+    }   
+}
+
+@media(max-width: 1050px)
+{
+    .settings-row
+    {
+        flex-direction: column;
+    }
+    .settings-col-1
+    {
+        flex-basis: 100%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 100%;
+    }   
+}
+
+
+/* DASHBOARD CARD */
+
+/* @media(max-width: 530px)
+{
+    .row
+    {
+        width: 100%;
+    }
+} */
+

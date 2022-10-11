@@ -12,7 +12,7 @@
     
     
     <ul class ="list-unstyled px-2 ">
-      <li class="active"><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home" style="margin-right: 10px;"></i>   Dashboard</a></li>
+      <li class=""><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home" style="margin-right: 10px;"></i>   Dashboard</a></li>
       <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list" style="margin-right: 10px;"></i>   Registered Vehicles</a></li>
       <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car" style="margin-right: 10px;"></i>   Available Cars</a></li>
       <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building" style="margin-right: 10px;"></i>   Rented Cars</a></li>
@@ -33,7 +33,7 @@
     
     <ul class="list-unstyled px-2">
 
-    <li class=""><a href="/settings" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
+    <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
 
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
       <span><i class="fal fa-bell" style="margin-right: 10px;"></i>  Notification</span>
@@ -63,7 +63,7 @@
     <button class="btn px-1 py-0 open-btn"><i class="far fa-stream"></i></button>
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style="outline: none; border: none;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -109,7 +109,7 @@
   </nav>
   <div id="dashboard-content">
   @section('content')
-    @include('dashboard.components.dashboard-content')
+    @include('dashboard.components.settings-content')
 </div>
 
   </div>

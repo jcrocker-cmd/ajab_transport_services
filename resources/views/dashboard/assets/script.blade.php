@@ -4,6 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="dashboard-content-chart.js"></script>
 <script src="search-bar.js"></script>
+<script src="choosefile-btn.js"></script>
 <script src="scrollreveal.js"></script>
 <script src="link-ajax.js"></script>
 <script src="jquery.js"></script>

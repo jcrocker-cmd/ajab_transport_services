@@ -127,14 +127,30 @@
 
 <div class="px-4 py-2">
 
+<label for="name" class="form-label">Name</label>
+
+
+<div class="d-flex add-full-name">
 <div class="input-group mb-3">
   <span class="input-group-text">First Name</span>
   <input type="text" aria-label="First name" class="form-control">
-  <span class="input-group-text">Middle Name</span>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">First Name</span>
+  <input type="text" aria-label="First name" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">First Name</span>
+  <input type="text" aria-label="First name" class="form-control">
+</div>
+</div>
+  <!-- <span class="input-group-text">Middle Name</span>
   <input type="text" aria-label="Middle name" class="form-control">
   <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="Last name" class="form-control">
-</div>
+  <input type="text" aria-label="Last name" class="form-control"> -->
+
 
 <label for="address" class="form-label">Address</label>
 

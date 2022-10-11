@@ -38,9 +38,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
-// Route::get('/all-vehicles', function () {
-//     return view('dashboard.all-vehicles');
-// });
+Route::get('/all-vehicles', function () {
+    return view('dashboard.all-vehicles');
+});
 
 
 Route::get('/rented', function () {
@@ -54,6 +54,10 @@ Route::get('/notification', function () {
 });
 Route::get('/dashboard-login', function () {
     return view('dashboard.dashboard-login');
+});
+
+Route::get('/settings', function () {
+    return view('dashboard.settings');
 });
 Route::get('/log-in', function () {
     return view('main.login');

@@ -17,11 +17,11 @@
         <div class="footer-col">
             <h3>LINKS<div class="under-line"><span></span></div></h3>
             
-            <li><a href="">Home</a></li>
-            <li><a href="">How It Works</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href=".howitworks">How It Works</a></li>
             <li><a href="">Features</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href=".contactus">Contact Us</a></li>
            
 
         </div>
