@@ -2,6 +2,7 @@
 
 @section('styles')
     @include('dashboard.assets.style')
+@endsection
 
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
@@ -12,19 +13,19 @@
     
     
     <ul class ="list-unstyled px-2 ">
-      <li class="active"><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home"></i>   Dashboard</a></li>
-      <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block" onclick="routeToAllVehicle()"><i class="fal fa-list"></i>   Registered Vehicles</a></li>
-      <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car"></i>   Available Cars</a></li>
-      <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building"></i>   Rented Cars</a></li>
+      <li class="active"><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home" style="margin-right: 10px;"></i>   Dashboard</a></li>
+      <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list" style="margin-right: 10px;"></i>   Registered Vehicles</a></li>
+      <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car" style="margin-right: 10px;"></i>   Available Cars</a></li>
+      <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building" style="margin-right: 10px;"></i>   Rented Cars</a></li>
 
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-      <span><i class="far fa-comment"></i>  Messages</span>
+      <span><i class="far fa-comment " style="margin-right: 10px;"></i>  Messages</span>
       <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
       </a>
       </li>
-      <li class=""><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars"></i>   Add Car</a></li>
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users"></i>   Customers</a></li>
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd"></i>   Sales Report</a></li>
+      <li class=""><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars" style="margin-right: 10px;"></i>   Add Car</a></li>
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
+      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
     </ul>
 
     <hr class="hr-1 mx-2">
@@ -33,10 +34,10 @@
     
     <ul class="list-unstyled px-2">
 
-    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars"></i>  Settings</a></li>
+    <li class=""><a href="/settings" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
 
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-      <span><i class="fal fa-bell"></i>  Notification</span>
+      <span><i class="fal fa-bell" style="margin-right: 10px;"></i>  Notification</span>
       <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
       </a>
       </li>
@@ -47,7 +48,7 @@
 
     <ul class="list-unstyled px-2">
 
-    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-sign-out"></i>  Log Out</a></li>
+    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-sign-out" style="margin-right: 10px;"></i>  Log Out</a></li>
       
     </ul>
 
@@ -63,7 +64,7 @@
     <button class="btn px-1 py-0 open-btn"><i class="far fa-stream"></i></button>
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style="outline: none; border: none;">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -114,6 +115,8 @@
 
   </div>
 </div>
+@endsection
+
 
 @section('scripts')
     @include('dashboard.assets.script')

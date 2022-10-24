@@ -1,27 +1,36 @@
 
+<section class="all-vehicles-section">
+
+
 <div class="table-responsive px-3 pt-4">
+
+    <div class="pb-4 d-flex justify-content-between">
+    <h5 class="">All Registered Vehicles</h5>
+    <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+    </div>
+
     
-    <h2 class="fs-3 pb-4">All Registered Vehicles</h2>
-<div class="allvehicles-table">
-<table class="table table-hover align-middle mb-0 bg-light">
+<div class="allvehicles-table table-responsive  mb-4">
+<table class="table align-middle mb-0 bg-light">
 <thead class="table table-dark">
 <tr>
-  <th scope="col" class="col-3">Owner #1</th>
+  <th scope="col" class="col-3">Owner</th>
   <th scope="col">Vehicle Status</th>
   <th scope="col">Card Brand</th>
   <th scope="col">Car Model</th>
   <th scope="col">Plate No.</th>
-  <th scope="col">Seats</th>
+  <th scope="col">Actions</th>
 </tr>
 </thead>
 <tbody>
+@foreach($addcar as $item)
  <tr>
   <td>
     <div class ="d-flex align-items-center">
         <img src="user.jpg" alt=""
         style="height: 45px; width: 45px;" class="rounded-circle">
     <div class="ms-3">
-        <p class="fw-bold mb-1">John Christian Narbaja</p>
+        <p class="fw-bold mb-1">{{ $item->fname}} {{ $item->lname}}</p>
         <p class="text-muted mb-0">narbajajc@gmail.com</p>
 
     </div>
@@ -31,36 +40,30 @@
   <td>
     <span class="badge bg-danger rounded-pill">RENTED</span>
   </td>
-  <td>Toyota</td>
+  <td>{{ $item->brand}}</td>
   
-  <td>2021</td>
-  <td>GD-85300</td>
-  <td>2 Seats</td>
+  <td>{{ $item->model}}</td>
+  <td>{{ $item->plate}}</td>
+  <td>
+  <a href="" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+  <a href="" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+  </td>
   </tr>
+  @endforeach
 
 
-</tbody>
-<thead class="table-primary">
-<tr>
-  <th scope="col">Car Location</th>
-  <th scope="col">Fuel Type</th>
-  <th scope="col">Displacement</th>
-  <th scope="col">Mileage</th>
-  <th scope="col">Year</th>
-  <th scope="col">Transmission</th>
-</tr>
-</thead>
-<tbody>
-  <td>Salvador, Sierra, Bulllones, Bohol</td>
-  <td>Diesel</td>
-  <td>500 cc</td>
-  <td>12,000 KM</td>
-  <td>2009</td>
-  <td>Manual</td>
-  
 </tbody>
 </table>
 </div>
 
+
+
+
 </div>
 
+
+
+
+</section>

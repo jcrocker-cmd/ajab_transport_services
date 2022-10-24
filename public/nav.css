@@ -91,6 +91,38 @@ nav li a:hover:after
 
 
 
+nav .far
+{
+    display: none;
+}
 
 
 
+@media (max-width:1000px) {
+
+    .header-col-middle , .header-col-2
+    {
+        display: none;
+    }
+    nav .far
+    {
+        display: flex;
+        cursor: pointer;
+        
+    }
+    
+    nav.sticky{
+        padding: 15px 50px;
+        background: #fff;
+        box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+        -moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+    
+    }
+
+    /* nav
+    {
+        padding: 15px 50px;
+
+    } */
+}

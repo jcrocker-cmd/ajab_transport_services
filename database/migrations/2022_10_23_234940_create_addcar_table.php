@@ -26,6 +26,17 @@ return new class extends Migration
             $table->string('mileage')->nullable();
             $table->string('carlocation')->nullable();
             $table->string('transmission')->nullable();
+            $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
+            $table->string('lname')->nullable();
+            $table->string('purok')->nullable();
+            $table->string('baranggay')->nullable();
+            $table->string('town')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postal')->nullable();
+            $table->string('dailyrate')->nullable();
+            $table->string('weeklyrate')->nullable();
+            $table->string('monthlyrate')->nullable();
             $table->timestamps();
         });
     }

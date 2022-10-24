@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AddCar extends Model
 {
     use HasFactory;
+    use HasFactory;
     protected $table = 'addcar';
     protected $primaryKey = 'id';
     protected $fillable = [
@@ -23,6 +24,17 @@ class AddCar extends Model
         'carlocation',
         'transmission',
 
-
+        'fname',
+        'mname',
+        'lname',
+        'purok',
+        'baranggay',
+        'town',
+        'city',
+        'postal',
+        
+        'dailyrate',
+        'weeklyrate',
+        'monthlyrate',
     ];
 }

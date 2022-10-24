@@ -14,6 +14,7 @@
     bottom: -20%;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
     transition: .6s;
+    z-index: 2;
   }
   
   .scrollup:hover {
@@ -24,5 +25,6 @@
   
   /* Show scroll */
   .show-scroll {
-    bottom: 1rem;
+    /* bottom: 100px; */
+    bottom: 20%;
   }

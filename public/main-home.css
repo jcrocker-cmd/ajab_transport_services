@@ -1,0 +1,115 @@
+.all-cars-section
+{
+    margin-top: 140px;
+    background-color: #fff;
+    height: 100%;
+    padding: 50px 80px;
+}
+.all-cars-section p
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.all-cars-row
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.car-wrapper
+{
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+
+}
+.car-col-1
+{
+    width: 350px;
+    height: 230px;
+}
+.car-col-2
+{
+    width: 350px;
+    padding: 20px;
+    color: #000;
+
+}
+
+.car-col-1
+{
+    background: url(images/samplecar.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #000;
+    font-family: po;
+    
+}
+.car-col-2
+{
+    padding: 20px;
+}
+
+.car-col-2 p
+{
+    font-size: 12px;
+}
+
+.btn-addcart , .btn-checkout
+{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 13px;
+    
+}
+.btn-addcart
+{
+    border: 1px solid #bcbcbc;
+}
+.btn-addcart:hover
+{
+    background-color: rgb(37, 37, 37);
+    color: white;
+    transition: ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
+    -moz-transition: ease-in-out 0.5s;
+    -ms-transition: ease-in-out 0.5s;
+    -o-transition: ease-in-out 0.5s;
+}
+.btn-checkout
+{
+    border: none;
+    outline: none;
+    background-color: #0066FF;
+    color: #fff;
+}
+.carbuttons
+{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+/* HOVER */
+ .car-wrapper:hover .car-col-2
+{
+    background-color: #000;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    color: #fff;
+}
