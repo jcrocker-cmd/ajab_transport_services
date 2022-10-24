@@ -28,3 +28,43 @@ function readURL(input) {
 $("#default-btn").change(function(){
     readURL(this);
 });
+
+
+
+// $(document).ready(function() {
+//     $('#vehicle-info1') || ('#vehicle').on('input change', function() {
+//         if($(this).val() != '') {
+//             $('#addcar-btn-next').prop('disabled', false);
+//         } else {
+//             $('#addcar-btn-next').prop('disabled', true);
+//         }
+//     });
+// });
+
+// $(document).ready(function() {
+//     $('#addcar-btn-next').prop('disabled', true);
+  
+//     function validateNextButton() {
+//       var buttonDisabled = $('#vehicle').val().trim() === '' || $('vehicle-inf').val().trim() === '';
+//       $('#addcar-btn-next').prop('disabled', buttonDisabled);
+//     }
+  
+//     $('#vehicle').on('keyup', validateNextButton);
+//     $('#vehicle-inf').on('keyup', validateNextButton);
+//   });
+
+
+
+
+
+// $(document).ready(function() {
+//     $('#addcar-btn-next').prop('disabled', true);
+
+//     $('#vehicle, #vehicle-inf').on('input', function() {
+//           var val = $('#vehicle, #vehicle-inf').filter(function() {
+//                 return this.value.trim().length === 0;
+//         }).length === 0;
+
+//         $('#addcar-btn-next').prop('disabled', val);
+//     });
+// })

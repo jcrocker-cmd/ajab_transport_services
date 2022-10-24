@@ -39,7 +39,7 @@
 /* ADD CAR */
 @media(max-width: 500px)
 {
-    .add-row , .add-full-name
+    .add-row
     {
         flex-direction: column;
 
@@ -61,6 +61,16 @@
     }
 }
 
+@media(max-width: 1150px)
+{
+    .add-full-address
+    {
+        flex-direction: column;
+
+        
+    }
+ 
+}
 
 
 
@@ -97,11 +107,23 @@
 
 /* DASHBOARD CARD */
 
-/* @media(max-width: 530px)
+@media(max-width: 575px)
 {
-    .row
+        .progress-step::after
     {
-        width: 100%;
+
+        font-size: .60rem;
+        width: 60px;
+
     }
-} */
+
+        .progressbar
+    {
+        margin: 20px 0 60px 0;
+    }
+    .progress-bar-container
+    {
+        padding: 0 40px
+    }
+}
 

@@ -36,6 +36,7 @@ body
     max-width: 250px;
     /* transition: all 0.3s; */
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+    /* z-index: 3; */
 }
 .content
 {
@@ -124,15 +125,164 @@ hr.hr-2
     display: flex;
 }
 
+#addcar-section-forms
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    
+}
+
 .add-col
 {
     width: 50%;
 }
+.addcar-button-group
+{
+    width: 100%;
+    display: flex;
+    column-gap: 10px;
+    justify-content: flex-end;
+}
+.add-car-form
+{
+    display: none;
+    animation: fade 2s linear;
+    -webkit-animation: fade 0.5s linear;
+}
+
+@keyframes fade {
+    0%,50% { opacity: 0 }
+    100% { opacity: 1 }
+  }
+.add-car-form.active
+{
+    display: block;
+}
+.add-car-btn
+{
+    border: 0;
+    transform: all 250ms ease-in-out;
+    -webkit-transform: all 250ms ease-in-out;
+    -moz-transform: all 250ms ease-in-out;
+    -ms-transform: all 250ms ease-in-out;
+    -o-transform: all 250ms ease-in-out;
+}
+.add-car-btn:active
+{
+    transform: scale(.85);
+    -webkit-transform: scale(.85);
+    -moz-transform: scale(.85);
+    -ms-transform: scale(.85);
+    -o-transform: scale(.85);
+    outline: none;
+}
+
 input.purok
 {
     width: 50px;
     
 }
+.first-form a , .first-form label , .first-form input , .first-form select , .first-form
+{
+    font-size: 13px;
+}
+.second-form span , .second-form input , .second-form a , .second-form label , .second-form button
+{
+    font-size: 13px;
+}
+/* .isDisabled {
+    background-color: #bcbcbc;
+    pointer-events: none;
+    opacity: 0.5;
+    color: #000;
+    
+  } */
+
+
+/* VALIDATION */
+.brand span
+{
+    color: rgb(232, 13, 13);
+    font-size: 12px;
+}
+
+
+/* PROGRESS BAR */
+
+.progress-bar-container
+{
+    padding: 0 60px
+}
+.progressbar
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 40px 0;
+    counter-reset: step;
+}
+.progressbar::before , .progress
+{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress
+{
+    background-color: #042a91;
+    width: 0%;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.progress-step
+{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+.progress-step::before
+{
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step::after
+{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: .80rem;
+    color: #666666;
+    text-align: center;
+    width: 150px;
+
+}
+
+.progress-step.active
+{
+    background-color: #042a91;
+    color: #fff;
+}
+
 
 
 
@@ -265,17 +415,37 @@ input.purok
     overflow: hidden;
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
 
+}.allvehicles-table table
+{
+    overflow-y: scroll;
 }
+
 .actions
 {
     gap: 20px;
+    color: #000;
+    font-size: 13px;
+    margin-right: 10px;
 }
-.actions button
+.action-view:hover
+{
+    color: rgb(25, 25, 190);
+}
+.action-edit:hover
+{
+    color: rgb(25, 190, 72);
+}
+.action-delete:hover
+{
+    color: rgb(190, 25, 25);
+}
+
+/* .actions button
 {
     font-size: 13px;
     width: 70px;
     margin-right: 10px;
-}
+} */
 
 .all-vehicles-section table , .all-vehicles-section thead
 {
@@ -321,7 +491,7 @@ input.purok
     height: 30px;
 }
 
-.settings-image button , .settings-password button , .settings-edit-profile button
+.settings-image button , .settings-password button , .settings-edit-profile button , .settings span
 {
     font-size: 13px;
     height: 30px;
@@ -331,4 +501,32 @@ input.purok
 .settings img
 {
     border: 0.5px solid #000;
+}
+
+/* #togglePassword
+{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}    */
+#togglePassword
+{
+    font-size: 10px;
+}
+
+
+/* RENTED CARS */
+.rented-table
+{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
 }

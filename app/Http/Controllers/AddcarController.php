@@ -3,27 +3,37 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use App\Models\CarInfo;
+// use App\Models\OwnerInfo;
+// use App\Models\Pricing;
 use App\Models\AddCar;
 
-class AddcarController extends Controller
+class AddCarController extends Controller
 {
-    function save(Request $request)
+    public function main_allcars()
     {
-        $addcar = new AddCar();
-        $addcar ->vehicle = $request->input('vehicle');
-        $addcar ->brand = $request->input('brand');
-        $addcar ->model = $request->input('model');
-        $addcar ->year = $request->input('year');
-        $addcar ->plate = $request->input('plate');
-        $addcar ->seats = $request->input('seats');
-        $addcar ->fuel = $request->input('fuel');
-        $addcar ->displacement = $request->input('displacement');
-        $addcar ->mileage = $request->input('mileage');
-        $addcar ->carlocation = $request->input('carlocation');
-        $addcar ->transmission = $request->input('transmission');
-        $addcar ->save();
+        $addcar = AddCar::all();
+        return view ('main.homepage')->with('addcar', $addcar);
+    }
+
+    public function db_allvehicles()
+    {
+        $addcar = AddCar::all();
+        return view ('dashboard.all-vehicles')->with('addcar', $addcar);
+    }
+
+    public function delete_car($id)
+    {
+        $addcar = AddCar::find($id);
+        $addcar -> delete();
         return redirect()->back();
-        
+    }
+
+    public function save(Request $request)
+    {
+        $addcar = $request->all();
+        AddCar::create($addcar);
+        return redirect('/add')->with('alert', 'Contact Addedd!');  
 
     }
 }

@@ -1,5 +1,4 @@
 
-window.addEventListener('scroll', scrollUp)
 
 ScrollReveal().reveal('.col-1', {
     delay: 700,

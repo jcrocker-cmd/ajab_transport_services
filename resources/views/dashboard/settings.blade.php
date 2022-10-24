@@ -2,6 +2,7 @@
 
 @section('styles')
     @include('dashboard.assets.style')
+@endsection
 
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
@@ -110,12 +111,13 @@
   <div id="dashboard-content">
   @section('content')
     @include('dashboard.components.settings-content')
+
 </div>
 
   </div>
 </div>
+@endsection
 
 @section('scripts')
     @include('dashboard.assets.script')
-
 @endsection

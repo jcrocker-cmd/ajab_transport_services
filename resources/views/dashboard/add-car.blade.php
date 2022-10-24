@@ -2,7 +2,7 @@
 
 @section('styles')
     @include('dashboard.assets.style')
-
+@endsection
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
     <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
@@ -114,6 +114,8 @@
 
   </div>
 </div>
+@endsection
+
 
 @section('scripts')
     @include('dashboard.assets.script')

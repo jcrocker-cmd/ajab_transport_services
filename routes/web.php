@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LinkController;
-use App\Http\Controllers\AddcarController;
+use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\AdminphotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,38 +21,40 @@ use App\Http\Controllers\SocialiteController;
 
 Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
 Route::post('/login', [LoginController::class,'save']);
-Route::post('/addcar', [AddcarController::class,'save']);
+Route::post('/addcar', [AddCarController::class,'save']);
+Route::post('/adminpp', [AdminphotoController::class,'save']);
 
-Route::get('/all-vehicles',function() {
-    return view('dashboard.all-vehicles');
- });
 
-//  Route::post('/getallVehicles','LinkController@getallVehicles');
-// Route::get('/getallVehicles', [LinkController::class,'allVehicles']);
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('main.homepage');
-});
+
+// Dashboard Routes
+
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
-Route::get('/all-vehicles', function () {
-    return view('dashboard.all-vehicles');
-});
+
+// Route::get('/all-vehicles',function() {
+//     return view('dashboard.all-vehicles');
+//  });
+Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
+Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
+
+
 
 
 Route::get('/rented', function () {
     return view('dashboard.rented-cars');
 });
+
 Route::get('/add', function () {
     return view('dashboard.add-car');
 });
+
+
 Route::get('/notification', function () {
     return view('dashboard.notification');
 });
+
 Route::get('/dashboard-login', function () {
     return view('dashboard.dashboard-login');
 });
@@ -59,22 +62,31 @@ Route::get('/dashboard-login', function () {
 Route::get('/settings', function () {
     return view('dashboard.settings');
 });
-Route::get('/log-in', function () {
-    return view('main.login');
-});
-Route::get('/sign-in', function () {
-    return view('main.signin');
+
+// Home Routes
+
+Route::get('/', function () {
+    return view('home.homepage');
 });
 
-Route::get('/nav', function () {
-    return view('main.layout.header');
+
+
+Route::get('/log-in', function () {
+    return view('home.login');
 });
-Route::get('/footer', function () {
-    return view('main.layout.footer');
+
+Route::get('/sign-in', function () {
+    return view('home.signin');
 });
-Route::get('/footer2', function () {
-    return view('main.layout.footer2');
-});
+
+
+// Main Routes
+// Route::get('/mainhome', function () {
+//     return view('main.homepage');
+// });
+
+Route::get('/mainhome', [AddCarController::class,'main_allcars']);
+
 
 
 // Google Auth
