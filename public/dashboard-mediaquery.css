@@ -127,3 +127,18 @@
     }
 }
 
+/* VIEW CAR IN REGISTERED VEHICLES */
+
+@media(max-width: 1190px)
+{
+    .car-info-col
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #viewcar_section1 , #viewcar_section2
+    {
+        flex-direction: column;
+        gap: 40px;
+    }
+}

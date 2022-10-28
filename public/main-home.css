@@ -31,6 +31,33 @@
     font-family: 'Poppins', sans-serif;
 
 }
+
+.car-col-2 .transmission
+{
+   background-color: rgb(190, 24, 24);
+   color: white;
+   padding: 2px 6px;
+   font-size: 10px;
+   border-radius: 10px;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   -ms-border-radius: 10px;
+   -o-border-radius: 10px;
+}
+
+.car-col-2 .dailyrate
+{
+    font-size: 18px;
+}
+.car-col-2 .brand
+{
+    font-size: 21px;
+}
+
+.car-col-2 h6
+{
+    font-size: 15px;
+}
 .car-col-1
 {
     width: 350px;
@@ -41,6 +68,7 @@
     width: 350px;
     padding: 20px;
     color: #000;
+    background-color: #f1f1f1;
 
 }
 
@@ -50,14 +78,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #000;
+    border-bottom: 1px solid rgb(84, 83, 83);
     font-family: po;
     
 }
-.car-col-2
-{
-    padding: 20px;
-}
+
 
 .car-col-2 p
 {
@@ -77,6 +102,10 @@
 .btn-addcart
 {
     border: 1px solid #bcbcbc;
+    border-radius: 10px;
+    background-color: #fff;
+
+
 }
 .btn-addcart:hover
 {
@@ -92,8 +121,13 @@
 {
     border: none;
     outline: none;
-    background-color: #0066FF;
+    background-color: #069d60;
     color: #fff;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .carbuttons
 {
@@ -103,7 +137,7 @@
 }
 
 /* HOVER */
- .car-wrapper:hover .car-col-2
+ /* .car-wrapper:hover .car-col-2
 {
     background-color: #000;
     transition: 0.5s;
@@ -112,4 +146,11 @@
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
     color: #fff;
+} */
+
+@media (max-width:800px) {
+    .all-cars-row
+    {
+        justify-content: center;
+    }
 }

@@ -3,6 +3,8 @@
 @section('styles')
     @include('main.assets.style')
     @include('main.assets.bootstrapcss')
+@endsection
+
 
 <section>
     <div class="error">
@@ -11,7 +13,7 @@
 
     </div>
 </section>
-@endsection
 
 @section('script')
     @include('main.assets.script')
+@endsection

@@ -4,6 +4,7 @@
     @include('dashboard.assets.style')
 @endsection
 
+@section('content')
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
     <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
@@ -24,7 +25,7 @@
       </a>
       </li>
       <li class=""><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars" style="margin-right: 10px;"></i>   Add Car</a></li>
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
+      <li class=""><a href="/allusers" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
     </ul>
 
@@ -109,7 +110,7 @@
   </div>
   </nav>
   <div id="dashboard-content">
-  @section('content')
+  
     @include('dashboard.components.dashboard-content')
 </div>
 

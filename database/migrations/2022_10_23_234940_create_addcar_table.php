@@ -29,6 +29,9 @@ return new class extends Migration
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
             $table->string('lname')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('bday')->nullable();
             $table->string('purok')->nullable();
             $table->string('baranggay')->nullable();
             $table->string('town')->nullable();

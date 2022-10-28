@@ -22,11 +22,31 @@ class AddCarController extends Controller
         return view ('dashboard.all-vehicles')->with('addcar', $addcar);
     }
 
-    public function delete_car($id)
+    public function db_viewvehicle($id)
     {
         $addcar = AddCar::find($id);
-        $addcar -> delete();
-        return redirect()->back();
+        return view ('dashboard.viewcar')->with('addcar', $addcar);
+    }
+
+    public function db_editcar($id)
+    {
+        $editcar = AddCar::find($id);
+        return view('dashboard.editcar')->with('editcar', $editcar);
+    }
+
+    public function db_updatecar(Request $request, $id)
+    {
+        $addcar = AddCar::find($id);
+        $input = $request->all();
+        $addcar->update($input);
+        return view('dashboard.viewcar')->with('addcar', $addcar); 
+    }
+
+    public function delete_car($id)
+    {
+        $deletecar = AddCar::find($id);
+        $deletecar -> delete();
+        return redirect('/all-vehicles')->with('deletecar', $deletecar); 
     }
 
     public function save(Request $request)

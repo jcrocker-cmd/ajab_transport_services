@@ -30,7 +30,7 @@
 
                 <span>
                     <button type="button" class="icon-button">
-                    <span><i class="fas fa-heart"></i></span>
+                    <span><i class="fas fa-bell"></i></span>
                     <span class="icon-button__badge">2</span>
                     </button>
                 </span>

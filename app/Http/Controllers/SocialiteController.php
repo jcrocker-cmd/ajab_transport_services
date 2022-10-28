@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Oauth;
+use App\Models\Signin;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,7 @@ class SocialiteController extends Controller
         if($user)
         {
             Auth::login($user);
-            return redirect('/dashboard');
+            return redirect('/mainhome');
 
         }
 
@@ -40,7 +41,7 @@ class SocialiteController extends Controller
              $user->social_type = 'google';
 
              $user->save();
-             return redirect('/dashboard');
+             return redirect('/mainhome');
         }
     }
 
@@ -74,4 +75,10 @@ class SocialiteController extends Controller
              return redirect('/dashboard');
         }
     }
+    public function socialite_users()
+    {
+        $socialite = User::all();
+        return view ('dashboard.viewuser')->with('socialite', $socialite);
+    }
+
 }

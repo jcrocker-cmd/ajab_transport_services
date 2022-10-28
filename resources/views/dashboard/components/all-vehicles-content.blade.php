@@ -2,15 +2,14 @@
 <section class="all-vehicles-section">
 
 
-<div class="table-responsive px-3 pt-4">
 
-    <div class="pb-4 d-flex justify-content-between">
+    <div class="pb-3 d-flex justify-content-between px-3 pt-4">
     <h5 class="">All Registered Vehicles</h5>
     <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
     </div>
 
-    
-<div class="allvehicles-table table-responsive  mb-4">
+<div class="table-responsive px-3 pb-3">
+
 <table class="table align-middle mb-0 bg-light">
 <thead class="table table-dark">
 <tr>
@@ -31,7 +30,7 @@
         style="height: 45px; width: 45px;" class="rounded-circle">
     <div class="ms-3">
         <p class="fw-bold mb-1">{{ $item->fname}} {{ $item->lname}}</p>
-        <p class="text-muted mb-0">narbajajc@gmail.com</p>
+        <p class="text-muted mb-0">{{ $item->email}}</p>
 
     </div>
     </div>
@@ -45,8 +44,8 @@
   <td>{{ $item->model}}</td>
   <td>{{ $item->plate}}</td>
   <td>
-  <a href="" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-  <a href="" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  <a href="/viewcar/{{ $item->id }}" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+  <a href="/editcar/{{ $item->id }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
   <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
   </td>
@@ -56,7 +55,7 @@
 
 </tbody>
 </table>
-</div>
+
 
 
 
