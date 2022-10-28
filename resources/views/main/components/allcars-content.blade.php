@@ -13,11 +13,21 @@
                 </div>
 
                 <div class="car-col-2">
-                    <h5>{{ $item->brand}} {{ $item->model}} {{ $item->year}}</h5>
-                    <p>{{ $item->carlocation}}</p>
-                    <h6><sup>₱</sup> {{ $item->weeklyrate}} | Weekly</h6>
-                    <h6 class="pt-1"><sup>₱</sup> {{ $item->monthlyrate}} | Monthly</h6>
-                    <h5 class="pt-1"><sup>₱</sup> {{ $item->dailyrate}} | Daily</h5>
+
+                    <div class="d-flex" style="gap: 10px;">
+                        <h5 class="brand"><strong>{{ $item->brand}} {{ $item->model}} {{ $item->year}}</strong></h5> 
+                        <p class="transmission">{{ $item->transmission}}</p>
+                    </div>
+
+                        <p>{{ $item->carlocation}}</p>
+
+                    <div class="d-flex align-items-center" style="gap: 10px;">
+                        <span><h6><sup>₱</sup> {{ $item->weeklyrate}} / Weekly</h6></span>
+                        <span><h5>|</h5></span>
+                        <span><h6><sup>₱</sup> {{ $item->monthlyrate}} / Monthly</h6></span>
+                    </div>
+
+                        <h5 class="pt-1 dailyrate"><sup>₱</sup> {{ $item->dailyrate}} | Daily</h5>
                     
                     <div class="carbuttons">
                     <button type="button" class="btn-addcart">

@@ -1,26 +1,14 @@
 <section id="addcar-main">
 
-<!-- PROGRESS-BAR -->
-<div class="progress-bar-container" >
-<div class="progressbar">
 
-    <div class="progress" id="progress"></div>
-
-  <div class="progress-step active" data-title="Car Information"></div>
-  <div class="progress-step" data-title="Owner Information"></div>
-  <div class="progress-step" data-title="Pricing"></div>
-  <div class="progress-step" data-title="Submit"></div>
-</div>
-</div>
-
-
+<h5 class="px-4 pt-3 pb-2">Edit Existing Information</h5>
 
 
 
 <!-- FORM ACTION START -->
-<form data-multi-step action="addcar" method="post" class="addform">
+<form data-multi-step action="/updatecar/{{ $editcar->id }}" method="post" class="addform">
 @csrf
-
+@method('put')
 
 <!-- FIRST FORM -->
 <section class="form-1 bg-light py-2 first-form add-car-form active" id="addcar-section-forms">
@@ -33,7 +21,7 @@
 
 <!-- ROW 1 -->
 
-<div data-step="1" class ="add-row d-flex px-4">
+<div data-step="1" class ="add-row d-flex px-4 pb-2">
 
 
 <!-- COLUMN 1 -->
@@ -45,7 +33,7 @@
 <div class="mb-2 vehicle">
 <label for="exampleFormControlInput1" class="form-label">Type</label>
 <select class="form-select " name="vehicle" aria-label="Default select example" id="vehicle-info">
-  <option selected>Select Vehicle Type</option>
+  <option value="{{ $editcar->vehicle}}" selected>{{ $editcar->vehicle}}</option>
   <option value="Van">Van</option>
   <option value="Pick-Up">Pick-Up</option>
   <option value="7 Seaters">7 Seaters</option>
@@ -57,19 +45,19 @@
 
 <div class="mb-2 brand">
   <label for="exampleFormControlInput1" class="form-label">Brand</label>
-  <input type="text" name="brand" class="form-control " id="vehicle-info" placeholder="Ex. Toyota">
+  <input type="text" name="brand" value="{{ $editcar->brand}}" class="form-control " id="vehicle-info" placeholder="Ex. Toyota">
   <!-- <span>Please input a Car Brand</span> -->
 </div>
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Model</label>
-  <input type="text" name="model" class="form-control " id="vehicle-info" placeholder="Ex. Vios">
+  <input type="text" name="model" value="{{ $editcar->model}}" class="form-control " id="vehicle-info" placeholder="Ex. Vios">
 </div>
 
 <div class="mb-2">
 <label for="exampleFormControlInput1" class="form-label">Year</label>
-<select class="form-select " name="year" aria-label="Default select example" id="vehicle-info">
-    <option selected>Pick a Year</option>
+<select class="form-select"  name="year" aria-label="Default select example" id="vehicle-info">
+    <option value="{{ $editcar->year}}" selected>{{ $editcar->year}}</option>
     <option value="2000">2000</option>
     <option value="2007">2007</option>
     <option value="2008">2008</option>
@@ -91,13 +79,15 @@
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Plate No.</label>
-  <input type="text" name="plate" class="form-control " id="vehicle-info" placeholder="Ex. ABC 1234">
+  <input type="text" name="plate" value="{{ $editcar->plate}}" class="form-control " id="vehicle-info" placeholder="Ex. ABC 1234">
 </div>
 
 <div class="mb-2">
 <label for="exampleFormControlInput1" class="form-label">Seats</label>
 <select class="form-select " name="seats" aria-label="Default select example" id="vehicle-info">
-<option value="2" selected>2 Seats</option>
+
+<option value="{{ $editcar->seats}}" selected>{{ $editcar->seats}}</option>
+<option value="2">2 Seats</option>
 <option value="3">3 Seats</option>
 <option value="4">4 Seats</option>
 <option value="5">5 Seats</option>
@@ -120,6 +110,7 @@
 <div class="mb-2">
 <label for="exampleFormControlInput1" class="form-label">Fuel Type</label>
 <select class="form-select " name="fuel" aria-label="Default select example" id="vehicle-info">
+  <option value="{{ $editcar->fuel}}">{{ $editcar->fuel}}</option>
   <option value="Diesel">Diesel</option>
   <option value="Petrol">Petrol</option>
   <option value="Unleaded">Unleaded</option>
@@ -129,17 +120,17 @@
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Displacement</label>
-  <input type="text" name="displacement" class="form-control " id="vehicle" placeholder="Enter Displacement (cc)" onkeyup="this.value=commaSep(this.value);"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="text" name="displacement" value="{{ $editcar->displacement}}" class="form-control " id="vehicle" placeholder="Enter Displacement (cc)" onkeyup="this.value=commaSep(this.value);"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
 </div>
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Mileage</label>
-  <input type="text" name="mileage" class="form-control " id="vehicle"  placeholder="Enter Mileage (km)" onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="text" name="mileage" value="{{ $editcar->mileage}}" class="form-control " id="vehicle"  placeholder="Enter Mileage (km)" onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
 </div>
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Car Location</label>
-  <input type="text" name="carlocation" class="form-control " id="vehicle-info" placeholder="Enter Location">
+  <input type="text" name="carlocation" value="{{ $editcar->carlocation}}" class="form-control " id="vehicle-info" placeholder="Enter Location">
 </div>
 
 <label for="exampleFormControlInput1" class="form-label">Transmission</label>
@@ -180,17 +171,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" name="fname" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->fname}}" name="fname" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" name="mname" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->mname}}" name="mname" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" name="lname" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->lname}}" name="lname" class="form-control">
 </div>
 </div>
 
@@ -201,17 +192,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Email</span>
-  <input type="email" aria-label="First name" name="email" class="form-control">
+  <input type="email" aria-label="First name" value="{{ $editcar->email}}" name="email" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Phone No.</span>
-  <input type="text" aria-label="First name" name="phone" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->phone}}" name="phone" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Birth-Date</span>
-  <input type="date" aria-label="First name" name="bday" class="form-control">
+  <input type="date" aria-label="First name" value="{{ $editcar->bday}}" name="bday" class="form-control">
 </div>
 </div>
 
@@ -222,12 +213,12 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Purok/Street</span>
-  <input type="text" aria-label="First name" name="purok" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->purok}}" name="purok" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="First name" name="baranggay" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->baranggay}}" name="baranggay" class="form-control">
 </div>
 </div>
 
@@ -236,22 +227,22 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Town</span>
-  <input type="text" aria-label="First name" name="town" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->town}}" name="town" class="form-control">
 </div>
 
 
 <div class="input-group mb-2">
   <span class="input-group-text">City</span>
-  <input type="text" aria-label="First name" name="city" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->city}}" name="city" class="form-control">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Postal Code</span>
-  <input type="text" aria-label="First name" name="postal" class="form-control">
+  <input type="text" aria-label="First name" value="{{ $editcar->postal}}" name="postal" class="form-control">
 </div>
 </div>
 
-<div class="addcar-button-group">
+<div class="addcar-button-group pt-2">
   <a href="#" class="btn btn-primary add-car-btn addcar-btn-prev" role="button">Previous</a>
   <a href="#" class="btn btn-primary add-car-btn addcar-btn-next" role="button">Next</a>
   </div>
@@ -277,86 +268,31 @@
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Daily Rate</label>
-  <input type="text" name="dailyrate" class="form-control" onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="text" name="dailyrate" value="{{ $editcar->dailyrate}}" class="form-control" onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
 </div>
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Weekly Rate</label>
-  <input type="text" name="weeklyrate" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="text" name="weeklyrate" value="{{ $editcar->weeklyrate}}" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
 </div>
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Monthly Rate</label>
-  <input type="text" name="monthlyrate" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="text" name="monthlyrate" value="{{ $editcar->monthlyrate}}" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
 </div>
 
 
 
-<div class="addcar-button-group">
+<div class="addcar-button-group pt-2">
   <a href="#" class="btn btn-primary add-car-btn addcar-btn-prev" role="button">Previous</a>
-  <a href="#" class="btn btn-primary add-car-btn addcar-btn-next" role="button">Next</a>
+  <button class="btn btn-success" type="submit">Update</button>
+
   </div>
 
 </div>
 
 </section>
 
-
-<!-- FOURTH FORM -->
-<section class="form-1 bg-light py-2 second-form add-car-form" id="addcar-section-forms">
-
-
-<div class="px-4 py-2">
-
-<h5 class="pt-2">You're almost there!</h5>
-
-<label for="name" class="form-label">Name</label>
-
-
-<div data-step="2" class="d-flex add-full-name">
-
-<div class="input-group mb-2">
-  <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-
-<div class="input-group mb-2">
-  <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-
-<div class="input-group mb-2">
-  <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-</div>
-
-
-<label for="address" class="form-label">Address</label>
-
-<div class=" input-group mb-2">
-
-  <span class="input-group-text">Purok</span>
-  <input type="text" aria-label="First name" class="form-control purok">
-  <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="Middle name" class="form-control">
-  <span class="input-group-text">Town</span>
-  <input type="text" aria-label="Last name" class="form-control">
-  <span class="input-group-text">Province</span>
-  <input type="text" aria-label="Last name" class="form-control">
- 
- 
-</div>
-
-<div class="addcar-button-group">
-  <a href="#" class="btn btn-primary add-car-btn addcar-btn-prev" role="button">Previous</a>
-  <!-- <a href="#" class="btn btn-primary add-car-btn addcar-btn-next" role="button">Next</a> -->
-  <button class="btn btn-primary" type="submit">Submit</button>
-  </div>
-
-</div>
-
-</section>
 
 
 

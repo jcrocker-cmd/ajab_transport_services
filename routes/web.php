@@ -33,11 +33,20 @@ Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
 
-// Route::get('/all-vehicles',function() {
-//     return view('dashboard.all-vehicles');
-//  });
+Route::get('/editcar', function () {
+    return view('dashboard.editcar');
+});
+
+Route::get('/allusers', function () {
+    return view('dashboard.viewuser');
+});
+
+Route::get('/allusers', [SocialiteController::class,'socialite_users']);
 Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
 Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
+Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
+Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
+Route::put('/updatecar/{id}', [AddCarController::class,'db_updatecar']);
 
 
 
@@ -45,6 +54,7 @@ Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('de
 Route::get('/rented', function () {
     return view('dashboard.rented-cars');
 });
+
 
 Route::get('/add', function () {
     return view('dashboard.add-car');

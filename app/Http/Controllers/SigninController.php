@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Signin;
+use DB;
+
 
 
 class SigninController extends Controller
@@ -22,5 +24,10 @@ class SigninController extends Controller
         return redirect()->back();
         
 
+    }
+    public function signin_users()
+    {
+        $signin = Signin::all();
+        return view ('dashboard.viewuser')->with('signin', $signin);
     }
 }
