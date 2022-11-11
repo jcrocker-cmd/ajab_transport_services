@@ -1,5 +1,10 @@
 <section id="addcar-main">
 
+@if (session('status'))
+  <h6 class="alert alert-success" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+@endif
+
+
 <!-- PROGRESS-BAR -->
 <div class="progress-bar-container" >
 <div class="progressbar">
@@ -18,14 +23,12 @@
 
 
 <!-- FORM ACTION START -->
-<form data-multi-step action="addcar" method="post" class="addform">
+<form enctype="multipart/form-data" action="addcar" method="post" class="addform">
 @csrf
 
 
 <!-- FIRST FORM -->
 <section class="form-1 bg-light py-2 first-form add-car-form active" id="addcar-section-forms">
-
-
 
 
 <div class="px-4 py-2"><h5 class=" pt-2">Car Information</h5></div>
@@ -57,20 +60,20 @@
 
 <div class="mb-2 brand">
   <label for="exampleFormControlInput1" class="form-label">Brand</label>
-  <input type="text" name="brand" class="form-control " id="vehicle-info" placeholder="Ex. Toyota">
+  <input type="text" name="brand" class="form-control " id="vehicle-info" placeholder="Ex. Toyota" onkeyup="javascript:capitalize(this);">
   <!-- <span>Please input a Car Brand</span> -->
 </div>
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Model</label>
-  <input type="text" name="model" class="form-control " id="vehicle-info" placeholder="Ex. Vios">
+  <input type="text" name="model" class="form-control " id="vehicle-info" placeholder="Ex. Vios" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="mb-2">
 <label for="exampleFormControlInput1" class="form-label">Year</label>
 <select class="form-select " name="year" aria-label="Default select example" id="vehicle-info">
     <option selected>Pick a Year</option>
-    <option value="2000">2000</option>
+    <option value="2006">2006</option>
     <option value="2007">2007</option>
     <option value="2008">2008</option>
     <option value="2009">2009</option>
@@ -139,12 +142,12 @@
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Car Location</label>
-  <input type="text" name="carlocation" class="form-control " id="vehicle-info" placeholder="Enter Location">
+  <input type="text" name="carlocation" class="form-control " id="vehicle-info" placeholder="Enter Location" onkeyup="javascript:capitalize(this);">
 </div>
 
 <label for="exampleFormControlInput1" class="form-label">Transmission</label>
 <div class="form-check">
-  <input class="form-check-input" name="transmission" type="radio" name="exampleRadios" id="exampleRadios1" value="Manual" checked>
+  <input class="form-check-input" name="transmission" type="radio" name="exampleRadios" id="exampleRadios1" value="Manual">
   <label class="form-check-label" for="exampleRadios1">
     Manual
   </label>
@@ -180,17 +183,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" name="fname" class="form-control">
+  <input type="text" aria-label="First name" name="fname" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" name="mname" class="form-control">
+  <input type="text" aria-label="First name" name="mname" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" name="lname" class="form-control">
+  <input type="text" aria-label="First name" name="lname" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 </div>
 
@@ -206,7 +209,7 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Phone No.</span>
-  <input type="text" aria-label="First name" name="phone" class="form-control">
+  <input type="number" aria-label="First name" name="phone" class="form-control">
 </div>
 
 <div class="input-group mb-2">
@@ -222,12 +225,12 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Purok/Street</span>
-  <input type="text" aria-label="First name" name="purok" class="form-control">
+  <input type="text" aria-label="First name" name="purok" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="First name" name="baranggay" class="form-control">
+  <input type="text" aria-label="First name" name="baranggay" class="form-control"onkeyup="javascript:capitalize(this);">
 </div>
 </div>
 
@@ -236,18 +239,18 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Town</span>
-  <input type="text" aria-label="First name" name="town" class="form-control">
+  <input type="text" aria-label="First name" name="town" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 
 <div class="input-group mb-2">
   <span class="input-group-text">City</span>
-  <input type="text" aria-label="First name" name="city" class="form-control">
+  <input type="text" aria-label="First name" name="city" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Postal Code</span>
-  <input type="text" aria-label="First name" name="postal" class="form-control">
+  <input type="number" aria-label="First name" name="postal" class="form-control">
 </div>
 </div>
 
@@ -308,47 +311,21 @@
 
 <div class="px-4 py-2">
 
-<h5 class="pt-2">You're almost there!</h5>
+<h5 class="pt-2 pb-3">You're almost there!</h5>
 
-<label for="name" class="form-label">Name</label>
+<label for="address" class="form-label">Select Car Photo</label>
 
+<div class="addphoto">
+  <img src="images/samplecar.png"
+  height="230" width="350" class="" id="change-img-add" style="object-fit: cover;">
+  </div>
 
-<div data-step="2" class="d-flex add-full-name">
+  <div class="img-button mt-3">
+  <input type="file" name="carphoto" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
+  <button onclick ="addCarPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
+  </div>
 
-<div class="input-group mb-2">
-  <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-
-<div class="input-group mb-2">
-  <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-
-<div class="input-group mb-2">
-  <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" class="form-control">
-</div>
-</div>
-
-
-<label for="address" class="form-label">Address</label>
-
-<div class=" input-group mb-2">
-
-  <span class="input-group-text">Purok</span>
-  <input type="text" aria-label="First name" class="form-control purok">
-  <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="Middle name" class="form-control">
-  <span class="input-group-text">Town</span>
-  <input type="text" aria-label="Last name" class="form-control">
-  <span class="input-group-text">Province</span>
-  <input type="text" aria-label="Last name" class="form-control">
- 
- 
-</div>
-
-<div class="addcar-button-group">
+<div class="addcar-button-group mt-2">
   <a href="#" class="btn btn-primary add-car-btn addcar-btn-prev" role="button">Previous</a>
   <!-- <a href="#" class="btn btn-primary add-car-btn addcar-btn-next" role="button">Next</a> -->
   <button class="btn btn-primary" type="submit">Submit</button>

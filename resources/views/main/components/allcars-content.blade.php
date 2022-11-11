@@ -6,10 +6,12 @@
 
      <!-- CAR PRODUCT -->
      @foreach($addcar as $item)
-        <a href="/dashboard" class="text-decoration-none car-link">
+        <a href="/mainviewcar/{{ $item->id }}" class="text-decoration-none car-link">
             <div class="car-wrapper">
                 <div class="car-col-1">
 
+                <img src="/images/uploads/{{ $item->carphoto }}"
+                height="230" width="350" class="" id="allcars-img" style="object-fit: cover;"/>
                 </div>
 
                 <div class="car-col-2">

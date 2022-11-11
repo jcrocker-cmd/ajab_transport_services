@@ -74,12 +74,8 @@
 
 .car-col-1
 {
-    background: url(images/samplecar.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    
     border-bottom: 1px solid rgb(84, 83, 83);
-    font-family: po;
     
 }
 

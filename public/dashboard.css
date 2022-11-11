@@ -142,6 +142,7 @@ hr.hr-2
     column-gap: 10px;
     justify-content: flex-end;
 }
+
 .add-car-form
 {
     display: none;
@@ -189,14 +190,21 @@ input.purok
 {
     font-size: 13px;
 }
-/* .isDisabled {
-    background-color: #bcbcbc;
-    pointer-events: none;
-    opacity: 0.5;
-    color: #000;
-    
-  } */
 
+.addphoto img
+{
+    border: #000 1px solid;
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.addphoto-btn
+{
+    width: 350px;
+}
 
 /* VALIDATION */
 .brand span
@@ -455,6 +463,11 @@ input.purok
 
 
 /* SETTINGS */
+.settings
+{
+    width: 100%;
+
+}
 .settings-title
 {
     border-bottom: 1px solid rgb(159, 155, 155);
@@ -468,8 +481,8 @@ input.purok
 .settings-row
 {
     display: flex;
-    width: 100%;
-    gap: 20px;
+    max-width: 100%;
+    gap: 30px;
 }
 .settings-col-1
 {
@@ -540,12 +553,11 @@ input.purok
 }
 .car-photo
 {
-    background: url(images/samplecar.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 250px;
-    width: 350px;
+    height: 230px;
+    width: 400px;
+}
+#addphoto-img
+{
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -559,6 +571,7 @@ input.purok
     color: #fff;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
 
 }

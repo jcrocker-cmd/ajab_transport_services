@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('dailyrate')->nullable();
             $table->string('weeklyrate')->nullable();
             $table->string('monthlyrate')->nullable();
+            $table->string('carphoto')->nullable();
             $table->timestamps();
         });
     }

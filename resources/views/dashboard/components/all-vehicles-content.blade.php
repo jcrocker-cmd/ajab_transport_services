@@ -1,6 +1,9 @@
 
 <section class="all-vehicles-section">
 
+@if (session('status'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+@endif
 
 
     <div class="pb-3 d-flex justify-content-between px-3 pt-4">
