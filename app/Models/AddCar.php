@@ -39,5 +39,7 @@ class AddCar extends Model
         'dailyrate',
         'weeklyrate',
         'monthlyrate',
+
+        'carphoto',
     ];
 }

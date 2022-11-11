@@ -15,3 +15,5 @@
     <script src="/db-admin-pricing.js"></script>
     <script src="/multi-step-form.js"></script>
     <script src="/pop-up.js"></script>
+    <script src="/capitalize-eachword.js"></script>
+    <script src="/alert.js"></script>

@@ -2,9 +2,9 @@
 <header id="header">
      <nav>
      <div class="header-col-1 ">
-        <a href="/" class="brand"><img src="images/LOGO.png" class="logo"></a>
+        <a href="/" class="brand"><img src="/images/LOGO.png" class="logo"></a>
        
-                <h3>|</h3>
+                <h2>|</h2>
 
                 <form action="">
                     <input type="email" class="form-control rounded-pill" id="exampleFormControlInput1" placeholder="Search">
@@ -36,7 +36,7 @@
                 </span>
 
                 <span class="user-profile" onclick="menuToggle();">
-                    <img src="user.jpg" alt=""
+                    <img src="/user.jpg" alt=""
                     height="45" width="45" class="rounded-circle" id="change-img" style="object-fit: cover;">
                 </span>
     </div>

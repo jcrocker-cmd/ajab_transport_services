@@ -1,10 +1,19 @@
+
+@if (session('status'))
+  <h6 class="alert alert-warning my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+@endif
 <section class="px-4 py-3 d-flex" id="viewcar_section1">
+
     <div class="view-car-row d-flex">
-        <div class="car-photo"></div>
+        <div class="car-photo">
+
+            <img src="/images/uploads/{{ $addcar->carphoto }}"
+            height="230" width="400" class="" id="addphoto-img" style="object-fit: cover;"/>
+        </div>
             
     </div>
 
-    <div class="car-info-row py-2">
+    <div class="car-info-row">
 
                     <div class="car-info-heading">
                         <h5>Car Information</h5>

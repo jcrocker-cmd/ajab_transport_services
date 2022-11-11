@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // use App\Models\OwnerInfo;
 // use App\Models\Pricing;
 use App\Models\AddCar;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
 class AddCarController extends Controller
 {
@@ -14,6 +16,12 @@ class AddCarController extends Controller
     {
         $addcar = AddCar::all();
         return view ('main.homepage')->with('addcar', $addcar);
+    }
+
+    public function main_viewvehicle($id)
+    {
+        $viewcar = AddCar::find($id);
+        return view ('main.viewcar')->with('viewcar', $viewcar);
     }
 
     public function db_allvehicles()
@@ -38,22 +46,52 @@ class AddCarController extends Controller
     {
         $addcar = AddCar::find($id);
         $input = $request->all();
+        if ($image = $request->file('carphoto')) {
+
+            $destinationPath = 'images/uploads/'.$addcar->carphoto;
+            if (File::exists($destinationPath)) {
+                File::delete($destinationPath);
+            }
+            $destinationPath = 'images/uploads/';
+            $carImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $carImage);
+            $input['carphoto'] = "$carImage";
+        }else{
+            unset($input['carphoto']);
+        }
         $addcar->update($input);
+        Session::flash('status','You`ve successfully edited your exisiting car!');
         return view('dashboard.viewcar')->with('addcar', $addcar); 
+        
+        
     }
 
     public function delete_car($id)
     {
         $deletecar = AddCar::find($id);
+        $destinationPath = 'images/uploads/'.$deletecar->carphoto;
+        if (File::exists($destinationPath)) {
+            File::delete($destinationPath);
+        }
         $deletecar -> delete();
+        Session::flash('status','You`ve successfully deleted a car!');
         return redirect('/all-vehicles')->with('deletecar', $deletecar); 
+
     }
 
     public function save(Request $request)
     {
         $addcar = $request->all();
+        if ($image = $request->file('carphoto')) {
+            $destinationPath = 'images/uploads/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $addcar['carphoto'] = "$profileImage";
+        }
         AddCar::create($addcar);
-        return redirect('/add')->with('alert', 'Contact Addedd!');  
+        return redirect('/add')->with('status', 'You`ve Successfully Added a New Car!');  
+
+
 
     }
 }

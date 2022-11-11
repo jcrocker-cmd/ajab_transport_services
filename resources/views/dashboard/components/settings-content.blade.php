@@ -7,6 +7,7 @@
 
     <form action="/adminpp" method="post">
         @csrf
+        @method('put')
 
     <div class="settings-col-1">
 
@@ -29,7 +30,7 @@
                         <button onclick ="defaultBtnActive()" type="button" class="btn btn-primary" id="default-btn">Choose Image</button>
                         <button type="submit" class="btn btn-success" id="default-btn">Save</button>
                     </div>
-                    </form>
+    </form>
 
         </div>
     
@@ -38,13 +39,6 @@
         <div class="settings-password  mt-4  bg-light">
 
             <div class="bg-light"><p class="px-2 py-2 settings-title">Edit Password</p></div>
-
-
-                <!-- <div class ="py-2 settings-profile text-center mb-1">
-                    <img src="user.jpg" alt=""
-                    style="height: 65px; width: 65px;" class="rounded-circle">
-
-                </div> -->
 
 
                 <form action="" method="patch" class="px-3 py-2">

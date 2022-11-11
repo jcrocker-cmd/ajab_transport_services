@@ -22,7 +22,7 @@ use App\Http\Controllers\AdminphotoController;
 Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
 Route::post('/login', [LoginController::class,'save']);
 Route::post('/addcar', [AddCarController::class,'save']);
-Route::post('/adminpp', [AdminphotoController::class,'save']);
+Route::put('/adminpp', [AdminphotoController::class,'save']);
 
 
 
@@ -91,11 +91,8 @@ Route::get('/sign-in', function () {
 
 
 // Main Routes
-// Route::get('/mainhome', function () {
-//     return view('main.homepage');
-// });
-
 Route::get('/mainhome', [AddCarController::class,'main_allcars']);
+Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
 
 
 
