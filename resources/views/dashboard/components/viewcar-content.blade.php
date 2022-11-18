@@ -1,6 +1,6 @@
 
-@if (session('status'))
-  <h6 class="alert alert-warning my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+@if (session('message'))
+  <h6 class="alert alert-warning my-0" id="myAlert" style="font-size: 14px;">{{ session('message') }}</h6>
 @endif
 <section class="px-4 py-3 d-flex" id="viewcar_section1">
 

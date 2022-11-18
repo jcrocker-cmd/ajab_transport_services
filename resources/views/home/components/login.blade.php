@@ -1,21 +1,40 @@
 <section id="login">
+
 <div class="row">
-    <div class="col-1"></div>
+    <div class="col-1">
+
+    <h5>Welcome Back!</h5>
+    </div>
     <div class="col-2">
        <div class="wrapper">
+
+       <div class="loginlogo">
         <img src="images/LOGO.png" alt="Logo" id="logo">
+        </div>
         <h3 class="h3">Welcome Back</h3>
-        <form action="{{url('/login')}}" method="post">
+
+        @if (Session::has('loginfail'))
+        <p class="loginfail-alert">{{ Session::get('loginfail') }}</p>
+        @endif
+
+        @if (Session::has('successregister'))
+        <h6 class="successregister-alert">{{ Session::get('successregister') }}</h6>
+        @endif
+
+        <form action="{{url('/checklogin')}}" method="post">
                 @csrf
         <div class="username">
-            <input type="text" name="email"  placeholder="  Username"  required>
+            <input type="email" name="email"  placeholder="Username"  value ="{{old('email')}}">
+            <span class="error-msg">@error('email') {{$message}} @enderror</span>
         </div>
         <div class="password">
-            <input type="password" name="password"  placeholder="  Password"  required>
+            <input type="password" name="password"  placeholder="Password"  value ="{{old('password')}}">
+            <span class="error-msg">@error('password') {{$message}} @enderror</span>
+
         </div>
-        <div class="button_login">
-            <input type="submit" value="LOG IN">
-        </div>
+        <button type="submit" class="button_login" onclick="this.classList.toggle('login-loader')">
+            <span class="button_login-text">Log In</span> 
+        </button>
 </form>
 
         <div class="group-1">

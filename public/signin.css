@@ -1,18 +1,21 @@
 #signin
 {
-    margin-top: 150px;
+    padding-top: 120px;
     padding-bottom: 150px;
 
    
 }
 #signin-logo
 {
-    margin-top: 35px;
     width: 180px;
+}
+.signinlogo
+{
+    text-align: center;
 }
 .h3
 {
-    font-family: 'Inter',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 100;
     font-size: 15px;
     line-height: 24px;
@@ -22,11 +25,10 @@
 }
 .terms
 {
-    font-family: 'Inter',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 100;
     font-size: 12px;
     text-align: left;
-    margin-left: 40px;
     margin-bottom: 15px;
 }
 .signin-row
@@ -40,56 +42,77 @@
 {
     background-color: #18CF77;
     width: 390px;
-    height: 740px;
-    border-top-left-radius: 60px;
-    border-bottom-left-radius: 60px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+.signin-col-content
+{
+    margin: auto;
+    text-align: center;
+    align-items: center;
 }
 .signin-col-2
 {
     background-color: #F5FAFF;
-    width: 390px;
-    height: 740px;
-    border-top-right-radius: 60px;
-    border-bottom-right-radius: 60px;
-    text-align: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* text-align: center; */
     align-items: center;
-    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
-    
-    
+    padding: 25px 40px;
+    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);  
 }
 
-.signin-password input , .signin-button_login input , .signin-fname input , .signin-lname input ,
+.error-msg
+{
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    padding: 0;
+}
+
+.signin-password input , .signin-button , .signin-fname input , .signin-lname input ,
 .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg input , .signin-email input
 {
-    height: 38px;
-    width: 320px;
-    border-radius: 40px;
+    height: 35px;
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 10px;
     border: 0.5px solid #BCBCBC;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 .signin-password input , .signin-fname input , .signin-lname input ,
 .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
 {
-    margin-bottom: 13px;
-    font-family: 'Inter',sans-serif;
+    /* margin-bottom: 13px; */
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 15px;
-    color: #B8AFAF;
+    font-size: 14px;
+    color: #000;
     
 }
+.signin-fname , .signin-lname , .signin-email , .signin-password , .signin-bday , .gender
+{
+    margin-bottom: 13px;
+    
+}
+
 .gender
 {
     display: flex;
-    justify-content: left;
-    margin-left: 33px;
-    gap: 5px;
 
 }
 .gender input
 {
     -webkit-appearance: none;
-
 }
+
 .gender label
 {
     border: 0.5px solid #B8AFAF;
@@ -106,27 +129,64 @@
     border: #fff 1px solid;
     transition: 0.5s;
 }
-.signin-button_fb input
+.signin-button
 {
-    background-color: #1877F2;
-    font-family: 'Inter',sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: #fff;
-}
-.signin-button_gg input
-{
-    background-color: #FF0000;
-    font-family: 'Inter',sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: #fff;
-}
-.signin-button_login input
-{
+    position: relative;
     background-color: #18CF77;
-    font-family: 'Inter',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 15px;
     color: #fff;
+    display: grid;
+    place-content: center;
+}
+.button_signin-text
+{
+    color: #ffffff;
+    transition: all 0.2s;
+}
+
+.signin-loader .button_signin-text
+{
+    visibility: hidden;
+    opacity: 0;
+}
+.signin-loader::after
+{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #fff;
+    animation: loader 0.5s ease infinite;
+    -webkit-animation: loader 0.5s ease infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+
 }

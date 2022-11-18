@@ -7,3 +7,4 @@
 <script src="type-core.js"></script>
 <script src="navbar-sticky.js"></script>
 <script src="typewriter.js"></script>
+<script src="/logsign-loader.js"></script>
