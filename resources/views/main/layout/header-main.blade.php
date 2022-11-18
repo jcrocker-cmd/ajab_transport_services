@@ -46,6 +46,7 @@
         <div class="sub-menu">
             <div class="user-info">
                     <h5>John Christian Narbaja</h5>
+                    <span>narbajajc@gmail.com</span>
             </div>
             <hr>
 
@@ -58,7 +59,7 @@
             <img src="images/profile/setting.png">
             <p>My Settings</p>
         </a>
-        <a href="#" class="sub-menu-link">
+        <a href="/logout" class="sub-menu-link">
             <img src="images/profile/logout.png">
             <p>Logout</p>
         </a>

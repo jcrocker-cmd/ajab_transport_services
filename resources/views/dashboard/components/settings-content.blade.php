@@ -87,12 +87,12 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Juan">
+                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ $adminInfo->admin_fname}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
-                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Dela">
+                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ $adminInfo->admin_mname}}">
                     </div>
 
                     <div style="width: 100%;">
@@ -113,12 +113,12 @@
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="text" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="09123456789">
+                        <input type="number" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="09123456789">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Birth-Date</label>
-                        <input type="date" name="admin_no" class="form-control" id="exampleFormControlInput1">
+                        <input type="date" name="admin_bday" class="form-control" id="exampleFormControlInput1">
                     </div>
 
                 </div>
@@ -130,12 +130,12 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
-                        <input type="email" name="admin_email" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1">
+                        <input type="email" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Baranggay</label>
-                        <input type="text" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador">
+                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador">
                     </div>
                 </div>
 
@@ -145,17 +145,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Town</label>
-                        <input type="text" name="admin_email" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion">
+                        <input type="text" name="admin_town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion">
                     </div>
 
                     <div style="width: 100%;">
-                        <label for="exampleFormControlInput1" class="form-label">City</label>
-                        <input type="text" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City">
+                        <label for="exampleFormControlInput1" class="form-label">Province</label>
+                        <input type="text" name="admin_province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-                        <input type="text" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="6001">
+                        <input type="text" name="admin_postal" class="form-control" id="exampleFormControlInput1" placeholder="6001">
                     </div>
 
                 </div>
@@ -163,13 +163,13 @@
                 <!-- <p class=" mb-0"><strong>Basic Info</strong></p> -->
 
                     <div class="mb-2">
-                        <label for="exampleFormControlInput1" class="form-label">Facebook Profile URL</label>
-                        <input type="text" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile">
+                        <label for="exampleFormControlInput1" class="form-label">Facebook Profile URL (Optional)</label>
+                        <input type="text" name="admin_fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">About Me</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label">About Me (Optional)</label>
+                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
 
                     <div class="pb-3 password-button justify-content-right">

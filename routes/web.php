@@ -21,6 +21,7 @@ use App\Http\Controllers\AdminphotoController;
 
 Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
 Route::post('/login', [LoginController::class,'save']);
+Route::post('/checklogin', [LoginController::class,'checklogin']);
 Route::post('/addcar', [AddCarController::class,'save']);
 Route::put('/adminpp', [AdminphotoController::class,'save']);
 
@@ -47,6 +48,8 @@ Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('de
 Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
 Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
 Route::put('/updatecar/{id}', [AddCarController::class,'db_updatecar']);
+Route::get('/settings', [AdminphotoController::class,'admin_view_info']);
+
 
 
 
@@ -69,9 +72,6 @@ Route::get('/dashboard-login', function () {
     return view('dashboard.dashboard-login');
 });
 
-Route::get('/settings', function () {
-    return view('dashboard.settings');
-});
 
 // Home Routes
 
@@ -81,18 +81,15 @@ Route::get('/', function () {
 
 
 
-Route::get('/log-in', function () {
-    return view('home.login');
-});
 
-Route::get('/sign-in', function () {
-    return view('home.signin');
-});
+Route::get('/log-in', [LoginController::class,'loginroute'])->middleware('alreadyLoggedIn');
+Route::get('/sign-in', [SigninController::class,'signinroute'])->middleware('alreadyLoggedIn');
 
 
 // Main Routes
-Route::get('/mainhome', [AddCarController::class,'main_allcars']);
-Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
+Route::get('/mainhome', [AddCarController::class,'main_allcars'])->middleware('isLoggedIn');
+Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle'])->middleware('isLoggedIn');
+Route::get('/logout', [LoginController::class,'logout']);
 
 
 

@@ -9,19 +9,34 @@ use Illuminate\Http\Request;
 use App\Models\AddCar;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
+use App\Models\Signin;
 
 class AddCarController extends Controller
 {
     public function main_allcars()
     {
         $addcar = AddCar::all();
-        return view ('main.homepage')->with('addcar', $addcar);
+
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = Signin::where('id','=',Session::get('loginId'))->first();
+
+        }
+        return view ('main.homepage',compact('data'))->with('addcar', $addcar);
     }
 
     public function main_viewvehicle($id)
     {
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = Signin::where('id','=',Session::get('loginId'))->first();
+
+        }
+
         $viewcar = AddCar::find($id);
-        return view ('main.viewcar')->with('viewcar', $viewcar);
+        return view ('main.viewcar',compact('data'))->with('viewcar', $viewcar);
     }
 
     public function db_allvehicles()
@@ -60,7 +75,7 @@ class AddCarController extends Controller
             unset($input['carphoto']);
         }
         $addcar->update($input);
-        Session::flash('status','You`ve successfully edited your exisiting car!');
+        Session::flash('message','You`ve successfully edited your exisiting car!');
         return view('dashboard.viewcar')->with('addcar', $addcar); 
         
         
