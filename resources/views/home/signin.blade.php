@@ -10,3 +10,8 @@
     @include('home.layout.header-for-logsign')
     @include('home.components.signin')
 @endsection
+
+
+@section('script')
+    @include('home.assets.script')
+@endsection

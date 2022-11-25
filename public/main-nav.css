@@ -163,6 +163,20 @@ nav li a:hover:after
     font-size: 15px;
     font-weight: 500;
 }
+.user-info
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+.user-info div
+{
+    text-align: left;
+}
+.user-info span
+{
+    font-size: 14px;
+}
 
 .sub-menu hr
 {

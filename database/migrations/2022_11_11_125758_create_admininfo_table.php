@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('admininfo', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->nullable();
+            $table->string('password')->nullable();
             $table->string('admin_fname')->nullable();
             $table->string('admin_mname')->nullable();
             $table->string('admin_lname')->nullable();
-            $table->string('admin_email')->nullable();
             $table->string('admin_no')->nullable();
             $table->string('admin_bday')->nullable();
             $table->string('admin_purok')->nullable();
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->string('admin_postal')->nullable();
             $table->string('admin_fb')->nullable();
             $table->string('admin_about')->nullable();
+            $table->string('adminpp')->nullable();
             $table->timestamps();
         });
     }

@@ -229,8 +229,8 @@
 
 
 <div class="input-group mb-2">
-  <span class="input-group-text">City</span>
-  <input type="text" aria-label="First name" value="{{ $editcar->city}}" name="city" class="form-control" onkeyup="javascript:capitalize(this);">
+  <span class="input-group-text">Province</span>
+  <input type="text" aria-label="First name" value="{{ $editcar->city}}" name="province" class="form-control" onkeyup="javascript:capitalize(this);">
 </div>
 
 <div class="input-group mb-2">
@@ -308,7 +308,7 @@
 
   <div class="img-button mt-3">
   <input type="file" name="carphoto" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
-  <button onclick ="addCarPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
+  <button onclick ="addPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
   </div>
 
 <div class="addcar-button-group">

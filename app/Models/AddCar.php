@@ -33,7 +33,7 @@ class AddCar extends Model
         'purok',
         'baranggay',
         'town',
-        'city',
+        'province',
         'postal',
         
         'dailyrate',

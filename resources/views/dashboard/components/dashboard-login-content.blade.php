@@ -1,49 +1,69 @@
 <section class="dashboard-login">
 
 
-<div class="dashboard-login-div bg-white">
-<h2 class="text-center px-4 pb-4 pt-4">YOU DRIVE ADMIN</h2>
-
-<ul class="nav nav-pills nav-justified mb-3 px-4" id="ex1" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-      aria-controls="pills-login" aria-selected="true">Login</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
-      aria-controls="pills-register" aria-selected="false">Register</a>
-  </li>
-</ul>
+<div class="dashboard-login-div ">
+<div class="text-center pb-2"><img src="/images/LOGO.png" class="dashboard-logo" alt="Comapny Logo"></div>
+<div class="dashboard-login-title">You Drive Admin</div>
 
 
-<form action="addcar" class="login" method="post">
+<form action="{{url('/adminchecklogin')}}" class="login" method="post">
+@if (Session::has('adminloginfail'))
+<p class="alert alert-danger loginfail-alert">{{ Session::get('adminloginfail') }}</p>
+@endif
+
+<!-- @if (count($errors) > 0)
+<div class="alert alert-danger" role="alert">
+  <li>@error('email') {{$message}} @enderror</li>
+  <li>@error('password') {{$message}} @enderror</li>
+</div>
+@endif -->
+
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+     @foreach($errors->all() as $error)
+      <li>{{ $error }}</li>
+     @endforeach
+    </div>
+   @endif
+
 @csrf
-<div class="mb-3 px-4 pt-3" >
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" required>
-</div>
-<div class="px-4 pb-4">
-  <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" required>
-</div>
-<div class="row mb-4">
-        <div class="col-md-6 d-flex justify-content-center">
-         
-          <div class="form-check mb-3 mb-md-0">
-            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-            <label class="form-check-label" for="loginCheck"> Remember me </label>
-          </div>
-        </div>
+<div class="fields">
 
-        <div class="col-md-6 d-flex justify-content-center">
-        
-          <a href="#!">Forgot password?</a>
-        </div>
-      </div>
-<div class="d-grid px-4 pb-4 ">
-  <button class="btn btn-primary dashboard-login-button" type="submit">Login</button>
+  <div class="admin-email" >
+    <i class="far fa-user"></i>
+    <input type="text" name="email"  placeholder="Email" value ="{{ old('email') }}">
+  </div>
+
+  <div class="admin-password">
+    <i class="far fa-lock-alt"></i>
+    <input type="password" name="password" placeholder="Password">
+    <i class="fa fa-eye-alt"></i>
+  </div>
+
+
+  
+
+    
 </div>
-    <div class="text-center pb-2">
-        <p>Register another admin? <a href="#!">Register</a></p>
-      </div>
+
+<!-- <div class="rowa mb-4">
+  <div class="d-flex">
+    
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+      <label class="form-check-label" for="loginCheck"> Remember me</label>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <a href="#!">Forgot password?</a>
+  </div>
+
+</div> -->
+
+<div class="d-grid ">
+  <button class="dashboard-login-button" type="submit">Log In</button>
+</div>
 </form>
 
 
@@ -55,13 +75,3 @@
 </div>
 </section>
 
-
-<!-- <section class="dashboard-div">
-
-<div class="form-box">
-
-</div> -->
-
-
-
-</section>

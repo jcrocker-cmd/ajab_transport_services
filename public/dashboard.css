@@ -315,55 +315,180 @@ input.purok
     
 }
 /* DASHBOARD LOGIN */
-.dashboard-login-div
-{
-    font-family: 'Poppins', sans-serif;
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-}
+
 .dashboard-login
 {
     height: 100vh;
-    background: linear-gradient(to right,#ff512f, #dd2476);
-}
-.dashboard-login-button
-{
-    background: linear-gradient(to right, #dd2476,#ff512f);
-    border: none;
+    font-weight: 700;
+    background-color: #ecf0f3;
 
 }
-.dashboard-login h2
-{
-    /* box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25); */
-    font-weight: 600;
-    font-size: 25px;    
-}
-.dashboard-div
-{
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right,#ff512f, #dd2476);
-    height: 100vh;
 
-}
-.form-box
+.dashboard-login-div
 {
-    height: 490px;
-    width: 400px;
-    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    width: 450px;
+    /* height: 600px; */
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 60px 35px;
     transform: translate(-50%, -50%);
+    border-radius: 40px;
+    background-color: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1,    -10px 10px 15px #fff;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+}
+
+.dashboard-logo
+{
+    width: 180px;
+    text-align: center;
+}
+
+.dashboard-login-title
+{
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 25px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.fields
+{
+    width: 100%;
+}
+
+
+.fields input
+{
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+    color: #555;
+    width: 100%;
+    height: 40px;
+    padding: 10px 10px 10px 5px;
+}
+.fields input:-webkit-autofill,
+.fields input:-webkit-autofill:hover,
+.fields input:-webkit-autofill:active,
+.fields input:-webkit-autofill:focus {
+    background: none !important;
+    color: #555 !important;
+    -webkit-text-fill-color: #555555 !important;
+}
+/* .fields input:-webkit-autofill{
+    color: #2a2a2a !important;
+} */
+/* .fields input:focus
+{
+    color: #02c8db;
+} */
+
+/* .fields input:focus + i
+{
+    color: #02c8db;
+} */
+
+.fields i
+{
+    font-size: 16px;
+    margin: 13px 10px 0px 25px;
+    color: #555;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.admin-email , .admin-password
+{
+    margin-bottom: 30px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    box-shadow: inset 8px 8px 8px #cbced1,
+    inset -8px -8px 8px #fff;
+    display: flex;
 
 }
-.forms
+
+.rowa
 {
+    font-size: 13px;
+    justify-content: space-between;
     display: flex;
+}
+.rowa div
+{
+    flex: 50%;
+}
+
+.dashboard-login-button
+{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #02c8db;
+    box-shadow: 3px 3px 8px #b1b1b1,
+    -3px -3px 8px #fff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    display: grid;
+    place-content: center;
+}
+
+.loader
+{
+     pointer-events: none;
+     width: 30px;
+     height: 30px;
+     border: 3px solid transparent;
+     border-top-color: #fff;
+     border-radius: 50%;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -ms-border-radius: 50%;
+     -o-border-radius: 50%;
+     animation: loader 0.5s ease infinite;
+     -webkit-animation: loader 0.5s ease infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+}
+
+.loginfail-alert ,
+.alert-danger li 
+{
+    font-size: 12px;
 }
 
 

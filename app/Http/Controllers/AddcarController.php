@@ -10,6 +10,7 @@ use App\Models\AddCar;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
 use App\Models\Signin;
+use App\Models\AdminInfo;
 
 class AddCarController extends Controller
 {
@@ -24,6 +25,14 @@ class AddCarController extends Controller
 
         }
         return view ('main.homepage',compact('data'))->with('addcar', $addcar);
+    }
+
+    public function addcar_route()
+    {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        return view('dashboard.add-car',compact('data'));
     }
 
     public function main_viewvehicle($id)

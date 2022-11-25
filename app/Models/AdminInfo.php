@@ -11,10 +11,11 @@ class AdminInfo extends Model
     protected $table = 'admininfo';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'email',
+        'password',
         'admin_fname',
         'admin_mname',
         'admin_lname',
-        'admin_email',
         'admin_no',
         'admin_bday',
         'admin_purok',
@@ -24,5 +25,6 @@ class AdminInfo extends Model
         'admin_postal',
         'admin_fb',
         'admin_about',
+        'adminpp',
     ];
 }

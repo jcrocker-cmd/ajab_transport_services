@@ -15,8 +15,6 @@ class Signin extends Model
         'email',
         'password',
         'bday',
-        'country',
         'gender'
-
     ];
 }
