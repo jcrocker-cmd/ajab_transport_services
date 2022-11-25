@@ -53,8 +53,11 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'isLoggedIn' => \App\Http\Middleware\AuthCheck::class,
-        'alreadyLoggedIn' => \App\Http\Middleware\AlreadyLoggedIn::class,
+        'user-auth-checking' => \App\Http\Middleware\AuthCheck::class,
+        'user-already-loggedin' => \App\Http\Middleware\AlreadyLoggedIn::class,
+        'admin-auth-checking' => \App\Http\Middleware\AdminAuthCheck::class,
+        'admin-already-loggedin' => \App\Http\Middleware\AdminAlreadyLoggedIn::class,
+        'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

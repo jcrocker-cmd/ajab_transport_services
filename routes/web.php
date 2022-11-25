@@ -7,6 +7,8 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\AdminphotoController;
+// use App\Http\Controllers\AdminloginController;
+use App\Http\Controllers\AdmininfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,76 +22,88 @@ use App\Http\Controllers\AdminphotoController;
 */
 
 Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
-Route::post('/login', [LoginController::class,'save']);
+// Route::post('/login', [LoginController::class,'save']);
 Route::post('/checklogin', [LoginController::class,'checklogin']);
-Route::post('/addcar', [AddCarController::class,'save']);
-Route::put('/adminpp', [AdminphotoController::class,'save']);
+Route::post('/adminchecklogin', [AdmininfoController::class,'adminchecklogin']);
+
+
 
 
 
 
 // Dashboard Routes
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
+Route::middleware(['preventBackHistory'])->group(function () {
+
+    Route::middleware(['admin-already-loggedin'])->group(function () {
+        Route::get('/dashboard-login', [AdmininfoController::class,'loginroute']); 
+    });
+
+    Route::middleware(['admin-auth-checking'])->group(function () {
+
+        Route::get('/dashboard', [AdmininfoController::class,'dashboardroute']);
+        Route::get('/editcar', function () {
+            return view('dashboard.editcar');
+        });
+        Route::get('/allusers', function () {
+            return view('dashboard.viewuser');
+        });
+        Route::get('/allusers', [SocialiteController::class,'socialite_users']);
+        Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
+        Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
+        Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
+        Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
+        Route::put('/updatecar/{id}', [AddCarController::class,'db_updatecar']);
+        Route::get('/settings', [AdmininfoController::class,'admin_account_settings_route']);
+        Route::post('/addcar', [AddCarController::class,'save']);
+        Route::put('/adminpp_update/{id}', [AdmininfoController::class,'adminpp_update']);
+        Route::put('/admininfo_update/{id}', [AdmininfoController::class,'admininfo_update']);
+        Route::put('/adminpassword_update/{id}', [AdmininfoController::class,' adminpassword_update']);
+
+        Route::get('/rented', function () {
+            return view('dashboard.rented-cars');
+        });
+
+        Route::get('/add', [AddCarController::class,'addcar_route']);
+
+
+        Route::get('/notification', function () {
+            return view('dashboard.notification');
+        });
+    });
+
+
+
+    Route::get('/adminlogout', [AdmininfoController::class,'adminlogout']);
 });
 
-Route::get('/editcar', function () {
-    return view('dashboard.editcar');
-});
-
-Route::get('/allusers', function () {
-    return view('dashboard.viewuser');
-});
-
-Route::get('/allusers', [SocialiteController::class,'socialite_users']);
-Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
-Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
-Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
-Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
-Route::put('/updatecar/{id}', [AddCarController::class,'db_updatecar']);
-Route::get('/settings', [AdminphotoController::class,'admin_view_info']);
-
-
-
-
-
-Route::get('/rented', function () {
-    return view('dashboard.rented-cars');
-});
-
-
-Route::get('/add', function () {
-    return view('dashboard.add-car');
-});
-
-
-Route::get('/notification', function () {
-    return view('dashboard.notification');
-});
-
-Route::get('/dashboard-login', function () {
-    return view('dashboard.dashboard-login');
-});
 
 
 // Home Routes
+Route::middleware(['preventBackHistory'])->group(function () {
 
-Route::get('/', function () {
-    return view('home.homepage');
-});
+    Route::get('/', function () {
+        return view('home.homepage');
+    });
 
-
-
-
-Route::get('/log-in', [LoginController::class,'loginroute'])->middleware('alreadyLoggedIn');
-Route::get('/sign-in', [SigninController::class,'signinroute'])->middleware('alreadyLoggedIn');
+    Route::middleware(['user-already-loggedin'])->group(function () {
+        Route::get('/log-in', [LoginController::class,'loginroute']);   
+        Route::get('/sign-in', [SigninController::class,'signinroute']);
+        
+    });
 
 
 // Main Routes
-Route::get('/mainhome', [AddCarController::class,'main_allcars'])->middleware('isLoggedIn');
-Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle'])->middleware('isLoggedIn');
+
+
+    Route::middleware(['user-auth-checking'])->group(function () {
+        Route::get('/mainhome', [AddCarController::class,'main_allcars']);
+        Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
+    });
+
 Route::get('/logout', [LoginController::class,'logout']);
+
+});
 
 
 

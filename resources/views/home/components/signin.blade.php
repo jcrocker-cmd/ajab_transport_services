@@ -20,11 +20,11 @@
         <form action="signin" method="post">
 				@csrf
         <div class="signin-fname">
-            <input type="text" name="fname"  placeholder="First Name" value = "{{old('fname')}}">
+            <input type="text" id="upper" name="fname"  placeholder="First Name" onkeyup="lowerupper();" value = "{{old('fname')}}">
             <span class="error-msg">@error('fname') {{$message}} @enderror</span>
         </div>
         <div class="signin-lname">
-            <input type="text" name="lname"  placeholder="Last Name" value = "{{old('lname')}}">
+            <input type="text" id="lower" name="lname"  placeholder="Last Name" onkeyup="lowerupper();" value = "{{old('lname')}}">
             <span class="error-msg">@error('lname') {{$message}} @enderror</span>
         </div>
         <div class="signin-email">
@@ -56,7 +56,7 @@
         <p class="terms">By clicking Sign Up, you agree to our <a href="/terms">Terms</a>, <a href="http://">Privacy Policy </a>and <a href="http://">Cookies Policy.</a><br><br>
         Already a Member? <a href="/log-in">Log In.</a></p>
         
-        <button type="submit" id="login" class="signin-button" onclick="this.classList.toggle('signin-loader')">
+        <button type="submit" class="signin-button" onclick="this.classList.toggle('signin-loader')">
             <span class="button_signin-text">Sign Up</span> 
         </button>
 </form>

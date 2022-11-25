@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('purok')->nullable();
             $table->string('baranggay')->nullable();
             $table->string('town')->nullable();
-            $table->string('city')->nullable();
+            $table->string('province')->nullable();
             $table->string('postal')->nullable();
             $table->string('dailyrate')->nullable();
             $table->string('weeklyrate')->nullable();

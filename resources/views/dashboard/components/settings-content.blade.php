@@ -1,61 +1,66 @@
+@if (session('accountstatus'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('accountstatus') }}</h6>
+@endif
 <section class="settings px-3 py-4">
 
-<h5>Account Settings</h5>
+<h5 class="">Account Settings</h5>
 
 
 <div class="settings-row pt-2 d-flex">
 
-    <form action="/adminpp" method="post">
+    <form enctype="multipart/form-data" action="/adminpp_update/{{ $data->id }}" method="post">
         @csrf
         @method('put')
 
-    <div class="settings-col-1">
+        <div class="settings-col-1">
 
-        <div class="settings-image text-center bg-light px-5 py-4">
+            <div class="settings-image text-center bg-light px-5 py-4">
 
-            <div class ="mb-4 settings-profile">
-                <img src="images/default-user.webp"
-                height="95" width="95" class="rounded-circle" id="change-img" style="object-fit: cover;">
+                <div class ="mb-4 settings-profile">
+                    <img src="/images/adminpp/{{ $data->adminpp }}"
+                    height="95" width="95" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
 
-            </div>
+                </div>
 
                 <div class="">
-                    <p class="fw-bold mb-0">John Christian Narbaja</p>
+                    <p class="fw-bold mb-0">{{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}</p>
                     <p class="text-muted mb-0">Administrator</p>
 
                 </div>
 
-                    <div class="img-button mt-3">
-                        <input type="file" name="adminpp" id="default-btn" accept="image/jpg, image/jpeg, image/png" hidden>
-                        <button onclick ="defaultBtnActive()" type="button" class="btn btn-primary" id="default-btn">Choose Image</button>
-                        <button type="submit" class="btn btn-success" id="default-btn">Save</button>
-                    </div>
-    </form>
-
-        </div>
+                <div class="img-button mt-3">
+                    <input type="file" name="adminpp" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
+                    <button onclick ="addPhoto()" type="button" class="btn btn-primary" id="addphotoBtn">Choose Image</button>
+                    <button type="submit" class="btn btn-success" id="addphotoBtn">Save</button>
+                </div>
     
 
-        
+            </div>
+    </form>
+    
+
+    
         <div class="settings-password  mt-4  bg-light">
 
             <div class="bg-light"><p class="px-2 py-2 settings-title">Edit Password</p></div>
 
 
-                <form action="" method="patch" class="px-3 py-2">
-
+                <form action="/adminpassword_update/{{ $data->id }}" method="patch" class="px-3 py-2">
+                @csrf
+                @method('put')
 
                 <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="Old Password" id="oldPassword">
+                <input type="password" class="form-control border-right-0" placeholder="Old Password" id="oldPassword" name="old_password">
                 <span class="input-group-text"><i class="far fa-eye" id="togglePassword1" style="cursor: pointer;"></i></span>
                 </div>
 
                 <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="New Password" id="newPassword">
+                <input type="password" class="form-control border-right-0" placeholder="New Password" id="newPassword" name="new_password">
                 <span class="input-group-text"><i class="far fa-eye" id="togglePassword2" style="cursor: pointer;"></i></span>
                 </div>
 
                 <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="Confirm Password" id="confirmPassword">
+                <input type="password" class="form-control border-right-0" placeholder="Confirm Password" id="confirmPassword" name="confirm_password">
                 <span class="input-group-text"><i class="far fa-eye" id="togglePassword3" style="cursor: pointer;"></i></span>
                 </div>
 
@@ -81,23 +86,25 @@
 
                 <p class="px-3 mb-2"><strong>Basic Info</strong></p>
 
-                <form action="" class="px-3">
+                <form action="/admininfo_update/{{ $data->id }}" class="px-3" method="post">
+                @csrf
+                @method('put')
 
                 <div class="mb-2 d-flex" style="gap: 20px;" >
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ $adminInfo->admin_fname}}">
+                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_fname}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
-                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ $adminInfo->admin_mname}}">
+                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_mname}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                        <input type="text" name="admin_lname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz">
+                        <input type="text" name="admin_lname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ $data->admin_lname}}">
                     </div>
 
                 </div>
@@ -108,17 +115,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Email</label>
-                        <input type="email" name="admin_email" class="form-control" id="exampleFormControlInput1" placeholder="example@email.com">
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="example@email.com" value="{{ $data->email}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="number" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="09123456789">
+                        <input type="number" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="09123456789" value="{{ $data->admin_no}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Birth-Date</label>
-                        <input type="date" name="admin_bday" class="form-control" id="exampleFormControlInput1">
+                        <input type="date" name="admin_bday" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_bday}}">
                     </div>
 
                 </div>
@@ -130,12 +137,12 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
-                        <input type="email" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1">
+                        <input type="text" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ $data->admin_purok}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Baranggay</label>
-                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador">
+                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ $data->admin_baranggay}}">
                     </div>
                 </div>
 
@@ -145,17 +152,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Town</label>
-                        <input type="text" name="admin_town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion">
+                        <input type="text" name="admin_town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion" value="{{ $data->admin_town}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Province</label>
-                        <input type="text" name="admin_province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City">
+                        <input type="text" name="admin_province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City" value="{{ $data->admin_province}}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-                        <input type="text" name="admin_postal" class="form-control" id="exampleFormControlInput1" placeholder="6001">
+                        <input type="text" name="admin_postal" class="form-control" id="exampleFormControlInput1" placeholder="6001" value="{{ $data->admin_postal}}">
                     </div>
 
                 </div>
@@ -164,12 +171,12 @@
 
                     <div class="mb-2">
                         <label for="exampleFormControlInput1" class="form-label">Facebook Profile URL (Optional)</label>
-                        <input type="text" name="admin_fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile">
+                        <input type="text" name="admin_fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile"  value="{{ $data->admin_fb}}">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">About Me (Optional)</label>
-                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3">{{ $data->admin_about}}</textarea>
                     </div>
 
                     <div class="pb-3 password-button justify-content-right">

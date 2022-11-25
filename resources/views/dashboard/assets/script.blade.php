@@ -6,7 +6,7 @@
     <script src="/comma-separator.js"></script>
     <script src="/search-bar.js"></script>
     <script src="/db-password-showhide.js"></script>
-    <script src="/choosefile-btn.js"></script>
+    <script src="/choosefile-btn-add.js"></script>
     <script src="/scrollreveal.js"></script>
     <script src="/link-ajax.js"></script>
     <script src="/jquery.js"></script>
@@ -17,3 +17,4 @@
     <script src="/pop-up.js"></script>
     <script src="/capitalize-eachword.js"></script>
     <script src="/alert.js"></script>
+    <script src="/submitbtn-loader.js"></script>

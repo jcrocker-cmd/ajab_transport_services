@@ -183,17 +183,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" name="fname" class="form-control" onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="fname" class="form-control" onkeyup="javascript:capitalize(this);" value="{{ $data->admin_fname }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" name="mname" class="form-control" onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="mname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_mname }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" name="lname" class="form-control" onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="lname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_lname }}">
 </div>
 </div>
 
@@ -204,17 +204,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Email</span>
-  <input type="email" aria-label="First name" name="email" class="form-control">
+  <input type="email" aria-label="First name" name="email" class="form-control"  value="{{ $data->email }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Phone No.</span>
-  <input type="number" aria-label="First name" name="phone" class="form-control">
+  <input type="number" aria-label="First name" name="phone" class="form-control"  value="{{ $data->admin_no }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Birth-Date</span>
-  <input type="date" aria-label="First name" name="bday" class="form-control">
+  <input type="date" aria-label="First name" name="bday" class="form-control"  value="{{ $data->admin_bday }}">
 </div>
 </div>
 
@@ -225,12 +225,12 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Purok/Street</span>
-  <input type="text" aria-label="First name" name="purok" class="form-control" onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="purok" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_purok }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="First name" name="baranggay" class="form-control"onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="baranggay" class="form-control"onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_baranggay }}">
 </div>
 </div>
 
@@ -239,18 +239,18 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Town</span>
-  <input type="text" aria-label="First name" name="town" class="form-control" onkeyup="javascript:capitalize(this);">
+  <input type="text" aria-label="First name" name="town" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_town }}">
 </div>
 
 
 <div class="input-group mb-2">
-  <span class="input-group-text">City</span>
-  <input type="text" aria-label="First name" name="city" class="form-control" onkeyup="javascript:capitalize(this);">
+  <span class="input-group-text">Province</span>
+  <input type="text" aria-label="First name" name="province" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ $data->admin_province }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Postal Code</span>
-  <input type="number" aria-label="First name" name="postal" class="form-control">
+  <input type="number" aria-label="First name" name="postal" class="form-control"  value="{{ $data->admin_postal }}">
 </div>
 </div>
 
@@ -322,7 +322,7 @@
 
   <div class="img-button mt-3">
   <input type="file" name="carphoto" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
-  <button onclick ="addCarPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
+  <button onclick ="addPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
   </div>
 
 <div class="addcar-button-group mt-2">

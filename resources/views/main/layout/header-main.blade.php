@@ -45,8 +45,8 @@
     <div class="sub-menu-wrap">
         <div class="sub-menu">
             <div class="user-info">
-                    <h5>John Christian Narbaja</h5>
-                    <span>narbajajc@gmail.com</span>
+                    <div><h5>{{ $data->fname}} {{ $data->lname}}</h5></div>
+                    <div><span>{{ $data->email}}</span></div>
             </div>
             <hr>
 
