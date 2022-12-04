@@ -31,7 +31,6 @@ class SigninController extends Controller
         $signin ->email = $request->input('email');
         $signin ->password = Hash::make($request->input('password'));
         $signin ->bday = $request->input('bday');
-        $signin ->country = $request->get('country');
         $signin ->gender = $request->input('gender');
         $signinsave = $signin ->save();
         if ($signinsave) {

@@ -12,7 +12,7 @@
                 <div class="car-col-1">
 
                 <img src="/images/uploads/{{ $item->carphoto }}"
-                height="230" width="350" class="" id="allcars-img" style="object-fit: cover;"/>
+                 id="allcars-img" style="object-fit: cover;"/>
                 </div>
 
                 <div class="car-col-2">

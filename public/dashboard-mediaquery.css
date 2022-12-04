@@ -42,7 +42,7 @@
     .add-row
     {
         flex-direction: column;
-
+        gap: 0px;
         
     }
     .add-col
@@ -71,6 +71,22 @@
     }
  
 }
+
+@media(max-width: 400px)
+{
+    .addphoto-btn
+    {
+        width: 100%;
+    }
+
+    .addphoto img
+    {
+        height: 230px;
+        width: 100%;
+    }
+ 
+}
+
 
 
 
@@ -104,7 +120,15 @@
     }   
 }
 
-
+@media(max-width: 635px)
+{
+    .edit-profile , .edit-address
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 /* DASHBOARD CARD */
 
 @media(max-width: 575px)
@@ -140,5 +164,33 @@
     {
         flex-direction: column;
         gap: 40px;
+    }
+}
+
+@media(max-width: 450px)
+{
+    .view-car-row img
+    {
+        height: 230px;
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* DASHBOARD LOGIN */
+
+@media(max-width: 450px)
+{
+    .dashboard-login-div
+    {
+        width: 100%;
+    }
+
+    .dashboard-login
+    {
+        padding: 0 80px;
     }
 }

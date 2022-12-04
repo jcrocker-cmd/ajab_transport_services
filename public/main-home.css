@@ -63,13 +63,18 @@
     width: 350px;
     height: 230px;
 }
+
+.car-col-1 img
+{
+    height: 230px;
+    width: 350px;
+}
 .car-col-2
 {
     width: 350px;
     padding: 20px;
     color: #000;
     background-color: #f1f1f1;
-
 }
 
 .car-col-1
@@ -148,5 +153,47 @@
     .all-cars-row
     {
         justify-content: center;
+    }
+}
+
+@media (max-width:800px) {
+    .all-cars-row
+    {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 805px) {
+
+    .all-cars-section
+    {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .car-col-1
+    {
+        width: 100%;
+        height: 230px;
+    }
+
+    .car-col-1 img
+    {
+        height: 230px;
+        width: 100%;
+    }
+    .car-col-2
+    {
+        width: 100%;
+        padding: 20px;
+        color: #000;
+        background-color: #f1f1f1;
+    }
+
+    .car-col-2 h6
+    {
+        font-size: 13px;
     }
 }

@@ -2,7 +2,6 @@
 <div class="table-responsive px-3 pt-4">
     
         <h5 class="pb-4">Rented Cars</h5>
-  <div class="rented-table">
 <table class="table table-hover align-middle mb-0 bg-light">
 <thead class="bg-dark text-white">
     <tr>
@@ -57,5 +56,4 @@
     
   </tbody>
 </table>
-</div>
 </div>

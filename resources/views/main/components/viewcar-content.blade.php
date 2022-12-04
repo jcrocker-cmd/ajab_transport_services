@@ -1,4 +1,4 @@
-<section class="viewcar-section">
+<section class="px-4 viewcar-section">
 
     <!-- CAR SECTION 1 -->
     <section class="d-flex" id="viewcar_section1">
@@ -6,7 +6,7 @@
     <div class="car-photo">
 
         <img src="/images/uploads/{{ $viewcar->carphoto }}"
-        height="250" width="450" class="" id="viewphoto-img" style="object-fit: cover;"/>
+        id="viewphoto-img" style="object-fit: cover;"/>
     </div>
             
     </div>

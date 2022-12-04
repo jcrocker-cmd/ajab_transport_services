@@ -3,7 +3,7 @@
     margin-top: 140px;
     background-color: #fff;
     height: 100%;
-    padding: 50px 80px;
+    /* padding: 50px 80px; */
     /* padding-bottom: 0px; */
     font-family: 'Poppins', sans-serif;
 }
@@ -15,7 +15,7 @@
     /* background-color: #888383; */
     gap: 50px;
 }
-.car-photo
+.view-car-row img
 {
     height: 250px;
     width: 450px;
@@ -159,7 +159,7 @@
 
 /* MEDIA QUERY */
 
-@media (max-width:1130px) {
+@media (max-width: 1130px) {
     #viewcar_section1
     {
         display: flex;
@@ -172,7 +172,7 @@
     }
 }
 
-@media (max-width:805px) {
+@media (max-width: 805px) {
 
     .viewcar-section
     {
@@ -183,17 +183,22 @@
         flex-direction: column;
         gap: 10px;
     }
-    .car-photo , #viewphoto-img
-    {
-        width: 350px;
-    }
 }
 
-@media (max-width:655px) {
+@media (max-width: 655px) {
 
     .viewcar_info
     {
         flex-direction: column;
+    }
+}
+
+@media(max-width: 400px) {
+
+    .view-car-row img
+    {
+        /* height: 250px; */
+        width: 100%;
     }
 }
 

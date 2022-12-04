@@ -317,7 +317,7 @@
 
 <div class="addphoto">
   <img src="images/samplecar.png"
-  height="230" width="350" class="" id="change-img-add" style="object-fit: cover;">
+  id="change-img-add" style="object-fit: cover;">
   </div>
 
   <div class="img-button mt-3">
@@ -325,7 +325,7 @@
   <button onclick ="addPhoto()" type="button" class="btn btn-primary addphoto-btn" id="addphotoBtn">Choose Image</button>
   </div>
 
-<div class="addcar-button-group mt-2">
+<div class="addcar-button-group mt-3">
   <a href="#" class="btn btn-primary add-car-btn addcar-btn-prev" role="button">Previous</a>
   <!-- <a href="#" class="btn btn-primary add-car-btn addcar-btn-next" role="button">Next</a> -->
   <button class="btn btn-primary" type="submit">Submit</button>

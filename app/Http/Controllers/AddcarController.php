@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Models\CarInfo;
-// use App\Models\OwnerInfo;
-// use App\Models\Pricing;
 use App\Models\AddCar;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
@@ -50,24 +47,47 @@ class AddCarController extends Controller
 
     public function db_allvehicles()
     {
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
+        }
         $addcar = AddCar::all();
-        return view ('dashboard.all-vehicles')->with('addcar', $addcar);
+        return view ('dashboard.all-vehicles',compact('data'))->with('addcar', $addcar);
+    }
+
+    public function db_rentedcars()
+    {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        return view('dashboard.rented-cars',compact('data'));
     }
 
     public function db_viewvehicle($id)
     {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
         $addcar = AddCar::find($id);
-        return view ('dashboard.viewcar')->with('addcar', $addcar);
+        return view ('dashboard.viewcar',compact('data'))->with('addcar', $addcar);
     }
 
     public function db_editcar($id)
     {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
         $editcar = AddCar::find($id);
-        return view('dashboard.editcar')->with('editcar', $editcar);
+        return view('dashboard.editcar',compact('data'))->with('editcar', $editcar);
     }
 
     public function db_updatecar(Request $request, $id)
     {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+
         $addcar = AddCar::find($id);
         $input = $request->all();
         if ($image = $request->file('carphoto')) {
@@ -85,7 +105,7 @@ class AddCarController extends Controller
         }
         $addcar->update($input);
         Session::flash('message','You`ve successfully edited your exisiting car!');
-        return view('dashboard.viewcar')->with('addcar', $addcar); 
+        return view('dashboard.viewcar',compact('data'))->with('addcar', $addcar); 
         
         
     }
@@ -101,6 +121,14 @@ class AddCarController extends Controller
         Session::flash('status','You`ve successfully deleted a car!');
         return redirect('/all-vehicles')->with('deletecar', $deletecar); 
 
+    }
+
+    public function db_notification()
+    {
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        return view ('dashboard.notification',compact('data'));
     }
 
     public function save(Request $request)

@@ -1,0 +1,40 @@
+.user-account-section
+{
+    margin-top: 140px;
+    background-color: rgb(168, 164, 164);
+    height: 100%;
+    padding: 50px 80px;
+}
+
+.user-account-wrapper
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-account-wrapper .line
+{
+    height: 100%;
+    width: 5px;
+    background-color: #000;
+}
+
+.user-account-section .info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user-account-section img
+{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
