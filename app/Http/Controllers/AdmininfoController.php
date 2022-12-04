@@ -92,6 +92,23 @@ class AdmininfoController extends Controller
             'new_password'=>'required|min:8|max:20|alphaNum',
             'confirm_password'=>'required|same:new_password',
         ]);
+
+        $data = Admininfo::find($id);
+        $input = $request->all();
+
+        if(Hash::check($request->old_password,$data->password)){
+            
+            $data->update([
+                'password'=>bcrypt($request->new_password)
+            ]);
+
+
+            return view('dashboard.settings',compact('data'))->with('successpassword','Successful password change!');
+
+        } else {
+            return view('dashboard.settings',compact('data'))->with('failpassword','Old password does not matched!');
+        }
+
     }
 
 

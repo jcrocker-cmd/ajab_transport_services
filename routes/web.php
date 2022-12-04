@@ -9,6 +9,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\AdminphotoController;
 // use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\AdmininfoController;
+use App\Http\Controllers\UserinfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         });
         Route::get('/allusers', [SocialiteController::class,'socialite_users']);
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
+        Route::get('/rented', [AddCarController::class,'db_rentedcars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
         Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
         Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
@@ -58,18 +60,9 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::post('/addcar', [AddCarController::class,'save']);
         Route::put('/adminpp_update/{id}', [AdmininfoController::class,'adminpp_update']);
         Route::put('/admininfo_update/{id}', [AdmininfoController::class,'admininfo_update']);
-        Route::put('/adminpassword_update/{id}', [AdmininfoController::class,' adminpassword_update']);
-
-        Route::get('/rented', function () {
-            return view('dashboard.rented-cars');
-        });
-
+        Route::put('/adminpassword_update/{id}', [AdmininfoController::class,'adminpassword_update']);
         Route::get('/add', [AddCarController::class,'addcar_route']);
-
-
-        Route::get('/notification', function () {
-            return view('dashboard.notification');
-        });
+        Route::get('/notification', [AddCarController::class,'db_notification']);
     });
 
 
@@ -99,6 +92,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
     Route::middleware(['user-auth-checking'])->group(function () {
         Route::get('/mainhome', [AddCarController::class,'main_allcars']);
         Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
+        Route::get('/account', [UserinfoController::class,'user_accountroute']);
     });
 
 Route::get('/logout', [LoginController::class,'logout']);

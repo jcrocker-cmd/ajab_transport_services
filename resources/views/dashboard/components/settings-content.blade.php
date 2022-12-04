@@ -1,6 +1,15 @@
 @if (session('accountstatus'))
   <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('accountstatus') }}</h6>
 @endif
+
+@if (session('successpassword'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('successpassword') }}</h6>
+@endif
+
+@if (session('failpassword'))
+  <h6 class="alert alert-danger my-0" id="myAlert" style="font-size: 14px;">{{ session('failpassword') }}</h6>
+@endif
+
 <section class="settings px-3 py-4">
 
 <h5 class="">Account Settings</h5>
@@ -45,28 +54,42 @@
             <div class="bg-light"><p class="px-2 py-2 settings-title">Edit Password</p></div>
 
 
-                <form action="/adminpassword_update/{{ $data->id }}" method="patch" class="px-3 py-2">
+                <form action="/adminpassword_update/{{ $data->id }}" method="post" class="px-3 py-2">
                 @csrf
                 @method('put')
-
-                <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="Old Password" id="oldPassword" name="old_password">
-                <span class="input-group-text"><i class="far fa-eye" id="togglePassword1" style="cursor: pointer;"></i></span>
+                <div class="mb-3 old_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="Old Password" id="oldPassword" name="old_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword1" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('old_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('old_password')}}</p>
+                    @endif
                 </div>
 
-                <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="New Password" id="newPassword" name="new_password">
-                <span class="input-group-text"><i class="far fa-eye" id="togglePassword2" style="cursor: pointer;"></i></span>
+                <div class="mb-3 new_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="New Password" id="newPassword" name="new_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword2" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('new_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('new_password')}}</p>
+                    @endif
                 </div>
 
-                <div class=" mb-3  input-group">
-                <input type="password" class="form-control border-right-0" placeholder="Confirm Password" id="confirmPassword" name="confirm_password">
-                <span class="input-group-text"><i class="far fa-eye" id="togglePassword3" style="cursor: pointer;"></i></span>
+                <div class="mb-3 confirm_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="Confirm Password" id="confirmPassword" name="confirm_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword3" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('confirm_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('confirm_password')}}</p>
+                    @endif
                 </div>
 
 
                 <div class="mb-2 password-button justify-content-right">
-                <button type="button" class="btn btn-success" id="default-btn">Update</button>
+                <button type="submit" class="btn btn-success" id="default-btn">Update</button>
                 </div>
 
                 </form>
@@ -90,7 +113,7 @@
                 @csrf
                 @method('put')
 
-                <div class="mb-2 d-flex" style="gap: 20px;" >
+                <div class="mb-2 d-flex edit-profile">
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
@@ -111,7 +134,7 @@
 
                 
 
-                <div class="mb-2 d-flex" style="gap: 20px;" >
+                <div class="mb-4 d-flex edit-profile">
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Email</label>
@@ -133,7 +156,7 @@
 
                 <p class=" mb-2"><strong>Address</strong></p>
 
-                <div class="mb-2 d-flex" style="gap: 20px;" >
+                <div class="mb-2 d-flex edit-address">
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
@@ -148,7 +171,7 @@
 
                 
 
-                <div class="mb-2 d-flex" style="gap: 20px;" >
+                <div class="mb-2 d-flex edit-address">
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Town</label>

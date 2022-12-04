@@ -90,8 +90,8 @@
       </button>
 
           <div class="dropdown">
-          <img src="user.jpg" alt=""
-            style="height: 35px; width: 35px;" 
+          <img src="/images/adminpp/{{ $data->adminpp }}" alt=""
+            style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" 
             class="rounded-circle">
 
             <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

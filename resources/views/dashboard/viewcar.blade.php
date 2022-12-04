@@ -50,7 +50,7 @@
 
     <ul class="list-unstyled px-2">
 
-    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-sign-out" style="margin-right: 10px;"></i>  Log Out</a></li>
+    <li class=""><a href="/adminlogout" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-sign-out" style="margin-right: 10px;"></i>  Log Out</a></li>
       
     </ul>
 
@@ -91,17 +91,17 @@
       </button>
 
           <div class="dropdown">
-          <img src="/user.jpg" alt=""
-            style="height: 35px; width: 35px;" 
+          <img src="/images/adminpp/{{ $data->adminpp }}" alt=""
+            style="height: 35px; width: 35px;object-fit: cover; border: 0.5px solid #000;" 
             class="rounded-circle">
 
             <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              John Christian
+            {{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}
             </button>
             
               <ul class="dropdown-menu dropdown-menu-lg-end account-dropdowns" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                <li><a class="dropdown-item" href="#">Log-out</a></li>
+                <li><a class="dropdown-item" href="/adminlogout">Log-out</a></li>
               </ul>
             </div>
         </li>

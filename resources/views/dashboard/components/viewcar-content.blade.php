@@ -8,7 +8,7 @@
         <div class="car-photo">
 
             <img src="/images/uploads/{{ $addcar->carphoto }}"
-            height="230" width="400" class="" id="addphoto-img" style="object-fit: cover;"/>
+             class="" id="addphoto-img" style="object-fit: cover;"/>
         </div>
             
     </div>

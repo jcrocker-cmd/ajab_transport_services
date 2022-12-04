@@ -4,25 +4,9 @@
     <h2 class="fs-3 pb-4">All Notifications</h2>
 
 
-<div class="d-flex justify-content-between">
-    <div class="mb-3 notif-col-1">
-<select class="form-select rounded-pill justify-content-start" style="width: 70px;" name="seats" aria-label="Default select example">
-  <option value="1">10</option>
-  <option value="2">20</option>
-  <option value="3">30</option>
-</select>
-</div>
-
-<div class="mb-3 notif-col-2 justify-content-end input-group">
-  <input type="search" id="search" name="mileage" class="form-control search-input"  id="exampleFormControlInput1" placeholder="Search">
-  <span class="input-group-text bg-success search-span"><i class="fas fa-search text-white"></i></span>
-</div>
-
-</div>
-
-
 <div class="dashboard-table">
-<table class="table table-hover align-middle mb-0 bg-light" id="notif-search">
+  
+<table  id="dbTable" class="table table-striped" style="width:100%">
 <thead class="bg-light">
 <tr id="notif-head">
   <th scope="col">Person</th>
@@ -58,14 +42,6 @@
 
     </div>
   </td>
-  </tr>
-
-  <tr class="file">
-    <td colspan="4" class="text-center"> ZZZZZZZZZ</td>
-  </tr>
-
-  <tr>
-    <td colspan="4" class="text-center" id="tr-none"> NO RESULTS FOUND</td>
   </tr>
 
 </tbody>

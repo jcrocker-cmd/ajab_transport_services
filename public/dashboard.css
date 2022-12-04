@@ -206,11 +206,10 @@ input.purok
     width: 350px;
 }
 
-/* VALIDATION */
-.brand span
+.addphoto img
 {
-    color: rgb(232, 13, 13);
-    font-size: 12px;
+    height: 230px;
+    width: 350px;
 }
 
 
@@ -321,6 +320,7 @@ input.purok
     height: 100vh;
     font-weight: 700;
     background-color: #ecf0f3;
+    /* padding: 0 20px; */
 
 }
 
@@ -328,11 +328,12 @@ input.purok
 {
     font-family: 'Poppins', sans-serif;
     width: 450px;
+    padding: 60px 35px;
+    margin: auto;
     /* height: 600px; */
     position: absolute;
     top: 50%;
     left: 50%;
-    padding: 60px 35px;
     transform: translate(-50%, -50%);
     border-radius: 40px;
     background-color: #ecf0f3;
@@ -341,6 +342,10 @@ input.purok
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
 .dashboard-logo
@@ -399,7 +404,7 @@ input.purok
 .fields i
 {
     font-size: 16px;
-    margin: 13px 10px 0px 25px;
+    margin: 11px 10px 0px 25px;
     color: #555;
     align-items: center;
     display: flex;
@@ -573,17 +578,18 @@ input.purok
     color: rgb(190, 25, 25);
 }
 
-/* .actions button
-{
-    font-size: 13px;
-    width: 70px;
-    margin-right: 10px;
-} */
-
 .all-vehicles-section table , .all-vehicles-section thead
 {
     font-size: 14px;
 }
+
+.view-car-row img
+{
+    height: 230px;
+    width: 400px;
+}
+
+
 
 
 
@@ -618,6 +624,7 @@ input.purok
     flex-basis: 70%;
 }
 
+
 .settings-image , .settings-password , .settings-edit-profile
 {
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
@@ -641,20 +648,10 @@ input.purok
     border: 0.5px solid #000;
 }
 
-/* #togglePassword
+.edit-profile , .edit-address
 {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}    */
+    gap: 20px;
+}
 #togglePassword
 {
     font-size: 10px;
@@ -662,12 +659,6 @@ input.purok
 
 
 /* RENTED CARS */
-.rented-table
-{
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
-}
 
 
 /* VIEW CAR */
