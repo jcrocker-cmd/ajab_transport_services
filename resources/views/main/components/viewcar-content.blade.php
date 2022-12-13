@@ -1,4 +1,4 @@
-<section class="px-4 viewcar-section">
+<section class="viewcar-section">
 
     <!-- CAR SECTION 1 -->
     <section class="d-flex" id="viewcar_section1">
@@ -49,10 +49,10 @@
                             <span>ADD TO CART</span>
                         </button>
 
-                        <button type="button" class="btn-checkout">
+                        <a href="/bookingforms/{{ $viewcar->id }}" type="button" class="btn-checkout text-decoration-none">
                             <span><i class="fas fa-caret-right"></i></span>
                             <span>CHECKOUT</span>
-                        </button>
+                        </a>
                     </div>
                     
 

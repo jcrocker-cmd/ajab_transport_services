@@ -1,8 +1,8 @@
 
-<div class="table-responsive px-3 pt-4">
+<div class="table-responsive table-hover px-3 pt-4">
     
         <h5 class="pb-4">Rented Cars</h5>
-<table class="table table-hover align-middle mb-0 bg-light">
+<table class="table table-hover align-middle mb-0 bg-light" id="dbTable">
 <thead class="bg-dark text-white">
     <tr>
       <th scope="col">Renter</th>

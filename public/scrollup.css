@@ -11,7 +11,7 @@
     position: fixed;
     border-radius: 50%;
     right: 20px;
-    bottom: -20%;
+    bottom: 20px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
     transition: .6s;
     z-index: 2;
@@ -26,5 +26,5 @@
   /* Show scroll */
   .show-scroll {
     /* bottom: 100px; */
-    bottom: 20%;
+    bottom: 40px;
   }

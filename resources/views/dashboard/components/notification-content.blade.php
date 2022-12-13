@@ -6,7 +6,7 @@
 
 <div class="dashboard-table">
   
-<table  id="dbTable" class="table table-striped" style="width:100%">
+<table id="dbTable" class="table table-striped table-hover" style="width:100%">
 <thead class="bg-light">
 <tr id="notif-head">
   <th scope="col">Person</th>
@@ -35,8 +35,7 @@
     <span class="badge bg-success rounded-pill">ACTIVE</span>
   </td>
   <td>
-    <div class=
-    ''>
+    <div>
         <p class="fw-bold mb-1">12-07-22</p>
         <p class="text-muted mb-0">1 Minute Ago</p>
 

@@ -31,13 +31,13 @@
 
   <div class="admin-email" >
     <i class="far fa-user"></i>
-    <input type="text" name="email"  placeholder="Email" value ="{{ old('email') }}">
+    <input type="text" name="email"  placeholder="Email" value ="{{ old('email') }}" autocomplete="off">
   </div>
 
   <div class="admin-password">
     <i class="far fa-lock-alt"></i>
-    <input type="password" name="password" placeholder="Password">
-    <i class="fa fa-eye-alt"></i>
+    <input type="password" name="password" placeholder="Password" id="dbPassword" onkeyup="return showhideIcon()">
+    <i class="far fa-eye" id="dbTogglePassword" style="cursor: pointer;"></i>
   </div>
 
 

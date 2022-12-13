@@ -1,6 +1,6 @@
 #signin
 {
-    padding-top: 120px;
+    padding-top: 150px;
     padding-bottom: 150px;
 
    
@@ -188,5 +188,63 @@
         -ms-transform: rotate(1turn);
         -o-transform: rotate(1turn);
 } 
+
+}
+
+
+  /* SIGNGIN MEDIAQUERY */
+
+
+  @media(max-width: 800px)
+{
+   .signin-col-2
+   {
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);     
+    }
+
+   #signin
+    {
+    padding: 150px 20px;
+
+    }
+
+    .username input , .password input , .button_login
+    {
+        font-size: 13px;
+    }
+
+}
+
+@media only screen and (max-width:800px)
+
+/* SIGNIN */
+
+{
+
+    .signin-col-1
+    {
+        display: none;
+    }
+
+}
+
+
+  @media(max-width: 400px)
+{
+   
+    .signin-password input , .signin-fname input , .signin-lname input ,
+    .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
+    {
+        font-size: 13px;
+    }
 
 }

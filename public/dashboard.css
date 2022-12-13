@@ -320,8 +320,7 @@ input.purok
     height: 100vh;
     font-weight: 700;
     background-color: #ecf0f3;
-    /* padding: 0 20px; */
-
+    padding: 100px 20px;
 }
 
 .dashboard-login-div
@@ -331,10 +330,10 @@ input.purok
     padding: 60px 35px;
     margin: auto;
     /* height: 600px; */
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     border-radius: 40px;
     background-color: #ecf0f3;
     box-shadow: 13px 13px 20px #cbced1,    -10px 10px 15px #fff;
@@ -342,10 +341,10 @@ input.purok
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
-    -webkit-transform: translate(-50%, -50%);
+    /* -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%); */
 }
 
 .dashboard-logo
@@ -357,7 +356,7 @@ input.purok
 .dashboard-login-title
 {
     font-size: 18px;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 25px;
     letter-spacing: 3px;
     text-align: center;
@@ -384,9 +383,9 @@ input.purok
 .fields input:-webkit-autofill:hover,
 .fields input:-webkit-autofill:active,
 .fields input:-webkit-autofill:focus {
-    background: none !important;
-    color: #555 !important;
-    -webkit-text-fill-color: #555555 !important;
+   background: none;
+    
+    -webkit-text-fill-color: #555 !important;
 }
 /* .fields input:-webkit-autofill{
     color: #2a2a2a !important;
@@ -409,6 +408,21 @@ input.purok
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.fields .fa-eye
+{
+    font-size: 16px;
+    margin: 11px 20px 0px 0px;
+    color: #555;
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    transition: ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
+    -moz-transition: ease-in-out 0.5s;
+    -ms-transition: ease-in-out 0.5s;
+    -o-transition: ease-in-out 0.5s;
 }
 .admin-email , .admin-password
 {
@@ -770,22 +784,6 @@ input.purok
     -o-transition: 0.5s;
 }
 
-
-/* .pop-up
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    background: #000;
-    color: #fff;
-    padding: 10px;
-    visibility: hidden;
-} */
 
 .timestamp
 {

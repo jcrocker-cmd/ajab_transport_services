@@ -1,30 +1,103 @@
+.main-user-account-section
+{
+    margin-top: 145px;
+    height: 100%;
+    width: 100%;
+}
+
+/* MAIN USER ACCOUNT 1 */
+
 .user-account-section
 {
-    margin-top: 140px;
-    background-color: rgb(168, 164, 164);
+    background-color: rgb(241, 240, 240);
+    padding: 40px 80px;
     height: 100%;
-    padding: 50px 80px;
+    width: 100%;
 }
 
 .user-account-wrapper
 {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    gap: 50px;
+    width: 100%;
 }
 
 .user-account-wrapper .line
 {
-    height: 100%;
-    width: 5px;
+    height: 200px;
+    width: 3px;
     background-color: #000;
+    align-items: center;
 }
 
-.user-account-section .info
+.user-account-wrapper .info
 {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 100px;
+}
+
+.info .timestamp
+{
+    font-size: 13px;
+    font-style: italic;
+}
+
+.account-settings-buttons
+{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.account-settings-buttons .btn-edit
+{
+    color: rgb(0, 38, 253);
+    border: 1px solid rgb(0, 38, 253);
+}
+
+.account-settings-buttons .btn-edit-pass
+{
+    color: #D7A717;
+    border: 1px solid #D7A717;
+
+}
+
+.account-settings-buttons .btn-edit , .account-settings-buttons .btn-edit-pass
+{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.account-settings-buttons .btn-edit:hover
+{
+    background-color: rgb(0, 38, 253);
+    color: #fff;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.account-settings-buttons .btn-edit-pass:hover
+{
+    background-color: #D7A717;
+    color: #fff;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
 
 .user-account-section img
@@ -38,3 +111,71 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
+
+@media only screen and (max-width:1016px)
+
+{
+
+    .user-account-wrapper .info
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media (max-width:805px) 
+{
+    .main-user-account-section
+    {
+        margin-top: 86px;
+    }
+}
+
+@media (max-width:780px) 
+{
+    .user-account-wrapper
+    {
+        flex-direction: column;
+    }
+
+    .user-account-wrapper
+    {
+       align-items: flex-start;
+    }
+
+    .user-account-wrapper img
+    {
+        margin: auto;
+    }
+
+    .user-account-wrapper .line
+    {
+        height: 3px;
+        width: 100%;
+    }
+
+    .account-settings-buttons
+    {
+        justify-content: start;
+    }
+}
+
+@media (max-width:540px) 
+{
+    .user-account-section
+    {
+        padding: 40px 20px;
+    }
+}
+
+
+/* MAIN USER ACCOUNT 2 */
+
+.user-account-section2
+{
+    padding: 40px 80px;
+    height: 100%;
+    width: 100%;
+}
+
+

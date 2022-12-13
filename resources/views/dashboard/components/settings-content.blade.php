@@ -117,17 +117,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_fname}}">
+                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_fname}}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
-                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_mname}}">
+                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ $data->admin_mname}}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                        <input type="text" name="admin_lname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ $data->admin_lname}}">
+                        <input type="text" name="admin_lname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ $data->admin_lname}}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                 </div>
@@ -160,12 +160,12 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
-                        <input type="text" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ $data->admin_purok}}">
+                        <input type="text" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ $data->admin_purok}}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Baranggay</label>
-                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ $data->admin_baranggay}}">
+                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ $data->admin_baranggay}}" onkeyup="javascript:capitalize(this);">
                     </div>
                 </div>
 

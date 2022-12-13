@@ -20,11 +20,11 @@
         <form action="signin" method="post">
 				@csrf
         <div class="signin-fname">
-            <input type="text" id="upper" name="fname"  placeholder="First Name" onkeyup="lowerupper();" value = "{{old('fname')}}">
+            <input type="text" id="upper" name="fname"  placeholder="First Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('fname')}}">
             <span class="error-msg">@error('fname') {{$message}} @enderror</span>
         </div>
         <div class="signin-lname">
-            <input type="text" id="lower" name="lname"  placeholder="Last Name" onkeyup="lowerupper();" value = "{{old('lname')}}">
+            <input type="text" id="lower" name="lname"  placeholder="Last Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('lname')}}">
             <span class="error-msg">@error('lname') {{$message}} @enderror</span>
         </div>
         <div class="signin-email">
