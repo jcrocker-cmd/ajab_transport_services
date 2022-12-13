@@ -13,7 +13,7 @@
 
 <div class="table-responsive px-3 pb-3">
 
-<table class="table align-middle mb-0 bg-light" id="dbTable">
+<table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
 <thead class="table table-dark">
 <tr>
   <th scope="col" class="col-3">Owner</th>

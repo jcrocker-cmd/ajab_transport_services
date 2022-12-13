@@ -1,3 +1,4 @@
+
 // DASHBOARD OLD PASSWORD
 
 const togglePassword1 = document.querySelector('#togglePassword1');

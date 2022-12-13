@@ -38,7 +38,7 @@
                         <span>ADD TO CART</span>
                     </button>
 
-                    <button type="button" class="btn-checkout">
+                    <button href="/bookingforms/{{ $item->id }}" class="btn-checkout">
                         <span>CHECKOUT</span>
                     </button>
                     </div>

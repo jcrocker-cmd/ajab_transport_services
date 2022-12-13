@@ -51,7 +51,7 @@
             <hr>
 
         
-        <a href="#" class="sub-menu-link">
+        <a href="/account" class="sub-menu-link">
             <img src="images/profile/profile.png">
             <p>My Profile</p>
         </a>

@@ -93,6 +93,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/mainhome', [AddCarController::class,'main_allcars']);
         Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
         Route::get('/account', [UserinfoController::class,'user_accountroute']);
+        Route::get('/bookingforms/{id}', [UserinfoController::class,'booking_route']);
     });
 
 Route::get('/logout', [LoginController::class,'logout']);

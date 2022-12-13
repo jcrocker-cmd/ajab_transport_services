@@ -14,17 +14,22 @@
 
 <!-- PRELOADER -->
 
+<div class="loader-wrapper" id="loads">
+<span class="loader"><span class="loader-inner"></span></span>
+</div> -->
 
-    @yield('content')
 
-    <!-- <script>
-        $(window).on("load",function(){
-          $(".container").fadeOut("slow");
-        });
-    </script> -->
-    @yield('script')
+@yield('content')
 
-    
+
+@yield('script')
+
+<script>
+    $(window).on("load",function(){
+        $(".loader-wrapper").delay(1000).fadeIn("slow").fadeOut("slow");
+    });
+</script>
+
 </body>
 
 </html>

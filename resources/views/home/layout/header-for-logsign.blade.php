@@ -1,5 +1,5 @@
 
-<header id="header">
+<header id="header-for-logsign">
      <nav>
      <div class="header-col-1 ">
         <a href="/" class="brand"><img src="images/LOGO.png" class="logo"></a>
