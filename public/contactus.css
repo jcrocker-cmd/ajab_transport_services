@@ -79,7 +79,7 @@
     outline: none;
     padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 
 
 }
@@ -92,6 +92,7 @@
     color: #fff;
     height: 35px;
     border-radius: 30px;
+    margin-top: 20px;
 
 }
 

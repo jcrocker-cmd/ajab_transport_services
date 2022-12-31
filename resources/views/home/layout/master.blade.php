@@ -12,15 +12,23 @@
 
 <a href="#" class="scrollup" id="scroll-up"><i class="fas fa-arrow-up"></i></a>
 
+
+
 <!-- PRELOADER -->
 
 <div class="loader-wrapper" id="loads">
 <span class="loader"><span class="loader-inner"></span></span>
-</div> -->
+</div>
+
 
 
 @yield('content')
 
+@if (session('message'))
+<div class="bg-success text-white request-alert" id="myAlert">
+{{ session('message') }}
+</div>
+@endif
 
 @yield('script')
 

@@ -28,3 +28,15 @@
     /* bottom: 100px; */
     bottom: 40px;
   }
+
+  .request-alert
+  {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    transition: .6s;
+    z-index: 2;
+    padding: 5px 10px;
+    font-size: 12px;
+  }

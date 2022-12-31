@@ -143,7 +143,5 @@ class AddCarController extends Controller
         AddCar::create($addcar);
         return redirect('/add')->with('status', 'You`ve Successfully Added a New Car!');  
 
-
-
     }
 }

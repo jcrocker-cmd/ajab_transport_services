@@ -9,16 +9,19 @@
         
         <div class="contact-col-1">
             <h4 class="mb-3">Send your Request</h4>
-            <form action="" method="post">
+            <form action="{{ route('send.email') }}" method="post">
+            @csrf
                 <div class="contact-input-row">
                     <div class="contact-input-group">
                         <label>Name</label>
-                        <input type="text" name="" id="" >
+                        <input type="text" name="name" id="" >
+                        <span class="error-msg">@error('name') {{$message}} @enderror</span>
                     </div>
 
                     <div class="contact-input-group">
                         <label class="phone">Phone</label>
-                        <input type="text" name="" id="" >
+                        <input type="text" name="phone" id="" >
+                        <span class="error-msg">@error('phone') {{$message}} @enderror</span>
                     </div>
                 </div>
 
@@ -26,17 +29,20 @@
                 <div class="contact-input-row">
                     <div class="contact-input-group">
                         <label>Email</label>
-                        <input type="email" name="" id="" >
+                        <input type="email" name="email" id="" >
+                        <span class="error-msg">@error('email') {{$message}} @enderror</span>
                     </div>
 
                     <div class="contact-input-group">
                         <label class="subject">Subject</label>
-                        <input type="text" name="" id="" >
+                        <input type="text" name="subject" id="" >
+                        <span class="error-msg">@error('subject') {{$message}} @enderror</span>
                     </div>
                 </div>
                         <div class="contactus-text">
                         <label class="mb-3">Message</label>
-                        <textarea name="" id="" rows="5" ></textarea>
+                        <textarea name="content" id="" rows="5" ></textarea>
+                        <span class="error-msg">@error('content') {{$message}} @enderror</span>
                         </div>
 
                         <div class="contactus-button">
