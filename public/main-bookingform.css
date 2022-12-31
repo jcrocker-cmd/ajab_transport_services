@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1&display=swap');
+
 /* BOOKING FORMS */
 .booking-form-section
 {
@@ -21,6 +24,8 @@
 .booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
 {
     margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -46,7 +51,8 @@
 
 .booking-form-buttons button.active
 {
-    background-color: #0D6EFC;
+    background-color: #198754;
+    font-weight: 600;
     color: #fff;
     border: none;
     outline: none;
@@ -222,4 +228,10 @@
     font-size: 13px;
     padding: 10px 10px;
     margin-bottom: 30px;
+}
+
+.agreement
+{
+    margin-bottom: 15px;
+    font-size: 14px;
 }

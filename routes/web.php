@@ -7,9 +7,11 @@ use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\AdminphotoController;
-// use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\AdmininfoController;
 use App\Http\Controllers\UserinfoController;
+use App\Http\Controllers\EmailRequestController;
+use App\Http\Controllers\BookingformsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -79,11 +81,15 @@ Route::middleware(['preventBackHistory'])->group(function () {
         return view('home.homepage');
     });
 
+    Route::post('/email', [EmailRequestController::class, 'sendEmail'])->name('send.email');
+
     Route::middleware(['user-already-loggedin'])->group(function () {
         Route::get('/log-in', [LoginController::class,'loginroute']);   
         Route::get('/sign-in', [SigninController::class,'signinroute']);
         
     });
+
+
 
 
 // Main Routes
@@ -94,6 +100,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
         Route::get('/account', [UserinfoController::class,'user_accountroute']);
         Route::get('/bookingforms/{id}', [UserinfoController::class,'booking_route']);
+        Route::post('/bookingformsubmit', [BookingformsController::class,'booking_submit'])->name('book.submit');
     });
 
 Route::get('/logout', [LoginController::class,'logout']);

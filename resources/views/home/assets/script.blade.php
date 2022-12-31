@@ -6,4 +6,5 @@
 <script src="navbar-sticky.js"></script>
 <script src="typewriter.js"></script>
 <script src="/scrollup.js"></script>
+<script src="/alert-for-request.js"></script>
 
