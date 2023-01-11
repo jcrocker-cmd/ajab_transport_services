@@ -105,6 +105,8 @@
     border: 1px solid #bcbcbc;
     border-radius: 10px;
     background-color: #fff;
+    text-decoration: none;
+    color: #000;
 
 
 }
@@ -135,6 +137,7 @@
     display: flex;
     width: 100%;
     gap: 20px;
+    /* justify-content: end; */
 }
 
 /* HOVER */

@@ -11,6 +11,8 @@ run command:
 <!-- RUN YOUR FIRST PROJECT WITH ONE COMMAND -->
 'make init'
 
+OR
+
 #Run your project in step by step command (Steps Below!)
 
 <!-- Copy env example  -->
@@ -27,5 +29,6 @@ run command:
 
 
 ###### NOTE ######
-THIS COMMANDS ARE FOUND IN MAKEFILE INSIDE YOUR LARAVAL PROJECT
+THIS COMMANDS ARE FOUND IN MAKEFILE INSIDE YOUR LARAVEL PROJECT
 YOU CAN INTEGRATE ANOTHER COMMAND IF NEEDED.
+

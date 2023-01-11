@@ -8,7 +8,8 @@
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
     <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-        <h1 class="fs-4 text-white px-3">   You-Drive</h1>
+        <!-- <h1 class="fs-4 text-white px-3">   You-Drive</h1> -->
+        <img src="/images/LOGOwhite.png" class="sidebar-logo px-3 py-2" alt="Comapny Logo">
         <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="far fa-stream"></i></button>
     </div>
     

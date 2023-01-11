@@ -2,7 +2,7 @@
 
 
 <div class="dashboard-login-div ">
-<div class="text-center pb-2"><img src="/images/LOGO.png" class="dashboard-logo" alt="Comapny Logo"></div>
+<div class="text-center pb-2"><img src="/images/LOGO.png" class="dashboard-logo" alt="Company Logo"></div>
 <div class="dashboard-login-title">You Drive Admin</div>
 
 

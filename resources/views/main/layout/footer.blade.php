@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-row">
         <div class="footer-col">
-            <img src="images/LOGO-WHITE.png" alt="Youdrive" class="footer-logo">
+            <img src="/images/LOGOxwhitefooter.png" alt="Youdrive" class="footer-logo">
             <p class="pr-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime vitae, perferendis, adipisci optio repudiandae dolorem quis eum dicta amet.</p>
         </div>
         

@@ -35,7 +35,7 @@
 
                     <div class="contact-input-group">
                         <label class="subject">Subject</label>
-                        <input type="text" name="subject" id="" >
+                        <input type="text" name="subject" oninput="this.value = this.value.toUpperCase()">
                         <span class="error-msg">@error('subject') {{$message}} @enderror</span>
                     </div>
                 </div>
@@ -58,9 +58,9 @@
                 <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                 <div class="text">
                     <h4>Address</h4>
-                    <p>Barrangay Salvador, Purok 2<br>
-                         Sierra Bullones, Bohol<br>
-                        Philippines, 6320
+                    <p>Lot 9 Blk 6 Windfields Subdivision <br>
+                        Danglag, Consolacion City, Cebu<br>
+                        Philippines, 6001
                     </p>
                 </div>
             </div>
