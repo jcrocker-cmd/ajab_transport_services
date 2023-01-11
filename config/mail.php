@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', ''),
+        'address' => env('MAIL_FROM_ADDRESS', 'ajabcarrentalcebu@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'AJAB Services Website'),
     ],
 
     /*

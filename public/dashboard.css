@@ -78,6 +78,11 @@ hr.hr-2
     color: #fff;
 } */
 
+.sidebar-logo
+{
+    width: 150px;
+}
+
 .sidebar li a
 {
     color: #fff;

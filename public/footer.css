@@ -18,7 +18,7 @@ footer
 }
 .footer-logo
 {
-    width: 110px;
+    width: 150px;
     margin-bottom: 30px;
 
 }
@@ -39,7 +39,11 @@ footer
     /* width: 25%; */
     /* padding: 10px; */
 }
-.footer-col:nth-child(2) , .footer-col:nth-child(3)
+.footer-col:nth-child(2)
+{
+    flex-basis: 20%;
+}
+.footer-col:nth-child(3)
 {
     flex-basis: 15%;
 }

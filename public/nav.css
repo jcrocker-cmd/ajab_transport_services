@@ -6,7 +6,7 @@ header
 }
 .logo
 {
-    width: 150px;
+    width: 130px;
     
 }
 nav{
@@ -31,6 +31,10 @@ nav{
 {
     gap: 40px;
     /* width: 500px; */
+}
+.header-col-1 .logo
+{
+    width: 150px;
 }
 .header-col-middle
 {
@@ -96,6 +100,12 @@ nav .far
     display: none;
 }
 
+.view-rental-btn
+{
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 10px;
+}
 
 
 @media (max-width:1000px) {

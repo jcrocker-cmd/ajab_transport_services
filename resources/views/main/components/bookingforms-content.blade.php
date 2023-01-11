@@ -36,8 +36,8 @@
 
                         <div style="width: 100%;">
                             <label class="form-label">Contact Number</label>
-                            <input type="text" name="con-num" placeholder="Enter phone no." value="" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger"style="font-size: 13px;">@error('con-num') {{$message}} @enderror</span>
+                            <input type="number" name="con_num" placeholder="Enter phone no." value="" onkeyup="javascript:capitalize(this);">
+                            <span class="text-danger"style="font-size: 13px;">@error('con_num') {{$message}} @enderror</span>
                         </div>
 
                     </div>
@@ -46,14 +46,14 @@
 
                         <div style="width: 100%;">
                             <label class="form-label">Address</label>
-                            <input type="text" name="address" placeholder="Enter Address" value="{{ $data->admin_lname}}" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger"style="font-size: 13px;">@error('adrress') {{$message}} @enderror</span>
+                            <input type="text" name="address" placeholder="Enter Address" value="">
+                            <span class="text-danger"style="font-size: 13px;">@error('address') {{$message}} @enderror</span>
                         </div>
 
                         <div style="width: 100%;">
                             <label class="form-label">Contact Email</label>
-                            <input type="text" name="con-email" placeholder="Enter Email" value="{{ $data->email}}" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger"style="font-size: 13px;">@error('con-email') {{$message}} @enderror</span>
+                            <input type="email" name="con_email" placeholder="Enter Email" value="{{ $data->email}}" onkeyup="javascript:capitalize(this);">
+                            <span class="text-danger"style="font-size: 13px;">@error('con_email') {{$message}} @enderror</span>
                         </div>
 
                     </div>
@@ -66,7 +66,7 @@
                         
                         <h6>3. I accept this requirements Cashbond ₱2,000 fully refundable upon returning the car.</h6>
                         <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault">
                             ₱2,000
                         </label>
@@ -84,35 +84,36 @@
 
                             <div class="d-flex mode-of-delivery">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                    <label class="form-check-label" for="exampleRadios1">
+                                    <input class="form-check-input" type="radio" name="mode_del" id="opt1" value="Airport ₱500">
+                                    <label class="form-check-label" for="opt1">
                                         Airport ₱500
                                     </label>
                                 </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <label class="form-check-label" for="exampleRadios1">
+                                <input class="form-check-input" type="radio" name="mode_del" id="opt2" value="Cebu City ₱300">
+                                <label class="form-check-label" for="opt2">
                                     Cebu City ₱300
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                <input class="form-check-input" type="radio" name="mode_del" id="opt3" value="Mandaue City ₱350">
+                                <label class="form-check-label" for="opt3">
                                     Mandaue City ₱350
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <label class="form-check-label" for="exampleRadios1">
+                                <input class="form-check-input" type="radio" name="mode_del" id="opt4" value="Talisay City ₱500">
+                                <label class="form-check-label" for="opt4">
                                     Talisay City ₱500
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                <label class="form-check-label" for="exampleRadios1">
+                                <input class="form-check-input" type="radio" name="mode_del" id="opt5" value="Pick-up at Marcopolo Hotel ₱10">
+                                <label class="form-check-label" for="opt5">
                                     Pick-up at Marcopolo Hotel ₱10
                                 </label>
                             </div>
@@ -123,12 +124,12 @@
 
                     <div style="width: 100%; margin-bottom: 20px;">
                         <label class="form-label"><strong>Leave a Message</strong><span style="font-size: 13px;"> (Optional)</span></label>
-                        <textarea name="" id="" rows="5" ></textarea>
+                        <textarea name="msg" id="" rows="5" ></textarea>
                     </div>
 
                     
                     
-                </div>this
+                </div>
 
                 <div class="sect-2">
                     <div class="car-rent-info-wrapper">
@@ -149,22 +150,22 @@
                             <div class="start-date d-flex pb-2">
                                 <div>
                                     <label for="">Start Date</label>
-                                    <input type="date" name="" id="datePicker">
+                                    <input type="date" name="start_date" id="datePicker">
                                 </div>
                                 <div>
                                     <label for="">Start Time</label>
-                                    <input type="time" name="" id="">
+                                    <input type="time" name="start_time" id="">
                                 </div>
                             </div>
 
                             <div class="return-date d-flex">
                                 <div>
                                     <label for="">Return Date</label>
-                                    <input type="date" name="" id="">
+                                    <input type="date" name="return_date" id="">
                                 </div>
                                 <div>
                                     <label for="">Return Time</label>
-                                    <input type="time" name="" id="">
+                                    <input type="time" name="return_time" id="">
                                 </div>
                             </div>
                         </div>
@@ -206,7 +207,7 @@
                         <hr>
 
                         <div class="form-check agreement">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label" for="flexCheckDefault">
                         I agree with AJAB Transport Services' terms and privacy policy
                         </label>

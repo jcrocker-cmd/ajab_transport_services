@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Mail;
-use App\Mail\EmailRequest;
+// use App\Mail\EmailRequest;
 
 class EmailRequestController extends Controller
 {
@@ -29,8 +29,7 @@ class EmailRequestController extends Controller
         ];
 
         Mail::send('home.email-template', $data, function($message) use ($data) {
-          $message->from($data['email']);
-          $message->to('narbajajc@gmail.com');
+          $message->to('johnchristian.narbaja@bisu.edu.ph');
           $message->subject($data['subject']);
         });
 

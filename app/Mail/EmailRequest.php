@@ -30,7 +30,7 @@ class EmailRequest extends Mailable
      */
     public function build()
     {
-        return $this->from('narbajajc@gmail.com')
+        return $this->from('website@ajabcarrentalcebu.com')
                     ->view('home.email-template')->with('data', $this->data);
     }
 }
