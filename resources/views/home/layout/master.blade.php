@@ -17,7 +17,8 @@
 <!-- PRELOADER -->
 
 <div class="loader-wrapper" id="loads">
-<span class="loader"><span class="loader-inner"></span></span>
+    <a href="/" class="brand"><img src="images/LOGO.png" class="logo pb-2"></a>
+    <div class="linePreloader"></div>
 </div>
 
 

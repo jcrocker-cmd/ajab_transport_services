@@ -10,12 +10,12 @@ class BookingformsController extends Controller
 { 
     public function booking_submit(Request $request)
     {
-     $this->validate($request, [
-      'name'   => 'required',
-      'con_num'  => 'required',
-      'address'  => 'required',
-      'con_email'  => 'required'
-     ]);
+    //  $this->validate($request, [
+    //   'name'   => 'required',
+    //   'con_num'  => 'required',
+    //   'address'  => 'required',
+    //   'con_email'  => 'required'
+    //  ]);
 
      $data = [
         'name' => $request->name,
@@ -40,7 +40,7 @@ class BookingformsController extends Controller
         $message->subject('Daily Booking Form');
       });
 
-      return back();
+      return back()->with('success', 'You`ve Successfully Book your car');  
 
     }
 }

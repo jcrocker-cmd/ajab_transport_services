@@ -8,4 +8,5 @@
 <link rel="stylesheet" href="/main-account.css">
 <link rel="stylesheet" href="/main-bookingform.css">
 <link rel="stylesheet" href="/main-footer.css">
+<link rel="stylesheet" href="/preloader.css">
 
