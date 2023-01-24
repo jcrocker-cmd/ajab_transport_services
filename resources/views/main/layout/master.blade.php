@@ -10,10 +10,22 @@
 </head>
 <body>
 
+<!-- PRELOADER -->
+
+<div class="loader-wrapper" id="loads">
+    <a href="/" class="brand"><img src="/images/LOGO.png" class="logo pb-2"></a>
+    <div class="linePreloader"></div>
+</div>
+
     @yield('content')
     @yield('script')
 
-    
+<script>
+$(window).on("load",function(){
+    $(".loader-wrapper").delay(1000).fadeIn("slow").fadeOut("slow");
+});
+</script>
+
 </body>
 
 </html>

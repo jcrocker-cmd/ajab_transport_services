@@ -205,23 +205,30 @@
     font-size: 15px;
 }
 
+.date-time-wrapper
+{
+    padding: 10px;
+}
+
+.start-date div , .return-date div
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.start-date , .return-date
+{
+    gap: 10px;
+
+}
+
+
 .sect-2 .price-info
 {
     padding: 40px 40px;
 }
 
-.price-info button
-{
-    width: 100%;
-    padding: 10px  5px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
 
 .price-info .alert
 {
@@ -234,4 +241,183 @@
 {
     margin-bottom: 15px;
     font-size: 14px;
+}
+
+.bookingform-sumbit
+{
+    width: 100%;
+    padding: 10px  5px;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: grid;
+    place-content: center;
+    background-color: #198754;
+}
+
+/* ALERT */
+.alert{
+    background: #ffdb9b;
+    padding: 15px 40px;
+    width: 320px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border-radius: 4px;
+    border-left: 8px solid #ffa502;
+    overflow: hidden;
+    opacity: 1;
+    pointer-events: none;
+  }
+  .alert.showAlert{
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .alert.show{
+    animation: show_slide 1s ease forwards;
+  }
+  @keyframes show_slide {
+    0%{
+      transform: translateX(100%);
+    }
+    40%{
+      transform: translateX(-10%);
+    }
+    80%{
+      transform: translateX(0%);
+    }
+    100%{
+      transform: translateX(-10px);
+    }
+  }
+  .alert.hide{
+    animation: hide_slide 1s ease forwards;
+  }
+  @keyframes hide_slide {
+    0%{
+      transform: translateX(-10px);
+    }
+    40%{
+      transform: translateX(0%);
+    }
+    80%{
+      transform: translateX(-10%);
+    }
+    100%{
+      transform: translateX(100%);
+    }
+  }
+  .alert .fa-exclamation-circle{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ce8500;
+    font-size: 25px;
+  }
+  .alert .msg{
+    padding: 0 20px;
+    font-size: 15px;
+    color: #ce8500;
+  }
+  .alert .close-btn{
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffd080;
+    padding: 20px 18px;
+    cursor: pointer;
+  }
+  .alert .close-btn:hover{
+    background: #ffc766;
+  }
+  .alert .close-btn .fas{
+    color: #ce8500;
+    font-size: 15px;
+    line-height: 40px;
+  }
+
+  /* ------------------------------------------------------- */
+
+  /* LOADER */
+
+  .loader
+{
+     pointer-events: none;
+     width: 30px;
+     height: 30px;
+     border: 3px solid transparent;
+     border-top-color: #fff;
+     border-radius: 50%;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -ms-border-radius: 50%;
+     -o-border-radius: 50%;
+     animation: loader 0.5s ease infinite;
+     -webkit-animation: loader 0.5s ease infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+}
+
+  /* ------------------------------------------------------- */
+
+@media (max-width: 1020px)
+{
+    .booking-info-section
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .start-date , .return-date
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 580px)
+{
+    .booking-form-section
+    {
+        padding: 20px;
+    }
+    .booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
+    {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 515px)
+{
+    .booking-form-section
+    {
+        padding: 20px 20px 40px 20px;
+        margin-top: 100px;
+    }
+    .renter-info
+    {
+        flex-direction: column;
+    }
 }
