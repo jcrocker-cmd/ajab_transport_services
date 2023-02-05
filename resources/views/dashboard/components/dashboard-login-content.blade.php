@@ -39,11 +39,6 @@
     <input type="password" name="password" placeholder="Password" id="dbPassword" onkeyup="return showhideIcon()">
     <i class="far fa-eye" id="dbTogglePassword" style="cursor: pointer;"></i>
   </div>
-
-
-  
-
-    
 </div>
 
 <!-- <div class="rowa mb-4">

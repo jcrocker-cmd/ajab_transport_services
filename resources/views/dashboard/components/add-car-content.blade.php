@@ -315,7 +315,7 @@
 
 <label for="address" class="form-label">Select Car Photo</label>
 
-<div class="addphoto">
+  <div class="addphoto">
   <img src="images/samplecar.png"
   id="change-img-add" style="object-fit: cover;">
   </div>

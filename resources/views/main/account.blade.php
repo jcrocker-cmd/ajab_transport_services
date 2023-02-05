@@ -12,7 +12,7 @@
 @endsection
 
 @section('script')
-    @include('main.assets.script')
     @include('main.assets.bootstrapjs')
+    @include('main.assets.script')
 @endsection
 

@@ -94,7 +94,6 @@ class AdmininfoController extends Controller
         ]);
 
         $data = Admininfo::find($id);
-        $input = $request->all();
 
         if(Hash::check($request->old_password,$data->password)){
             
