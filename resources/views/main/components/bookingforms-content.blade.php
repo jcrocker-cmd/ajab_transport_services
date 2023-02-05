@@ -15,13 +15,13 @@
 
     </div>
 
-    <div class="alert hide">
+    <!-- <div class="alert hide">
          <span class="fas fa-exclamation-circle"></span>
          <span class="msg">Success</span>
          <div class="close-btn">
             <span class="fas fa-times"></span>
          </div>
-      </div>
+      </div> -->
 
 
     <section class="div1 single">

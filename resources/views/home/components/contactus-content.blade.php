@@ -9,19 +9,19 @@
         
         <div class="contact-col-1">
             <h4 class="mb-3">Send your Request</h4>
-            <form action="{{ route('send.email') }}" method="post">
+            <form action="{{ route('send.email') }}" method="post" id="homeRequest">
             @csrf
                 <div class="contact-input-row">
                     <div class="contact-input-group">
                         <label>Name</label>
-                        <input type="text" name="name" id="" >
-                        <span class="error-msg">@error('name') {{$message}} @enderror</span>
+                        <input type="text" name="name" id="name" >
+                        <span class="error-msg" id="error-name"></span>
                     </div>
 
                     <div class="contact-input-group">
                         <label class="phone">Phone</label>
-                        <input type="text" name="phone" id="" >
-                        <span class="error-msg">@error('phone') {{$message}} @enderror</span>
+                        <input type="text" name="phone" id="phone" >
+                        <span class="error-msg" id="error-phone"></span>
                     </div>
                 </div>
 
@@ -29,25 +29,23 @@
                 <div class="contact-input-row">
                     <div class="contact-input-group">
                         <label>Email</label>
-                        <input type="email" name="email" id="" >
-                        <span class="error-msg">@error('email') {{$message}} @enderror</span>
+                        <input type="email" name="email" id="email" >
+                        <span class="error-msg" id="error-email"></span>
                     </div>
 
                     <div class="contact-input-group">
                         <label class="subject">Subject</label>
-                        <input type="text" name="subject" oninput="this.value = this.value.toUpperCase()">
-                        <span class="error-msg">@error('subject') {{$message}} @enderror</span>
+                        <input type="text" name="subject" id="subject" oninput="this.value = this.value.toUpperCase()">
+                        <span class="error-msg" id="error-subject"></span>
                     </div>
                 </div>
                         <div class="contactus-text">
                         <label class="mb-3">Message</label>
-                        <textarea name="content" id="" rows="5" ></textarea>
-                        <span class="error-msg">@error('content') {{$message}} @enderror</span>
+                        <textarea name="content" id="msg" rows="5" ></textarea>
+                        <span class="error-msg" id="error-msg"></span>
                         </div>
 
-                        <div class="contactus-button">
-                        <button type="submit">Send</button>
-                        </div>
+                        <button type="submit" class="d-grid" id="sendRequest-submit">Send</button>
 
             </form>
         </div>

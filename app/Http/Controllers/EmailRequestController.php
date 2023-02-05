@@ -12,14 +12,6 @@ class EmailRequestController extends Controller
 
     public function sendEmail(Request $request)
     {
-        $request->validate([
-          'name' => 'required',
-          'phone' => 'required',
-          'email' => 'required|email',
-          'subject' => 'required',
-          'content' => 'required',
-        ]);
-
         $data = [
           'name' => $request->name,
           'phone' => $request->phone,

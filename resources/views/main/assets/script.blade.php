@@ -6,5 +6,5 @@
 <script src="/bookingforms-active.js"></script>
 <script src="/bookingforms-showhide.js"></script>
 <script src="/bookingform-validation.js"></script>
-<script src="/bookingform-alert.js"></script>
+<!-- <script src="/bookingform-alert.js"></script> -->
 

@@ -3,19 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\AddCar;
+use App\Models\Booking;
 use Mail;
 
 class BookingformsController extends Controller
 { 
     public function booking_submit(Request $request)
     {
-    //  $this->validate($request, [
-    //   'name'   => 'required',
-    //   'con_num'  => 'required',
-    //   'address'  => 'required',
-    //   'con_email'  => 'required'
-    //  ]);
+
 
      $data = [
         'name' => $request->name,
@@ -33,7 +28,20 @@ class BookingformsController extends Controller
         'msg' => $request->msg,
       ];
 
-    // $carinfo = AddCar::find($id);
+      
+    // Save data to database
+      $booking = new Booking;
+      $booking->name = $data['name'];
+      $booking->con_num = $data['con_num'];
+      $booking->address = $data['address'];
+      $booking->con_email = $data['con_email'];
+      $booking->mode_del = $data['mode_del'];
+      $booking->start_date = $data['start_date'];
+      $booking->start_time = $data['start_time'];
+      $booking->return_date = $data['return_date'];
+      $booking->return_time = $data['return_time'];
+      $booking->msg = $data['msg'];
+      $booking->save();
 
       Mail::send('main.email-template', $data, function($message) use ($data) {
         $message->to('johnchristian.narbaja@bisu.edu.ph');
