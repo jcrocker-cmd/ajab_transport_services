@@ -3,12 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LinkController;
 use App\Http\Controllers\AddCarController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\UserinfoController;
 use App\Http\Controllers\AdminphotoController;
 use App\Http\Controllers\AdmininfoController;
-use App\Http\Controllers\UserinfoController;
 use App\Http\Controllers\EmailRequestController;
 use App\Http\Controllers\BookingformsController;
 
@@ -48,10 +47,8 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/editcar', function () {
             return view('dashboard.editcar');
         });
-        Route::get('/allusers', function () {
-            return view('dashboard.viewuser');
-        });
-        Route::get('/allusers', [SocialiteController::class,'socialite_users']);
+
+        Route::get('/allusers', [UserinfoController::class,'db_allusers']);
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
         Route::get('/rented', [AddCarController::class,'db_rentedcars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
@@ -116,3 +113,7 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'googlecallback
 //Facebook Auth
 Route::get('/auth/facebook/redirect', [SocialiteController::class, 'facebookredirect']);
 Route::get('/auth/facebook/callback', [SocialiteController::class, 'facebookcallback']);
+
+//Facebook Auth
+Route::get('/auth/apple/redirect', [SocialiteController::class, 'appleredirect']);
+Route::get('/auth/apple/callback', [SocialiteController::class, 'applecallback']);

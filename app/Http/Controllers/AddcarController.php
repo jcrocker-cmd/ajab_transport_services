@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\AddCar;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
-use App\Models\Signin;
+// use App\Models\User;
+use App\Models\User;
 use App\Models\AdminInfo;
 
 class AddCarController extends Controller
@@ -18,7 +19,7 @@ class AddCarController extends Controller
         $data = array();
         if(Session::has('loginId'))
         {
-        $data = Signin::where('id','=',Session::get('loginId'))->first();
+        $data = User::where('id','=',Session::get('loginId'))->first();
 
         }
         return view ('main.homepage',compact('data'))->with('addcar', $addcar);
@@ -37,7 +38,7 @@ class AddCarController extends Controller
         $data = array();
         if(Session::has('loginId'))
         {
-        $data = Signin::where('id','=',Session::get('loginId'))->first();
+        $data = User::where('id','=',Session::get('loginId'))->first();
 
         }
 

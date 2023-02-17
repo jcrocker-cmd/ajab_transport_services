@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-1">
 
-    <h5>Welcome Back!</h5>
+    <h5 stye="display: none;">Welcome Back!</h5>
     </div>
     <div class="col-2">
        <div class="wrapper">

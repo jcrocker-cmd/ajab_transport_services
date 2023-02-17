@@ -8,7 +8,7 @@
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
     <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
-        <h1 class="fs-4 text-white px-3">   You-Drive</h1>
+        <img src="/images/LOGOwhite.png" class="sidebar-logo px-3 py-2" alt="Comapny Logo">
         <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="far fa-stream"></i></button>
     </div>
     
@@ -19,11 +19,11 @@
       <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car" style="margin-right: 10px;"></i>   Available Cars</a></li>
       <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building" style="margin-right: 10px;"></i>   Rented Cars</a></li>
 
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+      <!-- <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
       <span><i class="far fa-comment " style="margin-right: 10px;"></i>  Messages</span>
       <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
       </a>
-      </li>
+      </li> -->
       <li class="active"><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars" style="margin-right: 10px;"></i>   Add Car</a></li>
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
@@ -71,14 +71,14 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarText">
       
-
+<!-- 
     <button type="button" class="btn position-relative nav-msg"><a href="#" class="text-decoration-none text-dark"><i class="fal fa-comment"></i>
       <span class="nav-msg-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         99+
         <span class="visually-hidden">unread messages</span>
       </span>
       </a>
-      </button>
+      </button> -->
     
 
       <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-dark"><i class="fal fa-bell"></i>

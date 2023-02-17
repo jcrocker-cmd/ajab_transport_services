@@ -7,7 +7,7 @@
 @endif
 <div class="signin-row">
     <div class="signin-col-1">
-        <h5><strong>Sign-up Today</strong></h5>
+        <h5 style="display: none;"><strong>Sign-up Today</strong></h5>
     </div>
     <div class="signin-col-2">
        <div class="signin-wrapper">
@@ -46,11 +46,11 @@
 
         <div class="gender">
  
-            <input type="radio" name="gender"  value="male" id="maleradio" class="radio"> 
+            <!-- <input type="radio" name="gender"  value="male" id="maleradio" class="radio"> 
             <label for="maleradio">Male</label>
 
             <input type="radio" name="gender"  value="female"  id="femaleradio">
-            <label for="femaleradio">Female</label>
+            <label for="femaleradio">Female</label> -->
 
         </div>
         <p class="terms">By clicking Sign Up, you agree to our <a href="/terms">Terms</a>, <a href="http://">Privacy Policy </a>and <a href="http://">Cookies Policy.</a><br><br>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\AdminInfo;
+use App\Models\User;
 use Hash;
 use Session;
 
@@ -16,12 +17,18 @@ class AdmininfoController extends Controller
    }
 
    public function dashboardroute()
+
    {
     $data = array();
     if(Session::has('loginId')){
-    $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-    return view('dashboard.dashboard',compact('data'));
-   }
+    $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
+    }
+    
+    $numberOfUsers = User::count(); // Count the number of rows in the User table
+    $allusers = User::all(); // Show all users
+    return view('dashboard.dashboard', compact('data', 'numberOfUsers','allusers')); // Pass the data to your Blade view
+    }
+
 
    public function admin_account_settings_route()
    {
@@ -95,19 +102,21 @@ class AdmininfoController extends Controller
 
         $data = Admininfo::find($id);
 
-        if(Hash::check($request->old_password,$data->password)){
+        if (Hash::check($request->old_password, $data->password)) {
             
             $data->update([
                 'password'=>bcrypt($request->new_password)
             ]);
 
-
-            return view('dashboard.settings',compact('data'))->with('successpassword','Successful password change!');
+            Session::flash('successpassword','You`ve successfully edited your password!');
+            return view('dashboard.settings',compact('data'));
 
         } else {
-            return view('dashboard.settings',compact('data'))->with('failpassword','Old password does not matched!');
+            return back()
+            ->withErrors(['old_password' => 'Old password does not match our records.'])
+            ->withInput()
+            ->with(session()->flash('failpassword', 'Password change failed!'));
         }
-
     }
 
 

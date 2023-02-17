@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\File;
-use App\Models\Signin;
+use App\Models\User;
 use App\Models\AddCar;
+use App\Models\AdminInfo;
 use Hash;
 use Session;
 
@@ -15,7 +16,7 @@ class UserinfoController extends Controller
     {
         $data = array();
         if(Session::has('loginId')){
-        $data = Signin::where('id','=',Session::get('loginId'))->first();}
+        $data = User::where('id','=',Session::get('loginId'))->first();}
         return view('main.account',compact('data'));
     }
 
@@ -23,8 +24,19 @@ class UserinfoController extends Controller
     {
         $data = array();
         if(Session::has('loginId')){
-        $data = Signin::where('id','=',Session::get('loginId'))->first();}
+        $data = User::where('id','=',Session::get('loginId'))->first();}
         $viewcar = AddCar::find($id);
         return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar);
+    }
+
+    public function db_allusers()
+    {
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
+        }
+        $user = User::all();
+        return view ('dashboard.viewuser',compact('data'))->with('user', $user);
     }
 }

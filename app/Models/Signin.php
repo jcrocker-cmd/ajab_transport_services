@@ -10,8 +10,8 @@ class Signin extends Model
     use HasFactory;
     protected $table = 'signins';
     protected $fillable = [
-        'fname',
-        'lname',
+        'first_name',
+        'last_name',
         'email',
         'password',
         'bday',

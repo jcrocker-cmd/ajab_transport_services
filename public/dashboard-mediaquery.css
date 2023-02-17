@@ -235,3 +235,27 @@
 
 
 }
+
+
+/* DASHBOARD CONTENT */
+
+@media(max-width: 1306px)
+{
+    .db-group
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+@media(max-width: 888px)
+{
+    .dashboard-row
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}

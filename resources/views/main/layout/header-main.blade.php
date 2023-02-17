@@ -14,12 +14,12 @@
     <div class="header-col-2">
 
                 <span><a href="#" id="mainside-bar"><i class="fas fa-stream"></i></a></span>
-                <span>
+                <!-- <span>
                     <button type="button" class="icon-button">
                     <span><i class="fas fa-comment-alt-dots"></i></span>
                     <span class="icon-button__badge">2</span>
                     </button>
-                </span>
+                </span> -->
 
                 <span>
                     <button type="button" class="icon-button">
@@ -45,7 +45,7 @@
     <div class="sub-menu-wrap">
         <div class="sub-menu">
             <div class="user-info">
-                    <div><h5>{{ $data->fname}} {{ $data->lname}}</h5></div>
+                    <div><h5>{{ $data->first_name}} {{ $data->last_name}}</h5></div>
                     <div><span>{{ $data->email}}</span></div>
             </div>
             <hr>
