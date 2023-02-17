@@ -40,7 +40,7 @@
 
   </td>
   <td>
-    <span class="badge bg-danger rounded-pill">RENTED</span>
+    <span class="badge bg-success rounded-pill">Available</span>
   </td>
   <td>{{ $item->brand}}</td>
   

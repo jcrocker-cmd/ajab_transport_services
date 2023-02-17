@@ -3,7 +3,10 @@
     
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
     <script src="/data-table.js"></script>
+    <script src="/data-table-button.js"></script>
     
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->

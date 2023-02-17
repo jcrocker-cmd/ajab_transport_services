@@ -2,13 +2,13 @@
 
     <section class="user-account-section">
         <div class="user-account-wrapper">
-            <img src="/images/default-user.png" alt="">
+            <img src="{{ $data->picture ?: asset('/images/default-user.png') }}" alt="">
             <span class="line"></span>
             <div class="info">
 
                 <div class="info-sub-1">
-                    <p>Full Name:<strong style="margin-left: 10px;">{{ $data->fname}} {{ $data->mname}} {{ $data->lname}}</strong></p>
-                    <p>Username:<strong style="margin-left: 10px;">{{ $data->email}}</strong></p>
+                    <p>Full Name:<strong style="margin-left: 10px;">{{ $data->first_name}} {{ $data->last_name}}</strong></p>
+                    <p>Email:<strong style="margin-left: 10px;">{{ $data->email}}</strong></p>
                     <p>Birth-Date:<strong style="margin-left: 10px;">{{ $data->bday}}</strong></p>
                     <p>Gender:<strong style="margin-left: 10px;">{{ $data->gender}}</strong></p>
                 </div>
@@ -29,14 +29,14 @@
                     <span>EDIT PROFILE INFORMATION</span>
                 </a>
 
-                <a href="#" class="btn-edit-pass" >
+                <a href="#" class="btn-edit-pass" data-toggle="modal" data-target="#exampleModal">
                     <span><i class="fas fa-lock-alt"></i></span>
                     <span>EDIT PASSWORD</span>
                 </a>
         </div>
 
         <!-- PASSWORD -->
-        <div class="modal fade modal-dialog-centered" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">

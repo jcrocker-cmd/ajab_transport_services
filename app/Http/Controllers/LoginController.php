@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Signin;
+use App\Models\User;
 use Hash;
 use Session;
 
@@ -23,16 +24,16 @@ class LoginController extends Controller
       'password'  => 'required|alphaNum|min:8'
      ]);
 
-     $user = Signin::where('email','=',$request->email)->first();
+     $user = User::where('email','=',$request->email)->first();
      if ($user) {
         if(Hash::check($request->password,$user->password)){
             $request->session()->put('loginId',$user->id);
             return redirect('/mainhome');
         }else{
-         return back()->with('loginfail','This password doesn`t match!');
+         return back()->with('loginfail','This password doesn`t match!')->withInput();
         }
      } else {
-        return back()->with('loginfail','This email doesn`t exist!');
+        return back()->with('loginfail','This email doesn`t exist!')->withInput();
      }
      
    }

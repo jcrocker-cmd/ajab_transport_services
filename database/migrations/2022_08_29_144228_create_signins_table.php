@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('signins', function (Blueprint $table) {
             $table->id();
-            $table->string('fname')->nullable();
-            $table->string('lname')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->string('bday')->nullable();

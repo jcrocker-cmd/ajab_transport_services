@@ -17,17 +17,17 @@
 
 <div class="settings-row pt-2 d-flex">
 
-    <form enctype="multipart/form-data" action="/adminpp_update/{{ $data->id }}" method="post">
-        @csrf
-        @method('put')
+
 
         <div class="settings-col-1">
 
             <div class="settings-image text-center bg-light px-5 py-4">
-
+            <form enctype="multipart/form-data" action="/adminpp_update/{{ $data->id }}" method="post">
+            @csrf
+            @method('put')
                 <div class ="mb-4 settings-profile">
                     <img src="/images/adminpp/{{ $data->adminpp }}"
-                    height="95" width="95" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                    height="120" width="120" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
 
                 </div>
 
@@ -42,10 +42,10 @@
                     <button onclick ="addPhoto()" type="button" class="btn btn-primary" id="addphotoBtn">Choose Image</button>
                     <button type="submit" class="btn btn-success" id="addphotoBtn">Save</button>
                 </div>
-    
+            </form>
 
             </div>
-    </form>
+
     
 
     

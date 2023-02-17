@@ -31,7 +31,7 @@ body
 
 #side_nav
 {
-    background-color: #000;
+    background-color: #023047;
     min-width: 250px;
     max-width: 250px;
     /* transition: all 0.3s; */
@@ -93,22 +93,7 @@ hr.hr-2
 }
 
 
-.row-card
-{
-    width: 16rem;
-    display: flex;
-    border-radius: 10px;
-}
-.col-1
-{
-    width: 65%;
-    margin: auto;
-}
-.col-2
-{
-   margin: auto;
-   width: 35%;
-}
+
 .icon
 {
     size: 100px;
@@ -518,16 +503,34 @@ input.purok
 
 /* DASHBOARD CONTENT */
 
-/* .dashboard-content
+.dashboard-row
 {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-} */
+    gap: 20px;
+    display: flex;
+}
+.db-group
+{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
 
-.row-card
+.dashboard-card-wrapper
 {
-    margin-left: -8px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px 20px;
+
+}
+
+.dashboard-card
+{
+    color: #fff;
+    /* padding: 10px 40px; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
 }
 
 .db-bottom-row
@@ -631,7 +634,7 @@ input.purok
 .settings-row
 {
     display: flex;
-    max-width: 100%;
+    width: 100%;
     gap: 30px;
 }
 .settings-col-1
@@ -647,6 +650,7 @@ input.purok
 .settings-image , .settings-password , .settings-edit-profile
 {
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    width: 100%;
 
 }
 
