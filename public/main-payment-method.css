@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1&display=swap');
+
+/* BOOKING FORMS */
+#payment-method-section
+{
+    margin-top: 144px;
+    /* height: 100%; */
+    width: 100%;
+    padding: 40px 180px;
+    font-family: 'Poppins', sans-serif;
+    /* background-color: violet; */
+}
+
+.payment-row
+{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.payment-col-1,
+.payment-col-2
+{
+    flex-basis: 50%;
+}
+
+
+.payment-col-1
+{
+    display: flex;
+    gap: 20px;
+}
+
+.payment-col-2
+{
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.payment-col-2 .wrapper
+{
+    padding: 20px 40px;
+}
+
+.payment-cards
+{
+    padding: 20px;
+    border: 1px solid #000;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.payment-cards img
+{
+    width: 100px;
+}
+
+.payment-cards.active
+{
+    border: 3px solid #08a059;
+}

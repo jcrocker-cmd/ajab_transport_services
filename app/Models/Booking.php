@@ -16,6 +16,7 @@ class Booking extends Model
         'address',
         'con_email',
         'mode_del',
+        'payment',
         'start_date',
         'start_time',
         'return_date',

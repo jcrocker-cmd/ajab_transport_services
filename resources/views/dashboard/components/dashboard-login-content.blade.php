@@ -59,6 +59,13 @@
 <div class="d-grid ">
   <button class="dashboard-login-button" type="submit">Log In</button>
 </div>
+
+<!-- <a href="#" class="text-center pt-2">Forgot Password?</a> -->
+
+<div class="d-flex text-center pt-3" >
+  <a href="#!" style="text-decoration: none; text-align: center; color: #00008B;">Forgot password?</a>
+</div>
+
 </form>
 
 

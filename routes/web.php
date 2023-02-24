@@ -29,6 +29,9 @@ Route::post('/checklogin', [LoginController::class,'checklogin']);
 Route::post('/adminchecklogin', [AdmininfoController::class,'adminchecklogin']);
 
 
+Route::get('/dd', function () {
+    return view('main.email-template');
+});
 
 
 
@@ -96,8 +99,9 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/mainhome', [AddCarController::class,'main_allcars']);
         Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
         Route::get('/account', [UserinfoController::class,'user_accountroute']);
+        Route::get('/payment-method', [BookingformsController::class,'payment_methodroute']);
         Route::get('/bookingforms/{id}', [UserinfoController::class,'booking_route']);
-        Route::post('/bookingformsubmit', [BookingformsController::class,'booking_submit'])->name('book.submit');
+        Route::post('/bookingformsubmit/{id}', [BookingformsController::class,'booking_submit'])->name('book.submit');
     });
 
 Route::get('/logout', [LoginController::class,'logout']);

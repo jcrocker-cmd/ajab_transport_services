@@ -43,6 +43,94 @@
     background-color: rgb(246, 244, 244);
 }
 
+.booking-form
+{
+    display: none;
+}
+
+.booking-form.active
+{
+    display: block;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar-container
+{
+    padding: 0 60px
+}
+.progressbar
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 50px 0;
+    counter-reset: step;
+}
+.progressbar::before , .progress
+{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress
+{
+    background-color: #198754;
+    width: 0%;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.progress-step
+{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+.progress-step::before
+{
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step::after
+{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: .80rem;
+    color: #666666;
+    text-align: center;
+    width: 150px;
+
+}
+
+.progress-step.active
+{
+    background-color: #198754;
+    color: #fff;
+}
+
+
 .booking-form-section .div2 , .booking-form-section .div3
 {
     display: none;
@@ -135,6 +223,27 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.sect-1 .license-wrapper
+{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.sect-1 .license
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-basis: 50%;
+}
+
+.sect-1 .license input
+{
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
 }
 
 .renter-info input
@@ -260,92 +369,6 @@
     background-color: #198754;
 }
 
-/* ALERT */
-/* .alert{
-    background: #ffdb9b;
-    padding: 15px 40px;
-    width: 320px;
-    position: absolute;
-    right: 0;
-    top: 10px;
-    border-radius: 4px;
-    border-left: 8px solid #ffa502;
-    overflow: hidden;
-    opacity: 1;
-    pointer-events: none;
-  }
-  .alert.showAlert{
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .alert.show{
-    animation: show_slide 1s ease forwards;
-  }
-  @keyframes show_slide {
-    0%{
-      transform: translateX(100%);
-    }
-    40%{
-      transform: translateX(-10%);
-    }
-    80%{
-      transform: translateX(0%);
-    }
-    100%{
-      transform: translateX(-10px);
-    }
-  }
-  .alert.hide{
-    animation: hide_slide 1s ease forwards;
-  }
-  @keyframes hide_slide {
-    0%{
-      transform: translateX(-10px);
-    }
-    40%{
-      transform: translateX(0%);
-    }
-    80%{
-      transform: translateX(-10%);
-    }
-    100%{
-      transform: translateX(100%);
-    }
-  }
-  .alert .fa-exclamation-circle{
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ce8500;
-    font-size: 25px;
-  }
-  .alert .msg{
-    padding: 0 20px;
-    font-size: 15px;
-    color: #ce8500;
-  }
-  .alert .close-btn{
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #ffd080;
-    padding: 20px 18px;
-    cursor: pointer;
-  }
-  .alert .close-btn:hover{
-    background: #ffc766;
-  }
-  .alert .close-btn .fas{
-    color: #ce8500;
-    font-size: 15px;
-    line-height: 40px;
-  } */
-
-  /* ------------------------------------------------------- */
-
-  /* LOADER */
 
   .loader
 {
@@ -380,7 +403,6 @@
 } 
 }
 
-  /* ------------------------------------------------------- */
 
 @media (max-width: 1020px)
 {

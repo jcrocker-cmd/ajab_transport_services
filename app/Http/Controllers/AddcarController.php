@@ -121,7 +121,6 @@ class AddCarController extends Controller
         $deletecar -> delete();
         Session::flash('status','You`ve successfully deleted a car!');
         return redirect('/all-vehicles')->with('deletecar', $deletecar); 
-
     }
 
     public function db_notification()

@@ -176,6 +176,59 @@
     padding: 40px 80px;
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+/* MY RENTALS */
 
+.myrental-wrapper
+{
+    background-color: #ffffff;
+    color: #000000;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+    /* DELETE ACCOUNT */
+    .delete-account-wrapper
+    {
+        background-color: #F8D7DA;
+        color: #842029;
+        padding: 25px 30px;
+        border-radius: 5px;
+        /* gap: 5px; */
+        display: flex;
+        flex-direction: column;
+
+    }
+
+
+    .delete-account-wrapper .btn-delete
+    {
+        display: flex;
+        background-color: #842029;
+        color: #fff;
+        padding: 10px 15px;
+        text-decoration: none;
+        gap: 100px;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        text-decoration: none;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .delete-button
+    {
+        display: flex;
+        justify-content: end;
+    }

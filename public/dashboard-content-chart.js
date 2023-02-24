@@ -14,12 +14,12 @@
       label: 'Monthly Income',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30],
+      data: [5, 10, 5, 2, 20, 30],
     }]
   };
 
   const config = {
-    type: 'line',
+    type: 'bar',
     data: data,
     options: {
       animations: {
@@ -29,6 +29,7 @@
           from: 1,
           to: 0,
           loop: true
+          
         }
       },
       scales: {
