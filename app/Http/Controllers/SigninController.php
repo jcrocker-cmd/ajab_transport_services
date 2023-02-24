@@ -39,7 +39,7 @@ class SigninController extends Controller
             Session::flash('successregister','You`ve registered successfully, Try to LOG IN.');
             return redirect('/log-in');
         } else {
-            return view('dashboard.dashboard')->with('failregister','Something is wrong');
+            return redirect('/sign-in')->with('failregister','Something is wrong');
         }
         
 

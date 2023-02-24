@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('con_email')->nullable();
             $table->string('mode_del')->nullable();
+            $table->string('payment')->nullable();
             $table->string('start_date')->nullable();
             $table->string('start_time')->nullable();
             $table->string('return_date')->nullable();

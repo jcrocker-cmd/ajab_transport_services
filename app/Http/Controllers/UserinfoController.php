@@ -26,7 +26,9 @@ class UserinfoController extends Controller
         if(Session::has('loginId')){
         $data = User::where('id','=',Session::get('loginId'))->first();}
         $viewcar = AddCar::find($id);
-        return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar);
+        $car_details = AddCar::find($id);
+        return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
+        // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
     }
 
     public function db_allusers()
@@ -39,4 +41,16 @@ class UserinfoController extends Controller
         $user = User::all();
         return view ('dashboard.viewuser',compact('data'))->with('user', $user);
     }
+
+    public function delete_user($id)
+    {
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
+        }
+        $user = User::all();
+        return view ('dashboard.viewuser',compact('data'))->with('user', $user);
+    }
+
 }
