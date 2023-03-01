@@ -88,6 +88,7 @@
           </tr>
         </thead>
             <tbody>
+            @if(count($allusers) > 0)
             @foreach($allusers->reverse() as $item)
               <tr>
 
@@ -111,7 +112,10 @@
 
               </tr>
               @endforeach
-    
+              <tr class="no-data">
+                <td colspan="2" class="text-center">No User is Registered.</td>
+              </tr>
+              @endif
             </tbody>
       </table>
     </div>

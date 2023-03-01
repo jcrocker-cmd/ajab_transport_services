@@ -17,6 +17,7 @@
 
     @yield('content')
     @yield('scripts')
+    @stack('scripts')
 
 <script>
 $(window).on("load",function(){

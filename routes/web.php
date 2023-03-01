@@ -50,8 +50,6 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/editcar', function () {
             return view('dashboard.editcar');
         });
-
-        Route::get('/allusers', [UserinfoController::class,'db_allusers']);
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
         Route::get('/rented', [AddCarController::class,'db_rentedcars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
@@ -65,6 +63,21 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::put('/adminpassword_update/{id}', [AdmininfoController::class,'adminpassword_update']);
         Route::get('/add', [AddCarController::class,'addcar_route']);
         Route::get('/notification', [AddCarController::class,'db_notification']);
+
+        Route::get('/inquiry', [EmailRequestController::class,'db_inquiry']);
+        Route::get('/delete_inquiry/{id}', [EmailRequestController::class,'db_inquiry_delete']);
+        Route::get('/inquiry/{id}/ajaxview', [EmailRequestController::class,'db_inquiry_ajaxview']);
+
+
+        Route::get('/bookings', [BookingformsController::class,'db_bookings']);
+        Route::get('/delete_booking/{id}', [BookingformsController::class,'db_booking_delete']);
+        Route::get('/bookings/{id}/ajaxview', [BookingformsController::class,'db_booking_ajaxview']);
+
+        Route::get('/allusers', [UserinfoController::class,'db_allusers']);
+        Route::get('/delete_user/{id}', [UserinfoController::class,'db_user_delete']);
+        Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
+        Route::get('/user/{id}/ajaxview', [UserinfoController::class,'db_user_ajaxview']);
+
     });
 
 

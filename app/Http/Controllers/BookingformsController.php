@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\AddCar;
+use App\Models\AdminInfo;
 use Mail;
 use Session;
 
@@ -35,6 +36,8 @@ class BookingformsController extends Controller
         'car_details' => $car_details,
       ];
 
+      $data['car_id'] = $car_details->id;
+
       
     // Save data to database
       $booking = new Booking;
@@ -43,11 +46,13 @@ class BookingformsController extends Controller
       $booking->address = $data['address'];
       $booking->con_email = $data['con_email'];
       $booking->mode_del = $data['mode_del'];
+      $booking->payment = $data['payment'];
       $booking->start_date = $data['start_date'];
       $booking->start_time = $data['start_time'];
       $booking->return_date = $data['return_date'];
       $booking->return_time = $data['return_time'];
       $booking->msg = $data['msg'];
+      $booking->car_id = $data['car_id'];
       $booking->save();
 
       // Mail::send('main.email-template', $data, function($message) use ($data) {
@@ -65,12 +70,37 @@ class BookingformsController extends Controller
 
     }
 
-    public function payment_methodroute()
+    public function db_bookings()
     {
         $data = array();
-        if(Session::has('loginId')){
-        $data = User::where('id','=',Session::get('loginId'))->first();}
-        return view('main.payment-method',compact('data'));
+        if(Session::has('loginId'))
+        {
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
+        }
+        $booking = Booking::with('car')->get();
+        return view ('dashboard.booking',compact('data'))->with('booking', $booking);
     }
 
+    // public function car()
+    // {
+    //     return $this->belongsTo(AddCar::class);
+    // }
+
+
+    public function db_booking_delete($id)
+    {
+        $booking = Booking::find($id);
+        $booking -> delete();
+        Session::flash('status','You`ve successfully deleted a booking!');
+        return redirect('/bookings')->with('booking', $booking); 
+    }
+
+    public function db_booking_ajaxview($id)
+    {
+        $booking = Booking::with('car')->find($id);
+        return response()->json([
+            'status' => 200,
+            'booking' => $booking,
+        ]);
+    }
 }

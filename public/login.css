@@ -37,7 +37,7 @@ body
     padding: 5px 10px;
     font-size: 12px;
 }
-.successregister-alert
+.successregister-alert , .successdelete-alert
 {
     background-color: #CFE2FF;
     color: #0F5132;

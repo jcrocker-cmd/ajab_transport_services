@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AddCar;
 
 class Booking extends Model
 {
@@ -22,5 +23,12 @@ class Booking extends Model
         'return_date',
         'return_time',
         'msg',
+        'car_id',
     ];
+
+    public function car()
+    {
+        return $this->belongsTo(AddCar::class);
+    }
+
 }
