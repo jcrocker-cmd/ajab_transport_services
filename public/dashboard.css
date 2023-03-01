@@ -799,3 +799,16 @@ input.purok
     font-style: italic;
     font-size: 12px;
 }
+
+.no-data {
+    color: red; /* Change the color to whatever you like */
+    font-weight: bold;
+    text-align: center;
+  }
+  
+
+  /* BOOKING */
+  /* .modal-dialog
+  {
+    width: 500px;
+  } */

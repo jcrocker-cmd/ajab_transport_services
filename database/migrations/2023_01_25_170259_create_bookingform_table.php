@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('return_date')->nullable();
             $table->string('return_time')->nullable();
             $table->string('msg')->nullable();
+            $table->string('car_id')->nullable();
             $table->timestamps();
         });
     }

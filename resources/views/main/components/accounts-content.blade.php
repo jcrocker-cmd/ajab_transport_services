@@ -133,7 +133,7 @@
             <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
             
             <div class="delete-button">
-                <a href="http://" class="btn-delete" onclick="return confirm(&quot;Are you sure you want to delete your account?&quot;)">
+                <a href="/delete_account/{{ $data->id }}" class="btn-delete" onclick="return confirm(&quot;Are you sure you want to delete your account?&quot;)">
                     <span><i class="fas fa-trash-alt"></i></span>
                     <span>Delete Account</span>
                 </a>

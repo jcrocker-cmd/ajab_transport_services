@@ -46,9 +46,8 @@
 </td>
 
 <td>
-<a href="#" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-<a href="" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-<a href="#" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+<a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
+<a href="/delete_user/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
 </td>
 </tr>
@@ -70,3 +69,59 @@
 
 
 </section>
+
+
+
+
+
+<!-- View Modal -->
+<div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="width: 100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <table class="table" cellspacing="0" cellpadding="0" style="border: 1px solid #003049;">
+          <thead class="table" style="background: #023047; color: white;">
+            <tr>
+            <th style="padding: 10px; text-align: left; width: 50%;">Client Information</th>
+            <th style="padding: 10px; text-align: left; width: 50%;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid black;">
+              <td style="padding: 10px;" >Full Name</td>
+              <td style="padding: 10px;"><span id="name"></span></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">Email</td>
+              <td style="padding: 10px;"><span id="email"></span></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">Social Type</td>
+              <td style="padding: 10px;"><span id="social_type" class="text-uppercase"></span></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">Birthday</td>
+              <td style="padding: 10px;"><span id="bday"></span></td>
+            </tr>
+            <tr>
+              <td style="padding: 10px;">Gender</td>
+              <td style="padding: 10px;"><span id="gender"></span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <span><strong>Member Since:</strong> <span id="date"></span></span>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,10 @@
         <h6 class="successregister-alert">{{ Session::get('successregister') }}</h6>
         @endif
 
+        @if (Session::has('successdelete'))
+        <h6 class="successdelete-alert">{{ Session::get('successdelete') }}</h6>
+        @endif
+
         <form action="{{url('/checklogin')}}" method="post">
                 @csrf
         <div class="username">
