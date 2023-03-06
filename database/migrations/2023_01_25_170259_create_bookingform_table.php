@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('con_email')->nullable();
             $table->string('mode_del')->nullable();
+            $table->string('front_license')->nullable();
+            $table->string('back_license')->nullable();
             $table->string('payment')->nullable();
             $table->string('start_date')->nullable();
             $table->string('start_time')->nullable();

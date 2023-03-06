@@ -55,11 +55,11 @@
           <a href="http://" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">10,000</h5>
-                <p class="card-text fs-6">Income</p>
+                <h5 class="card-title fs-3">{{ $numberOfBookings }}</h5>
+                <p class="card-text fs-6">Bookings</p>
               </div>
               <div class="db-col-1">
-                <i class="fas fa-hand-holding-usd fa-3x"></i>
+                <i class="fas fa-book fa-3x"></i>
               </div>
             </div>
           </a>
@@ -112,6 +112,7 @@
 
               </tr>
               @endforeach
+              @else
               <tr class="no-data">
                 <td colspan="2" class="text-center">No User is Registered.</td>
               </tr>

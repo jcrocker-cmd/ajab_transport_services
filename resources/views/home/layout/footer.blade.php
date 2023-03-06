@@ -43,6 +43,6 @@
     </div>
     <hr class="footer-hr">
     <p class="copyright">
-        You-Drive 2020 - All Rights Reserved
+        AJAB Transport Services 2023 - All Rights Reserved
     </p>
 </footer>

@@ -16,11 +16,18 @@ class BookingformsController extends Controller
     {
     $car_details = AddCar::find($id);
 
+    // Get the file data
+    $front_license = $request->file('front_license');
+    $back_license = $request->file('back_license');
+
      $data = [
         'name' => $request->name,
         'con_num' => $request->con_num,
         'address' => $request->address,
         'con_email' => $request->con_email,
+
+        'front_license' => $request->front_license,
+        'back_license' => $request->back_license,
 
         'mode_del' => $request->mode_del,
 
@@ -45,6 +52,10 @@ class BookingformsController extends Controller
       $booking->con_num = $data['con_num'];
       $booking->address = $data['address'];
       $booking->con_email = $data['con_email'];
+
+      $booking->front_license = $data['front_license'];
+      $booking->back_license  = $data['back_license'];
+
       $booking->mode_del = $data['mode_del'];
       $booking->payment = $data['payment'];
       $booking->start_date = $data['start_date'];
@@ -53,6 +64,55 @@ class BookingformsController extends Controller
       $booking->return_time = $data['return_time'];
       $booking->msg = $data['msg'];
       $booking->car_id = $data['car_id'];
+
+    //   if ($image = $request->file('front_license')) {
+    //     $destinationPath = 'images/license/front/';
+    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+    //     $image->move($destinationPath, $profileImage);
+    
+    //     // Save the picture to the database
+    //     $booking->front_license = file_get_contents($destinationPath . $profileImage);
+    // }
+    
+    // if ($image = $request->file('back_license')) {
+    //     $destinationPath = 'images/license/back/';
+    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+    //     $image->move($destinationPath, $profileImage);
+    
+    //     // Save the picture to the database
+    //     $booking->back_license = file_get_contents($destinationPath . $profileImage);
+    // }
+
+    if ($front_license) {
+      $front_license_name = time() . '_' . $front_license->getClientOriginalName();
+      $front_license->move('images/license/front/', $front_license_name);
+      $booking->front_license = $front_license_name;
+  }
+  
+  if ($back_license) {
+      $back_license_name = time() . '_' . $back_license->getClientOriginalName();
+      $back_license->move('images/license/back/', $back_license_name);
+      $booking->back_license = $back_license_name;
+  }
+  
+  
+  
+
+    // if ($image = $request->file('front_license')) {
+    //     $destinationPath = 'images/license/font/';
+    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+    //     $image->move($destinationPath, $profileImage);
+    //     $booking['front_license'] = "$profileImage";
+    // }
+
+    // if ($image = $request->file('back_license')) {
+    //     $destinationPath = 'images/license/back/';
+    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+    //     $image->move($destinationPath, $profileImage);
+    //     $booking['back_license'] = "$profileImage";
+    // }
+
+
       $booking->save();
 
       // Mail::send('main.email-template', $data, function($message) use ($data) {

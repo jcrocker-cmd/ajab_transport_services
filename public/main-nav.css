@@ -286,4 +286,8 @@ nav li a:hover:after
         width: 100%;
         justify-content: space-between;
     }
+    .sub-menu-wrap
+    {
+        right: -50px;
+    }
 }

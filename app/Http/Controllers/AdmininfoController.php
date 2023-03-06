@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\AdminInfo;
 use App\Models\User;
+use App\Models\Booking;
 use Hash;
 use Session;
 
@@ -25,8 +26,9 @@ class AdmininfoController extends Controller
     }
     
     $numberOfUsers = User::count(); // Count the number of rows in the User table
+    $numberOfBookings = Booking::count(); // Count the number of Bookings
     $allusers = User::all(); // Show all users
-    return view('dashboard.dashboard', compact('data', 'numberOfUsers','allusers')); // Pass the data to your Blade view
+    return view('dashboard.dashboard', compact('data', 'numberOfUsers','allusers','numberOfBookings')); // Pass the data to your Blade view
     }
 
 
