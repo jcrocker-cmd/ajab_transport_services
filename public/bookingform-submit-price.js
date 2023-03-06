@@ -31,39 +31,39 @@
 //   totalAmount.textContent = `₱ ${total}`;
 // }
 
-// select the checkbox and radio buttons
-const cashbondCheckbox = document.querySelector("#cashbond");
-const modeOfDeliveryRadios = document.querySelectorAll(".d-flex.mode-of-delivery input[type='radio']");
+// // select the checkbox and radio buttons
+// const cashbondCheckbox = document.querySelector("#cashbond");
+// const modeOfDeliveryRadios = document.querySelectorAll(".d-flex.mode-of-delivery input[type='radio']");
 
-// select the span elements that display the amounts
-const cashbondAmountSpan = document.querySelector("#cashbondAmount");
-const deliveryFeeSpan = document.querySelector("#deliveryFee");
-const totalAmountPayableSpan = document.querySelector("#totalAmountPayable");
+// // select the span elements that display the amounts
+// const cashbondAmountSpan = document.querySelector("#cashbondAmount");
+// const deliveryFeeSpan = document.querySelector("#deliveryFee");
+// const totalAmountPayableSpan = document.querySelector("#totalAmountPayable");
 
-// attach event listeners to the checkbox and radio buttons
-cashbondCheckbox.addEventListener("change", updateAmounts);
-modeOfDeliveryRadios.forEach(radio => radio.addEventListener("change", updateAmounts));
+// // attach event listeners to the checkbox and radio buttons
+// cashbondCheckbox.addEventListener("change", updateAmounts);
+// modeOfDeliveryRadios.forEach(radio => radio.addEventListener("change", updateAmounts));
 
-function updateAmounts() {
-  let cashbondAmount = 0;
-  let deliveryFee = 0;
+// function updateAmounts() {
+//   let cashbondAmount = 0;
+//   let deliveryFee = 0;
   
-  // update the cashbond amount
-  if (cashbondCheckbox.checked) {
-    cashbondAmount = parseInt(cashbondCheckbox.value);
-    cashbondAmount = cashbondAmount.toLocaleString();
-  }
+//   // update the cashbond amount
+//   if (cashbondCheckbox.checked) {
+//     cashbondAmount = parseInt(cashbondCheckbox.value);
+//     cashbondAmount = cashbondAmount.toLocaleString();
+//   }
   
-  // update the delivery fee
-  for (let i = 0; i < modeOfDeliveryRadios.length; i++) {
-    if (modeOfDeliveryRadios[i].checked) {
-      deliveryFee = parseInt(modeOfDeliveryRadios[i].value);
-      break;
-    }
-  }
+//   // update the delivery fee
+//   for (let i = 0; i < modeOfDeliveryRadios.length; i++) {
+//     if (modeOfDeliveryRadios[i].checked) {
+//       deliveryFee = parseInt(modeOfDeliveryRadios[i].value);
+//       break;
+//     }
+//   }
   
-  // update the amount spans
-  cashbondAmountSpan.innerHTML = cashbondAmount;
-  deliveryFeeSpan.innerHTML = deliveryFee.toLocaleString();
-  totalAmountPayableSpan.innerHTML = (parseInt(cashbondAmount.replace(/,/g,'')) + deliveryFee).toLocaleString();
-}
+//   // update the amount spans
+//   cashbondAmountSpan.innerHTML = cashbondAmount;
+//   deliveryFeeSpan.innerHTML = deliveryFee.toLocaleString();
+//   totalAmountPayableSpan.innerHTML = (parseInt(cashbondAmount.replace(/,/g,'')) + deliveryFee).toLocaleString();
+// }

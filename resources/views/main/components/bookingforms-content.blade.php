@@ -67,13 +67,13 @@
                         <div class="license-wrapper pb-2">
                             <div class="license ">
                                 <label class="form-check-label d-flex align-items-center" for="front-license">Front Side<strong style="font-size: 11px; margin-left: 5px;">(1mb limit)</strong></label>
-                                <input type="file" name="" id="front-license" accept="image/jpeg, image/png" size="1000000">
+                                <input type="file" name="front_license" id="front_license" accept="image/jpeg, image/png" size="1000000">
                                 <span class="text-danger" id="errorfront" style="font-size: 13px;"></span>
                             </div>
 
                             <div class="license ">
                                 <label class="form-check-label" for="back-license" >Back Side <strong style="font-size: 11px; margin-left: 5px;">(1mb limit)</strong></label>
-                                <input type="file" name="" id="back-license" accept="image/jpeg, image/png">
+                                <input type="file" name="back_license" id="back_license" accept="image/jpeg, image/png">
                                 <span class="text-danger" id="errorback" style="font-size: 13px;"></span>
                             </div>
                         </div>
@@ -185,9 +185,9 @@
                 <div class="sect-2">
                     <div class="car-rent-info-wrapper">
 
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center pb-2">
 
-                            <p><strong>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</strong></p>
+                            <div><strong>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</strong> <span >{{ $viewcar->transmission}}</span></div>
 
                             <div class="car-image">
 
@@ -279,7 +279,7 @@
                         
 
                         <!-- <a href="#" class="d-grid text-white bookingform-sumbit" id="submitBtn">Proceed to Payment</a> -->
-                        <button class="d-grid text-white bookingform-sumbit" type="submit">SUBMIT</button>
+                        <button class="d-grid text-white bookingform-sumbit" id="bookingform-sumbit" type="submit">SUBMIT</button>
 
                     </div>
                 </form>

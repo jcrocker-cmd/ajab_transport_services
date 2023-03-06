@@ -314,11 +314,6 @@
     font-size: 15px;
 }
 
-.date-time-wrapper
-{
-    padding: 10px;
-}
-
 .start-date div , .return-date div
 {
     display: flex;
@@ -419,6 +414,14 @@
     }
 }
 
+@media (max-width: 870px)
+{
+    .sect-1 .license-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 580px)
 {
     .booking-form-section
@@ -442,4 +445,11 @@
     {
         flex-direction: column;
     }
+
+    .sect-2 .car-rent-info-wrapper ,
+    .sect-2 .price-info
+    {
+        padding: 40px 20px;
+    }
 }
+

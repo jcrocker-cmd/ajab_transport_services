@@ -1,3 +1,3 @@
-$(document).ready( function() {
-    $('#datePicker').val(new Date().toDateInputValue());
-});​
+// $(document).ready( function() {
+//     $('#datePicker').val(new Date().toDateInputValue());
+// });​
