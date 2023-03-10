@@ -126,6 +126,6 @@
 @endsection
 
 @push('scripts')
-    <script src="/moment-library.js"></script>
-    <script src="/ajax-inquiry.js"></script>
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-inquiry.js"></script>
 @endpush

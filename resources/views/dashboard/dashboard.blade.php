@@ -123,5 +123,13 @@
 
 @section('scripts')
     @include('dashboard.assets.script')
-
 @endsection
+
+@push('scripts')
+    <script src="/js/chart-library.js"></script>
+    <script type="text/javascript">
+      var _labels = {!! json_encode($months) !!};
+      var _data = {!! json_encode($signins) !!};
+    </script>
+    <script src="/js/dashboard-content-chart.js"></script>
+@endpush

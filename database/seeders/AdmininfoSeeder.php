@@ -17,6 +17,7 @@ class AdmininfoSeeder extends Seeder
      */
     public function run()
     {
+        
         DB::table('admininfo')->insert([
 
             'email' => 'admin@ajabservices.com',

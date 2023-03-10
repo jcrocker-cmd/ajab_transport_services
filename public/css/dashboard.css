@@ -807,8 +807,34 @@ input.purok
   }
   
 
-  /* BOOKING */
-  /* .modal-dialog
-  {
-    width: 500px;
-  } */
+/* BUTTON DATATABLE */
+#btn_datatable_print {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+
+#btn_datatable_pdf {
+    background-color: #FC6042;
+    color: #fff;
+    border-color: #FC6042;
+    }
+
+#btn_datatable_excel {
+    background-color: #27b376;
+    color: #fff;
+    border-color: #27b376;
+    }
+.dataTables_length {
+    padding-bottom: 8px;
+    }
+.dataTables_paginate .paginate_button {
+    margin-top: -26px;
+    }
+
+@media(max-width: 767px)
+{
+    .dataTables_paginate .paginate_button {
+        margin-top: 0px;
+        }
+}

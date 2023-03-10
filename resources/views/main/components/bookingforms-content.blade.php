@@ -22,7 +22,7 @@
 
             <div class="sect-1">
 
-                <form action="{{ route('book.submit', ['id' => $car_details->id]) }}" method="post" id="bookingForm">
+                <form action="{{ route('book.submit', ['id' => $car_details->id]) }}" enctype="multipart/form-data" method="post" id="bookingForm">
                     @csrf
                     <h4 style="color: #005281"><strong>Renter Information</strong></h4>
                     <hr>

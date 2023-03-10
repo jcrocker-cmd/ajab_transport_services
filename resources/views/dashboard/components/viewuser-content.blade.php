@@ -7,10 +7,10 @@
 <h5 class="">All Registered User</h5>
 </div>
 
-<div class="table-responsive px-3">
+<div class="table-responsive px-3" style="font-size: 14px;">
 
-<table class="table align-middle mb-0 bg-light"  id="dbTable">
-<thead class="table table-dark">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
+<thead class="table table-dark" style="font-size: 14px;">
 <tr>
 <th scope="col">User's Name</th>
 <th scope="col">Email</th>

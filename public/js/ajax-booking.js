@@ -13,6 +13,9 @@ $(document).on('click', '.action-view', function(event) {
             $('#mode_del').text(response.booking.mode_del);
             $('#payment').text(response.booking.payment);
 
+            $('#view_front_license img').attr('src', response.front_license);
+            $('#view_back_license img').attr('src', response.back_license);
+
             $('#start_date').text(moment(response.booking.start_date).format('LL'));
             $('#start_time').text(moment(response.booking.start_time, 'HH:mm:ss').format('h:mm A'));
 

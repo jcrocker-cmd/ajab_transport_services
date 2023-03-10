@@ -9,6 +9,7 @@ use App\Models\AddCar;
 use App\Models\AdminInfo;
 use Mail;
 use Session;
+use DB;
 
 class BookingformsController extends Controller
 { 
@@ -65,60 +66,21 @@ class BookingformsController extends Controller
       $booking->msg = $data['msg'];
       $booking->car_id = $data['car_id'];
 
-    //   if ($image = $request->file('front_license')) {
-    //     $destinationPath = 'images/license/front/';
-    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->move($destinationPath, $profileImage);
+
+      if ($front_license) {
+        $front_license_name = time() . '_' . $front_license->getClientOriginalName();
+        $front_license->move('images/license/front/', $front_license_name);
+        $booking->front_license = $front_license_name;
+    }
     
-    //     // Save the picture to the database
-    //     $booking->front_license = file_get_contents($destinationPath . $profileImage);
-    // }
+      if ($back_license) {
+          $back_license_name = time() . '_' . $back_license->getClientOriginalName();
+          $back_license->move('images/license/back/', $back_license_name);
+          $booking->back_license = $back_license_name;
+    }
     
-    // if ($image = $request->file('back_license')) {
-    //     $destinationPath = 'images/license/back/';
-    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->move($destinationPath, $profileImage);
-    
-    //     // Save the picture to the database
-    //     $booking->back_license = file_get_contents($destinationPath . $profileImage);
-    // }
-
-    if ($front_license) {
-      $front_license_name = time() . '_' . $front_license->getClientOriginalName();
-      $front_license->move('images/license/front/', $front_license_name);
-      $booking->front_license = $front_license_name;
-  }
-  
-  if ($back_license) {
-      $back_license_name = time() . '_' . $back_license->getClientOriginalName();
-      $back_license->move('images/license/back/', $back_license_name);
-      $booking->back_license = $back_license_name;
-  }
-  
-  
-  
-
-    // if ($image = $request->file('front_license')) {
-    //     $destinationPath = 'images/license/font/';
-    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->move($destinationPath, $profileImage);
-    //     $booking['front_license'] = "$profileImage";
-    // }
-
-    // if ($image = $request->file('back_license')) {
-    //     $destinationPath = 'images/license/back/';
-    //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-    //     $image->move($destinationPath, $profileImage);
-    //     $booking['back_license'] = "$profileImage";
-    // }
-
 
       $booking->save();
-
-      // Mail::send('main.email-template', $data, function($message) use ($data) {
-      //   $message->to('johnchristian.narbaja@bisu.edu.ph');
-      //   $message->subject('Daily Booking Form');
-      // });
 
       Mail::send('main.email-template', ['data' => $data], function($message) use ($data) {
         $message->to('johnchristian.narbaja@bisu.edu.ph');
@@ -138,8 +100,51 @@ class BookingformsController extends Controller
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
         }
         $booking = Booking::with('car')->get();
-        return view ('dashboard.booking',compact('data'))->with('booking', $booking);
-    }
+
+        // DAY
+        $daily_bookings = DB::table('bookingform')
+        ->select(DB::raw('COUNT(*) as count, DATE(created_at) as day'))
+        ->groupBy('day')
+        ->get();
+
+        $days = [];
+        $day_booking_counts  = [];
+
+        foreach ($daily_bookings as $bookings) {
+            $days[] = date("Y-m-d", strtotime($bookings->day));
+            $day_booking_counts [] = $bookings->count;
+        }
+
+        // WEEK
+        $weekly_bookings = DB::table('bookingform')
+        ->select(DB::raw('COUNT(*) as count, YEAR(created_at) as year, WEEK(created_at) as week'))
+        ->groupBy('year', 'week')
+        ->get();
+
+        $weeks = [];
+        $week_booking_counts  = [];
+
+        foreach ($weekly_bookings as $bookings) {
+            $weeks[] = 'Week '.$bookings->week.', '.$bookings->year;
+            $week_booking_counts [] = $bookings->count;
+        }
+
+        // MONTH
+        $monthly_bookings = DB::table('bookingform')
+        ->select(DB::raw('COUNT(*) as count, MONTH(created_at) as month'))
+        ->groupBy('month')
+        ->get();
+
+        $months = [];
+        $month_booking_counts  = [];
+    
+        foreach ($monthly_bookings as $bookings) {
+            $months[] = date("F", mktime(0, 0, 0, $bookings->month, 1));
+            $month_booking_counts [] = $bookings->count;
+        }
+
+        return view ('dashboard.booking', compact('data', 'day_booking_counts', 'week_booking_counts', 'month_booking_counts','days', 'weeks', 'months','booking'));
+      }
 
     // public function car()
     // {
@@ -158,9 +163,13 @@ class BookingformsController extends Controller
     public function db_booking_ajaxview($id)
     {
         $booking = Booking::with('car')->find($id);
+        $front_license = asset('images/license/front/' . $booking->front_license);
+        $back_license = asset('images/license/back/' . $booking->back_license);
         return response()->json([
             'status' => 200,
             'booking' => $booking,
+            'front_license' => $front_license,
+            'back_license' => $back_license,
         ]);
     }
 }

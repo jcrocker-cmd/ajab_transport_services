@@ -11,10 +11,10 @@
     <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
     </div>
 
-<div class="table-responsive px-3 pb-3">
+<div class="table-responsive px-3 pb-3" style="font-size: 14px;">
 
-<table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
-<thead class="table table-dark">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
+<thead class="table table-dark" style="font-size: 14px;">
 <tr>
   <th scope="col" class="col-3">Owner</th>
   <th scope="col">Vehicle Status</th>

@@ -1,5 +1,7 @@
 @extends('dashboard.layout.master')
 
+@section('title', 'Bookings')
+
 @section('styles')
     @include('dashboard.assets.style')
 @endsection
@@ -127,6 +129,14 @@
 
 
 @push('scripts')
-    <script src="/moment-library.js"></script>
-    <script src="/ajax-booking.js"></script>
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-booking.js"></script>
+
+    <script src="/js/chart-library.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script type="text/javascript">
+      var _labels = {!! json_encode($weeks) !!};
+      var _data = {!! json_encode($week_booking_counts) !!};
+    </script>
+    <script src="/js/chart-booking.js"></script>
 @endpush
