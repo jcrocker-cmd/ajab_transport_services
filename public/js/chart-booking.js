@@ -1,142 +1,206 @@
-// Retrieve monthly sign-in data from the controller
-const labels = _labels; // Note: use the {!! !!} syntax to output the data as-is
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'Monthly Bookings',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: _data, // Note: use the {!! !!} syntax to output the data as-is
-  }]
-};
 
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: 'linear',
-        from: 1,
-        to: 0,
-        loop: true
-      }
-    },
-    scales: {
-      y: {
-        min: 0,
-      }
-    },
-        // Set the chart width and height here
-        width: 800,
-        height: 400
-  }
-};
+// const chartTypes = {
+//   line: 'line',
+//   bar: 'bar',
+// };
 
-const myChart = new Chart(
-  document.getElementById('booking_Chart'),
-  config
-);
-
-
-//  // setup 
-// const day = [
-//   { x: Date.parse('2021-11-01 00:00: GMT+0800'), y: 18},
-//   { x: Date.parse('2021-11-02 00:00: GMT+0800'), y: 12},
-//   { x: Date.parse('2021-11-03 00:00: GMT+0800'), y: 6},
-//   { x: Date.parse('2021-11-04 00:00: GMT+0800'), y: 9},
-//   { x: Date.parse('2021-11-05 00:00: GMT+0800'), y: 3},
-//   { x: Date.parse('2021-11-06 00:00: GMT+0800'), y: 10},
-//   { x: Date.parse('2021-11-06 00:00: GMT+0800'), y: 12},
-// ];
-
-// const week = [
-//   { x: Date.parse('2021-10-31 00:00: GMT+0800'), y: 50},
-//   { x: Date.parse('2021-11-07 00:00: GMT+0800'), y: 20},
-//   { x: Date.parse('2021-11-14 00:00: GMT+0800'), y: 33},
-//   { x: Date.parse('2021-11-21 00:00: GMT+0800'), y: 43},
-//   { x: Date.parse('2021-11-28 00:00: GMT+0800'), y: 40},
-// ];
-
-// const month = [
-//   { x: Date.parse('2021-08-01 00:00: GMT+0800'), y: 500},
-//   { x: Date.parse('2021-09-01 00:00: GMT+0800'), y: 2000},
-//   { x: Date.parse('2021-10-01 00:00: GMT+0800'), y: 330},
-//   { x: Date.parse('2021-11-01 00:00: GMT+0800'), y: 630},
-//   { x: Date.parse('2021-12-01 00:00: GMT+0800'), y: 100},
-// ];
-
-
-
-//  const data = {
-//   // labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+// const data = {
+//   labels: day_labels,
 //   datasets: [{
-//     label: 'Weekly Sales',
-//     data: month,
-//     backgroundColor: [
-//       'rgba(255, 26, 104, 0.2)',
-//       'rgba(54, 162, 235, 0.2)',
-//       'rgba(255, 206, 86, 0.2)',
-//       'rgba(75, 192, 192, 0.2)',
-//       'rgba(153, 102, 255, 0.2)',
-//       'rgba(255, 159, 64, 0.2)',
-//       'rgba(0, 0, 0, 0.2)'
-//     ],
-//     borderColor: [
-//       'rgba(255, 26, 104, 1)',
-//       'rgba(54, 162, 235, 1)',
-//       'rgba(255, 206, 86, 1)',
-//       'rgba(75, 192, 192, 1)',
-//       'rgba(153, 102, 255, 1)',
-//       'rgba(255, 159, 64, 1)',
-//       'rgba(0, 0, 0, 1)'
-//     ],
-//     borderWidth: 1
+//     label: 'Daily Bookings',
+//     backgroundColor: 'rgb(255, 99, 132)',
+//     borderColor: 'rgb(255, 99, 132)',
+//     data: day_data, // Note: use the {!! !!} syntax to output the data as-is
 //   }]
 // };
 
-// // config 
-// const config = {
-//   type: 'bar',
-//   data,
+// const config_line = {
+//   type: 'line',
+//   data: data,
 //   options: {
+//     animations: {
+//       tension: {
+//         duration: 1000,
+//         easing: 'linear',
+//         from: 1,
+//         to: 0,
+//         loop: true
+//       }
+//     },
 //     scales: {
-//       x: {
-//         type: 'time',
-//         time: {
-//           unit: 'month'
-//         }
-//       },
 //       y: {
 //         beginAtZero: true
 //       }
-//     }
+//     },
+//     title: {
+//       display: true,
+//       text: 'Monthly Bookings'
+//     },
+//     // Set the chart width and height here
+//     width: 800,
+//     height: 400
 //   }
 // };
 
-// // render init block
-// const myChart = new Chart(
+
+// const config_bar = {
+//   type: 'bar',
+//   data: data,
+//   options: {
+//     indexAxis: 'y',
+//     animations: {
+//       tension: {
+//         duration: 1000,
+//         easing: 'linear',
+//         from: 1,
+//         to: 0,
+//         loop: true
+//       }
+//     },
+//     scales: {
+//       y: {
+//         beginAtZero: true
+//       }
+//     },
+//     title: {
+//       display: true,
+//       text: 'Monthly Bookings'
+//     },
+//   }
+// };
+
+
+// let myChart = new Chart(
 //   document.getElementById('booking_Chart'),
-//   config
+//   config_bar
 // );
 
-// function timeFrame(period){
-//   if (period.value == 'day') {
-//     myChart.config.options.scales.x.time.unit = period.value;
-//     myChart.config.data.datasets[0].data = day;
+// document.getElementById('display-selector').addEventListener('change', function() {
+//   var displayType = this.value;
+//   var labels, data, title, datasetLabel;
+  
+//   if (displayType === 'day') {
+//     labels = day_labels;
+//     data = day_data;
+//     title = 'Daily Bookings';
+//     datasetLabel = 'Daily Bookings';
+//   } else if (displayType === 'week') {
+//     labels = week_labels;
+//     data = week_data;
+//     title = 'Weekly Bookings';
+//     datasetLabel = 'Weekly Bookings';
+//   } else if (displayType === 'month') {
+//     labels = month_labels;
+//     data = month_data;
+//     title = 'Monthly Bookings';
+//     datasetLabel = 'Monthly Bookings';
+//   } else if (displayType === 'year') {
+//     labels = year_labels;
+//     data = year_data;
+//     title = 'Yearly Bookings';
+//     datasetLabel = 'Yearly Bookings';
 //   }
-//   if (period.value == 'week') {
-//     myChart.config.options.scales.x.time.unit = period.value;
-//     myChart.config.data.datasets[0].data = week;
-//   }
-//   if (period.value == 'month') {
-//     myChart.config.options.scales.x.time.unit = period.value;
-//     myChart.config.data.datasets[0].data = month;
-//   }
+  
+//   myChart.data.labels = labels;
+//   myChart.data.datasets[0].label = datasetLabel;
+//   myChart.data.datasets[0].data = data;
+//   myChart.options.title.text = title;
+
 //   myChart.update();
+// });
+
+// function chartType(type){
+//   myChart.destroy();
+//   if (type === 'bar') {
+//       myChart = new Chart(
+//       document.getElementById('booking_Chart'),
+//       config_bar
+//     );
+//   }
+
+//   if (type === 'line') {
+//     myChart = new Chart(
+//     document.getElementById('booking_Chart'),
+//     config_line
+//   );
+// }
 // }
 
-// // Instantly assign Chart.js version
-// const chartVersion = document.getElementById('booking_Chart');
-// chartVersion.innerText = Chart.version;
+
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',],
+      datasets: [{
+        label: 'Weekly Sales',
+        data: [18, 12, 6, 9, 12, 3, 9, 18, 12, 6, 9, 12, 3, 9, 3, 9, 18, 12, 6, 9],
+        backgroundColor: [
+          'rgba(255, 26, 104, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(0, 0, 0, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 26, 104, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(0, 0, 0, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    const config2 = {
+      type: 'line',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+        // render init block
+        let myChart = new Chart(
+          document.getElementById('booking_Chart'),
+          config
+        );
+
+  function chartType(type){
+    myChart.destroy();
+    if (type === 'bar') {
+        myChart = new Chart(
+        document.getElementById('booking_Chart'),
+        config
+      );
+    }
+
+    if (type === 'line') {
+      myChart = new Chart(
+      document.getElementById('booking_Chart'),
+      config2
+    );
+  }
+}
+
+  

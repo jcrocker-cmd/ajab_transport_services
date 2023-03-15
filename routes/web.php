@@ -52,6 +52,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         });
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
         Route::get('/rented', [AddCarController::class,'db_rentedcars']);
+        Route::get('/available', [AddCarController::class,'db_availablecars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
         Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
         Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
@@ -72,6 +73,12 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/bookings', [BookingformsController::class,'db_bookings']);
         Route::get('/delete_booking/{id}', [BookingformsController::class,'db_booking_delete']);
         Route::get('/bookings/{id}/ajaxview', [BookingformsController::class,'db_booking_ajaxview']);
+        Route::post('/confirm_booking/{id}', [BookingformsController::class, 'confirmBooking'])->name('confirm.booking');
+        Route::patch('/decline_booking/{id}', [BookingformsController::class, 'declineBooking']);
+
+
+
+
 
         Route::get('/allusers', [UserinfoController::class,'db_allusers']);
         Route::get('/delete_user/{id}', [UserinfoController::class,'db_user_delete']);

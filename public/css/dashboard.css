@@ -3,6 +3,8 @@
 *
 {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 body
 {
@@ -556,11 +558,6 @@ input.purok
 
 }
 
-.db-chart
-{
-    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
-
-}
 .for-border
 {
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
@@ -809,21 +806,21 @@ input.purok
 
 /* BUTTON DATATABLE */
 #btn_datatable_print {
-    background-color: #007bff;
-    color: #fff;
-    border-color: #007bff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    background: none;
   }
 
 #btn_datatable_pdf {
-    background-color: #FC6042;
-    color: #fff;
-    border-color: #FC6042;
+    color: #c14a32;
+    border: 1px solid #c14a32;
+    background: none;
     }
 
 #btn_datatable_excel {
-    background-color: #27b376;
-    color: #fff;
-    border-color: #27b376;
+    color: #27b376;
+    border: 1px solid #27b376;
+    background: none;
     }
 .dataTables_length {
     padding-bottom: 8px;
@@ -838,3 +835,22 @@ input.purok
         margin-top: 0px;
         }
 }
+
+/* All DASHBOARD CHART */
+
+.db-chart
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+}
+
+.db-chart select
+{
+    outline: none;
+    padding: 3px;
+}
+
+#booking_Chart {
+    overflow-x: scroll;
+    max-width: 100%;
+  }
+  

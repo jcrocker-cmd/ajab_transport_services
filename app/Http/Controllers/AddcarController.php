@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
 // use App\Models\User;
 use App\Models\User;
+use App\Models\Booking;
 use App\Models\AdminInfo;
 
 class AddCarController extends Controller
@@ -59,10 +60,20 @@ class AddCarController extends Controller
 
     public function db_rentedcars()
     {
+        $rented = Booking::with('car')->get();
         $data = array();
         if(Session::has('loginId')){
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        return view('dashboard.rented-cars',compact('data'));
+        return view('dashboard.rented-cars',compact('data','rented'));
+    }
+
+    public function db_availablecars()
+    {
+        $available = AddCar::all();
+        $data = array();
+        if(Session::has('loginId')){
+        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        return view('dashboard.available-cars',compact('data','available'));
     }
 
     public function db_viewvehicle($id)

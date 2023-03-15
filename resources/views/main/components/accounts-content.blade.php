@@ -73,53 +73,62 @@
         <div class="myrental-wrapper">
             <h4 class="pb-3">My Rentals</h4>
 
+            @if(count($bookings) > 0)
             <div class="table-responsive">
 
-            <table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
-            <thead class="table table-dark">
-            <tr>
-            <th scope="col" class="col-3">Owner</th>
-            <th scope="col">Vehicle Status</th>
-            <th scope="col">Card Brand</th>
-            <th scope="col">Car Model</th>
-            <th scope="col">Plate No.</th>
-            <th scope="col">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            
-            <tr>
-            <td>
-                <div class ="d-flex align-items-center">
-                    <img src="user.jpg" alt=""
-                    style="height: 45px; width: 45px;" class="rounded-circle">
-                <div class="ms-3">
-                    <p class="fw-bold mb-1">John</p>
-                    <p class="text-muted mb-0">dfdf</p>
+                <table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
+                <thead class="table table-dark">
+                <tr>
+                <th scope="col" class="col-3">Owner</th>
+                <th scope="col">Vehicle Status</th>
+                <th scope="col">Card Brand</th>
+                <th scope="col">Car Model</th>
+                <th scope="col">Plate No.</th>
+                <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($bookings as $booking)
+                <tr>
+                    <td>
+                        <div class ="d-flex align-items-center">
+                                <img src="user.jpg" alt=""
+                                style="height: 45px; width: 45px;" class="rounded-circle">
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{ $booking->id }}</p>
+                                <p class="text-muted mb-0">dfdf</p>
 
-                </div>
-                </div>
+                            </div>
+                        </div>
 
-            </td>
-            <td>
-                <span class="badge bg-success rounded-pill">Available</span>
-            </td>
-            <td>asa</td>
-            
-            <td>asas</td>
-            <td>aasasa</td>
-            <td>
-            <a href="" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-            </td>
-            </tr>
+                    </td>
+                    <td>
+                        @if ($booking->status == 'In progress')
+                            <span class="badge bg-warning rounded-pill">{{ $booking->status }}</span>
+                        @elseif ($booking->status == 'Confirmed')
+                            <span class="badge bg-success rounded-pill">{{ $booking->status }}</span>
+                        @elseif ($booking->status == 'Declined')
+                            <span class="badge bg-secondary rounded-pill">{{ $booking->status }}</span>
+                        @elseif ($booking->status == 'Closed')
+                            <span class="badge bg-danger rounded-pill">{{ $booking->status }}</span>
+                        @endif
+                    </td>
 
+                    <td>{{ $booking->car->brand }} {{ $booking->car->model }}</td>
+                    
+                    <td>asas</td>
+                    <td>aasasa</td>
+                    <td>
+                    <a href="" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+                @endforeach
+                @else
+                    <h6><strong>You have no rentals yet.</strong></h6>
+                @endif
 
-            </tbody>
-            </table>
-
-
-
-
+                </tbody>
+                </table>
 
             </div>
         </div>

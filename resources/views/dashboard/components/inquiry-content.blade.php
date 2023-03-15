@@ -10,7 +10,7 @@
     <h5 class="">All Inquiries</h5>
     </div>
 
-<div class="table-responsive px-3 pb-3" style="font-size: 14px;">
+<div class="table-responsive px-3" style="font-size: 14px; width: 100%;">
 
 <table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
 <thead class="table table-dark" style="font-size: 14px;">
@@ -28,10 +28,10 @@
  <tr>
   <td>
     <div class ="d-flex align-items-center">
-    <div class="">
-        <p class="fw-bold mb-1">{{ $item->name}}</p>
-        <p class="text-muted mb-0">{{ $item->email}}</p>
-    </div>
+      <div class="">
+          <p class="fw-bold mb-1">{{ $item->name}}</p>
+          <p class="text-muted mb-0">{{ $item->email}}</p>
+      </div>
     </div>
 
   </td> 
@@ -56,9 +56,26 @@
 </table>
 
 
+</div>
 
+<div class="chart-wrapper px-3 pb-3">
+  <div class="bg-light db-chart px-3 py-3 mt-4" style="border-radius: 10px; width: 100%;">
+    <h5><strong>Inquiry Graphical Reports</strong></h5>
+    <canvas id="inquiry_Chart"></canvas>
 
+    <select id="display-selector">
+      <option value="day" selected>Daily</option>
+      <option value="week">Weekly</option>
+      <option value="month" >Monthly</option>
+      <option value="year" >Year</option>
+    </select>
 
+    <select id="chart-type-selector" onchange="chartType(this.value)">
+      <option value="bar" selected>Bar Chart</option>
+      <option value="line">Line Chart</option>
+      <!-- <option value="pie">Pie Chart</option> -->
+    </select>
+  </div>
 </div>
 
 
