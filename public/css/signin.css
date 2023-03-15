@@ -1,0 +1,250 @@
+#signin
+{
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+   
+}
+#signin-logo
+{
+    width: 150px;
+}
+.signinlogo
+{
+    text-align: center;
+}
+.h3
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+}
+.terms
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.signin-row
+{
+    width: auto;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+}
+.signin-col-1
+{
+    background-color: #18CF77;
+    width: 390px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+.signin-col-content
+{
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+.signin-col-2
+{
+    background-color: #F5FAFF;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    /* text-align: center; */
+    align-items: center;
+    padding: 25px 40px;
+    box-shadow: 5px 11px 15px -3px rgba(0, 0, 0, 0.25);  
+}
+
+.error-msg
+{
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    padding: 0;
+}
+
+.signin-password input , .signin-button , .signin-fname input , .signin-lname input ,
+.signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg input , .signin-email input
+{
+    height: 35px;
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: 0.5px solid #BCBCBC;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.signin-password input , .signin-fname input , .signin-lname input ,
+.signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
+{
+    /* margin-bottom: 13px; */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    
+}
+.signin-fname , .signin-lname , .signin-email , .signin-password , .signin-bday , .gender
+{
+    margin-bottom: 13px;
+    
+}
+
+.gender
+{
+    display: flex;
+
+}
+.gender input
+{
+    -webkit-appearance: none;
+}
+
+.gender label
+{
+    border: 0.5px solid #B8AFAF;
+    height: 35px;
+    width: 110px;
+    color: #000;
+    padding-top: 7px;
+}
+
+.gender input:checked+ label
+{ 
+    background-color: #000000;
+    color: #fff;
+    border: #fff 1px solid;
+    transition: 0.5s;
+}
+.signin-button
+{
+    position: relative;
+    background-color: #18CF77;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    display: grid;
+    place-content: center;
+}
+.button_signin-text
+{
+    color: #ffffff;
+    transition: all 0.2s;
+}
+
+.signin-loader .button_signin-text
+{
+    visibility: hidden;
+    opacity: 0;
+}
+.signin-loader::after
+{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #fff;
+    animation: loader 0.5s ease infinite;
+    -webkit-animation: loader 0.5s ease infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+
+}
+
+
+  /* SIGNGIN MEDIAQUERY */
+
+
+  @media(max-width: 800px)
+{
+   .signin-col-2
+   {
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);     
+    }
+
+   #signin
+    {
+    padding: 150px 20px;
+
+    }
+
+    .username input , .password input , .button_login
+    {
+        font-size: 13px;
+    }
+
+}
+
+@media only screen and (max-width:800px)
+
+/* SIGNIN */
+
+{
+
+    .signin-col-1
+    {
+        display: none;
+    }
+
+}
+
+
+  @media(max-width: 400px)
+{
+   
+    .signin-password input , .signin-fname input , .signin-lname input ,
+    .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
+    {
+        font-size: 13px;
+    }
+
+}

@@ -1,5 +1,7 @@
 @extends('dashboard.layout.master')
 
+@section('title', 'Booking Reports')
+
 @section('styles')
     @include('dashboard.assets.style')
 @endsection
@@ -16,7 +18,7 @@
     <ul class ="list-unstyled px-2 ">
       <li class=""><a href="/dashboard" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-home" style="margin-right: 10px;"></i>   Dashboard</a></li>
       <li class=""><a href="/all-vehicles" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-list" style="margin-right: 10px;"></i>   Registered Vehicles</a></li>
-      <li class=""><a href="/pages" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car" style="margin-right: 10px;"></i>   Available Cars</a></li>
+      <li class=""><a href="/available" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car" style="margin-right: 10px;"></i>   Available Cars</a></li>
       <li class=""><a href="/rented" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-car-building" style="margin-right: 10px;"></i>   Rented Cars</a></li>
 
       <!-- <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
@@ -127,6 +129,23 @@
 
 
 @push('scripts')
-    <script src="/moment-library.js"></script>
-    <script src="/ajax-booking.js"></script>
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-booking.js"></script>
+
+    <script src="/js/chart-library.js"></script>
+    <script src="https://cdn.skypack.dev/date-fns"></script>
+    <script type="text/javascript">
+      var day_labels = {!! json_encode($days) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
+      var day_data = {!! json_encode($day_booking_counts) !!};
+
+      var week_labels = {!! json_encode($weeks) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      var week_data = {!! json_encode($week_booking_counts) !!};
+
+      var month_labels = {!! json_encode($months) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
+      var month_data = {!! json_encode($month_booking_counts) !!};
+      
+      var year_labels = {!! json_encode($years ) !!}.map(year => new Date(year + '-01-01').toLocaleDateString('en-US', { year: 'numeric' }));
+      var year_data = {!! json_encode($year_booking_counts ) !!};
+    </script>
+    <script src="/js/chart-booking.js"></script>
 @endpush

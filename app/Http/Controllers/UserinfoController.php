@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\File;
 use App\Models\User;
 use App\Models\AddCar;
 use App\Models\AdminInfo;
+use App\Models\Booking;
 use Hash;
 use Session;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -14,10 +16,13 @@ class UserinfoController extends Controller
 {
     public function user_accountroute()
     {
-        $data = array();
         if(Session::has('loginId')){
-        $data = User::where('id','=',Session::get('loginId'))->first();}
-        return view('main.account',compact('data'));
+            $user_id = Session::get('loginId');
+            $data = User::where('id', '=', $user_id)->first();
+            $bookings = Booking::with('car')->where('user_id', $user_id)->get();
+            return view('main.account',compact('data','bookings'));
+        } 
+        return view('main.account',compact('data','bookings','user'));
     }
 
     public function booking_route($id)
@@ -39,7 +44,65 @@ class UserinfoController extends Controller
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
         }
         $user = User::all();
-        return view ('dashboard.viewuser',compact('data'))->with('user', $user);
+
+        // DAY
+        $daily_users = DB::table('users')
+            ->select(DB::raw('COUNT(*) as count, DATE(created_at) as day'))
+            ->groupBy('day')
+            ->get();
+
+        $days = [];
+        $day_user_counts = [];
+
+        foreach ($daily_users as $users) {
+            $days[] = date("F j, Y", strtotime($users->day));
+            $day_user_counts [] = $users->count;
+        }
+
+
+        // WEEK
+        $weekly_users = DB::table('users')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(created_at) - 1 DAY) as week_start_date'))
+            ->groupBy('week_start_date')
+            ->get();
+
+        $weeks = [];
+        $week_user_counts  = [];
+
+        foreach ($weekly_users as $users) {
+            $weeks[] = 'Week of '.date("F j, Y", strtotime($users->week_start_date));
+            $week_user_counts [] = $users->count;
+        }
+
+        // MONTH
+        $monthly_users = DB::table('users')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-01")) as month_start_date'))
+            ->groupBy('month_start_date')
+            ->get();
+
+        $months = [];
+        $month_user_counts  = [];
+
+        foreach ($monthly_users as $users) {
+            $months[] = date("F Y", strtotime($users->month_start_date));
+            $month_user_counts [] = $users->count;
+        }
+
+        // YEAR
+        $yearly_users = DB::table('users')
+        ->select(DB::raw('COUNT(*) as count, YEAR(created_at) as year'))
+        ->groupBy('year')
+        ->get();
+
+        $years = [];
+        $year_user_counts = [];
+
+        foreach ($yearly_users as $users) {
+        $years[] = $users->year;
+        $year_user_counts[] = $users->count;
+        }
+            
+        return view ('dashboard.viewuser', compact('data', 'day_user_counts', 'week_user_counts', 'month_user_counts','year_user_counts','days', 'weeks', 'months','years','user'));
     }
 
     public function delete_user($id)

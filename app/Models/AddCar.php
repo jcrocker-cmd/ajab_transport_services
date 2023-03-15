@@ -40,5 +40,6 @@ class AddCar extends Model
         'monthlyrate',
 
         'carphoto',
+        'status',
     ];
 }

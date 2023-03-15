@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+header
+{
+	width: 100%;
+}
+.logo
+{
+    width: 130px;
+    
+}
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    background:	#EEEFF1;  
+    padding: 20px;
+    z-index: 1;
+    /* gap: 100px; */
+    padding-left: 100px;
+    padding-right: 100px;
+    justify-content: space-between;
+    font-weight: 500;
+}
+.header-col-1 , .header-col-2
+{
+    gap: 40px;
+    /* width: 500px; */
+}
+.header-col-1 .logo
+{
+    width: 150px;
+}
+.header-col-middle
+{
+    gap: 30px;
+}
+nav div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav div li {
+    position: relative;
+    list-style: none;
+}
+
+nav div li a{
+    position: relative;
+    text-decoration: none;
+    color:#000000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: 0.6s;
+    font-size: 13px;
+}
+nav div li a:hover
+{
+	color: 	#007F66;
+    transition: 0.5s;
+
+}
+
+nav.sticky{
+    padding: 15px 120px;
+    background: #fff;
+	box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+
+}
+nav li a::after
+{
+    content: "";
+    width: 0;
+    height: 3px;
+    background: #007F66;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.5s;
+
+}
+nav li a:hover:after
+{
+    width: 100%;
+    justify-content: center;
+}
+
+
+
+nav .far
+{
+    display: none;
+}
+
+.view-rental-btn
+{
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+
+@media (max-width:1000px) {
+
+    .header-col-middle , .header-col-2
+    {
+        display: none;
+    }
+    nav .far
+    {
+        display: flex;
+        cursor: pointer;
+        
+    }
+    
+    nav.sticky{
+        padding: 15px 50px;
+        background: #fff;
+        box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+        -moz-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
+    
+    }
+
+    /* nav
+    {
+        padding: 15px 50px;
+
+    } */
+}

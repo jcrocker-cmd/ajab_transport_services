@@ -1,28 +1,49 @@
 
-    <script src="/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
     
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.print.min.js"></script>
+
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+
+    <!-- <script src="/datatables/js/datatables-jquery.js"></script>
+    <script src="/datatables/js/datatables-bootstrap.js"></script>
+    <script src="/datatables/js/datatables-buttons.js"></script>
+    <script src="/datatables/js/datatables-responsive.js"></script>
+    <script src="/datatables/js/datatables-print.js"></script>
+    <script src="/datatables/js/datatables-colvis.js"></script>
+    <script src="/datatables/js/datatables-jszip.js"></script>
+    <script src="/datatables/js/datatables-pdfmake.js"></script>
+    <script src="/datatables/js/datatables-pdfmake-vfs.js"></script>
+    <script src="/datatables/js/datatables-buttons-html.js"></script> -->
+
     <script src="/data-table.js"></script>
-    <script src="/data-table-button.js"></script>
+    <!-- End -->
     
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-    <script src="/dashboard-content-chart.js"></script>
-    <script src="/comma-separator.js"></script>
-    <script src="/db-password-showhide.js"></script>
-    <script src="/dblogin-password-showhide.js"></script>
-    <script src="/choosefile-btn-add.js"></script>
-    <script src="/scrollreveal.js"></script>
-    <script src="/ul-active.js"></script>
-    <script src="/dashboard-toggle.js"></script>
-    <script src="/multi-step-form.js"></script>
-    <script src="/capitalize-eachword.js"></script>
-    <script src="/alert.js"></script>
-    <script src="/submitbtn-loader.js"></script>
+
+    <script src="/js/comma-separator.js"></script>
+    <script src="/js/db-password-showhide.js"></script>
+    <script src="/js/dblogin-password-showhide.js"></script>
+    <script src="/js/choosefile-btn-add.js"></script>
+    <script src="/js/scrollreveal.js"></script>
+    <script src="/js/ul-active.js"></script>
+    <script src="/js/dashboard-toggle.js"></script>
+    <script src="/js/multi-step-form.js"></script>
+    <script src="/js/capitalize-eachword.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/submitbtn-loader.js"></script>

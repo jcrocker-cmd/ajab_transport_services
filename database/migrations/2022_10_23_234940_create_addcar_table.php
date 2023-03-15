@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('weeklyrate')->nullable();
             $table->string('monthlyrate')->nullable();
             $table->string('carphoto')->nullable();
+            $table->string('status')->default('Available');
             $table->timestamps();
         });
     }

@@ -11,12 +11,12 @@
     <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
     </div>
 
-<div class="table-responsive px-3 pb-3">
+<div class="table-responsive px-3 pb-3" style="font-size: 14px;">
 
-<table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
-<thead class="table table-dark">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
+<thead class="table table-dark" style="font-size: 14px;">
 <tr>
-  <th scope="col" class="col-3">Owner</th>
+  <th scope="col" class="">Owner</th>
   <th scope="col">Vehicle Status</th>
   <th scope="col">Card Brand</th>
   <th scope="col">Car Model</th>
@@ -40,7 +40,14 @@
 
   </td>
   <td>
-    <span class="badge bg-success rounded-pill">Available</span>
+  @if ($item->status == 'Available')
+    <span class="badge bg-success rounded-pill">{{ $item->status }}</span>
+  @elseif ($item->status == 'Rented')
+    <span class="badge bg-danger rounded-pill">{{ $item->status }}</span>
+  @else
+    <span class="badge bg-warning rounded-pill">{{ $item->status }}</span>
+  @endif
+
   </td>
   <td>{{ $item->brand}}</td>
   

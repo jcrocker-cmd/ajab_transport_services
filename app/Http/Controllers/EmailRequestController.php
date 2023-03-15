@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\AdminInfo;
 use App\Models\Inquiry;
 use Mail;
+use DB;
 // use App\Mail\EmailRequest;
 
 class EmailRequestController extends Controller
@@ -50,7 +51,65 @@ class EmailRequestController extends Controller
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
         }
         $inquiry = Inquiry::all();
-        return view ('dashboard.inquiry',compact('data'))->with('inquiry', $inquiry);
+
+        // DAY
+        $daily_inquiries = DB::table('inquiries')
+        ->select(DB::raw('COUNT(*) as count, DATE(created_at) as day'))
+        ->groupBy('day')
+        ->get();
+
+        $days = [];
+        $day_inquiry_counts = [];
+
+        foreach ($daily_inquiries as $inquiries) {
+            $days[] = date("F j, Y", strtotime($inquiries->day));
+            $day_inquiry_counts [] = $inquiries->count;
+        }
+
+
+        // WEEK
+        $weekly_inquiries = DB::table('inquiries')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(created_at) - 1 DAY) as week_start_date'))
+            ->groupBy('week_start_date')
+            ->get();
+
+        $weeks = [];
+        $week_inquiry_counts  = [];
+
+        foreach ($weekly_inquiries as $inquiries) {
+            $weeks[] = 'Week of '.date("F j, Y", strtotime($inquiries->week_start_date));
+            $week_inquiry_counts [] = $inquiries->count;
+        }
+
+        // MONTH
+        $monthly_inquiries = DB::table('inquiries')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-01")) as month_start_date'))
+            ->groupBy('month_start_date')
+            ->get();
+
+        $months = [];
+        $month_inquiry_counts  = [];
+
+        foreach ($monthly_inquiries as $inquiries) {
+            $months[] = date("F Y", strtotime($inquiries->month_start_date));
+            $month_inquiry_counts [] = $inquiries->count;
+        }
+
+        // YEAR
+        $yearly_inquiries = DB::table('inquiries')
+        ->select(DB::raw('COUNT(*) as count, YEAR(created_at) as year'))
+        ->groupBy('year')
+        ->get();
+
+        $years = [];
+        $year_inquiry_counts = [];
+
+        foreach ($yearly_inquiries as $inquiries) {
+        $years[] = $inquiries->year;
+        $year_inquiry_counts[] = $inquiries->count;
+        }
+
+        return view ('dashboard.inquiry', compact('data', 'day_inquiry_counts', 'week_inquiry_counts', 'month_inquiry_counts','year_inquiry_counts','days', 'weeks', 'months','years','inquiry'));
     }
 
     public function db_inquiry_delete($id)

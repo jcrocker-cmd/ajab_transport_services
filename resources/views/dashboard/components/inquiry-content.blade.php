@@ -10,27 +10,28 @@
     <h5 class="">All Inquiries</h5>
     </div>
 
-<div class="table-responsive px-3 pb-3">
+<div class="table-responsive px-3" style="font-size: 14px; width: 100%;">
 
-<table class="table mb-0 bg-light table-hover" id="dbTable">
-<thead class="table table-dark">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
+<thead class="table table-dark" style="font-size: 14px;">
 <tr>
   <th scope="col" class="col-sm-2">Inquirer</th>
   <th scope="col">Phone</th>
   <th scope="col">Subject</th>
-  <th scope="col" class="col-6">Content</th>
+  <th scope="col" class="">Content</th>
+  <th scope="col">Created At</th>
   <th scope="col">Actions</th>
 </tr>
 </thead>
 <tbody>
-@foreach($inquiry as $item)
+@foreach($inquiry->reverse() as $item)
  <tr>
   <td>
     <div class ="d-flex align-items-center">
-    <div class="">
-        <p class="fw-bold mb-1">{{ $item->name}}</p>
-        <p class="text-muted mb-0">{{ $item->email}}</p>
-    </div>
+      <div class="">
+          <p class="fw-bold mb-1">{{ $item->name}}</p>
+          <p class="text-muted mb-0">{{ $item->email}}</p>
+      </div>
     </div>
 
   </td> 
@@ -39,6 +40,9 @@
   
   <td>{{ $item->subject}}</td>
   <td>{{ $item->content}}</td>
+  <td>
+  {{ \Carbon\Carbon::parse($item->created_at)->fromNow() }}
+  </td>
   <td>
   <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
   <a href="/delete_inquiry/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -52,9 +56,26 @@
 </table>
 
 
+</div>
 
+<div class="chart-wrapper px-3 pb-3">
+  <div class="bg-light db-chart px-3 py-3 mt-4" style="border-radius: 10px; width: 100%;">
+    <h5><strong>Inquiry Graphical Reports</strong></h5>
+    <canvas id="inquiry_Chart"></canvas>
 
+    <select id="display-selector">
+      <option value="day" selected>Daily</option>
+      <option value="week">Weekly</option>
+      <option value="month" >Monthly</option>
+      <option value="year" >Year</option>
+    </select>
 
+    <select id="chart-type-selector" onchange="chartType(this.value)">
+      <option value="bar" selected>Bar Chart</option>
+      <option value="line">Line Chart</option>
+      <!-- <option value="pie">Pie Chart</option> -->
+    </select>
+  </div>
 </div>
 
 

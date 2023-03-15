@@ -1,0 +1,42 @@
+.scrollup {
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    height: 40px;
+    width: 40px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    transition: .6s;
+    z-index: 2;
+  }
+  
+  .scrollup:hover {
+    transition: 0.5s;
+    
+  }
+  
+  
+  /* Show scroll */
+  .show-scroll {
+    /* bottom: 100px; */
+    bottom: 40px;
+  }
+
+  .request-alert
+  {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    transition: .6s;
+    z-index: 2;
+    padding: 5px 10px;
+    font-size: 12px;
+  }

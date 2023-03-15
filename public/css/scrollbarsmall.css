@@ -1,0 +1,12 @@
+div.db-bottom-col2::-webkit-scrollbar
+{
+    background: transparent;
+    width: 8px;
+    border-radius: 10px;
+
+} 
+div.db-bottom-col2::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(125deg,#8800FF,#000088,#0088FF,#00FF00,#FFA500,#FF0000);
+    border-radius: 10px;
+}

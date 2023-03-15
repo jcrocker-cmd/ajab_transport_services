@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1&display=swap');
+
+/* BOOKING FORMS */
+.booking-form-section
+{
+    margin-top: 144px;
+    height: 100%;
+    width: 100%;
+    padding: 40px 80px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.booking-form-buttons
+{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    /* background-color: aqua;
+    padding: 20px; */
+}
+
+.booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
+{
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 10px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: #000;
+    border: 1px solid #000;
+    outline: none;
+    background-color: rgb(246, 244, 244);
+}
+
+.booking-form
+{
+    display: none;
+}
+
+.booking-form.active
+{
+    display: block;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar-container
+{
+    padding: 0 60px
+}
+.progressbar
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 50px 0;
+    counter-reset: step;
+}
+.progressbar::before , .progress
+{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress
+{
+    background-color: #198754;
+    width: 0%;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+.progress-step
+{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+.progress-step::before
+{
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step::after
+{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: .80rem;
+    color: #666666;
+    text-align: center;
+    width: 150px;
+
+}
+
+.progress-step.active
+{
+    background-color: #198754;
+    color: #fff;
+}
+
+
+.booking-form-section .div2 , .booking-form-section .div3
+{
+    display: none;
+}
+
+
+.booking-form-buttons button.active
+{
+    background-color: #198754;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
+    -moz-transition: ease-in-out 0.5s;
+    -ms-transition: ease-in-out 0.5s;
+    -o-transition: ease-in-out 0.5s;
+}
+
+/* .btn-daily
+{
+    color: #D7A717;
+    border: 1px solid #D7A717;
+}
+
+.btn-daily:hover
+{
+    color: #fff;
+    background-color:  #D7A717;
+    transition: 0.5s;
+}
+
+.btn-weekly
+{
+    color: rgb(0, 38, 253);
+    border: 1px solid rgb(0, 38, 253);
+}
+
+.btn-weekly:hover
+{
+    color: #fff;
+    background-color: rgb(0, 38, 253);
+    transition: 0.5s;
+}
+
+.btn-monthly
+{
+    color: rgb(188, 9, 9);
+    border: 1px solid rgb(188, 9, 9);
+}
+
+.btn-monthly:hover
+{
+    color: #fff;
+    background-color: rgb(188, 9, 9);
+    transition: 0.5s;
+} */
+
+.booking-info-section
+{
+    display: flex;
+    gap: 40px;
+}
+
+.booking-info-section .sect-1
+{
+    flex-basis: 60%;
+}
+
+.car-rent-info-wrapper img
+{
+    height: 40px;
+    width: 60px;
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.sect-1 .renter-info input , .sect-1 textarea
+{
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid rgb(187, 182, 182);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.sect-1 .license-wrapper
+{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.sect-1 .license
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-basis: 50%;
+}
+
+.sect-1 .license input
+{
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+}
+
+.renter-info input
+{
+    padding: 8px 10px;
+
+}
+
+.booking-info-section .sect-1 hr
+{
+    color: #000;
+}
+
+.sect-1 .mode-of-delivery
+{
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.booking-info-section .sect-2
+{
+    height: 100%;
+    border: 1px solid rgb(147, 145, 145);
+    flex-basis: 40%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+
+}
+
+.sect-2 .car-rent-info-wrapper
+{
+    background: #F8FAFC;
+    padding: 40px 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom:  1px solid rgb(147, 145, 145);
+}
+
+.sect-2 .date-time-wrapper
+{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+.date-time-wrapper input
+{
+    padding: 10px;
+    font-size: 15px;
+}
+
+::-webkit-calendar-picker-indicator
+{
+    color: #fff;
+    padding: 5px;
+    background-color: rgb(139, 178, 246);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.date-time-wrapper label
+{
+    font-size: 15px;
+}
+
+.start-date div , .return-date div
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.start-date , .return-date
+{
+    gap: 10px;
+
+}
+
+
+.sect-2 .price-info
+{
+    padding: 40px 40px;
+}
+
+
+.price-info .alert
+{
+    font-size: 13px;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+}
+
+.agreement
+{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.bookingform-sumbit
+{
+    width: 100%;
+    padding: 10px  5px;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: grid;
+    place-content: center;
+    background-color: #198754;
+}
+
+
+  .loader
+{
+     pointer-events: none;
+     width: 30px;
+     height: 30px;
+     border: 3px solid transparent;
+     border-top-color: #fff;
+     border-radius: 50%;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -ms-border-radius: 50%;
+     -o-border-radius: 50%;
+     animation: loader 0.5s ease infinite;
+     -webkit-animation: loader 0.5s ease infinite;
+}
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+}
+
+
+@media (max-width: 1020px)
+{
+    .booking-info-section
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .start-date , .return-date
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 870px)
+{
+    .sect-1 .license-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 580px)
+{
+    .booking-form-section
+    {
+        padding: 20px;
+    }
+    .booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
+    {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 515px)
+{
+    .booking-form-section
+    {
+        padding: 20px 20px 40px 20px;
+        margin-top: 100px;
+    }
+    .renter-info
+    {
+        flex-direction: column;
+    }
+
+    .sect-2 .car-rent-info-wrapper ,
+    .sect-2 .price-info
+    {
+        padding: 40px 20px;
+    }
+}
+

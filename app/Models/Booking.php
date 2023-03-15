@@ -26,6 +26,7 @@ class Booking extends Model
         'return_time',
         'msg',
         'car_id',
+        'status',
     ];
 
     public function car()

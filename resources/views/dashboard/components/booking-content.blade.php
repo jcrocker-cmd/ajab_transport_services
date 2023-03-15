@@ -1,5 +1,5 @@
 
-<section class="all-inquiry-section">
+<section class="all-booking-section">
 
 @if (session('status'))
   <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
@@ -9,21 +9,22 @@
     <div class="pb-3 d-flex justify-content-between px-3 pt-4">
     <h5 class="">All Bookings</h5>
     </div>
+<div class="table-responsive px-3 pb-3" style="font-size: 14px">
 
-<div class="table-responsive px-3 pb-3">
-
-<table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
-<thead class="table table-dark">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
+<thead class="table table-dark" style="font-size: 14px;">
 <tr>
   <th scope="col" class="col-3">Renter</th>
   <th scope="col">Rented Car</th>
   <th scope="col">Start</th>
   <th scope="col">Return</th>
+  <th scope="col">Created At</th>
+  <th scope="col">Status</th>
   <th scope="col">Actions</th>
 </tr>
 </thead>
 <tbody>
-@foreach($booking as $item)
+@foreach($booking->reverse() as $item)
  <tr>
   <td>
     <div class ="d-flex align-items-center">
@@ -55,25 +56,81 @@
   </td>
 
   <td>
-  <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
-  <a href="/delete_booking/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  {{ \Carbon\Carbon::parse($item->created_at)->fromNow() }}
+  </td>
+
+  <td>
+  @if ($item->status == 'In progress')
+      <span class="badge bg-warning rounded-pill">{{ $item->status }}</span>
+  @elseif ($item->status == 'Confirmed')
+      <span class="badge bg-success rounded-pill">{{ $item->status }}</span>
+  @elseif ($item->status == 'Declined')
+      <span class="badge bg-secondary rounded-pill">{{ $item->status }}</span>
+  @elseif ($item->status == 'Closed')
+      <span class="badge bg-danger rounded-pill">{{ $item->status }}</span>
+  @endif
+  </td>
+
+  <td>
+   
+  <div style="display: flex;">
+  <div class="d-flex align-items-center">
+    <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
+    <a href="/delete_booking/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
+    
+    @if ($item->status != 'Confirmed' && $item->status != 'Closed' && $item->status != 'Declined')
+    <div class="d-flex align-items-center" style="gap: 5px;">
+      <form method="POST" action="/confirm_booking/{{$item->id}}">
+        @csrf
+        <input type="hidden" name="booking_id" value="{{ $item->id }}">
+        <button type="submit" class="btn btn-primary" style="font-size: 10px;">Confirm</button>
+      </form>
+      <form method="POST" action="/decline_booking/{{$item->id}}">
+        @csrf
+        @method('PATCH')
+        <input type="hidden" name="booking_id" value="{{ $item->id }}">
+        <button type="submit" class="btn btn-danger" style="font-size: 10px;">Decline</button>
+      </form>
+    </div>
+  </div>
+  @endif
 
   </td>
-  </tr>
-  @endforeach
+
+
+
+</tr>
+@endforeach
 
 
 </tbody>
 </table>
 
 
-
-
-
 </div>
 
 
 
+<div class="chart-wrapper px-3 pb-3">
+  <div class="bg-light db-chart px-3 py-3 mt-4" style=" border-radius: 10px; width: 100%; ">
+    <h5><strong>Booking Graphical Reports</strong></h5>
+    <canvas id="booking_Chart" style=" margin: 0; padding: 0;"></canvas>
+
+    <select id="display-selector">
+      <option value="day" selected>Daily</option>
+      <option value="week">Weekly</option>
+      <option value="month" >Monthly</option>
+      <option value="year" >Year</option>
+    </select>
+
+    <select id="chart-type-selector" onchange="chartType(this.value)">
+      <option value="bar" selected>Bar Chart</option>
+      <option value="line">Line Chart</option>
+      <!-- <option value="pie">Pie Chart</option> -->
+    </select>
+  </div>
+</div>
 
 </section>
 
@@ -114,16 +171,16 @@
               <td style="padding: 10px;"><span id="address"></span></td>
             </tr>
             <tr>
+              <td style="padding: 10px;">Message (Optional)</td>
+              <td style="padding: 10px;"><span id="msg"></span></td>
+            </tr>
+            <tr>
               <td style="padding: 10px;">License (Front Side)</td>
-              <td style="padding: 10px;">@fat</td>
+              <td style="padding: 10px;"><span id="view_front_license"><img src="" style="width: 200px;"></span></td>
             </tr>
             <tr>
               <td style="padding: 10px;">License (Back Side)</td>
-              <td style="padding: 10px;">@fat</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px;">Message (Optional)</td>
-              <td style="padding: 10px;"><span id="msg"></span></td>
+              <td style="padding: 10px;"><span id="view_back_license"><img src="" style="width: 200px;"></span></td>
             </tr>
           </tbody>
 

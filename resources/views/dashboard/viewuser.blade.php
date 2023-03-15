@@ -127,6 +127,23 @@
 @endsection
 
 @push('scripts')
-    <script src="/moment-library.js"></script>
-    <script src="/ajax-user.js"></script>
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-user.js"></script>
+
+    <script src="/js/chart-library.js"></script>
+    <script src="https://cdn.skypack.dev/date-fns"></script>
+    <script type="text/javascript">
+      var day_labels = {!! json_encode($days) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
+      var day_data = {!! json_encode($day_user_counts) !!};
+
+      var week_labels = {!! json_encode($weeks) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+      var week_data = {!! json_encode($week_user_counts) !!};
+
+      var month_labels = {!! json_encode($months) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
+      var month_data = {!! json_encode($month_user_counts) !!};
+      
+      var year_labels = {!! json_encode($years ) !!}.map(year => new Date(year + '-01-01').toLocaleDateString('en-US', { year: 'numeric' }));
+      var year_data = {!! json_encode($year_user_counts ) !!};
+    </script>
+    <script src="/js/chart-client.js"></script>
 @endpush

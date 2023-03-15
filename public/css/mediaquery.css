@@ -1,0 +1,29 @@
+@media only screen and (max-width:800px)
+
+/* LOGIN */
+{
+.col-1
+{
+    display: none;
+}
+
+
+/* SIGNIN */
+.signin-col-1
+{
+    display: none;
+}
+
+/* DASHBOARD BOTTOM */
+.db-bottom-row
+{
+	flex-direction: column;
+    width: 100%;
+
+}
+.db-bottom-col1 , .db-bottom-col2
+{
+    width: 100%;
+}
+
+}

@@ -74,7 +74,8 @@
     <div class="pt-2 d-flex justify-content-between db-bottom-row" >
 
     <div class="db-bottom-col1" >
-    <div class="bg-light db-chart px-2 py-2" style=" border-radius: 10px; ">
+    <div class="bg-light db-chart px-3 py-3" style=" border-radius: 10px; ">
+    <h5><strong>User Report</strong></h5>
     <canvas id="dashboard-Chart"></canvas>
     </div>
     </div>

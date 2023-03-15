@@ -15,8 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('booking:check-status')->everyMinute()->timezone('Asia/Manila');
     }
+    
 
     /**
      * Register the commands for the application.
