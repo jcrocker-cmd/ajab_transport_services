@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use App\Models\AdminInfo;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\AddCar;
 use Hash;
 use Session;
 use DB;
@@ -30,6 +31,10 @@ class AdmininfoController extends Controller
     $numberOfBookings = Booking::count(); // Count the number of Bookings
     $allusers = User::all(); // Show all users
 
+    $available = AddCar::where('status', 'Available')->count();
+    $rented = AddCar::where('status', 'Rented')->count();
+    
+
     $monthly_signins = DB::table('users')
                      ->select(DB::raw('COUNT(*) as count, MONTH(created_at) as month'))
                      ->groupBy('month')
@@ -43,7 +48,7 @@ class AdmininfoController extends Controller
         $signins[] = $signin->count;
     }
 
-    return view('dashboard.dashboard', compact('data', 'numberOfUsers', 'allusers', 'numberOfBookings', 'months', 'signins'));
+    return view('dashboard.dashboard', compact('data', 'numberOfUsers', 'allusers', 'numberOfBookings', 'months', 'signins', 'available','rented'));
 
     }
 

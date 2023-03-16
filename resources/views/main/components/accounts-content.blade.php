@@ -73,7 +73,7 @@
         <div class="myrental-wrapper">
             <h4 class="pb-3">My Rentals</h4>
 
-            @if(count($bookings) > 0)
+            {{-- @if(count($bookings) > 0)
             <div class="table-responsive">
 
                 <table class="table align-middle mb-0 bg-light table-hover" id="dbTable">
@@ -129,13 +129,70 @@
 
                 </tbody>
                 </table>
+            </div> --}}
+        
+
+        @if(count($bookings) > 0)    
+        @foreach ($bookings as $booking)
+        <div class="rental-card">
+            <div class="rental-top">
+                <span><button>View Details</button></span>
+                <span>
+                    <strong>
+                    @if ($booking->status == 'In progress')
+                        <span style="color: yellow;">{{ $booking->status }}</span>
+                    @elseif ($booking->status == 'Confirmed')
+                        <span style="color: green;">{{ $booking->status }}</span>
+                    @elseif ($booking->status == 'Declined')
+                        <span style="color: gray;">{{ $booking->status }}</span>
+                    @elseif ($booking->status == 'Closed')
+                        <span style="color: red;">{{ $booking->status }}</span>
+                    @endif
+                    </strong>
+                </span>
+            </div>
+
+            <hr>
+
+            <div class="rental-mid">
+                <div>
+                    <img src="/images/samplecar.png" alt="" width="200px">
+                </div>
+
+                <div>
+                    <p>{{ $booking->car->brand }} {{ $booking->car->model }} {{ $booking->car->year }} {{ $booking->car->transmission }}</p>
+                    <p>Daily Booking Form</p>
+                    <p>Start: {{ $booking->start_date }} {{ $booking->start_time }}</p> 
+                    <p>End: {{ $booking->return_date }} {{ $booking->return_time }}</p> 
+                </div>
+
+                
+                <div>
+                    <p>Toyota Vios 2017 Manual</p>
+                    <p>Daily Booking Form</p>
+                    <p>Start: December 02, 2000 10:00 PM</p> 
+                    <p>End: December 02, 2000 12:00 PM</p> 
+                </div>
 
             </div>
+
+            <hr>
+
+            <div class="rental-bottom">
+                <span><strong>Total Amount: 200,000</strong></span>
+            </div>
+
+
+        </div>
+        @endforeach
+        
+        @else
+            <h6><strong>You have no rentals yet.</strong></h6>
+        @endif
         </div>
 
-        <!-- <div class="myrating-wrapper">
-            <h4>My Ratings</h4>
-        </div> -->
+
+
 
         <div class="delete-account-wrapper">
             <h4>Delete Account</h4>

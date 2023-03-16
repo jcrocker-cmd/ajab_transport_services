@@ -125,3 +125,9 @@
 @section('scripts')
     @include('dashboard.assets.script')
 @endsection
+
+
+@push('scripts')
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-rented.js"></script>
+@endpush
