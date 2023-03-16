@@ -51,7 +51,10 @@ Route::middleware(['preventBackHistory'])->group(function () {
             return view('dashboard.editcar');
         });
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
+
         Route::get('/rented', [AddCarController::class,'db_rentedcars']);
+        Route::get('/rented/{id}/ajaxview', [AddCarController::class,'db_rented_ajaxview']);
+
         Route::get('/available', [AddCarController::class,'db_availablecars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
         Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);

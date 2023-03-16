@@ -22,10 +22,10 @@
         </div>
 
         <div class="dashboard-card-wrapper d-flex" style="background: #d62828;">
-          <a href="http://" class="text-decoration-none w-100">
+          <a href="/available" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">10</h5>
+                <h5 class="card-title fs-3">{{ $available }}</h5>
                 <p class="card-text fs-6">Available Cars</p>
               </div>
               <div class="db-col-1">
@@ -38,10 +38,10 @@
 
       <div class="db-group">
         <div class="dashboard-card-wrapper d-flex" style="background: #f77f00;">
-          <a href="http://" class="text-decoration-none w-100">
+          <a href="/rented" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">10</h5>
+                <h5 class="card-title fs-3">{{ $rented }}</h5>
                 <p class="card-text fs-6">Rented Cars</p>
               </div>
               <div class="db-col-1">
@@ -52,7 +52,7 @@
         </div>
 
         <div class="dashboard-card-wrapper d-flex" style="background: #fcbf49;">
-          <a href="http://" class="text-decoration-none w-100">
+          <a href="/bookings" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
                 <h5 class="card-title fs-3">{{ $numberOfBookings }}</h5>

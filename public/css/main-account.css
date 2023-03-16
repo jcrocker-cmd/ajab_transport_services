@@ -195,6 +195,44 @@
     flex-direction: column;
 }
 
+.rental-card
+{
+    padding: 15px 20px;
+    border: 1px solid #000;
+}
+
+.rental-top
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rental-top button
+{
+    background-color: rgb(0, 143, 253);
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.rental-mid
+{
+    display: flex;
+    gap: 40px;
+}
+
+.rental-bottom
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
+
     /* DELETE ACCOUNT */
     .delete-account-wrapper
     {

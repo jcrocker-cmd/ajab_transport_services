@@ -18,7 +18,7 @@
   <th scope="col">Rented Car</th>
   <th scope="col">Start</th>
   <th scope="col">Return</th>
-  <th scope="col">Created At</th>
+  <th scope="col">Booked At</th>
   <th scope="col">Status</th>
   <th scope="col">Actions</th>
 </tr>
@@ -38,7 +38,12 @@
 
   </td> 
 
-  <td>{{ $item->car->brand }} {{ $item->car->model }}</td>
+  <td>
+    <div>
+      <p class="fw-bold mb-1">{{ $item->car->brand }} {{ $item->car->model }} {{ $item->car->year }} </p>
+      <p class="text-muted mb-0">{{ $item->car->transmission}}</p>
+    </div>  
+  </td>
   <!-- <td>Toyota</td> -->
   
   <td>

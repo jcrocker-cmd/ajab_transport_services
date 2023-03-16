@@ -67,6 +67,19 @@ class AddCarController extends Controller
         return view('dashboard.rented-cars',compact('data','rented'));
     }
 
+    public function db_rented_ajaxview($id)
+    {
+        $rented = Booking::with('car')->find($id);
+        $front_license = asset('images/license/front/' . $rented->front_license);
+        $back_license = asset('images/license/back/' . $rented->back_license);
+        return response()->json([
+            'status' => 200,
+            'rented' => $rented,
+            'front_license' => $front_license,
+            'back_license' => $back_license,
+        ]);
+    }
+
     public function db_availablecars()
     {
         $available = AddCar::all();
