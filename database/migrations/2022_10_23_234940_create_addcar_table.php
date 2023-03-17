@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('monthlyrate')->nullable();
             $table->string('carphoto')->nullable();
             $table->string('status')->default('Available');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

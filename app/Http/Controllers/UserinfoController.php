@@ -20,7 +20,8 @@ class UserinfoController extends Controller
             $user_id = Session::get('loginId');
             $data = User::where('id', '=', $user_id)->first();
             $bookings = Booking::with('car')->where('user_id', $user_id)->get();
-            return view('main.account',compact('data','bookings'));
+            $bookingCount = $bookings->count();
+            return view('main.account',compact('data','bookings','bookingCount'));
         } 
         return view('main.account',compact('data','bookings','user'));
     }

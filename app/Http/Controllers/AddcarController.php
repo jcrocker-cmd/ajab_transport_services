@@ -135,17 +135,31 @@ class AddCarController extends Controller
         
     }
 
+    // public function delete_car($id)
+    // {
+    //     $deletecar = AddCar::find($id);
+    //     $destinationPath = 'images/uploads/'.$deletecar->carphoto;
+    //     if (File::exists($destinationPath)) {
+    //         File::delete($destinationPath);
+    //     }
+    //     $deletecar -> delete();
+    //     Session::flash('status','You`ve successfully deleted a car!');
+    //     return redirect('/all-vehicles')->with('deletecar', $deletecar); 
+    // }
+
     public function delete_car($id)
     {
         $deletecar = AddCar::find($id);
-        $destinationPath = 'images/uploads/'.$deletecar->carphoto;
-        if (File::exists($destinationPath)) {
-            File::delete($destinationPath);
-        }
-        $deletecar -> delete();
+        // $destinationPath = 'images/uploads/'.$deletecar->carphoto;
+        // if (File::exists($destinationPath)) {
+        //     File::delete($destinationPath);
+        // }
+        $deletecar->is_active = false;
+        $deletecar->save();
         Session::flash('status','You`ve successfully deleted a car!');
-        return redirect('/all-vehicles')->with('deletecar', $deletecar); 
+        return redirect('/all-vehicles')->with('deletecar', $deletecar);
     }
+
 
     public function db_notification()
     {

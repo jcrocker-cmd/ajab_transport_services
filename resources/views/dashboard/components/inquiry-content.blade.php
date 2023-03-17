@@ -6,7 +6,7 @@
 @endif
 
 
-    <div class="pb-3 d-flex justify-content-between px-3 pt-4">
+    <div class="pb-2 d-flex justify-content-between px-3 pt-4">
     <h5 class="">All Inquiries</h5>
     </div>
 

@@ -10,18 +10,18 @@
     justify-content: center;
     align-items: center;
     z-index: 999999;
-	gap: 10px;
-	display: flex;
-	flex-direction: column;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .loader-wrapper .logo
 {
-	width: 150px;
+	width: 120px;
 }
 .linePreloader{
-    width:200px;
-    height:4px;
+    width:170px;
+    height:3px;
     background:linear-gradient(to right, #4CB3DE, #4CB3DE);
     background-color:#ccc;
     border-radius:4px;
@@ -34,4 +34,15 @@
   @keyframes scroll{
     50%{background-size:80%}
     100%{background-position:125% 0;}
+  }
+
+
+  @media(max-width: 400px)
+  {
+     
+    .loader-wrapper .logo
+    {
+      display: none;
+    }
+  
   }

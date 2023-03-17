@@ -7,4 +7,5 @@
 <script src="/js/bookingforms-showhide.js"></script>
 <script src="/js/bookingform-validation.js"></script>
 <script src="/js/main-multi-step-form.js"></script>
+<script src="/js/main-sidebar.js"></script>
 

@@ -12,8 +12,9 @@
     </div>
 
     <div class="header-col-2">
-
-                <span><a href="#" id="mainside-bar"><i class="fas fa-stream"></i></a></span>
+                <div>
+                    <a href="#" id="mainside-bar" class="sidebar-toggle"><i class="fas fa-bars"></i></a>
+                </div>
                 <!-- <span>
                     <button type="button" class="icon-button">
                     <span><i class="fas fa-comment-alt-dots"></i></span>
@@ -72,3 +73,36 @@
 
     </nav>
 </header>
+
+
+
+<div class="sidebar">
+  <span class="close-btn" class="sidebar-toggle">&times;</span>
+
+  <div class="user-profile">
+    <div>
+        <img src="/user.jpg" alt=""
+        height="45" width="45" class="rounded-circle" id="change-img" style="object-fit: cover;">
+    </div>
+    <div class="pt-3 user-info">
+        <div><span>{{ $data->first_name}} {{ $data->last_name}}</span></div>
+        <div><span>{{ $data->email}}</span></div>
+    </div>
+ </div>
+
+ <hr>
+
+  <div>
+    <a href="#">My Account</a>
+    <a href="#">Rental</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <hr>
+
+  <div>
+    <a href="#">Home</a>
+    <a href="#">All-Cars</a>
+    <a href="#">Contact Us</a>
+  </div>
+</div>

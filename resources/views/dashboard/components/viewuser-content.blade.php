@@ -3,7 +3,7 @@
 
 
 
-<div class="pb-3 d-flex justify-content-between px-3 pt-4">
+<div class="pb-2 d-flex justify-content-between px-3 pt-4">
 <h5 class="">All Registered User</h5>
 </div>
 
