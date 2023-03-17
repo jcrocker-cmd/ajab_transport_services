@@ -6,7 +6,7 @@
 @endif
 
 
-    <div class="pb-3 d-flex justify-content-between px-3 pt-4">
+    <div class="pb-2 d-flex justify-content-between px-3 pt-4">
     <h5 class="">All Bookings</h5>
     </div>
 <div class="table-responsive px-3 pb-3" style="font-size: 14px">

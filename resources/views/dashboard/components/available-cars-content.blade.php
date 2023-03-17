@@ -6,8 +6,8 @@
 @endif
 
 
-    <div class="pb-3 d-flex justify-content-between px-3 pt-4">
-    <h5 class="">All Registered Vehicles</h5>
+    <div class="pb-2 d-flex justify-content-between px-3 pt-4">
+    <h5 class="">All Available Cars</h5>
     <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
     </div>
 
@@ -25,7 +25,7 @@
 </thead>
 <tbody>
 @foreach($available as $item)
-  @if ($item->status == 'Available')
+  @if ($item->status == 'Available' && $item->is_active == true)
  <tr>
 
   <td>

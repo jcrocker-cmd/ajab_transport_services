@@ -116,6 +116,85 @@ nav li a:hover:after
 
 
 
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #023047;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #d3d0d0;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: #d3d0d0;
+  }
+  
+  .close-btn:hover {
+    color: #f1f1f1;
+  }
+  
+  .main-content {
+    transition: margin-left 0.5s;
+    padding: 20px;
+  }
+  
+  /* Change the width of the sidebar to 250px and the left margin of the page content to 250px */
+  .sidebar.active {
+    width: 250px;
+    
+  }
+  
+  .main-content.active {
+    margin-left: 250px;
+  }
+
+  .sidebar hr
+  {
+    color: #fff;
+    background: #fff;
+    margin: 15px 25px 15px 32px;
+  }
+
+  .sidebar .user-profile 
+  {
+    padding: 8px 8px 8px 32px;
+  }
+
+  .sidebar .user-info
+  {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+  }
+  
+
+
+
 /* USER PROFILE */
 
 .user-profile
@@ -133,6 +212,7 @@ nav li a:hover:after
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
+    font-family: 'Poppins', sans-serif;
 
    
 }
@@ -167,15 +247,11 @@ nav li a:hover:after
 {
     display: flex;
     flex-direction: column;
-    
 }
-.user-info div
-{
-    text-align: left;
-}
+
 .user-info span
 {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .sub-menu hr
@@ -259,12 +335,17 @@ nav li a:hover:after
     nav
     {
         padding: 20px 20px;
+        justify-content: space-between;
     }
 
-    .header-col-middle , .header-col-1
+    .header-col-middle , 
+    .header-col-1 h2 ,
+    .header-col-1 form ,
+    .header-col-2 span
     {
         display: none;
     }
+    
     #mainside-bar
     {
         display: block;
@@ -281,13 +362,14 @@ nav li a:hover:after
     
     }
 
-    .header-col-2
-    {
-        width: 100%;
-        justify-content: space-between;
-    }
     .sub-menu-wrap
     {
         right: -50px;
+    }
+
+    .logo
+    {
+        width: 100px;
+        
     }
 }

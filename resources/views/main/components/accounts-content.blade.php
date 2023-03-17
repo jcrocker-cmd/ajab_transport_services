@@ -71,7 +71,14 @@
     <section class="user-account-section2">
 
         <div class="myrental-wrapper">
-            <h4 class="pb-3">My Rentals</h4>
+
+            <div class="d-flex align-items-center" style="display: inline-flex;">
+                <h5 class="pb-2 mb-0"><strong>My Rentals</strong></h5>
+                @if ($bookingCount > 0)
+                    <span class="rental-badge">{{ $bookingCount }}</span>
+                @endif
+            </div>
+
 
             {{-- @if(count($bookings) > 0)
             <div class="table-responsive">
@@ -195,7 +202,7 @@
 
 
         <div class="delete-account-wrapper">
-            <h4>Delete Account</h4>
+            <h5><strong>Delete Account</strong></h5>
             <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
             
             <div class="delete-button">

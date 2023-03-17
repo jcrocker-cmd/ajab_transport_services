@@ -25,6 +25,7 @@
 </thead>
 <tbody>
 @foreach($addcar as $item)
+@if($item->is_active)
  <tr>
 
   <td>
@@ -69,6 +70,7 @@
 
   </td>
   </tr>
+  @endif
   @endforeach
 
 

@@ -22,7 +22,7 @@
 
 <script>
 $(window).on("load",function(){
-    $(".loader-wrapper").delay(1000).fadeIn("slow").fadeOut("slow");
+    $(".loader-wrapper").delay(500).fadeIn("slow").fadeOut("slow");
 });
 </script>
 
