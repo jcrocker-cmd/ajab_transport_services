@@ -100,12 +100,113 @@ nav .far
     display: none;
 }
 
-.view-rental-btn
+.header-col-middle .view-rental-btn
 {
     font-size: 13px;
     text-decoration: none;
     border-radius: 10px;
 }
+
+
+
+/* SIDE BAR */
+#home-side-bar-btn
+{
+    display: none;
+    text-decoration: none;
+    color: #000000;
+}
+
+
+
+.home-sidebar {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #023047;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  
+  .home-sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 13px;
+    color: #d3d0d0;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .home-sidebar .links
+
+{
+    padding: 8px 25px 8px 32px;
+    gap: 20px;
+}
+
+  .home-sidebar .btn {
+    padding: 8px 0px 8px 0px;
+  }
+  
+  .home-sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 11px;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: #d3d0d0;
+  }
+  
+  .close-btn:hover {
+    color: #f1f1f1;
+  }
+  
+  .main-content {
+    transition: margin-left 0.5s;
+    padding: 20px;
+  }
+  
+  /* Change the width of the sidebar to 250px and the left margin of the page content to 250px */
+  .home-sidebar.active {
+    width: 250px;
+    
+  }
+  
+  .main-content.active {
+    margin-left: 250px;
+  }
+
+  .home-sidebar hr
+  {
+    color: #fff;
+    background: #fff;
+    margin: 15px 25px 15px 32px;
+  }
+
+  .home-sidebar .user-profile 
+  {
+    padding: 8px 8px 8px 32px;
+  }
+
+  .home-sidebar .user-info
+  {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+  }
+  
+
 
 
 @media (max-width:1000px) {
@@ -121,8 +222,13 @@ nav .far
         
     }
     
+    nav
+    {
+        padding: 20px 20px;
+        justify-content: space-between;
+    }
     nav.sticky{
-        padding: 15px 50px;
+        padding: 20px 20px;
         background: #fff;
         box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
         -webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
@@ -130,9 +236,44 @@ nav .far
     
     }
 
-    /* nav
+    #home-side-bar
     {
-        padding: 15px 50px;
+        display: block;
+    }
 
-    } */
+    .header-col-1 .logo
+    {
+        width: 120px;
+        
+    }
+
+    #home-side-bar-btn
+    {
+        display: block;
+    }
+
+
+}
+
+
+@media (max-width:805px) {
+    nav
+    {
+        padding: 20px 20px;
+        justify-content: space-between;
+    }
+    
+    #mainside-bar
+    {
+        display: block;
+        cursor: pointer;
+        
+    }
+
+
+   .header-col-1 .logo
+    {
+        width: 100px;
+        
+    }
 }

@@ -46,3 +46,61 @@
 }
 
 
+@media (max-width:1000px) {
+
+    .home
+    {
+        margin-top: 70px;
+    }
+}
+
+
+@media (max-width:805px) {
+
+    .home
+    {
+        margin-top: 66px;
+    }
+}
+
+
+@media (max-width:1029px) {
+
+    .homepage-col1
+    {
+        width: 100%;
+    }
+
+
+    .home
+    {
+        background:	#EEEFF1;  
+    }
+
+
+}
+
+@media (max-width: 500px) {
+
+    .homepage-col1
+    {
+        padding: 0px 20px;
+    }
+
+    .homepage-col1 h2
+    {
+        font-size: 15px;
+    }
+
+    .homepage-col1 p ,
+    .homepage-col1 .homepage-button .btn
+    {
+        font-size: 11px;
+    
+    }
+
+    .home
+    {
+        margin-top: 0px;
+    }
+}

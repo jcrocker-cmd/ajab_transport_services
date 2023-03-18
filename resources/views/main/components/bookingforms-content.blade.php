@@ -27,54 +27,54 @@
                     <h4 style="color: #005281"><strong>Renter Information</strong></h4>
                     <hr>
 
-                    <div class="d-flex renter-info" style="gap: 20px; margin-bottom: 10px;">
+                    <div class="d-flex renter-info" >
 
                         <div style="width: 100%;">
                             <label class="form-label">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Ex. Cruz" value="{{ $data->first_name}} {{ $data->last_name}}" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger" id="errorname" style="font-size: 13px;"></span>
+                            <span class="text-danger" id="errorname" ></span>
                         </div>
 
                         <div style="width: 100%;">
                             <label class="form-label">Contact Number</label>
                             <input type="number" id="number" name="con_num" placeholder="Enter phone no." value="" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger" id="errornum" style="font-size: 13px;"></span>
+                            <span class="text-danger" id="errornum" ></span>
                         </div>
 
                     </div>
 
-                    <div class="d-flex renter-info" style="gap: 20px; margin-bottom: 25px;">
+                    <div class="d-flex renter-info">
 
                         <div style="width: 100%;">
                             <label class="form-label">Address</label>
                             <input type="text" id="address" name="address" placeholder="Enter Address" value="">
-                            <span class="text-danger" id="erroradd" style="font-size: 13px;"></span>
+                            <span class="text-danger" id="erroradd" ></span>
                         </div>
 
-                        <div style="width: 100%;">
+                        <div style="width: 100%;" class="pb-3">
                             <label class="form-label">Contact Email</label>
                             <input type="email" id="email" name="con_email" placeholder="Enter Email" value="{{ $data->email}}" onkeyup="javascript:capitalize(this);">
-                            <span class="text-danger" id="erroremail" style="font-size: 13px;"></span>
+                            <span class="text-danger" id="erroremail" ></span>
                         </div>
 
                     </div>
 
-                    <div style="margin-bottom: 25px;">
+                    <div style="margin-bottom: 25px;" class="requirements">
                         <h5 style="color: #005281"><strong>Requirements</strong></h5> 
                         <hr class="bg-dark">
                         <h6>1. Driver's license</h6>
 
                         <div class="license-wrapper pb-2">
                             <div class="license ">
-                                <label class="form-check-label d-flex align-items-center" for="front-license">Front Side<strong style="font-size: 11px; margin-left: 5px;">(1mb limit)</strong></label>
+                                <label class="form-check-label d-flex align-items-center" for="front-license">Front Side<strong class="pic-limit">(1mb limit)</strong></label>
                                 <input type="file" name="front_license" id="front_license" accept="image/jpeg, image/png" size="1000000">
-                                <span class="text-danger" id="errorfront" style="font-size: 13px;"></span>
+                                <span class="text-danger" id="errorfront" ></span>
                             </div>
 
                             <div class="license ">
-                                <label class="form-check-label" for="back-license" >Back Side <strong style="font-size: 11px; margin-left: 5px;">(1mb limit)</strong></label>
+                                <label class="form-check-label d-flex align-items-center" for="back-license" >Back Side <strong class="pic-limit">(1mb limit)</strong></label>
                                 <input type="file" name="back_license" id="back_license" accept="image/jpeg, image/png">
-                                <span class="text-danger" id="errorback" style="font-size: 13px;"></span>
+                                <span class="text-danger" id="errorback" ></span>
                             </div>
                         </div>
 
@@ -86,7 +86,7 @@
                         <label class="form-check-label" for="cashbond">
                             ₱2,000
                         </label>
-                        <span class="text-danger" id="errorcash" style="font-size: 13px;"><br></span>
+                        <span class="text-danger" id="errorcash" ><br></span>
                         </div>
 
 
@@ -95,7 +95,7 @@
                     </div>
 
 
-                    <div style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;" class="mode_del">
                         <h5 style="color: #005281"><strong>Mode of Delivery</strong></h5> 
                         <hr class="bg-dark">
 
@@ -136,14 +136,14 @@
                             </div>
                         </div>
 
-                        <span class="text-danger" id="errorradio" style="font-size: 13px;"><br></span>
+                        <span class="text-danger" id="errorradio" ><br></span>
                     </div>
 
-                    <div style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;" class="pay_med">
                         <h5 style="color: #005281"><strong>Payment Method</strong></h5> 
                         <hr class="bg-dark">
 
-                            <div class="d-flex mode-of-delivery">
+                            <div class="d-flex mode-of-payment">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="payment" id="pay1" value="Pay with Cash">
                                     <label class="form-check-label" for="pay1">
@@ -167,14 +167,14 @@
 
                         </div>
 
-                        <span class="text-danger" id="errorpay" style="font-size: 13px;"><br></span>
-                        <h6 class="text-primary pt-2" style="text-justify: inter-word; text-align: justify;">IMPORTANT: Payment for our rental cars will be made outside of the system; we will not gather any confidential information within this system. We accept <strong>Cash, G-Cash, and credit cards.</strong> </h6>
+                        <span class="text-danger" id="errorpay" ><br></span>
+                        <h6 class="text-primary pt-2 important" style="text-justify: inter-word; text-align: justify;">IMPORTANT: Payment for our rental cars will be made outside of the system; we will not gather any confidential information within this system. We accept <strong>Cash, G-Cash, and credit cards.</strong> </h6>
 
                     </div>
 
 
-                    <div style="width: 100%; margin-bottom: 20px;">
-                        <label class="form-label"><strong>Leave a Message</strong><span style="font-size: 13px;"> (Optional)</span></label>
+                    <div style="width: 100%; margin-bottom: 20px;" class="msg">
+                        <label class="form-label"><strong>Leave a Message</strong><span > (Optional)</span></label>
                         <textarea name="msg" id="" rows="5" ></textarea>
                     </div>
 
@@ -187,7 +187,7 @@
 
                         <div class="d-flex justify-content-between align-items-center pb-2">
 
-                            <div><strong>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</strong> <span >{{ $viewcar->transmission}}</span></div>
+                            <div class="car_name"><strong>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</strong> <span >{{ $viewcar->transmission}}</span></div>
 
                             <div class="car-image">
 
@@ -202,25 +202,25 @@
                                 <div>
                                     <label for="">Start Date</label>
                                     <input type="date" name="start_date" id="startdate" style="width: 100%;">
-                                    <span class="text-danger" id="errorsd" style="font-size: 13px;"><br></span>
+                                    <span class="text-danger" id="errorsd" ><br></span>
 
                                 </div>
                                 <div>
                                     <label for="">Start Time</label>
                                     <input type="time" name="start_time" id="starttime">
-                                    <span class="text-danger" id="errorst" style="font-size: 13px;"><br></span>
+                                    <span class="text-danger" id="errorst" ><br></span>
                                 </div>
                             </div>
                             <div class="return-date d-flex">
                                 <div>
                                     <label for="">Return Date</label>
                                     <input type="date" name="return_date" id="returndate">
-                                    <span class="text-danger" id="errorrd" style="font-size: 13px;"><br></span>
+                                    <span class="text-danger" id="errorrd" ><br></span>
                                 </div>
                                 <div>
                                     <label for="">Return Time</label>
                                     <input type="time" name="return_time" id="returntime">
-                                    <span class="text-danger" id="errorrt" style="font-size: 13px;"><br></span>
+                                    <span class="text-danger" id="errorrt" ><br></span>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +273,7 @@
                         <label class="form-check-label" for="accept">
                         I agree with AJAB Transport Services' terms and conditions.
                         </label>
-                        <span class="text-danger" id="erroragree" style="font-size: 13px;"></span>
+                        <span class="text-danger" id="erroragree" ></span>
 
                         </div>
                         

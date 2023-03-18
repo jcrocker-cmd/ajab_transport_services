@@ -17,8 +17,7 @@
 .contact-us p
 {
     margin-bottom: 40px;
-    font-weight: 300;
-
+    font-weight: 300
 
 }
 .contact-row
@@ -189,11 +188,12 @@
 {
    #contact-us
    {
-    padding: 100px 0px;
+    padding: 50px 0px;
    }
+
    .contact-title
    {
-    padding: 0 50px;
+    padding: 0px 20px;
    }
    .contact-col-1 h4
    {
@@ -209,11 +209,44 @@
     margin-top: 20px;
    }
 
-   .contact-col-2
-   {
-    padding: 40px 60px;
 
+    .contact-us h2
+    {
+    font-size: 20px;
+    }
+
+   .contact-col-1 h4
+   {
+    font-size: 14px;
    }
+   .contact-col-1 p ,
+   .contact-col-2 p ,
+   .contact-col-1 ,
+   .contact-title p
+   {
+    font-size: 11px;
+   }
+
+    .contact-col-2 , .contact-col-1
+   {
+    padding: 40px 20px;
+   }
+
+
+   .contact-col-2 h4 ,
+   .col-2-title
+   {
+    font-size: 14px;
+   }
+
+   .contact-box .icon
+    {
+        min-width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+
    .contact-col-1 , .contact-col-2
 
    {

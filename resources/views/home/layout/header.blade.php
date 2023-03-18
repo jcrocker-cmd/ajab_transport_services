@@ -23,10 +23,33 @@
                 <li> <a href="/log-in">Log in</a></li>
     </div>
 
-
-                <!-- <i class="far fa-stream"> -->
-              
-
+    <div>
+        <a href="#" id="home-side-bar-btn" class="home-sidebar-toggle"><i class="fas fa-bars"></i></a>
+    </div>
+            
 
     </nav>
 </header>
+
+
+<div class="home-sidebar">
+  <span class="close-btn" class="home-sidebar-toggle">&times;</span>
+
+
+  <div>
+    <a href="#" id="scroll-up-2">Home</a>
+    <a href="#">Features</a>
+    <a href="#">About</a>
+    <a href=".howitworks">How it Works</a>
+    <a href=".contact-us">Contact Us</a>
+    <a href="#">View Rentals</a>
+  </div>
+
+  <hr>
+
+  <div class="links">
+    <a href="/log-in" class=" btn btn-primary mb-3">Log In</a>
+    <a href="/sign-iun" class="btn btn-success">Sign In</a>
+  </div>
+</div>
+

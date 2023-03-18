@@ -88,7 +88,7 @@
 
 
         <!-- CAR SECTION 3 -->
-        <section id="viewcar_section2" class="pt-4">
+        <section id="viewcar_section3" class="pt-4">
                 <h5><strong>Requirements</strong></h5> 
                 <hr class="bg-dark">
                 <h6>1. Driver's license</h6>
@@ -99,14 +99,13 @@
         </section>
 
 
-        <!-- CAR SECTION 3 -->
-        <section id="viewcar_section3" class="pt-4">
+        <!-- CAR SECTION 4 -->
+        <section id="viewcar_section4" class="pt-4">
                 <h5><strong>Car Owner</strong></h5> 
                 <hr class="bg-dark">
 
                 <div class ="d-flex align-items-center">
-                <img src="/user.jpg" alt=""
-                style="height: 65px; width: 65px;" class="rounded-circle">
+                <img src="/user.jpg" alt="" class="rounded-circle">
                 <div class="ms-3">
                     <p class="fw-bold mb-1">{{ $viewcar->fname}} {{ $viewcar->lname}}</p>
                     <p class="text-muted mb-0">{{ $viewcar->email}}</p>
@@ -116,12 +115,12 @@
         </section>
 
 
-        <!-- CAR SECTION 4 -->
-        <section id="viewcar_section4" class="pt-4">
-                <h5><strong>Product Ratings</strong></h5> 
+        <!-- CAR SECTION 5 -->
+        <section id="viewcar_section5" class="pt-4">
+                <h5><strong>Car Ratings</strong></h5> 
                 <hr class="bg-dark">
 
-                <div class="d-flex overall-ratings align-items-center bg-dark py-4 rounded-pill">
+                <div class="d-flex overall-ratings align-items-center bg-dark rounded-pill">
                 <span>
                     <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
@@ -155,7 +154,7 @@
                         </div>
 
                         <p class="text-muted">Super hassle free experience with Ralph. From booking to pickup and up to the return. Very easy to talk to. Bike is well maintained and problem free! Will surely rent with Ralph again!</p>
-                        <p style="font-size: 13px;">Date: {{ $viewcar->created_at}}</p>
+                        <p class="date">Date: {{ $viewcar->created_at}}</p>
 
                     </div>
                     

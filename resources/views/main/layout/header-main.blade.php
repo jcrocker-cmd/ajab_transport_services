@@ -93,16 +93,16 @@
  <hr>
 
   <div>
-    <a href="#">My Account</a>
+    <a href="/account">My Account</a>
     <a href="#">Rental</a>
-    <a href="#">Logout</a>
+    <a href="/logout">Logout</a>
   </div>
 
   <hr>
 
   <div>
-    <a href="#">Home</a>
-    <a href="#">All-Cars</a>
-    <a href="#">Contact Us</a>
+    <a href="/mainhome">Home</a>
+    <a href="/mainhome">All-Cars</a>
+    <a href="/">Contact Us</a>
   </div>
 </div>

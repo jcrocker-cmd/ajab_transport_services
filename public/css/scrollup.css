@@ -11,10 +11,16 @@
     position: fixed;
     border-radius: 50%;
     right: 20px;
-    bottom: 20px;
+    bottom: -50px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
     transition: .6s;
     z-index: 2;
+  }
+
+  .scrollup i
+  {
+    text-decoration: none;
+    color: white;
   }
   
   .scrollup:hover {
@@ -26,7 +32,7 @@
   /* Show scroll */
   .show-scroll {
     /* bottom: 100px; */
-    bottom: 40px;
+    bottom: 20px;
   }
 
   .request-alert
@@ -40,3 +46,14 @@
     padding: 5px 10px;
     font-size: 12px;
   }
+
+  @media (max-width:500px) {
+
+    .scrollup {
+    
+      height: 30px;
+      width: 30px;
+      font-size: 11px;
+    }
+
+}

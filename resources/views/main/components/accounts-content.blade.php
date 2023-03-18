@@ -159,26 +159,28 @@
                 </span>
             </div>
 
-            <hr>
+            <!-- <hr> -->
 
             <div class="rental-mid">
                 <div>
-                    <img src="/images/samplecar.png" alt="" width="200px">
+                    <img src="/images/samplecar.png" alt="">
                 </div>
 
+                <div class="group">
                 <div>
                     <p>{{ $booking->car->brand }} {{ $booking->car->model }} {{ $booking->car->year }} {{ $booking->car->transmission }}</p>
                     <p>Daily Booking Form</p>
-                    <p>Start: {{ $booking->start_date }} {{ $booking->start_time }}</p> 
-                    <p>End: {{ $booking->return_date }} {{ $booking->return_time }}</p> 
+                    <!-- <p>Start: {{ $booking->start_date }} {{ $booking->start_time }}</p> 
+                    <p>End: {{ $booking->return_date }} {{ $booking->return_time }}</p>  -->
                 </div>
 
                 
                 <div>
-                    <p>Toyota Vios 2017 Manual</p>
-                    <p>Daily Booking Form</p>
+                    <!-- <p>Toyota Vios 2017 Manual</p>
+                    <p>Daily Booking Form</p> -->
                     <p>Start: December 02, 2000 10:00 PM</p> 
                     <p>End: December 02, 2000 12:00 PM</p> 
+                </div>
                 </div>
 
             </div>
@@ -186,7 +188,7 @@
             <hr>
 
             <div class="rental-bottom">
-                <span><strong>Total Amount: 200,000</strong></span>
+                <span><strong>Total Amount: ₱ 200,000</strong></span>
             </div>
 
 
