@@ -15,7 +15,7 @@
     flex-direction: column;
 }
 
-.loader-wrapper .logo
+.loader-wrapper .preloader_logo
 {
 	width: 120px;
 }
@@ -40,9 +40,9 @@
   @media(max-width: 400px)
   {
      
-    .loader-wrapper .logo
+    .loader-wrapper .preloader_logo
     {
-      display: none;
+      width: 120px;
     }
   
   }

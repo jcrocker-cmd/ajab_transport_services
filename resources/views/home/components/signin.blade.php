@@ -39,7 +39,7 @@
         </div>
         
         <div class="signin-bday">
-            <input placeholder="Date of Birth" value = "{{old('bday')}}" name="bday" type="text"  onfocus="(this.type='date')" onblur="(this.type='text')">
+            <input placeholder="Date of Birth" value = "{{old('bday')}}" name="bday" type="text" class="bday" onfocus="(this.type='date')" onblur="(this.type='text')">
             <span class="error-msg">@error('bday') {{$message}} @enderror</span>
 
         </div>

@@ -174,7 +174,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
     .car-col-1
     {
@@ -199,4 +199,40 @@
     {
         font-size: 13px;
     }
+}
+
+@media (max-width: 450px) {
+
+    .car-col-2 .brand
+    {
+       font-size: 16px;
+    }
+
+    .car-col-2 .location
+    {
+       font-size: 10px;
+    }
+
+    .car-col-2 .prices span h6
+    {
+       font-size: 12px;
+    }
+
+    .car-col-2 .dailyrate
+    {
+        font-size: 15px;
+    }
+
+    .carbuttons a
+    {
+        font-size: 11px;
+
+    }
+
+    .car-col-2 .transmission
+    {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+
 }

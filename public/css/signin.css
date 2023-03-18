@@ -110,7 +110,7 @@
 }
 .gender input
 {
-    -webkit-appearance: none;
+    --webkit-appearance: none;
 }
 
 .gender label
@@ -238,11 +238,35 @@
 }
 
 
-  @media(max-width: 400px)
+
+@media only screen and (max-width:800px)
+
+/* SIGNIN */
+
+{
+
+    .signin-col-1
+    {
+        display: none;
+    }
+
+}
+
+@media(max-width: 500px)
 {
    
-    .signin-password input , .signin-fname input , .signin-lname input ,
-    .signin-bday input , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input
+    .signin-password input , .signin-fname input , .signin-lname input , .signin-button ,
+    .signin-bday .bday , select , .gender label , .signin-button_fb input, .signin-button_gg  , .signin-email input , .signin-col-2 p
+    {
+        font-size: 11px;
+    }
+
+        #signin-logo
+    {
+        width: 120px;
+    }
+
+    .signin-col-1 h5
     {
         font-size: 13px;
     }

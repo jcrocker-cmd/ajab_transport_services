@@ -25,9 +25,9 @@
                             <p class="transmission">{{ $item->transmission}}</p>
                         </div>
 
-                            <p>{{ $item->carlocation}}</p>
+                            <p class="location">{{ $item->carlocation}}</p>
 
-                        <div class="d-flex align-items-center" style="gap: 10px;">
+                        <div class="d-flex align-items-center prices" style="gap: 10px;">
                             <span><h6><sup>₱</sup> {{ $item->weeklyrate}} / Weekly</h6></span>
                             <span><h5>|</h5></span>
                             <span><h6><sup>₱</sup> {{ $item->monthlyrate}} / Monthly</h6></span>

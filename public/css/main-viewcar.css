@@ -129,6 +129,12 @@
 
 /* VIEW CAR SECTION 4 */
 
+#viewcar_section4 img
+{
+    width: 65px;
+    height: 65px;
+}
+
 .rating-star
 {
     display: flex;
@@ -155,6 +161,18 @@
     font-size: 20px;
 }
 
+.overall-ratings
+{
+    padding: 30px 10px;
+}
+
+
+/* VIEW CAR SECTION 5 */
+
+#viewcar_section5 .date
+{
+    font-size: 13px;
+}
 
 
 /* MEDIA QUERY */
@@ -197,8 +215,100 @@
 
     .view-car-row img
     {
-        /* height: 250px; */
+        /* height: 220px; */
         width: 100%;
     }
 }
 
+@media(max-width: 450px) {
+
+    .car-info-row .car-info-title h3
+    {
+        font-size: 18px;
+    }
+
+    .car-info-row .allratings span
+    {
+        font-size: 15px;
+    }
+
+    .car-info-row .car-price h4
+    {
+        font-size: 15px;
+    }
+
+    .car-info-row .viewcarbuttons span
+    {
+        font-size: 11px;
+    }
+
+    #viewcar_section2 h5
+    {
+        font-size: 15px;
+    }
+
+    #viewcar_section2 .viewcar_info h6
+    {
+        font-size: 12px;
+    }
+
+    #viewcar_section3 h5
+    {
+        font-size: 15px;
+    }
+
+    #viewcar_section3 h6
+    {
+        font-size: 12px;
+    }
+
+    #viewcar_section4 h5
+    {
+        font-size: 15px;
+    }
+
+    #viewcar_section4 p
+    {
+        font-size: 12px;
+    }
+
+    #viewcar_section4 img
+    {
+        width: 45px;
+        height: 45px;
+    }
+
+    #viewcar_section5 h5
+    {
+        font-size: 15px;
+    }
+
+    .overall-ratings .number , .overall-ratings .fas
+    {
+        font-size: 13px;
+    }
+
+    .overall-ratings
+    {
+        padding: 10px 5px;
+    }
+
+    #viewcar_section5 .rating-star span
+    {
+        font-size: 11px;
+    }
+
+
+    #viewcar_section5 p
+    {
+        font-size: 11px;
+    }
+
+    #viewcar_section5 .date
+    {
+        font-size: 11px;
+    }
+
+
+
+}

@@ -108,7 +108,7 @@ nav li a:hover:after
 }
 
 
-
+/* SIDE BAR */
 #mainside-bar
 {
     display: none;
@@ -134,7 +134,7 @@ nav li a:hover:after
   .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
     color: #d3d0d0;
     display: block;
     transition: 0.3s;
@@ -146,7 +146,7 @@ nav li a:hover:after
   
   .close-btn {
     position: absolute;
-    top: 0;
+    top: 11px;
     right: 25px;
     font-size: 30px;
     margin-left: 50px;

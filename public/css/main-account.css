@@ -128,7 +128,7 @@
 {
     .main-user-account-section
     {
-        margin-top: 86px;
+        margin-top: 130px;
     }
 }
 
@@ -159,10 +159,6 @@
     {
         justify-content: start;
     }
-}
-
-@media (max-width:540px) 
-{
     .user-account-section
     {
         padding: 40px 20px;
@@ -229,6 +225,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .rental-top button
@@ -240,11 +237,32 @@
     padding: 5px 8px;
     border-radius: 5px;
 }
+.rental-top span
+{
+    font-size: 14px;
+}
 
 .rental-mid
 {
     display: flex;
+    align-items: center;
     gap: 40px;
+}
+
+.rental-mid .group
+{
+    display: flex;
+    gap: 40px;
+}
+
+.rental-mid img
+{
+    width: 120px;
+}
+
+.rental-mid p
+{
+    font-size: 14px;
 }
 
 .rental-bottom
@@ -254,43 +272,152 @@
     justify-content: end;
 }
 
+.rental-bottom span
+{
+    font-size: 14px;
+}
 
 
-    /* DELETE ACCOUNT */
+/* DELETE ACCOUNT */
+.delete-account-wrapper
+{
+    background-color: #F8D7DA;
+    color: #842029;
+    padding: 25px 30px;
+    border-radius: 5px;
+    /* gap: 5px; */
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.delete-account-wrapper .btn-delete
+{
+    display: flex;
+    background-color: #842029;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    gap: 100px;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.delete-button
+{
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width:936px) 
+{
+    .rental-mid 
+    {
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width:794px) 
+{
+    .rental-mid .group
+    {
+        flex-direction: column;
+    }
+    
+}
+
+@media (max-width:780px) 
+{
+    .user-account-section2
+    {
+        padding: 40px 20px;
+    }
+    
+}
+
+
+@media (max-width:500px) 
+{
+    .user-account-section p ,
+    .user-account-section .timestamp ,
+    .account-settings-buttons .btn-edit , 
+    .account-settings-buttons .btn-edit-pass ,
+    .delete-account-wrapper p, 
+    .delete-account-wrapper span,
+    .user-account-section2 .myrental-wrapper h6
+
+    {
+        font-size: 11px;
+    }
+
+    .user-account-wrapper .line
+    {
+        width: 100%;
+        height: 1px;
+    }
+
+    .user-account-section img
+    {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .user-account-wrapper
+    {
+        gap: 30px;
+    }
+
+    .delete-account-wrapper h5,
+    .user-account-section2 .myrental-wrapper h5
+    {
+        font-size: 15px;
+    }
+
+    .user-account-section2 .myrental-wrapper .rental-badge
+
+    {
+        font-size: 10px;
+    }
+
+    .rental-top span ,
+    .rental-bottom span
+    {
+        font-size: 12px;
+    }
+
+    .rental-mid img
+    {
+        width: 120px;
+    }
+
+    .rental-mid .group p
+    {
+        font-size: 11px;
+    }
+    
+}
+
+@media (max-width:400px) 
+{
+    .myrental-wrapper ,
     .delete-account-wrapper
     {
-        background-color: #F8D7DA;
-        color: #842029;
-        padding: 25px 30px;
-        border-radius: 5px;
-        /* gap: 5px; */
-        display: flex;
+        padding: 20px 15px;
+    }
+    .account-settings-buttons
+    {
         flex-direction: column;
-
+        gap: 5px;
     }
-
-
-    .delete-account-wrapper .btn-delete
-    {
-        display: flex;
-        background-color: #842029;
-        color: #fff;
-        padding: 10px 15px;
-        text-decoration: none;
-        gap: 100px;
-        align-items: center;
-        gap: 10px;
-        font-size: 13px;
-        text-decoration: none;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-    }
-
-    .delete-button
-    {
-        display: flex;
-        justify-content: end;
-    }
+    
+}
