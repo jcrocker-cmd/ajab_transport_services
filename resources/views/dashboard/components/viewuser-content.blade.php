@@ -4,13 +4,13 @@
 
 
 <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-<h5 class="">All Registered User</h5>
+<h5 class="table-title">All Registered User</h5>
 </div>
 
-<div class="table-responsive px-3" style="font-size: 14px;">
+<div class="table-responsive px-3">
 
-<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
-<thead class="table table-dark" style="font-size: 14px;">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="width: 100%;">
+<thead class="table table-dark">
 <tr>
 <th scope="col">User's Name</th>
 <th scope="col">Email</th>

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1&display=swap');
 
@@ -14,7 +21,7 @@
 .booking-form-buttons
 {
     display: flex;
-    justify-content: center;
+            justify-content: center;
     gap: 20px;
     margin-bottom: 40px;
     /* background-color: aqua;
@@ -27,7 +34,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     display: flex;
-    align-items: center;
+            align-items: center;
     gap: 10px;
     padding: 15px 10px;
     font-size: 15px;
@@ -69,7 +76,7 @@
 {
     position: relative;
     display: flex;
-    justify-content: space-between;
+            justify-content: space-between;
     margin: 20px 0 50px 0;
     counter-reset: step;
 }
@@ -109,8 +116,8 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+            justify-content: center;
+            align-items: center;
     z-index: 0;
 }
 .progress-step::before
@@ -166,14 +173,16 @@
 
 .booking-info-section .sect-1
 {
-    flex-basis: 60%;
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
 }
 
 .car-rent-info-wrapper img
 {
     height: 40px;
     width: 60px;
-    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+            box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -201,6 +210,8 @@
 
 .sect-1 .license-wrapper
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
     gap: 10px;
@@ -208,10 +219,16 @@
 
 .sect-1 .license
 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     gap: 5px;
-    flex-basis: 50%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
 }
 
 .sect-1 .license input
@@ -240,7 +257,8 @@
 .sect-1 .mode-of-payment ,
 .sect-1 .mode-of-delivery 
 {
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -248,13 +266,15 @@
 {
     height: 100%;
     border: 1px solid rgb(147, 145, 145);
-    flex-basis: 40%;
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 
 }
 
@@ -269,9 +289,9 @@
 
 .sect-2 .date-time-wrapper
 {
-    justify-content: space-between;
+            justify-content: space-between;
     display: flex;
-    flex-direction: column;
+            flex-direction: column;
 }
 .date-time-wrapper input
 {
@@ -340,6 +360,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    display: -ms-grid;
     display: grid;
     place-content: center;
     background-color: #198754;
@@ -360,6 +381,23 @@
      -o-border-radius: 50%;
      animation: loader 0.5s ease infinite;
      -webkit-animation: loader 0.5s ease infinite;
+}
+
+@-webkit-keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
 }
 
 @keyframes loader {
@@ -384,8 +422,13 @@
 {
     .booking-info-section
     {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
     .date-time-wrapper input
@@ -394,8 +437,13 @@
     }
     .start-date , .return-date
     {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         gap: 10px;
     }
 }
@@ -404,16 +452,24 @@
 {
     .sect-1 .license-wrapper
     {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+}
+
+@media (max-width:805px) {
+
+    .booking-form-section
+    {
+        padding: 20px;
     }
 }
 
 @media (max-width: 580px)
 {
-    .booking-form-section
-    {
-        padding: 20px;
-    }
+
     .booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
     {
         font-size: 12px;
@@ -429,7 +485,7 @@
     }
     .renter-info
     {
-        flex-direction: column;
+                flex-direction: column;
     }
 
     .sect-2 .car-rent-info-wrapper ,
@@ -449,12 +505,35 @@
 
     }
 
-    .booking-form-section .text-danger
-    {
+    .booking-form-section .text-danger ,
+    .booking-form-section .renter-info label ,
+    .booking-form-section .renter-info input ,
+    .booking-form-section .sect-1 .requirements .form-check ,
+    .booking-form-section .sect-1 .license input ,
+    .booking-form-section .sect-1 .license label ,
+    .booking-form-section .sect-1 .requirements h6 ,
+    .mode_del .mode-of-delivery .form-check ,
+    .pay_med .mode-of-payment ,
+    .pay_med .important ,
+    .msg label ,
+    .msg textarea ,
+    .sect-2 .date-time-wrapper label,
+    .sect-2 .date-time-wrapper input,
+    .price-info .alert,
+    .price-info p,
+    .price-info h5 ,
+    .agreement label ,
+    .agreement input ,
+    .bookingform-sumbit ,
+    .sect-2 .car_name
+    { 
         font-size: 12px;
     }
 
-    .booking-form-section .sect-1 h4
+    .booking-form-section .sect-1 h4 ,
+    .booking-form-section .requirements h5 ,
+    .mode_del h5 ,
+    .pay_med h5
     {
         font-size: 15px;
     }
@@ -465,29 +544,10 @@
         margin-bottom: 5px;
     }
 
-    .booking-form-section .renter-info label ,
-    .booking-form-section .renter-info input
-    {
-        font-size: 12px;
-    }
-
     .booking-form-section .renter-info input
     {
         padding: 10px 10px;
     }
-
-    .booking-form-section .requirements h5
-    {
-        font-size: 15px;
-    }
-
-    .booking-form-section .sect-1 .requirements label ,
-    .booking-form-section .sect-1 .requirements input ,
-    .booking-form-section .sect-1 .requirements h6
-    {
-        font-size: 12px;
-    }
-
 
     .sect-1 .pic-limit
     {
@@ -495,52 +555,13 @@
         margin-left: 2px;
     }
 
-    .mode_del h5
+    .start-date div, .return-date div
     {
-        font-size: 15px;
+        gap: 5px;
     }
 
-    .mode_del .mode-of-delivery input,
-    .mode_del .mode-of-delivery label
+    .date-time-wrapper input
     {
-        font-size: 12px;
-    }
-
-    .pay_med h5
-    {
-        font-size: 15px;
-    }
-
-    .pay_med .mode-of-payment
-    {
-        font-size: 12px;
-    }
-
-    .pay_med .important
-    {
-        font-size: 12px;
-    }
-
-    .msg label ,
-    .msg textarea
-    {
-        font-size: 12px;
-    }
-
-    .sect-2 .car_name
-    {
-        font-size: 12px;
-    }
-
-    .sect-2 .date-time-wrapper label,
-    .sect-2 .date-time-wrapper input,
-    .price-info .alert,
-    .price-info p,
-    .price-info h5 ,
-    .agreement label ,
-    .agreement input,
-    .bookingform-sumbit
-    {
-        font-size: 12px;
+        padding: 5px;
     }
 }

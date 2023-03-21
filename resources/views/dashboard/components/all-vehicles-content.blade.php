@@ -2,19 +2,19 @@
 <section class="all-vehicles-section">
 
 @if (session('status'))
-  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+  <h6 class="alert alert-success my-0" id="myAlert">{{ session('status') }}</h6>
 @endif
 
 
     <div class="pb-3 d-flex justify-content-between px-3 pt-4">
-    <h5 class="">All Registered Vehicles</h5>
-    <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+    <h5 class="table-title">All Registered Vehicles</h5>
+    <a href="/add" class="table-add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
     </div>
 
-<div class="table-responsive px-3 pb-3" style="font-size: 14px;">
+<div class="table-responsive px-3 pb-3">
 
-<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
-<thead class="table table-dark" style="font-size: 14px;">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="width: 100%;">
+<thead class="table table-dark">
 <tr>
   <th scope="col">Car</th>
   <th scope="col" class="">Owner</th>
@@ -64,7 +64,7 @@
   </td>
 
   <td>
-  <a href="/viewcar/{{ $item->id }}" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
+  <a href="/viewcar/{{ $item->slug }}" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
   <a href="/editcar/{{ $item->id }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
   <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 

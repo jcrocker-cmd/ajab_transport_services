@@ -2,7 +2,6 @@
 
 @section('styles')
     @include('home.assets.style')
-    <!-- @include('home.assets.bootstrapcss') -->
 @endsection
 
 @section('content') 

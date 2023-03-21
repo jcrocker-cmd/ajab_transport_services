@@ -2,18 +2,18 @@
 <section class="all-inquiry-section">
 
 @if (session('status'))
-  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+  <h6 class="alert alert-success my-0" id="myAlert">{{ session('status') }}</h6>
 @endif
 
 
     <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-    <h5 class="">All Inquiries</h5>
+    <h5 class="table-title">All Inquiries</h5>
     </div>
 
-<div class="table-responsive px-3" style="font-size: 14px; width: 100%;">
+<div class="table-responsive px-3" style="width: 100%;">
 
-<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="font-size: 14px; width: 100%;">
-<thead class="table table-dark" style="font-size: 14px;">
+<table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="width: 100%;">
+<thead class="table table-dark">
 <tr>
   <th scope="col" class="col-sm-2">Inquirer</th>
   <th scope="col">Phone</th>
@@ -96,7 +96,7 @@
       </div>
       <div class="modal-body">
 
-        <table class="table" cellspacing="0" cellpadding="0" style="border: 1px solid #003049;">
+        <table class="table" cellspacing="0" cellpadding="0" style="border: 1px solid #003049;" id="modalTable">
           <thead class="table" style="background: #023047; color: white;">
             <tr>
             <th style="padding: 10px; text-align: left; width: 50%;">Inquiry Details</th>
@@ -127,7 +127,7 @@
           </tbody>
         </table>
 
-        <span><strong>Created at:</strong> <span id="date"></span></span>
+        <div class="created_at"><strong>Created at:</strong> <span id="date"></span></div>
 
       </div>
       <div class="modal-footer">

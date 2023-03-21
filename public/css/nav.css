@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 header
 {
 	width: 100%;
@@ -31,10 +33,6 @@ nav{
 {
     gap: 40px;
     /* width: 500px; */
-}
-.header-col-1 .logo
-{
-    width: 150px;
 }
 .header-col-middle
 {
@@ -68,7 +66,7 @@ nav div li a:hover
 }
 
 nav.sticky{
-    padding: 15px 120px;
+    padding: 15px 110px;
     background: #fff;
 	box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
 	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
@@ -110,11 +108,16 @@ nav .far
 
 
 /* SIDE BAR */
-#home-side-bar-btn
+#home-side-bar-btn 
 {
     display: none;
     text-decoration: none;
     color: #000000;
+}
+
+.home-sidebar-div
+{
+    display: none;
 }
 
 
@@ -205,6 +208,29 @@ nav .far
       font-weight: 500;
       color: #fff;
   }
+
+  .links .btn-primary
+  {
+    background: #0D6EFD;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    border: none;
+    margin-bottom: 15px;
+  }
+
+  .links .btn-success
+  {
+    background: #198754;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    border: none;
+  }
   
 
 
@@ -236,7 +262,8 @@ nav .far
     
     }
 
-    #home-side-bar
+    #home-side-bar-btn ,
+    .home-sidebar-div
     {
         display: block;
     }

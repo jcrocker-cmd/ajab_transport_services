@@ -23,7 +23,8 @@
             <div class="sect-1">
 
                 <form action="{{ route('book.submit', ['id' => $car_details->id]) }}" enctype="multipart/form-data" method="post" id="bookingForm">
-                    @csrf
+                  @csrf
+
                     <h4 style="color: #005281"><strong>Renter Information</strong></h4>
                     <hr>
 
@@ -99,7 +100,7 @@
                         <h5 style="color: #005281"><strong>Mode of Delivery</strong></h5> 
                         <hr class="bg-dark">
 
-                            <div class="d-flex mode-of-delivery">
+                            <div class="d-flex align-items-center mode-of-delivery mx-0">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="mode_del" id="opt1" value="500">
                                     <label class="form-check-label" for="opt1">

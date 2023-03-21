@@ -34,7 +34,6 @@ class UserinfoController extends Controller
         $viewcar = AddCar::find($id);
         $car_details = AddCar::find($id);
         return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
-        // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
     }
 
     public function db_allusers()

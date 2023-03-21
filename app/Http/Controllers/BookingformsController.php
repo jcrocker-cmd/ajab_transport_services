@@ -13,6 +13,18 @@ use DB;
 
 class BookingformsController extends Controller
 { 
+
+    // public function booking_route($id)
+    // {
+    //     $data = array();
+    //     if(Session::has('loginId')){
+    //     $data = User::where('id','=',Session::get('loginId'))->first();}
+    //     $viewcar = AddCar::find($id);
+    //     $car_details = AddCar::find($id);
+    //     return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
+    //     // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
+    // }
+
     public function booking_submit(Request $request, $id)
     {
         $car_details = AddCar::find($id);

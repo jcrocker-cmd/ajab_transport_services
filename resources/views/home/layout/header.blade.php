@@ -23,7 +23,7 @@
                 <li> <a href="/log-in">Log in</a></li>
     </div>
 
-    <div>
+    <div class="home-sidebar-div">
         <a href="#" id="home-side-bar-btn" class="home-sidebar-toggle"><i class="fas fa-bars"></i></a>
     </div>
             
@@ -48,7 +48,7 @@
   <hr>
 
   <div class="links">
-    <a href="/log-in" class=" btn btn-primary mb-3">Log In</a>
+    <a href="/log-in" class=" btn btn-primary">Log In</a>
     <a href="/sign-iun" class="btn btn-success">Sign In</a>
   </div>
 </div>

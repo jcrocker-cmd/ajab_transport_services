@@ -31,7 +31,7 @@
 <section class="form-1 bg-light py-2 first-form add-car-form active" id="addcar-section-forms">
 
 
-<div class="px-4 py-2"><h5 class=" pt-2">Car Information</h5></div>
+<div class="px-4 py-2"><h5 class="add_title pt-2">Car Information</h5></div>
 
 
 <!-- ROW 1 -->
@@ -60,13 +60,13 @@
 
 <div class="mb-2 brand">
   <label for="exampleFormControlInput1" class="form-label">Brand</label>
-  <input type="text" name="brand" class="form-control " id="vehicle-info" placeholder="Ex. Toyota" onkeyup="javascript:capitalize(this);">
+  <input type="text" name="brand" class="form-control " id="brand" placeholder="Ex. Toyota" onkeyup="javascript:capitalize(this);" oninput="generateSlug()">
   <!-- <span>Please input a Car Brand</span> -->
 </div>
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Model</label>
-  <input type="text" name="model" class="form-control " id="vehicle-info" placeholder="Ex. Vios" onkeyup="javascript:capitalize(this);">
+  <input type="text" name="model" class="form-control " id="model" placeholder="Ex. Vios" onkeyup="javascript:capitalize(this);" oninput="generateSlug()">
 </div>
 
 <div class="mb-2">
@@ -174,7 +174,7 @@
 
 <div class="px-4 py-2">
 
-<h5 class="pt-2">Owner Information</h5>
+<h5 class="pt-2 add_title">Owner Information</h5>
 
 <label for="name" class="form-label">Basic Info</label>
 
@@ -268,12 +268,12 @@
 
 
 <!-- THIRD FORM -->
-<section class="form-1 bg-light py-2 second-form add-car-form" id="addcar-section-forms">
+<section class="form-1 bg-light py-2 third-form add-car-form" id="addcar-section-forms">
 
 
 <div class="px-4 py-2">
 
-<h5 class="pt-2">Pricing</h5>
+<h5 class="pt-2 add_title">Pricing</h5>
 <!-- 
 <label for="name" class="form-label">Name</label> -->
 
@@ -306,12 +306,12 @@
 
 
 <!-- FOURTH FORM -->
-<section class="form-1 bg-light py-2 second-form add-car-form" id="addcar-section-forms">
+<section class="form-1 bg-light py-2 fourth-form add-car-form" id="addcar-section-forms">
 
 
 <div class="px-4 py-2">
 
-<h5 class="pt-2 pb-3">You're almost there!</h5>
+<h5 class="pt-2 pb-3 add_title">You're almost there!</h5>
 
 <label for="address" class="form-label">Select Car Photo</label>
 

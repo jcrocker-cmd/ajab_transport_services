@@ -1,5 +1,5 @@
 <div class="dashboard-content px-3 pt-4">
-        <h2 class="fs-5">Welcome Back <strong>{{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}</strong> (Administrator)</h2>
+        <h2 class="">Welcome Back <strong>{{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}</strong> (Administrator)</h2>
         <p class="text-muted">This is the official dashboard of AJAB Transport Services Website, located in Danglag, Consolacion, Cebu.<br>
           This System is owned by: Mr. Angelo Rosales Balili
         </p>
@@ -11,8 +11,8 @@
           <a href="/allusers" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">{{ $numberOfUsers }}</h5>
-                <p class="card-text fs-6">Clients</p>
+                <h5 class="card-count">{{ $numberOfUsers }}</h5>
+                <p class="card-title">Clients</p>
               </div>
               <div class="db-col-1">
                 <i class="fas fa-user fa-3x"></i>
@@ -25,8 +25,8 @@
           <a href="/available" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">{{ $available }}</h5>
-                <p class="card-text fs-6">Available Cars</p>
+                <h5 class="card-count">{{ $available }}</h5>
+                <p class="card-title">Available Cars</p>
               </div>
               <div class="db-col-1">
                 <i class="fas fa-car-building fa-3x"></i>
@@ -41,8 +41,8 @@
           <a href="/rented" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">{{ $rented }}</h5>
-                <p class="card-text fs-6">Rented Cars</p>
+                <h5 class="card-count">{{ $rented }}</h5>
+                <p class="card-title">Rented Cars</p>
               </div>
               <div class="db-col-1">
                 <i class="fas fa-car fa-3x"></i>
@@ -55,8 +55,8 @@
           <a href="/bookings" class="text-decoration-none w-100">
             <div class="dashboard-card">
               <div class="db-col-1">
-                <h5 class="card-title fs-3">{{ $numberOfBookings }}</h5>
-                <p class="card-text fs-6">Bookings</p>
+                <h5 class="card-count">{{ $numberOfBookings }}</h5>
+                <p class="card-title">Bookings</p>
               </div>
               <div class="db-col-1">
                 <i class="fas fa-book fa-3x"></i>

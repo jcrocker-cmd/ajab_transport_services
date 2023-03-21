@@ -253,7 +253,7 @@
 
 
 <!-- THIRD FORM -->
-<section class="form-1 bg-light py-2 second-form add-car-form" id="addcar-section-forms">
+<section class="form-1 bg-light py-2 third-form add-car-form" id="addcar-section-forms">
 
 
 <div class="px-4 py-2">
@@ -292,7 +292,7 @@
 </section>
 
 <!-- FOURTH FORM -->
-<section class="form-1 bg-light py-2 second-form add-car-form" id="addcar-section-forms">
+<section class="form-1 bg-light py-2 fourth-form add-car-form" id="addcar-section-forms">
 
 
 <div class="px-4 py-2">
