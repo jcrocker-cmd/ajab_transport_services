@@ -61,6 +61,11 @@
     {
         margin-top: 66px;
     }
+
+    .homepage-col1
+    {
+        padding: 0px 20px;
+    }
 }
 
 
@@ -82,10 +87,6 @@
 
 @media (max-width: 500px) {
 
-    .homepage-col1
-    {
-        padding: 0px 20px;
-    }
 
     .homepage-col1 h2
     {

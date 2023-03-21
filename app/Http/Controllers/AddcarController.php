@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\AdminInfo;
+// use Artisan;
 
 class AddCarController extends Controller
 {
@@ -34,7 +35,7 @@ class AddCarController extends Controller
         return view('dashboard.add-car',compact('data'));
     }
 
-    public function main_viewvehicle($id)
+    public function main_viewvehicle($slug)
     {
         $data = array();
         if(Session::has('loginId'))
@@ -43,7 +44,7 @@ class AddCarController extends Controller
 
         }
 
-        $viewcar = AddCar::find($id);
+        $viewcar = AddCar::where('slug', $slug)->first();
         return view ('main.viewcar',compact('data'))->with('viewcar', $viewcar);
     }
 
@@ -89,12 +90,12 @@ class AddCarController extends Controller
         return view('dashboard.available-cars',compact('data','available'));
     }
 
-    public function db_viewvehicle($id)
+    public function db_viewvehicle($slug)
     {
         $data = array();
         if(Session::has('loginId')){
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        $addcar = AddCar::find($id);
+        $addcar = AddCar::where('slug', $slug)->first();
         return view ('dashboard.viewcar',compact('data'))->with('addcar', $addcar);
     }
 
@@ -129,8 +130,10 @@ class AddCarController extends Controller
             unset($input['carphoto']);
         }
         $addcar->update($input);
+        // Artisan::call('cache:clear');
         Session::flash('message','You`ve successfully edited your exisiting car!');
-        return view('dashboard.viewcar',compact('data'))->with('addcar', $addcar); 
+        return view('dashboard.viewcar', compact('data', 'addcar'));
+
         
         
     }

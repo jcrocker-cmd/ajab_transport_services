@@ -9,7 +9,7 @@
         @foreach($addcar as $item)
             @if ($item->is_active == true)
             <div class="car-wrapper">
-                <a href="/mainviewcar/{{ $item->id }}" class="text-dark car-link" style="text-decoration: none;" title="View Car">
+                <a href="/mainviewcar/{{ $item->slug }}" class="text-dark car-link" style="text-decoration: none;" title="View Car">
             
                     <div class="car-col-1">
 

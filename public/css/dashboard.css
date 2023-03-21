@@ -36,9 +36,8 @@ body
     background-color: #023047;
     min-width: 250px;
     max-width: 250px;
-    /* transition: all 0.3s; */
     transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
-    /* z-index: 3; */
+
 }
 .content
 {
@@ -68,17 +67,6 @@ hr.hr-2
 {
     color: #000;
 }
-/* .sidebar li:hover
-{
-    background: #fff;
-    border-radius: 8px;
-    opacity: 0.1;
-
-}
-.sidebar li:hover a
-{
-    color: #fff;
-} */
 
 .sidebar-logo
 {
@@ -102,7 +90,7 @@ hr.hr-2
 }
 
 
-/* Dashboard Table */
+/* DASHBOARD TABLE */
 .table
 {
     font-family: 'Roboto', sans-serif;
@@ -110,7 +98,7 @@ hr.hr-2
 }
 
 
-/* ADD Car */
+/* ADD CAR */
 .add-row
 {
     gap: 40px;
@@ -174,11 +162,10 @@ input.purok
     width: 50px;
     
 }
-.first-form a , .first-form label , .first-form input , .first-form select , .first-form
-{
-    font-size: 13px;
-}
-.second-form span , .second-form input , .second-form a , .second-form label , .second-form button
+.first-form a , .first-form label , .first-form input , .first-form select ,
+.second-form span , .second-form input , .second-form a , .second-form label ,
+.third-form span , .third-form input , .third-form a , .third-form label , 
+.fourth-form span , .fourth-form input , .fourth-form a , .fourth-form label , .fourth-form button 
 {
     font-size: 13px;
 }
@@ -305,6 +292,7 @@ input.purok
     width: 30%;
     
 }
+
 /* DASHBOARD LOGIN */
 
 .dashboard-login
@@ -505,6 +493,11 @@ input.purok
 
 /* DASHBOARD CONTENT */
 
+.dashboard-content h2
+{
+    font-size: 20px
+}
+
 .dashboard-row
 {
     gap: 20px;
@@ -522,8 +515,18 @@ input.purok
     width: 100%;
     border-radius: 5px;
     padding: 30px 20px;
-
 }
+
+.dashboard-content .dashboard-card-wrapper .card-count
+{
+    font-size: 30px;
+}
+
+.dashboard-content .dashboard-card-wrapper .card-title
+{
+    font-size: 14px;
+}
+
 
 .dashboard-card
 {
@@ -566,16 +569,6 @@ input.purok
 }
 
 /* ALLVEHICLES TABLE */
-/* .allvehicles-table
-{
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
-
-}.allvehicles-table table */
-/* {
-    overflow-y: scroll;
-} */
 
 .actions
 {
@@ -836,6 +829,17 @@ input.purok
         }
 }
 
+
+/* TABLES */
+#myAlert ,
+.table-responsive,
+#dbTable,
+#dbTable thead ,
+#dbTable tbody 
+{
+    font-size: 14px;
+}
+
 /* All DASHBOARD CHART */
 
 .db-chart
@@ -854,3 +858,393 @@ input.purok
     max-width: 100%;
   }
   
+
+
+
+  /* MEDIA QUERIES */
+
+  @media (max-width:805px) {
+
+
+    /* SIDE-BAR */
+
+    .sidebar li a
+    {
+        font-size: 14px;
+    }
+
+    .sidebar-logo
+    {
+        width: 120px;
+    }
+
+    /* DASHBOARD */
+    .dashboard-content h2
+    {
+        font-size: 16px
+    }
+
+    .dashboard-content P
+    {
+        font-size: 12px
+    }
+
+    .dashboard-card-wrapper
+    {
+        padding: 20px 15px;
+    }
+
+    .dashboard-content .dashboard-card-wrapper .card-count
+    {
+        font-size: 25px;
+    }
+    
+    .dashboard-content .dashboard-card-wrapper .card-title
+    {
+        font-size: 12px;
+    }
+
+    .dashboard-content .dashboard-card-wrapper .fas
+    {
+        font-size: 25px;
+    }
+
+}
+
+/* DASHBOARD SIDE NAV */
+
+@media(max-width: 767px)
+{
+    #side_nav
+    {
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    #side_nav.active
+    {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width:800px)
+{
+/* DASHBOARD BOTTOM */
+.db-bottom-row
+{
+	flex-direction: column;
+
+}
+.db-bottom-col1 , .db-bottom-col2
+{
+    width: 100%;
+}
+.db-bottom-col2
+{
+    margin-bottom: 20px;
+}
+
+}
+
+
+
+
+
+@media(max-width: 500px)
+{
+    /* ADD CAR */
+    .add-row
+    {
+        flex-direction: column;
+        gap: 0px;
+        
+    }
+    .add-col
+    {
+        width: 100%;
+    }
+
+    .first-form a , .first-form label , .first-form input , .first-form select ,
+    .second-form span , .second-form input , .second-form a , .second-form label ,
+    .third-form span , .third-form input , .third-form a , .third-form label , 
+    .fourth-form span , .fourth-form input , .fourth-form a , .fourth-form label , .fourth-form button 
+    {
+        font-size: 11px;
+    }
+
+    .add_title
+    {
+        font-size: 15px;
+    }
+
+    /* VIEW CAR */
+    #viewcar_section1 h5 ,
+    #viewcar_section2 h5 
+    {
+        font-size: 16px;
+    }
+
+    #viewcar_section1 h6 ,
+    #viewcar_section2 h6
+    {
+        font-size: 13px;
+    }
+
+    #viewcar_section2 .btn-edit ,
+    #viewcar_section2 .btn-delete 
+    {
+        font-size: 12px;
+    }
+
+    #viewcar_section2 .timestamp
+    {
+        font-size: 11px;
+    }
+
+        .car-photo img
+    {
+        height: 210px;
+        width: 400px;
+    }
+}
+
+@media(max-width: 1010px)
+{
+    .add-full-name
+    {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 1150px)
+{
+    .add-full-address
+    {
+        flex-direction: column; 
+    }
+
+    /* TABLES */
+    #myAlert ,
+    .table-responsive,
+    #dbTable,
+    #dbTable thead ,
+    #dbTable tbody
+    {
+        font-size: 12px;
+    }
+
+    .table-title,
+    .table-add
+    {
+        font-size: 16px;
+    }
+
+    /* MODAL TABLES */
+    #modalTable,
+    #modalTable thead ,
+    #modalTable tbody
+    {
+        font-size: 12px;
+    }
+
+    .modal-title,
+    .modal-body .created_at ,
+    .modal button
+    {
+        font-size: 13px;
+    }
+ 
+}
+
+@media(max-width: 400px)
+{
+    .addphoto-btn
+    {
+        width: 100%;
+    }
+
+    .addphoto img
+    {
+        height: 230px;
+        width: 100%;
+    }
+ 
+}
+
+
+
+
+/* SETTINGS */
+
+@media(max-width: 1258px)
+{
+    .settings-col-1
+    {
+        flex-basis: 50%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 50%;
+    }   
+}
+
+@media(max-width: 1050px)
+{
+    .settings-row
+    {
+        flex-direction: column;
+    }
+    .settings-col-1
+    {
+        flex-basis: 100%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 100%;
+    }   
+}
+
+@media(max-width: 635px)
+{
+    .edit-profile , .edit-address
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+/* PROGRESS BAR */
+
+@media(max-width: 575px)
+{
+        .progress-step::after
+    {
+
+        font-size: .60rem;
+        width: 60px;
+
+    }
+
+        .progressbar
+    {
+        margin: 20px 0 60px 0;
+    }
+    .progress-bar-container
+    {
+        padding: 0 40px
+    }
+}
+
+
+/* VIEW CAR IN REGISTERED VEHICLES */
+
+@media(max-width: 1190px)
+{
+    .car-info-col
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #viewcar_section1 , #viewcar_section2
+    {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+@media(max-width: 450px)
+{
+    .view-car-row img
+    {
+        height: 230px;
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* DASHBOARD LOGIN */
+
+@media(max-width: 450px)
+{
+    .dashboard-login-div
+    {
+        width: 100%;
+        padding: 60px 25px;
+        box-shadow: 0px 0px 15px -8px rgba(0,0,0,0.75);
+        
+
+    }
+
+    .dashboard-logo
+    {
+        width: 150px;
+    }
+
+    .dashboard-login
+    {
+        padding: 100px 20px;
+    }
+
+    .dashboard-login-title
+    {
+        font-size: 13px;
+    }
+
+    .fields input
+    {
+        font-size: 14px;
+    }
+    
+    .fields i
+    {
+        font-size: 14px;
+        margin: 13px 10px 0px 25px;
+    }
+
+    .dashboard-login-button
+    {
+        font-size: 14px;
+    }
+
+    .admin-email , .admin-password , .dashboard-login-button
+    {
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+}
+
+
+}
+
+
+/* DASHBOARD CONTENT */
+
+@media(max-width: 1306px)
+{
+    .db-group
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+@media(max-width: 888px)
+{
+    .dashboard-row
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

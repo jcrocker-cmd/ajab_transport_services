@@ -57,7 +57,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
 
         Route::get('/available', [AddCarController::class,'db_availablecars']);
         Route::get('/delete_car/{id}', [AddCarController::class,'delete_car'])->name('delete_car');
-        Route::get('/viewcar/{id}', [AddCarController::class,'db_viewvehicle']);
+        Route::get('/viewcar/{slug}', [AddCarController::class,'db_viewvehicle']);
         Route::get('/editcar/{id}', [AddCarController::class,'db_editcar']);
         Route::put('/updatecar/{id}', [AddCarController::class,'db_updatecar']);
         Route::get('/settings', [AdmininfoController::class,'admin_account_settings_route']);
@@ -67,6 +67,9 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::put('/adminpassword_update/{id}', [AdmininfoController::class,'adminpassword_update']);
         Route::get('/add', [AddCarController::class,'addcar_route']);
         Route::get('/notification', [AddCarController::class,'db_notification']);
+
+        Route::get('/check-slug', [AddCarController::class, 'checkSlug']);
+
 
         Route::get('/inquiry', [EmailRequestController::class,'db_inquiry']);
         Route::get('/delete_inquiry/{id}', [EmailRequestController::class,'db_inquiry_delete']);
@@ -120,7 +123,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
 
     Route::middleware(['user-auth-checking'])->group(function () {
         Route::get('/mainhome', [AddCarController::class,'main_allcars']);
-        Route::get('/mainviewcar/{id}', [AddCarController::class,'main_viewvehicle']);
+        Route::get('/mainviewcar/{slug}', [AddCarController::class,'main_viewvehicle']);
         Route::get('/account', [UserinfoController::class,'user_accountroute']);
         Route::get('/payment-method', [BookingformsController::class,'payment_methodroute']);
         Route::get('/bookingforms/{id}', [UserinfoController::class,'booking_route']);

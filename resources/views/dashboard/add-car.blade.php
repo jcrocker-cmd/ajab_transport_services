@@ -63,7 +63,7 @@
   <div class="container-fluid">
 
     <div class="d-flex justify-content-between d-md-none d-block">
-    <a class="navbar-brand fs-4" href="#">You-Drive</a>
+    <a class="navbar-brand fs-4" href="#">AJAB</a>
     <button class="btn px-1 py-0 open-btn"><i class="far fa-stream"></i></button>
     </div>
 
@@ -124,3 +124,8 @@
 @section('scripts')
     @include('dashboard.assets.script')
 @endsection
+
+
+@push('scripts')
+    <script src="/js/dashboard-slug-fetch.js"></script>
+@endpush
