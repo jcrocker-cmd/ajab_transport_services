@@ -14,6 +14,11 @@
     padding: 40px 80px;
     height: 100%;
     width: 100%;
+    background: url("/images/profile/account_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  	background-position: center;
+    /* opacity: 0.5; */
 }
 
 .user-account-wrapper
@@ -123,6 +128,7 @@
         flex-direction: column;
         gap: 0;
     }
+
 }
 @media (max-width:805px) 
 {
@@ -162,6 +168,12 @@
     .user-account-section
     {
         padding: 40px 20px;
+    }
+    .user-account-section img
+    {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
     }
 }
 
@@ -277,6 +289,22 @@
     font-size: 14px;
 }
 
+/* MODAL TABLES */
+#modalTable,
+#modalTable thead ,
+#modalTable tbody
+{
+    font-size: 14px;
+}
+
+.modal-title,
+.modal-body .created_at ,
+.modal button ,
+.modal-content 
+{
+    font-size: 14px;
+}
+
 
 /* DELETE ACCOUNT */
 .delete-account-wrapper
@@ -331,6 +359,7 @@
     .rental-mid .group
     {
         flex-direction: column;
+        gap: 10px;
     }
     
 }
@@ -404,6 +433,7 @@
     {
         font-size: 11px;
     }
+
     
 }
 
@@ -414,10 +444,33 @@
     {
         padding: 20px 15px;
     }
+    
+}
+
+@media (max-width:600px) 
+{
+    /* MODAL TABLES */
+    #modalTable,
+    #modalTable thead ,
+    #modalTable tbody
+    {
+        font-size: 11px;
+    }
+
+    .modal-title,
+    .modal-body .created_at ,
+    .modal button ,
+    .modal-content ,
+    .modal-body form input ,
+    .modal-body form select
+    {
+        font-size: 11px;
+    }
     .account-settings-buttons
     {
         flex-direction: column;
         gap: 5px;
     }
-    
 }
+
+

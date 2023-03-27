@@ -12,7 +12,7 @@
 
 <section class="settings px-3 py-4">
 
-<h5 class="">Account Settings</h5>
+<h5 class="title">Account Settings</h5>
 
 
 <div class="settings-row pt-2 d-flex">
@@ -27,7 +27,7 @@
             @method('put')
                 <div class ="mb-4 settings-profile">
                     <img src="/images/adminpp/{{ $data->adminpp }}"
-                    height="120" width="120" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                     class="rounded-circle" id="change-img-add" style="object-fit: cover;">
 
                 </div>
 

@@ -22,7 +22,7 @@
 
             <div class="sect-1">
 
-                <form action="{{ route('book.submit', ['id' => $car_details->id]) }}" enctype="multipart/form-data" method="post" id="bookingForm">
+            <form enctype="multipart/form-data" action="{{ url('bookingformsubmit', ['slug' => $car_details->slug]) }}" method="POST" id="bookingForm">
                   @csrf
 
                     <h4 style="color: #005281"><strong>Renter Information</strong></h4>
@@ -188,11 +188,11 @@
 
                         <div class="d-flex justify-content-between align-items-center pb-2">
 
-                            <div class="car_name"><strong>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</strong> <span >{{ $viewcar->transmission}}</span></div>
+                            <div class="car_name"><strong>{{ $car_details->brand}} {{ $car_details->model}} {{ $car_details->year}}</strong> <span >{{ $car_details->transmission}}</span></div>
 
                             <div class="car-image">
 
-                            <img src="/images/uploads/{{ $viewcar->carphoto }}"
+                            <img src="/images/uploads/{{ $car_details->carphoto }}"
                             id="car-image" style="object-fit: cover;"/>
                             </div>
 

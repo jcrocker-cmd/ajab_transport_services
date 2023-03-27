@@ -605,11 +605,16 @@ input.purok
 
 
 
-/* SETTINGS */
+/* ACCOUNT SETTINGS */
 .settings
 {
     width: 100%;
+}
 
+.settings .settings-col-1 img
+{
+    width: 120px;
+    height: 120px;
 }
 .settings-title
 {
@@ -822,6 +827,23 @@ input.purok
     margin-top: -26px;
     }
 
+
+    /* MODAL TABLES */
+    #modalTable,
+    #modalTable thead ,
+    #modalTable tbody
+    {
+        font-size: 14px;
+    }
+
+    .modal-title,
+    .modal-body .created_at ,
+    .modal button
+    {
+        font-size: 14px;
+    }
+
+
 @media(max-width: 767px)
 {
     .dataTables_paginate .paginate_button {
@@ -909,6 +931,13 @@ input.purok
         font-size: 25px;
     }
 
+    /* ACCOUNT SETTINGS */
+
+    .settings  .settings-col-1 p ,
+    .settings  .settings-col-1 button
+    {
+        font-size: 12px;
+    }
 }
 
 /* DASHBOARD SIDE NAV */
@@ -1075,7 +1104,7 @@ input.purok
 
 
 
-/* SETTINGS */
+/* ACCOUNT SETTINGS */
 
 @media(max-width: 1258px)
 {
@@ -1103,6 +1132,32 @@ input.purok
     {
         flex-basis: 100%;
     }   
+}
+
+@media (max-width:805px) {
+
+
+    .settings .settings-col-1 img
+    {
+        width: 90px;
+        height: 90px;
+    }
+    .settings  .settings-col-1 p ,
+    .settings  .settings-col-1 button ,
+    .settings .settings-password .input-group input,
+    .settings .settings-col-2 p,
+    .settings .settings-col-2 label,
+    .settings .settings-col-2 input ,
+    .settings .settings-col-2 textarea,
+    .settings .settings-col-2 button
+    {
+        font-size: 11px;
+    }
+
+    .settings .title
+    {
+        font-size: 14px;
+    }
 }
 
 @media(max-width: 635px)

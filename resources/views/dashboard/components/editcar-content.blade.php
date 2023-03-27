@@ -7,7 +7,7 @@
 
 
 <!-- FORM ACTION START -->
-<form enctype="multipart/form-data" action="/updatecar/{{ $editcar->id }}" method="post" class="addform">
+<form enctype="multipart/form-data" action="/updatecar/{{ $editcar->slug }}" method="post" class="addform">
 @csrf
 @method('put')
 

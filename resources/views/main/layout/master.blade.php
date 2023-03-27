@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | AJAB</title>
-    <link rel="shortcut icon" href="images/tire.png" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="images/tire.png" type="image/x-icon"> -->
     @yield('styles')
 </head>
 <body>
@@ -19,6 +19,23 @@
 
     @yield('content')
     @yield('script')
+    @stack('script')
+
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('efda0cb5254ac4bb5450', {
+      cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('channel-sample');
+    channel.bind('event-sample', function(data) {
+      alert(JSON.stringify(data));
+    });
+  </script>
 
 <script>
 $(window).on("load",function(){
