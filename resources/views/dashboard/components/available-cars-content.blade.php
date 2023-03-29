@@ -7,8 +7,7 @@
 
 
     <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-    <h5 class="table-title">All Available Cars</h5>
-    <a href="/add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+    <h5 class="pb-2 title"><strong>All Available Cars</strong></h5>
     </div>
 
 <div class="table-responsive px-3 pb-3">

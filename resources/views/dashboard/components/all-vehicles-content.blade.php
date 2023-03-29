@@ -6,9 +6,11 @@
 @endif
 
 
-    <div class="pb-3 d-flex justify-content-between px-3 pt-4">
-    <h5 class="table-title">All Registered Vehicles</h5>
+    <div class="pb-3 d-flex justify-content-between align-items-center px-3 pt-4">
+    <h5 class="pb-2 title"><strong>All Registered Vehicles</strong></h5>
+    @can('can:add-record')
     <a href="/add" class="table-add" title="Add Car"><button class="btn btn-success rounded-pill"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+    @endcan
     </div>
 
 <div class="table-responsive px-3 pb-3">
@@ -65,9 +67,14 @@
 
   <td>
   <a href="/viewcar/{{ $item->slug }}" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-  <a href="/editcar/{{ $item->slug }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-  <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
+  @can('can:edit-record')
+    <a href="/editcar/{{ $item->slug }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  @endcan
+
+  @can('can:delete-record')
+    <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+  @endcan
   </td>
   </tr>
   @endif

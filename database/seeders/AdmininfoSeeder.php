@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Hash;
 
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+
+
 class AdmininfoSeeder extends Seeder
 {
     /**
@@ -17,27 +21,72 @@ class AdmininfoSeeder extends Seeder
      */
     public function run()
     {
-        
-        DB::table('admininfo')->insert([
 
-            'email' => 'admin@ajabservices.com',
-            'password' => Hash::make('aug151973'),
-            'admin_fname' => 'John Christian',
-            'admin_mname' => 'Balili',
-            'admin_lname' => 'Narbaja',
-            'admin_no' => '09127725518',
-            'admin_bday' => '2022-11-01',
-            'admin_purok' => 'Purok 2',
-            'admin_baranggay' => 'Salvador',
-            'admin_town' => 'Sierra Bullones',
-            'admin_province' => 'Bohol',
-            'admin_postal' => '6320',
-            'admin_fb' => 'John',
-            'admin_about' => 'John',
-            'adminpp' => 'default-user.webp',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+            $user = User::create([
+                'admin_fname' => 'Johnny Boy',
+                'admin_lname' => 'Narbaja',
+                'admin_mname' => 'Narbaja',
+                'email' => 'sample@gmail.com',
+                'password' => Hash::make('aug151973'),
+                'admin_no' => '09127725518',
+                'admin_bday' => '2022-11-01',
+                'admin_purok' => 'Purok 2',
+                'admin_baranggay' => 'Salvador',
+                'admin_town' => 'Sierra Bullones',
+                'admin_province' => 'Bohol',
+                'admin_postal' => '6320',
+                'admin_fb' => 'John',
+                'admin_about' => 'John',
+                'adminpp' => 'default-user.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+    
+            // Find the role by name and assign it to the user
+            $role = Role::where('name', 'Super-Admin')->first();
+            $user->assignRole($role);
+
+        // DB::table('users')->insert([
+
+        //     'admin_fname' => 'John Christian',
+        //     'admin_lname' => 'Narbaja',
+        //     'admin_mname' => 'Narbaja',
+        //     'email' => 'narbajajc@gmail.com',
+        //     'password' => Hash::make('aug151973'),
+        //     'admin_no' => '09127725518',
+        //     'admin_bday' => '2022-11-01',
+        //     'admin_purok' => 'Purok 2',
+        //     'admin_baranggay' => 'Salvador',
+        //     'admin_town' => 'Sierra Bullones',
+        //     'admin_province' => 'Bohol',
+        //     'admin_postal' => '6320',
+        //     'admin_fb' => 'John',
+        //     'admin_about' => 'John',
+        //     'adminpp' => 'default-user.png',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+
+        // DB::table('users')->insert([
+
+        //     'admin_fname' => 'Johnny Boy',
+        //     'admin_lname' => 'Narbaja',
+        //     'admin_mname' => 'Narbaja',
+        //     'email' => '123@gmail.com',
+        //     'password' => Hash::make('aug151973'),
+        //     'admin_no' => '09127725518',
+        //     'admin_bday' => '2022-11-01',
+        //     'admin_purok' => 'Purok 2',
+        //     'admin_baranggay' => 'Salvador',
+        //     'admin_town' => 'Sierra Bullones',
+        //     'admin_province' => 'Bohol',
+        //     'admin_postal' => '6320',
+        //     'admin_fb' => 'John',
+        //     'admin_about' => 'John',
+        //     'adminpp' => 'default-user.png',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
 
         // DB::table('admininfo')->insert([
 

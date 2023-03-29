@@ -23,7 +23,7 @@ use App\Http\Controllers\BookingformsController;
 |
 */
 
-Route::post('/signin', [SigninController::class, 'save'])->name('signin.save');
+Route::post('/signin', [SigninController::class, 'signin_save'])->name('signin.save');
 Route::post('/checklogin', [LoginController::class,'checklogin']);
 Route::post('/adminchecklogin', [AdmininfoController::class,'adminchecklogin']);
 
@@ -39,11 +39,11 @@ Route::get('/dd', function () {
 
 Route::middleware(['preventBackHistory'])->group(function () {
 
-    Route::middleware(['admin-already-loggedin'])->group(function () {
+    Route::middleware(['guest'])->group(function () {
         Route::get('/dashboard-login', [AdmininfoController::class,'loginroute']); 
     });
 
-    Route::middleware(['admin-auth-checking'])->group(function () {
+    Route::middleware(['auth'])->group(function () {
 
         Route::get('/dashboard', [AdmininfoController::class,'dashboardroute']);
 
@@ -57,9 +57,15 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/notification', [AddCarController::class,'db_notification']);
 
         // ADMIN ROUTES
-        Route::put('/adminpp_update/{id}', [AdmininfoController::class,'adminpp_update']);
-        Route::put('/admininfo_update/{id}', [AdmininfoController::class,'admininfo_update']);
-        Route::put('/adminpassword_update/{id}', [AdmininfoController::class,'adminpassword_update']);
+        Route::put('/adminpp_update', [AdmininfoController::class,'adminpp_update']);
+        Route::put('/admininfo_update', [AdmininfoController::class,'admininfo_update']);
+        Route::put('/adminpassword_update', [AdmininfoController::class,'adminpassword_update']);
+
+        // USER MANAGEMENT
+        Route::get('/user/management', [AdmininfoController::class,'user_management_route']);
+        Route::post('/create-user-role', [AdmininfoController::class,'create_user_role']);
+
+
 
         // CAR ROUTES
         Route::get('/add', [AddCarController::class,'addcar_route']);

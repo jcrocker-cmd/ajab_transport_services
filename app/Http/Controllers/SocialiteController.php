@@ -25,10 +25,9 @@ class SocialiteController extends Controller
         
         $userdata = Socialite::driver('google')->stateless()->user();
         // dd($userdata);
-        $user = User::where('email', $userdata->email)->where('social_type', 'google')->first();
+        $user = Signin::where('email', $userdata->email)->where('social_type', 'google')->first();
         if($user)
         {
-            Auth::login($user);
             $request->session()->put('loginId',$user->id);
             return redirect('/mainhome');
 
@@ -37,7 +36,7 @@ class SocialiteController extends Controller
         else{
 
             $uuid = Str::uuid()->toString();
-            $user = new User();
+            $user = new Signin();
             $user->first_name = $userdata->user['given_name'];
             $user->last_name = $userdata->user['family_name'];
             $user->email = $userdata->email;
@@ -60,10 +59,9 @@ class SocialiteController extends Controller
     {
         $userdata = Socialite::driver('facebook')->stateless()->user();
         // dd($userdata);
-        $user = User::where('email', $userdata->email)->where('social_type', 'facebook')->first();
+        $user = Signin::where('email', $userdata->email)->where('social_type', 'facebook')->first();
         if($user)
         {
-            Auth::login($user);
             $request->session()->put('loginId',$user->id);
             return redirect('/mainhome');
 
@@ -72,7 +70,7 @@ class SocialiteController extends Controller
         else{
 
             $uuid = Str::uuid()->toString();
-            $user = new User();
+            $user = new Signin();
             $user->first_name = $userdata->user['given_name'];
             $user->last_name = $userdata->user['family_name'];
             $user->email = $userdata->email;
@@ -120,7 +118,7 @@ class SocialiteController extends Controller
     
     public function socialite_users()
     {
-        $socialite = User::all();
+        $socialite = Signin::all();
         return view ('dashboard.viewuser')->with('socialite', $socialite);
     }
 

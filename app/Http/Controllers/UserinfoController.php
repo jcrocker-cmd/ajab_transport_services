@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
+use App\Models\Signin;
 use App\Models\AddCar;
 use App\Models\AdminInfo;
 use App\Models\Booking;
@@ -39,14 +40,10 @@ class UserinfoController extends Controller
     public function db_allusers()
     {
         $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
-        }
-        $user = User::all();
+        $user = Signin::orderByDesc('created_at')->get();
 
         // DAY
-        $daily_users = DB::table('users')
+        $daily_users = DB::table('signins')
             ->select(DB::raw('COUNT(*) as count, DATE(created_at) as day'))
             ->groupBy('day')
             ->get();
@@ -61,7 +58,7 @@ class UserinfoController extends Controller
 
 
         // WEEK
-        $weekly_users = DB::table('users')
+        $weekly_users = DB::table('signins')
             ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(created_at) - 1 DAY) as week_start_date'))
             ->groupBy('week_start_date')
             ->get();
@@ -75,7 +72,7 @@ class UserinfoController extends Controller
         }
 
         // MONTH
-        $monthly_users = DB::table('users')
+        $monthly_users = DB::table('signins')
             ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-01")) as month_start_date'))
             ->groupBy('month_start_date')
             ->get();
@@ -89,7 +86,7 @@ class UserinfoController extends Controller
         }
 
         // YEAR
-        $yearly_users = DB::table('users')
+        $yearly_users = DB::table('signins')
         ->select(DB::raw('COUNT(*) as count, YEAR(created_at) as year'))
         ->groupBy('year')
         ->get();
@@ -113,7 +110,7 @@ class UserinfoController extends Controller
         }
     
         // Delete the user's data and car photo
-        $user = User::find($id);
+        $user = Signin::find($id);
         $photoPath = 'images/uploads/' . $user->carphoto;
         if (File::exists($photoPath)) {
             File::delete($photoPath);
@@ -128,7 +125,7 @@ class UserinfoController extends Controller
 
     public function db_user_delete($id)
     {
-        $user = User::find($id);
+        $user = Signin::find($id);
         $user -> delete();
         Session::flash('status','You`ve successfully deleted a user!');
         return redirect('/allusers')->with('user', $user); 
@@ -136,7 +133,7 @@ class UserinfoController extends Controller
 
     public function db_user_ajaxview($id)
     {
-        $user = User::find($id);
+        $user = Signin::find($id);
         return response()->json([
             'status' => 200,
             'user' => $user,
@@ -158,7 +155,7 @@ class UserinfoController extends Controller
 
     public function user_account_ajaxedit($user_id)
     {
-        $data = User::where('id', '=', $user_id)->first();
+        $data = Signin::where('id', '=', $user_id)->first();
         return response()->json([
             'status' => 200,
             'data' => $data,
@@ -169,7 +166,7 @@ class UserinfoController extends Controller
     {
 
         $id = $request->input('user_id');
-        $data = User::find($id);
+        $data = Signin::find($id);
         if (!$data) {
             return response()->json(['error' => 'User not found'], 404);
         }

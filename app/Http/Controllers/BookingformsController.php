@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\User;
+use App\Models\Signin;
 use App\Models\AddCar;
 use App\Models\AdminInfo;
 use Mail;
@@ -18,7 +19,7 @@ class BookingformsController extends Controller
     {
         $data = array();
         if(Session::has('loginId')){
-        $data = User::where('id','=',Session::get('loginId'))->first();}
+        $data = Signin::where('id','=',Session::get('loginId'))->first();}
         // $viewcar = AddCar::find($id);
         $car_details = AddCar::where('slug', $slug)->first();
         return view('main.bookingforms', compact('data', 'car_details'));
@@ -162,7 +163,7 @@ class BookingformsController extends Controller
       {
       $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
       }
-      $booking = Booking::with('car')->get();
+      $booking = Booking::with('car')->orderByDesc('created_at')->get();
 
       // DAY
       $daily_bookings = DB::table('bookingform')

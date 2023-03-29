@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use App\Models\Signin;
-use App\Models\User;
+use App\Models\Signin;
 use Illuminate\Support\Facades\Session;
 use Hash;
 
@@ -16,7 +16,7 @@ class SigninController extends Controller
         {
         return view('home.signin');
         }
-        function save(Request $request)
+        public function signin_save(Request $request)
         {
         $request->validate([
             'fname'=>'required',
@@ -26,7 +26,7 @@ class SigninController extends Controller
             'bday'=>'required'
         ]);
 
-        $signin = new User();
+        $signin = new Signin();
         $signin ->first_name = $request->input('fname');
         $signin ->last_name = $request->input('lname');
         $signin ->email = $request->input('email');
@@ -44,9 +44,9 @@ class SigninController extends Controller
         
 
         }
-    public function signin_users()
-    {
-        $signin = Signin::all();
-        return view ('dashboard.viewuser')->with('signin', $signin);
-    }
+    // public function signin_users()
+    // {
+    //     $signin = Signin::all();
+    //     return view ('dashboard.viewuser')->with('signin', $signin);
+    // }
 }

@@ -337,75 +337,75 @@
 // });
 
 
-// Get the form element
-var form = $("#bookingForm");
+// // Get the form element
+// var form = $("#bookingForm");
 
-// Get the input elements
-var input1 = $("#name");
-var input2 = $("#number");
-var input3 = $("#address");
-var input4 = $("#email");
+// // Get the input elements
+// var input1 = $("#name");
+// var input2 = $("#number");
+// var input3 = $("#address");
+// var input4 = $("#email");
 
-// Get the error message elements
-var error1 = $("#errorname");
-var error2 = $("#errornum");
-var error3 = $("#erroradd");
-var error4 = $("#erroremail");
+// // Get the error message elements
+// var error1 = $("#errorname");
+// var error2 = $("#errornum");
+// var error3 = $("#erroradd");
+// var error4 = $("#erroremail");
 
-// Add a submit event listener to the form
-form.submit(function(event) {
-  event.preventDefault(); // prevent the form from submitting
+// // Add a submit event listener to the form
+// form.submit(function(event) {
+//   event.preventDefault(); // prevent the form from submitting
 
-  // Reset the error messages
-  input1.keyup(function() {
-    error1.html(""); // reset the error message
-    input1.css("border-color", "");
-  });
+//   // Reset the error messages
+//   input1.keyup(function() {
+//     error1.html(""); // reset the error message
+//     input1.css("border-color", "");
+//   });
 
-  input2.keyup(function() {
-    error2.html(""); // reset the error message
-    input2.css("border-color", "");
-  });
+//   input2.keyup(function() {
+//     error2.html(""); // reset the error message
+//     input2.css("border-color", "");
+//   });
 
-  input3.keyup(function() {
-    error3.html(""); // reset the error message
-    input3.css("border-color", "");
-  });
+//   input3.keyup(function() {
+//     error3.html(""); // reset the error message
+//     input3.css("border-color", "");
+//   });
 
-  input4.keyup(function() {
-    error4.html(""); // reset the error message
-    input4.css("border-color", "");
-  });
+//   input4.keyup(function() {
+//     error4.html(""); // reset the error message
+//     input4.css("border-color", "");
+//   });
 
-  // validate the input fields
-  if (input1.val() === "") {
-    error1.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
-    input1.css("border-color", "red");
-  }
+//   // validate the input fields
+//   if (input1.val() === "") {
+//     error1.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
+//     input1.css("border-color", "red");
+//   }
 
-  if (input2.val() === "") {
-    error2.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
-    input2.css("border-color", "red");
-  }
+//   if (input2.val() === "") {
+//     error2.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
+//     input2.css("border-color", "red");
+//   }
 
-  if(input3.val() === ""){
-    error3.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
-    input3.css("border-color", "red");
-  }
+//   if(input3.val() === ""){
+//     error3.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
+//     input3.css("border-color", "red");
+//   }
 
-  if(input4.val() === ""){
-    error4.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
-    input4.css("border-color", "red");
-  }
+//   if(input4.val() === ""){
+//     error4.html("<p class='err-text'  style='margin-bottom: 0px; margin-top: 5px;' >This field is required.</p>");
+//     input4.css("border-color", "red");
+//   }
 
-  const submit_btn = $("#bookingform-sumbit");
-  submit_btn.click(function(){
-    if (error1.html() === "" && error2.html() === "" && error3.html() === "" && error4.html() === "") {
-      this.html("<div class='loader'></div>");
-      this.prop("disabled", true);
-      form.submit();
-      submit_btn.css("background-color", "#89e5ba");
-    }
-  });
-});
+//   const submit_btn = $("#bookingform-sumbit");
+//   submit_btn.click(function(){
+//     if (error1.html() === "" && error2.html() === "" && error3.html() === "" && error4.html() === "") {
+//       this.html("<div class='loader'></div>");
+//       this.prop("disabled", true);
+//       form.submit();
+//       submit_btn.css("background-color", "#89e5ba");
+//     }
+//   });
+// });
 

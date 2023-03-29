@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Signin;
-use App\Models\User;
 use Hash;
 use Session;
 
@@ -24,7 +23,7 @@ class LoginController extends Controller
       'password'  => 'required|alphaNum|min:8'
      ]);
 
-     $user = User::where('email','=',$request->email)->first();
+     $user = Signin::where('email','=',$request->email)->first();
      if ($user) {
         if(Hash::check($request->password,$user->password)){
             $request->session()->put('loginId',$user->id);

@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\AdminInfo;
 use App\Models\User;
+use App\Models\Signin;
 use App\Models\Booking;
 use App\Models\AddCar;
 use Hash;
 use Session;
 use DB;
+use Auth;
+use Spatie\Permission\Models\Role;
+use Carbon\Carbon;
 
 class AdmininfoController extends Controller
 {
@@ -18,6 +22,42 @@ class AdmininfoController extends Controller
    {
       return view('dashboard.dashboard-login');
    }
+
+   public function user_management_route()
+   {
+      $view_user = User::all();
+      return view('dashboard.user-management', compact('view_user'));
+   }
+
+
+   function create_user_role(Request $request)
+   {
+       $user = new User();
+       $user->admin_fname = $request->input('admin_fname');
+       $user->admin_mname = $request->input('admin_mname');
+       $user->admin_lname = $request->input('admin_lname');
+       $user->email = $request->input('email');
+       $user->password = Hash::make($request->input('password'));
+       $user->save();
+   
+       $roleId = $request->input('role');
+       $role = Role::findById($roleId);
+       if (!$role) {
+           return redirect('/user/management')->with('failregister', 'Invalid role ID');
+       }
+   
+       $user->assignRole($role);
+   
+       Session::flash('successregister', 'You`ve registered successfully, Try to LOG IN.');
+       return redirect('/user/management');
+   }
+
+   function db_user_view(Request $request)
+    {
+        $view_user = User::all();
+        return view('dashboard.dashboard', compact('view_user'));
+    }
+
 
    public function dashboardroute()
 
@@ -27,15 +67,17 @@ class AdmininfoController extends Controller
     $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
     }
     
-    $numberOfUsers = User::count(); // Count the number of rows in the User table
+    $numberOfUsers = Signin::count(); // Count the number of rows in the User table
     $numberOfBookings = Booking::count(); // Count the number of Bookings
-    $allusers = User::all(); // Show all users
+
+    $last24Hours = Carbon::now()->subDay();
+    $allusers = Signin::where('created_at', '>=', $last24Hours)->orderBy('created_at')->get();
 
     $available = AddCar::where('status', 'Available')->count();
     $rented = AddCar::where('status', 'Rented')->count();
     
 
-    $monthly_signins = DB::table('users')
+    $monthly_signins = DB::table('signins')
                      ->select(DB::raw('COUNT(*) as count, MONTH(created_at) as month'))
                      ->groupBy('month')
                      ->get();
@@ -55,10 +97,8 @@ class AdmininfoController extends Controller
 
    public function admin_account_settings_route()
    {
-    $data = array();
-    if(Session::has('loginId')){
-    $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-    return view('dashboard.settings',compact('data'));
+    $user = Auth::user();
+    return view('dashboard.settings',compact('user'));
    }
 
    function adminchecklogin(Request $request)
@@ -82,13 +122,13 @@ class AdmininfoController extends Controller
     
   }
 
-  public function adminpp_update(Request $request, $id)
+  public function adminpp_update(Request $request)
     {
-        $data = AdminInfo::find($id);
+        $user = Auth::user();
         $input = $request->all();
         if ($image = $request->file('adminpp')) {
 
-            $destinationPath = 'images/adminpp/'.$data->adminpp;
+            $destinationPath = 'images/adminpp/'.$user->adminpp;
             if (File::exists($destinationPath)) {
                 File::delete($destinationPath);
             }
@@ -99,40 +139,39 @@ class AdmininfoController extends Controller
         }else{
             unset($input['adminpp']);
         }
-        $data->update($input);
+        $user->update($input);
         Session::flash('accountstatus','You`ve successfully edited your profile photo!');
-        return view('dashboard.settings',compact('data'));
+        return view('dashboard.settings',compact('user'));
         
         
     }
 
-    public function admininfo_update(Request $request, $id)
+    public function admininfo_update(Request $request)
     {
-        $data = Admininfo::find($id);
+        $user = Auth::user();
         $input = $request->all();
-        $data->update($input);
+        $user->update($input);
         Session::flash('accountstatus','You`ve successfully edited your account information!');
-        return view('dashboard.settings')->with('data', $data);;
+        return view('dashboard.settings')->with('user', $user);;
     }
 
-    public function adminpassword_update(Request $request, $id)
+    public function adminpassword_update(Request $request)
     {
         $request->validate([
             'old_password'=>'required|min:8|max:20|alphaNum',
             'new_password'=>'required|min:8|max:20|alphaNum',
             'confirm_password'=>'required|same:new_password',
         ]);
+        $user = Auth::user();
 
-        $data = Admininfo::find($id);
-
-        if (Hash::check($request->old_password, $data->password)) {
+        if (Hash::check($request->old_password, $user->password)) {
             
-            $data->update([
+            $user->update([
                 'password'=>bcrypt($request->new_password)
             ]);
 
             Session::flash('successpassword','You`ve successfully edited your password!');
-            return view('dashboard.settings',compact('data'));
+            return view('dashboard.settings',compact('user'));
 
         } else {
             return back()
@@ -146,9 +185,7 @@ class AdmininfoController extends Controller
 
   public function adminlogout()
    {
-      if (Session::has('loginId')){
-         Session::pull('loginId');
-         return redirect('/dashboard-login');
-      }
+    Auth::logout();
+    return redirect('/dashboard-login');
    }
 }

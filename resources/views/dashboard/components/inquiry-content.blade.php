@@ -7,7 +7,7 @@
 
 
     <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-    <h5 class="table-title">All Inquiries</h5>
+    <h5 class="pb-2 title"><strong>All Inquiries</strong></h5>
     </div>
 
 <div class="table-responsive px-3" style="width: 100%;">
@@ -24,7 +24,7 @@
 </tr>
 </thead>
 <tbody>
-@foreach($inquiry->reverse() as $item)
+@foreach($inquiry as $item)
  <tr>
   <td>
     <div class ="d-flex align-items-center">
@@ -45,8 +45,9 @@
   </td>
   <td>
   <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
+  @can('can:delete-record')
   <a href="/delete_inquiry/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-
+  @endcan
   </td>
   </tr>
   @endforeach

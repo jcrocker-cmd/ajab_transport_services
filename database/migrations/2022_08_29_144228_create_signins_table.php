@@ -15,12 +15,18 @@ return new class extends Migration
     {
         Schema::create('signins', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('password')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->string('social_type')->nullable();
+            $table->string('provider_name')->nullable();
+            $table->string('provider_id')->nullable();
             $table->string('bday')->nullable();
             $table->string('gender')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }
