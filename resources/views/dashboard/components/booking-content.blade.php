@@ -7,7 +7,7 @@
 
 
     <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-    <h5 class="table-title">All Bookings</h5>
+    <h5 class="pb-2 title"><strong>All Bookings</strong></h5>
     </div>
 <div class="table-responsive px-3 pb-3">
 
@@ -24,7 +24,7 @@
 </tr>
 </thead>
 <tbody>
-@foreach($booking->reverse() as $item)
+@foreach($booking as $item)
  <tr>
   <td>
     <div class ="d-flex align-items-center">
@@ -81,7 +81,9 @@
   <div style="display: flex;">
   <div class="d-flex align-items-center">
     <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
+    @can('can:delete-record')
     <a href="/delete_booking/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+    @endcan
     </div>
     
     @if ($item->status != 'Confirmed' && $item->status != 'Closed' && $item->status != 'Declined')

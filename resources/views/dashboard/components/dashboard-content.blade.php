@@ -1,5 +1,9 @@
 <div class="dashboard-content px-3 pt-4">
-        <h2 class="">Welcome Back <strong>{{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}</strong> (Administrator)</h2>
+        <h2 class=""> <strong>
+        @if (Auth::check())
+            Welcome, {{ Auth::user()->admin_fname }}!
+        @endif
+        </strong> ({{ Auth::user()->roles->pluck('name')->implode(', ') }})</h2>
         <p class="text-muted">This is the official dashboard of AJAB Transport Services Website, located in Danglag, Consolacion, Cebu.<br>
           This System is owned by: Mr. Angelo Rosales Balili
         </p>
@@ -84,7 +88,7 @@
       <table class="table table-hover align-middle mb-0 bg-light">
         <thead class="bg-light ">
           <tr>
-            <th scope="col">New Clients</th>
+            <th scope="col" class="newclients-title">New Clients</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -95,8 +99,7 @@
 
                 <td>
                   <div class ="d-flex align-items-center">
-                      <img src="user.jpg" alt=""
-                      style="height: 45px; width: 45px;" class="rounded-circle">
+                      <img src="user.jpg" alt="" class="rounded-circle">
                     <div class="ms-3 ">
                         <p class="fw-bold mb-1">{{ $item->first_name}} {{ $item->last_name}}</p>
                         <p class="text-muted mb-0">{{ $item->email}}</p>
@@ -107,15 +110,15 @@
                 </td>
 
                 <td style="text-align: right">
-                  <p class="fst-italic text-muted my-0" style="font-size: 12px;">Member Since:</p>
-                  <p class="fst-italic text-muted my-0" style="font-size: 12px;" >{{ $item->created_at->format('M j, Y h:i A')}}</p>
+                  <p class="fst-italic text-muted my-0" >Member Since:</p>
+                  <p class="fst-italic text-muted my-0" >{{ $item->created_at->format('M j, Y h:i A')}}</p>
                 </td>
 
               </tr>
               @endforeach
               @else
               <tr class="no-data">
-                <td colspan="2" class="text-center">No User is Registered.</td>
+                <td colspan="2" class="text-center">No new user for the last 24hrs</td>
               </tr>
               @endif
             </tbody>

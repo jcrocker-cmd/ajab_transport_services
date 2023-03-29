@@ -50,7 +50,7 @@ class EmailRequestController extends Controller
         {
         $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
         }
-        $inquiry = Inquiry::all();
+        $inquiry = Inquiry::orderByDesc('created_at')->get();
 
         // DAY
         $daily_inquiries = DB::table('inquiries')

@@ -50,13 +50,8 @@ class AddCarController extends Controller
 
     public function db_allvehicles()
     {
-        $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
-        }
-        $addcar = AddCar::all();
-        return view ('dashboard.all-vehicles',compact('data'))->with('addcar', $addcar);
+        $addcar = AddCar::orderByDesc('created_at')->get();
+        return view ('dashboard.all-vehicles',compact('addcar'));
     }
 
     public function db_rentedcars()

@@ -84,15 +84,20 @@
     </div>
 
     <div class="view-car-buttons">
-    <a href="/editcar/{{ $addcar->slug }}" class="btn-edit">
-        <span><i class="far fa-pencil"></i></span>
-        <span>EDIT</span>
-    </a>
+    @can('can:edit-record')
+        <a href="/editcar/{{ $addcar->slug }}" class="btn-edit">
+            <span><i class="far fa-pencil"></i></span>
+            <span>EDIT</span>
+        </a>
+    @endcan
 
-    <a href="/delete_car/{{ $addcar->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)"   class="btn-delete">
-        <span><i class="far fa-trash"></i></span>
-        <span>DELETE</span>
-    </a>
+    
+    @can('can:delete-record')
+        <a href="/delete_car/{{ $addcar->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)"   class="btn-delete">
+            <span><i class="far fa-trash"></i></span>
+            <span>DELETE</span>
+        </a>
+    @endcan
 
     </div>
 

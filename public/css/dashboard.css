@@ -564,8 +564,24 @@ input.purok
 .for-border
 {
     box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
-    
+}
 
+.db-bottom-col2 table td p,
+.db-bottom-col2 table .no-data
+{
+    font-size: 12px;
+}
+
+.db-bottom-col2 table td .newclients-title
+{
+    font-size: 13px;
+}
+
+
+.db-bottom-col2 img
+{
+    width: 30px;
+    height: 30px;
 }
 
 /* ALLVEHICLES TABLE */
@@ -844,6 +860,38 @@ input.purok
     }
 
 
+/* User Management */
+.user-management .user-col-1
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.user-management .user-management-row
+{
+    gap: 40px;
+}
+
+.user-management form input,
+.user-management form label,
+.user-management form button ,
+.user-management form select
+{
+    font-size: 13px;
+}
+
+.user-management .group
+{
+    gap: 10px;
+}
+
+.title
+{
+    font-size: 15px;
+}
+
+
 @media(max-width: 767px)
 {
     .dataTables_paginate .paginate_button {
@@ -859,7 +907,7 @@ input.purok
 #dbTable thead ,
 #dbTable tbody 
 {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* All DASHBOARD CHART */
@@ -1063,7 +1111,6 @@ input.purok
         font-size: 12px;
     }
 
-    .table-title,
     .table-add
     {
         font-size: 16px;

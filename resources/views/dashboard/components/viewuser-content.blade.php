@@ -4,7 +4,7 @@
 
 
 <div class="pb-2 d-flex justify-content-between px-3 pt-4">
-<h5 class="table-title">All Registered User</h5>
+<h5 class=" pb-2 title"><strong>All Registered User</strong></h5>
 </div>
 
 <div class="table-responsive px-3">
@@ -47,8 +47,9 @@
 
 <td>
 <a href="#" title="View" class="actions action-view" data-id="{{ $item->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
-<a href="/delete_user/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
-
+@can('can:delete-record')
+  <a href="/delete_user/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+@endcan
 </td>
 </tr>
 

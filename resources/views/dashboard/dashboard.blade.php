@@ -24,11 +24,16 @@
       <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
       </a>
       </li> -->
+      @role(['Super-Admin', 'Admin'])
       <li class=""><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars" style="margin-right: 10px;"></i>   Add Car</a></li>
+      @endrole
       <li class=""><a href="/allusers" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
       <li class=""><a href="/bookings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-book" style="margin-right: 13px;"></i>   Bookings</a></li>
       <li class=""><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
+      @role(['Super-Admin', 'Admin'])
+      <li class=""><a href="/user/management" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-user" style="margin-right: 17px;"></i>   User Management</a></li>
+      @endrole
     </ul>
 
     <hr class="hr-1 mx-2">
@@ -59,7 +64,7 @@
   
   <div class="content">
     
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background: #026ba0">
   <div class="container-fluid">
 
     <div class="d-flex justify-content-between d-md-none d-block">
@@ -83,7 +88,7 @@
       </button> -->
     
 
-      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-dark"><i class="fal fa-bell"></i>
+      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-white"><i class="fal fa-bell"></i>
       <span class="nav-notif-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         99+
         <span class="visually-hidden">unread notification</span>
@@ -92,12 +97,17 @@
       </button>
 
           <div class="dropdown">
-          <img src="/images/adminpp/{{ $data->adminpp }}" alt=""
-            style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" 
-            class="rounded-circle">
 
-            <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ $data->admin_fname}} {{ $data->admin_mname}} {{ $data->admin_lname}}
+            @if(Auth::user()->adminpp)
+                <img src="{{ asset('images/adminpp/' . Auth::user()->adminpp) }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
+            @else
+                <img src="{{ asset('images/default-user.png') }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
+            @endif
+
+            <button class="btn btn-link dropdown-toggle account-link text-decoration-none text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            @if (Auth::check())
+              {{ Auth::user()->admin_fname }} {{ Auth::user()->admin_lname }}
+            @endif
             </button>
             
               <ul class="dropdown-menu dropdown-menu-lg-end account-dropdowns" aria-labelledby="dropdownMenuButton1">

@@ -1,7 +1,7 @@
 <section class="all-rented-section">
 <div class="table-responsive px-3 pb-3">
     
-<h5 class="pt-4 pb-2 table-title"><strong>Rented Cars</strong></h5>
+<h5 class="pt-4 pb-2 title"><strong>Rented Cars</strong></h5>
 <table class="table align-middle mb-0 bg-light table-hover display responsive nowrap" id="dbTable" style="width: 100%;">
 <thead class="table table-dark">
     <tr>

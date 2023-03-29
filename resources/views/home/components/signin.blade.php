@@ -17,7 +17,7 @@
         </div>
 
         <h6 class="text-center py-3">Sign-up Today!</h6>
-        <form action="signin" method="post" id="signin_save">
+        <form action="/signin" method="post" id="signin_save">
 				@csrf
         <div class="signin-fname">
             <input type="text" id="upper" name="fname"  placeholder="First Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('fname')}}">

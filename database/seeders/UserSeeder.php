@@ -18,13 +18,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('signins')->insert([
             'first_name' => 'John Christian',
             'last_name' => 'Narbaja',
-            'email' => 'user@ajabservices.com',
+            'email' => 'narbajajc@gmail.com',
             'password' => Hash::make('aug151973'),
             'bday' => '2022-11-01',
             'gender' => 'Male',
+            'social_type' => 'AJAB Services',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

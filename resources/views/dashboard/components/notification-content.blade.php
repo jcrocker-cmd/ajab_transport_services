@@ -1,7 +1,8 @@
 
 <div class="table-responsive px-3 pt-4">
     
-    <h2 class="fs-3 pb-4">All Notifications</h2>
+    <h5 class="pb-2 title"><strong>All Notifications</strong></h5>
+    
 
 
 <div class="dashboard-table">
