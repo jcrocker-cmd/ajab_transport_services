@@ -1,6 +1,6 @@
 <section class="all-cars-section">
 
-    <p class="pb-4">All Cars</p>
+    <p class="category-title pb-4">All Cars</p>
 
     <div class="all-cars-row">
 
@@ -43,7 +43,7 @@
                             </a>
                             
 
-                            <a href="/bookingforms/{{ $item->id }}" class="btn-checkout text-decoration-none">
+                            <a href="/bookingforms/{{ $item->slug }}" class="btn-checkout text-decoration-none">
                                 <span><i class="fas fa-caret-right"></i></span>
                                 <span>CHECKOUT</span>
                             </a>

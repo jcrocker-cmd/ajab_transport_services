@@ -11,3 +11,7 @@
 <script src="/js/home-sendrequest-validation.js"></script>
 <script src="/js/home-sidebar.js"></script>
 
+<script src="/js/ajax-validation.js"></script>
+
+
+

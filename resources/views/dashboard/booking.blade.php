@@ -133,7 +133,7 @@
     <script src="/js/ajax-booking.js"></script>
 
     <script src="/js/chart-library.js"></script>
-    <script src="https://cdn.skypack.dev/date-fns"></script>
+    <!-- <script src="https://cdn.skypack.dev/date-fns"></script> -->
     <script type="text/javascript">
       var day_labels = {!! json_encode($days) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
       var day_data = {!! json_encode($day_booking_counts) !!};

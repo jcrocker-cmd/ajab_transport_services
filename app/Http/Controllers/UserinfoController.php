@@ -26,15 +26,15 @@ class UserinfoController extends Controller
         return view('main.account',compact('data','bookings','user'));
     }
 
-    public function booking_route($id)
-    {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = User::where('id','=',Session::get('loginId'))->first();}
-        $viewcar = AddCar::find($id);
-        $car_details = AddCar::find($id);
-        return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
-    }
+    // public function booking_route($id)
+    // {
+    //     $data = array();
+    //     if(Session::has('loginId')){
+    //     $data = User::where('id','=',Session::get('loginId'))->first();}
+    //     $viewcar = AddCar::find($id);
+    //     $car_details = AddCar::find($id);
+    //     return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
+    // }
 
     public function db_allusers()
     {
@@ -142,5 +142,47 @@ class UserinfoController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function user_booking_ajaxview($id)
+    {
+        $booking = Booking::with('car')->find($id);
+        $front_license = asset('/images/license/front/' . $booking->front_license);
+        $back_license = asset('images/license/back/' . $booking->back_license);
+        return response()->json([
+            'status' => 200,
+            'booking' => $booking,
+            'front_license' => $front_license,
+            'back_license' => $back_license,
+        ]);
+    }
+
+    public function user_account_ajaxedit($user_id)
+    {
+        $data = User::where('id', '=', $user_id)->first();
+        return response()->json([
+            'status' => 200,
+            'data' => $data,
+        ]);
+    }
+
+    public function user_account_info_update(Request $request)
+    {
+
+        $id = $request->input('user_id');
+        $data = User::find($id);
+        if (!$data) {
+            return response()->json(['error' => 'User not found'], 404);
+        }
+        $data->first_name = $request->input('first_name');
+        $data->last_name = $request->input('last_name');
+        $data->email = $request->input('email');
+        $data->bday = $request->input('bday');
+        $data->gender = $request->input('gender');
+        $data->update();
+
+        Session::flash('status', 'You have successfully edited your INFORMATION!');
+        return redirect('/account')->with('data', $data);
+    }
+
 
 }

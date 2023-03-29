@@ -43,7 +43,7 @@ class SigninController extends Controller
         }
         
 
-    }
+        }
     public function signin_users()
     {
         $signin = Signin::all();

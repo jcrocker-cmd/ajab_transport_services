@@ -96,14 +96,14 @@
         <td style="padding: 10px;">Address</td>
         <td style="padding: 10px;">{!! $data['address'] !!}</td>
       </tr>
-      <tr>
+      {{-- <tr>
         <td style="padding: 10px;">License (Front Side)</td>
-        <td style="padding: 10px;">@fat</td>
+        <td style="padding: 10px;">http://127.0.0.1:8000/images/license/front/{!! $data['front_license']!!}</td>
       </tr>
       <tr>
         <td style="padding: 10px;">License (Back Side)</td>
-        <td style="padding: 10px;">@fat</td>
-      </tr>
+        <td style="padding: 10px;"><a href="{{ asset('images/license/front/'.$data['front_license']) }}" target="_blank">{{ $data['front_license'] }}</a></td>
+      </tr> --}}
       <tr>
         <td style="padding: 10px;">Message (Optional)</td>
         <td style="padding: 10px;">{!! $data['msg'] !!}</td>
@@ -140,7 +140,7 @@
       </tr>
       <tr>
         <td style="padding: 10px;">Plate No.</td>
-        <td style="padding: 10px;">http://127.0.0.1:8000/images/uploads/{!! $data['car_details']->carphoto !!}</td>
+        <td style="padding: 10px;">{!! $data['car_details']->plate !!}</td>
       </tr>
     </tbody>
 

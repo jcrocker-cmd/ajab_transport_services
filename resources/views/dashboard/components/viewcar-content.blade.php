@@ -84,7 +84,7 @@
     </div>
 
     <div class="view-car-buttons">
-    <a href="/editcar/{{ $addcar->id }}" class="btn-edit">
+    <a href="/editcar/{{ $addcar->slug }}" class="btn-edit">
         <span><i class="far fa-pencil"></i></span>
         <span>EDIT</span>
     </a>

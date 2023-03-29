@@ -25,7 +25,7 @@
         <h6 class="successdelete-alert">{{ Session::get('successdelete') }}</h6>
         @endif
 
-        <form action="{{url('/checklogin')}}" method="post">
+        <form action="{{url('/checklogin')}}" method="post" id="login-client">
                 @csrf
         <div class="username">
             <input type="email" name="email"  placeholder="Username"  value ="{{old('email')}}">

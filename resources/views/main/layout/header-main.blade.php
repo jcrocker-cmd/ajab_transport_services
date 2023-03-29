@@ -5,10 +5,13 @@
         <a href="/" class="brand"><img src="/images/LOGO.png" class="logo"></a>
        
                 <h2>|</h2>
-
-                <form action="">
-                    <input type="email" class="form-control rounded-pill" id="exampleFormControlInput1" placeholder="Search">
-                </form>
+                <div class="search-bar">
+                    <form action="{{ route('car.search') }}" method="GET">
+                        <i class="fas fa-search"></i>
+                        <input name="search" type="search" class="" id="exampleFormControlInput1" placeholder="Search Rentals" style="outline: none" value="{{ $searchTerm ?? '' }}">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
     </div>
 
     <div class="header-col-2">
@@ -53,15 +56,15 @@
 
         
         <a href="/account" class="sub-menu-link">
-            <img src="images/profile/profile.png">
+            <img src="/images/profile/profile.png">
             <p>My Profile</p>
         </a>
         <a href="#" class="sub-menu-link">
-            <img src="images/profile/setting.png">
+            <img src="/images/profile/setting.png">
             <p>My Settings</p>
         </a>
         <a href="/logout" class="sub-menu-link">
-            <img src="images/profile/logout.png">
+            <img src="/images/profile/logout.png">
             <p>Logout</p>
         </a>
 
@@ -91,6 +94,12 @@
  </div>
 
  <hr>
+ <div class="search-bar">
+    <form action="{{ route('car.search') }}" method="GET">
+        <input name="search" type="search" class="" id="exampleFormControlInput1" placeholder="Search Rentals" style="outline: none" value="{{ $searchTerm ?? '' }}">
+        <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+</div>
 
   <div>
     <a href="/account">My Account</a>
@@ -105,4 +114,14 @@
     <a href="/mainhome">All-Cars</a>
     <a href="/">Contact Us</a>
   </div>
+
+  <hr>
+    <div class="car-links-container">
+        <a href="/mainhome" class="car-links">All-Cars</a>
+        <a href="/mainhome" class="car-links">Van</a>
+        <a href="/mainhome" class="car-links">Sedan</a>
+        <a href="/mainhome" class="car-links">Pick-Up</a>
+        <a href="/mainhome" class="car-links">7-Seater</a>
+        <a href="/mainhome" class="car-links">Hatchback</a>
+    </div>
 </div>

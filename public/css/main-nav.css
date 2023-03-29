@@ -16,6 +16,43 @@ header
     width: 130px;
     
 }
+
+.search-bar form
+{
+    width: 300px;
+    height: 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-bar form input
+{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0px;
+}
+
+.search-bar button
+{
+    background: tomato;
+    padding: 0px 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.search-bar .fa-search
+{
+    align-self: center;
+    padding: 0px 10px;
+    color: #777; 
+}
 nav{
     position: fixed;
     top: 0;
@@ -114,6 +151,18 @@ nav li a:hover:after
     display: none;
 }
 
+.sidebar::-webkit-scrollbar
+{
+    /* background: #ddd; */
+    width: 5px;
+    border-radius: 10px;
+
+} 
+.sidebar::-webkit-scrollbar-thumb
+{
+    background: #858383;
+    border-radius: 10px;
+}
 
 
 .sidebar {
@@ -191,6 +240,76 @@ nav li a:hover:after
       font-weight: 500;
       color: #fff;
   }
+
+  .sidebar .car-links-container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 15px 8px 32px;
+    gap: 5px;
+  }
+
+  .sidebar .car-links-container .car-links
+  {
+    border: 1px solid #a8a7a7;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 2px 5px;
+  }
+
+  .sidebar .car-links-container .car-links:hover
+  {
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #222121;
+  }
+
+  .sidebar .search-bar
+  {
+    padding: 8px 15px 8px 32px;
+
+  }
+
+.sidebar .search-bar form
+{
+    width: 200px;
+    height: 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.sidebar .search-bar form input
+{
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0px 5px;
+    width: 100px;
+}
+
+.sidebar .search-bar button
+{
+    background: tomato;
+    padding: 0px;
+    height: 30px;
+    border: none;
+    outline: none;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.sidebar .search-bar .fa-search
+{
+    color: #fff;
+}
+
   
 
 

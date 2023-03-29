@@ -49,7 +49,7 @@
                             <span>ADD TO CART</span>
                         </button>
 
-                        <a href="/bookingforms/{{ $viewcar->id }}" type="button" class="btn-checkout text-decoration-none">
+                        <a href="/bookingforms/{{ $viewcar->slug }}" type="button" class="btn-checkout text-decoration-none">
                             <span><i class="fas fa-caret-right"></i></span>
                             <span>CHECKOUT</span>
                         </a>

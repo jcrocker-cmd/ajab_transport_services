@@ -9,3 +9,7 @@
 <script src="/js/main-multi-step-form.js"></script>
 <script src="/js/main-sidebar.js"></script>
 
+<script src="/js/moment-library.js"></script>
+<script src="/js/ajax-user-booking.js"></script>
+<script src="/js/ajax-user-account-edit.js"></script>
+

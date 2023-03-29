@@ -14,33 +14,37 @@ use DB;
 class BookingformsController extends Controller
 { 
 
-    // public function booking_route($id)
-    // {
-    //     $data = array();
-    //     if(Session::has('loginId')){
-    //     $data = User::where('id','=',Session::get('loginId'))->first();}
-    //     $viewcar = AddCar::find($id);
-    //     $car_details = AddCar::find($id);
-    //     return view('main.bookingforms', compact('data', 'viewcar', 'car_details'));
-    //     // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
-    // }
-
-    public function booking_submit(Request $request, $id)
+    public function booking_route($slug)
     {
-        $car_details = AddCar::find($id);
+        $data = array();
+        if(Session::has('loginId')){
+        $data = User::where('id','=',Session::get('loginId'))->first();}
+        // $viewcar = AddCar::find($id);
+        $car_details = AddCar::where('slug', $slug)->first();
+        return view('main.bookingforms', compact('data', 'car_details'));
+        // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
+    }
 
-        // Get the file data
-        $front_license = $request->file('front_license');
-        $back_license = $request->file('back_license');
-    
+    public function booking_submit(Request $request, $slug)
+    {
+        $car_details = AddCar::where('slug', $slug)->first();
+
+    // Get the file data
+    $front_license = $request->file('front_license');
+    $back_license = $request->file('back_license');
+
+    // Get the original file names
+    $front_license_name = $front_license->getClientOriginalName();
+    $back_license_name = $back_license->getClientOriginalName();
+            
         $data = [
             'name' => $request->name,
             'con_num' => $request->con_num,
             'address' => $request->address,
             'con_email' => $request->con_email,
     
-            'front_license' => $request->front_license,
-            'back_license' => $request->back_license,
+            'front_license' => $front_license_name,
+            'back_license' => $back_license_name,
     
             'mode_del' => $request->mode_del,
     
@@ -99,37 +103,25 @@ class BookingformsController extends Controller
         }
     
         $booking->save();
-    
+        
         // Update car status
         $car = AddCar::findOrFail($car_details->id);
         $car->status = 'In progress';
         $car->save();
     
         // Send email notification
-        Mail::send('main.email-template', ['data' => $data], function($message) use ($data) {
+        Mail::send('main.email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
             $message->to('johnchristian.narbaja@bisu.edu.ph');
             $message->subject('Daily Booking Form');
+            $message->attach('images/license/front/' . $front_license_name, ['as' => $front_license_name]);
+            $message->attach('images/license/back/' . $back_license_name, ['as' => $back_license_name]);
+        
         });
 
 
       return back()->with('success', 'You`ve Successfully Book your car');  
 
     }
-
-    //     public function confirmBooking($id)
-    // {
-    //     $car = AddCar::findOrFail($id);
-    //     $car->status = 'rented';
-    //     $car->save();
-
-    //     $booking = Booking::where('car_id', $id)->where('status', 'in progress')->firstOrFail();
-    //     $booking->status = 'rented';
-    //     $booking->save();
-
-    //     // return view('main.account')->with('success', 'Booking confirmed.');
-    //     return back()->with('success', 'Booking confirmed.');
-
-    // }
 
     public function confirmBooking($id)
     {

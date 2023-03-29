@@ -17,3 +17,8 @@
     @include('main.assets.bootstrapjs')
 @endsection
 
+@push('script')
+    <script src="/js/moment-library.js"></script>
+    <script src="/js/ajax-user-booking.js"></script>
+@endpush
+

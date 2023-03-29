@@ -65,7 +65,7 @@
 
   <td>
   <a href="/viewcar/{{ $item->slug }}" title="View" class="actions action-view"><i class="fa fa-eye" aria-hidden="true"></i></a>
-  <a href="/editcar/{{ $item->id }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+  <a href="/editcar/{{ $item->slug }}" title="Edit" class="actions action-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
   <a href="/delete_car/{{ $item->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
   </td>
