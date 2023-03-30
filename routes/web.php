@@ -65,8 +65,6 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/user/management', [AdmininfoController::class,'user_management_route']);
         Route::post('/create-user-role', [AdmininfoController::class,'create_user_role']);
 
-
-
         // CAR ROUTES
         Route::get('/add', [AddCarController::class,'addcar_route']);
         Route::post('/addcar', [AddCarController::class,'save']);
@@ -86,6 +84,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/bookings/{id}/ajaxview', [BookingformsController::class,'db_booking_ajaxview']);
         Route::post('/confirm_booking/{id}', [BookingformsController::class, 'confirmBooking'])->name('confirm.booking');
         Route::patch('/decline_booking/{id}', [BookingformsController::class, 'declineBooking']);
+        Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
 
         // CLIENTS ROUTES
         Route::get('/allusers', [UserinfoController::class,'db_allusers']);

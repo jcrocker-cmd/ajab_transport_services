@@ -8,6 +8,7 @@
 @section('content') 
     @include('home.layout.header')
     @include('home.components.homepage-content')
+    @include('home.components.featured-content')
     @include('home.components.howitworks-content')
     @include('home.components.contactus-content')
     @include('home.layout.footer')

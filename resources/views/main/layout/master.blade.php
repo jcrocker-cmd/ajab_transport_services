@@ -35,13 +35,7 @@
     channel.bind('event-sample', function(data) {
       alert(JSON.stringify(data));
     });
-  </script>
 
-<script>
-$(window).on("load",function(){
-    $(".loader-wrapper").delay(500).fadeIn("slow").fadeOut("slow");
-});
-</script>
 
 </body>
 

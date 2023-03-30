@@ -94,3 +94,20 @@ ScrollReveal().reveal('.contact-col-2', {
     origin: 'right'
     
 });
+
+// FEATURES
+ScrollReveal().reveal('.featured-row-1', {
+    delay: 500,
+    duration: 1500,
+    distance: '50px',
+    origin: 'left'
+    
+});
+
+ScrollReveal().reveal('.featured-row-2', {
+    delay: 400,
+    duration: 1500,
+    distance: '50px',
+    origin: 'right'
+    
+});

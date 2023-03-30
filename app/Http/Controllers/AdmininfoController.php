@@ -30,7 +30,7 @@ class AdmininfoController extends Controller
    }
 
 
-   function create_user_role(Request $request)
+   public function create_user_role(Request $request)
    {
        $user = new User();
        $user->admin_fname = $request->input('admin_fname');
@@ -52,7 +52,7 @@ class AdmininfoController extends Controller
        return redirect('/user/management');
    }
 
-   function db_user_view(Request $request)
+    public function db_user_view(Request $request)
     {
         $view_user = User::all();
         return view('dashboard.dashboard', compact('view_user'));

@@ -28,8 +28,12 @@
  <tr>
   <td>
     <div class ="d-flex align-items-center">
-        <img src="user.jpg" alt=""
-        style="height: 45px; width: 45px;" class="rounded-circle">
+        @if($item->user)
+            <img src="{{ $item->user->picture ?: asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+        @else
+            <img src="{{ asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+        @endif
+
     <div class="ms-3">
         <p class="fw-bold mb-1">{{ $item->name}}</p>
         <p class="text-muted mb-0">{{ $item->con_email}}</p>
@@ -73,6 +77,8 @@
       <span class="badge bg-secondary rounded-pill">{{ $item->status }}</span>
   @elseif ($item->status == 'Closed')
       <span class="badge bg-danger rounded-pill">{{ $item->status }}</span>
+  @elseif ($item->status == 'Cancelled')
+    <span class="badge bg-info rounded-pill">{{ $item->status }}</span>
   @endif
   </td>
 
@@ -86,7 +92,7 @@
     @endcan
     </div>
     
-    @if ($item->status != 'Confirmed' && $item->status != 'Closed' && $item->status != 'Declined')
+    @if ($item->status != 'Confirmed' && $item->status != 'Closed' && $item->status != 'Declined'&& $item->status != 'Cancelled')
     <div class="d-flex align-items-center" style="gap: 5px;">
       <form method="POST" action="/confirm_booking/{{$item->id}}">
         @csrf

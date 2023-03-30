@@ -4,6 +4,7 @@
     background-color: #fff;
     height: 100%;
     padding: 50px 80px;
+    font-family: 'Poppins', sans-serif;
 }
 .all-cars-section .category-title 
 {
@@ -94,6 +95,7 @@
     gap: 10px;
     padding: 10px;
     font-size: 13px;
+    font-family: 'Poppins', sans-serif;
     
 }
 .btn-addcart

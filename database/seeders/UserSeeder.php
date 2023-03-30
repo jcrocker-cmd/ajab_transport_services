@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
         DB::table('signins')->insert([
             'first_name' => 'John Christian',
             'last_name' => 'Narbaja',
-            'email' => 'narbajajc@gmail.com',
+            'email' => 'narbajajcs@gmail.com',
             'password' => Hash::make('aug151973'),
             'bday' => '2022-11-01',
             'gender' => 'Male',

@@ -14,8 +14,8 @@
                 </div>
 
                 <div class="info-sub-2">
-                    <p class="text-muted timestamp">Member Since:<strong style="margin-left: 10px;">{{ $data->created_at->format('jS F Y h:i:s A')}}</strong></p>
-                    <p class="text-muted timestamp">Last Updated:<strong style="margin-left: 10px;">{{ $data->updated_at->format('jS F Y h:i:s A')}}</strong></p>
+                    <p class="text-white timestamp">Member Since:<strong style="margin-left: 10px;">{{ $data->created_at->format('jS F Y h:i:s A')}}</strong></p>
+                    <p class="text-white timestamp">Last Updated:<strong style="margin-left: 10px;">{{ $data->updated_at->format('jS F Y h:i:s A')}}</strong></p>
                 </div>
 
             </div>
@@ -140,17 +140,31 @@
         @foreach ($bookings as $booking)
         <div class="rental-card">
             <div class="rental-top">
-                <span><button class="action-view" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#viewModal">View Details</button></span>
-                <span>
+                <span class="d-flex buttons">
+                  <div><button class="action-view" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye"></i> View</button></div>
+                  @if ($booking->status == 'In progress')
+                    <div class="d-flex align-items-center" style="gap: 5px;">
+                      <form method="POST" action="/cancel_booking/{{$booking->id}}">
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                        <button type="submit" class="action-cancel">Cancel</button>
+                      </form>
+                    </div>
+                  @endif
+                </span>
+                <span class="statuses">
                     <strong>
                     @if ($booking->status == 'In progress')
-                        <span style="color: yellow;">{{ $booking->status }}</span>
+                        <span class="badge bg-warning rounded-pill">{{ $booking->status }}</span>
                     @elseif ($booking->status == 'Confirmed')
-                        <span style="color: green;">{{ $booking->status }}</span>
+                        <span class="badge bg-success rounded-pill">{{ $booking->status }}</span>
                     @elseif ($booking->status == 'Declined')
-                        <span style="color: gray;">{{ $booking->status }}</span>
+                        <span class="badge bg-secondary rounded-pill">{{ $booking->status }}</span>
                     @elseif ($booking->status == 'Closed')
-                        <span style="color: red;">{{ $booking->status }}</span>
+                        <span class="badge bg-danger rounded-pill">{{ $booking->status }}</span>
+                    @elseif ($booking->status == 'Cancelled')
+                      <span class="badge bg-info rounded-pill">{{ $booking->status }}</span>
                     @endif
                     </strong>
                 </span>

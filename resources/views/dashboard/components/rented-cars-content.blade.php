@@ -19,8 +19,11 @@
     <tr>
       <td>
         <div class ="d-flex align-items-center">
-            <img src="user.jpg" alt=""
-            style="height: 45px; width: 45px;" class="rounded-circle">
+        @if($item->user)
+            <img src="{{ $item->user->picture ?: asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+        @else
+            <img src="{{ asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+        @endif
         <div class="ms-3">
             <p class="fw-bold mb-1">{{ $item->name }}</p>
             <p class="text-muted mb-0">{{ $item->con_email }}</p>

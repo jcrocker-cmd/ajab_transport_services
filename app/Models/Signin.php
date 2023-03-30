@@ -17,4 +17,10 @@ class Signin extends Model
         'bday',
         'gender'
     ];
+
+    // In Signin model
+    // public function bookings()
+    // {
+    //     return $this->hasMany(Booking::class);
+    // }
 }
