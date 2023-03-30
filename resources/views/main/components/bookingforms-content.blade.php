@@ -170,7 +170,11 @@
 
                         <span class="text-danger" id="errorpay" ><br></span>
                         <h6 class="text-primary pt-2 important" style="text-justify: inter-word; text-align: justify;">IMPORTANT: Payment for our rental cars will be made outside of the system; we will not gather any confidential information within this system. We accept <strong>Cash, G-Cash, and credit cards.</strong> </h6>
-
+                        
+                        <div class="accepts pt-2">
+                        <h5>Card Payments Accepted:</h5>
+                        <img src="/images/payment.png" alt="">
+                        </div>
                     </div>
 
 
@@ -199,7 +203,7 @@
                         </div>
 
                         <div class="date-time-wrapper">
-                            <div class="start-date d-flex pb-2">
+                            <div class="start-date d-flex pb-1">
                                 <div>
                                     <label for="">Start Date</label>
                                     <input type="date" name="start_date" id="startdate" style="width: 100%;">

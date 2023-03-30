@@ -153,6 +153,11 @@
     {
         display: grid;
     }
+
+    #howitworks
+  {
+      background: linear-gradient(180deg, #ffaf00, #bb02ff);
+  }
 }
 
 

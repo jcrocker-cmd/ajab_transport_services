@@ -12,4 +12,5 @@
 <link rel="stylesheet" href="/css/scrollbar.css">
 <link rel="stylesheet" href="/css/error.css">
 <link rel="stylesheet" href="/css/contactus.css">
+<link rel="stylesheet" href="/css/featured.css">
   

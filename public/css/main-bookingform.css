@@ -25,11 +25,9 @@
 .booking-form-buttons
 {
     display: flex;
-            justify-content: center;
+    justify-content: center;
     gap: 20px;
     margin-bottom: 40px;
-    /* background-color: aqua;
-    padding: 20px; */
 }
 
 .booking-form-buttons .btn-daily , .booking-form-buttons .btn-weekly , .booking-form-buttons .btn-monthly
@@ -41,13 +39,9 @@
             align-items: center;
     gap: 10px;
     padding: 15px 10px;
-    font-size: 15px;
+    font-size: 13px;
     text-decoration: none;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    /* border-radius: 10px; */
     color: #000;
     border: 1px solid #000;
     outline: none;
@@ -56,7 +50,40 @@
 
 .booking-form-section .text-danger
 {
-    font-size: 13px;
+    font-size: 12px;
+}
+
+.booking-form-section .text-danger ,
+.booking-form-section .renter-info label ,
+.booking-form-section .renter-info input ,
+.booking-form-section .sect-1 .requirements .form-check ,
+.booking-form-section .sect-1 .license input ,
+.booking-form-section .sect-1 .license label ,
+.booking-form-section .sect-1 .requirements h6 ,
+.mode_del .mode-of-delivery .form-check ,
+.pay_med .mode-of-payment ,
+.pay_med .accepts h5,
+.pay_med .important ,
+.msg label ,
+.msg textarea ,
+.sect-2 .date-time-wrapper label,
+.sect-2 .date-time-wrapper input,
+.price-info p,
+.price-info h5 ,
+.agreement label ,
+.agreement input ,
+.bookingform-sumbit ,
+.sect-2 .car_name
+{ 
+    font-size: 15px;
+}
+
+.booking-form-section .sect-1 h4 ,
+.booking-form-section .requirements h5 ,
+.mode_del h5 ,
+.pay_med h5
+{
+    font-size: 18px;
 }
 
 
@@ -266,6 +293,11 @@
     gap: 10px;
 }
 
+.pay_med .accepts img
+{
+    width: 250px;
+}
+
 .booking-info-section .sect-2
 {
     height: 100%;
@@ -293,9 +325,9 @@
 
 .sect-2 .date-time-wrapper
 {
-            justify-content: space-between;
+    justify-content: space-between;
     display: flex;
-            flex-direction: column;
+    flex-direction: column;
 }
 .date-time-wrapper input
 {
@@ -324,7 +356,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    /* gap: 10px; */
 }
 .start-date , .return-date
 {
@@ -518,6 +550,7 @@
     .booking-form-section .sect-1 .requirements h6 ,
     .mode_del .mode-of-delivery .form-check ,
     .pay_med .mode-of-payment ,
+    .pay_med .accepts h5,
     .pay_med .important ,
     .msg label ,
     .msg textarea ,
@@ -568,4 +601,9 @@
     {
         padding: 5px;
     }
+    .pay_med .accepts img
+    {
+        width: 180px;
+    }
+
 }

@@ -158,4 +158,7 @@
       var year_data = {!! json_encode($year_booking_counts ) !!};
     </script>
     <script src="/js/chart-booking.js"></script>
+
+    <!-- End -->
+
 @endpush

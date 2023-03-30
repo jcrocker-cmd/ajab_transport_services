@@ -22,34 +22,33 @@ class SocialiteController extends Controller
 
     public function googlecallback(Request $request)
     {
-        
         $userdata = Socialite::driver('google')->stateless()->user();
-        // dd($userdata);
+        
+        // Get the user's profile picture URL
+        $pictureUrl = str_replace('s96-c', 's0', $userdata->avatar);
+        // Replace "s96-c" with "s0" to get the original size image
+        
         $user = Signin::where('email', $userdata->email)->where('social_type', 'google')->first();
-        if($user)
-        {
-            $request->session()->put('loginId',$user->id);
+        
+        if ($user) {
+            $request->session()->put('loginId', $user->id);
             return redirect('/mainhome');
-
-        }
-
-        else{
-
+        } else {
             $uuid = Str::uuid()->toString();
             $user = new Signin();
             $user->first_name = $userdata->user['given_name'];
             $user->last_name = $userdata->user['family_name'];
             $user->email = $userdata->email;
-            $user->password = Hash::make($uuid.now());
+            $user->password = Hash::make($uuid . now());
             $user->social_type = 'google';
-            $user->picture = $userdata->user['picture'];
-            // $avatar = file_get_contents($user->picture);
+            $user->picture = $pictureUrl; // Use the modified picture URL
             $user->save();
-            $request->session()->put('loginId',$user->id);
+            
+            $request->session()->put('loginId', $user->id);
             return redirect('/mainhome');
         }
     }
-
+    
     public function facebookredirect()
     {
         return Socialite::driver('facebook')->stateless()->redirect();

@@ -16,17 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
 
-    <!-- <script src="/datatables/js/datatables-jquery.js"></script>
-    <script src="/datatables/js/datatables-bootstrap.js"></script>
-    <script src="/datatables/js/datatables-buttons.js"></script>
-    <script src="/datatables/js/datatables-responsive.js"></script>
-    <script src="/datatables/js/datatables-print.js"></script>
-    <script src="/datatables/js/datatables-colvis.js"></script>
-    <script src="/datatables/js/datatables-jszip.js"></script>
-    <script src="/datatables/js/datatables-pdfmake.js"></script>
-    <script src="/datatables/js/datatables-pdfmake-vfs.js"></script>
-    <script src="/datatables/js/datatables-buttons-html.js"></script> -->
-
     <script src="/data-table.js"></script>
     <!-- End -->
     

@@ -155,6 +155,20 @@ class BookingformsController extends Controller
         return redirect('/bookings')->with('success', 'Booking declined.');
     }
 
+    public function cancelBooking($id)
+    {
+        $booking = Booking::find($id);
+        $booking->status = 'Cancelled';
+        $booking->save();
+
+        $car = $booking->car;
+        $car->status = 'Available';
+        $car->save();
+
+        return redirect('/account')->with('success', 'Booking declined.');
+    }
+
+
 
     public function db_bookings()
     {
@@ -163,7 +177,8 @@ class BookingformsController extends Controller
       {
       $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
       }
-      $booking = Booking::with('car')->orderByDesc('created_at')->get();
+      $booking = Booking::with(['car', 'user'])
+      ->get();
 
       // DAY
       $daily_bookings = DB::table('bookingform')

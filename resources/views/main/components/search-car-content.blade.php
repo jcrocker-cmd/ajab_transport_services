@@ -38,15 +38,15 @@
                 </a>
                         
                         <div class="carbuttons">
-                            <a href="#" class="btn-addcart">
-                                <span><i class="far fa-cart-plus"></i></span>
-                                <span>ADD TO CART</span>
+                            <a href="/mainviewcar/{{ $car->slug }}" class="btn-addcart">
+                                <span><i class="far fa-car"></i></span>
+                                <span>VIEW CAR</span>
                             </a>
                             
 
                             <a href="/bookingforms/{{ $car->slug }}" class="btn-checkout text-decoration-none">
                                 <span><i class="fas fa-caret-right"></i></span>
-                                <span>CHECKOUT</span>
+                                <span>BOOK NOW</span>
                             </a>
                         
                         </div>

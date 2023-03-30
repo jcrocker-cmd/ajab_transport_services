@@ -53,6 +53,7 @@ $(document).ready(function() {
       }
     ],
     lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-    responsive: true
+    responsive: true,
+    order: [[1, 'desc']] // Sort by the second column (created_at) in descending order
   });
 });
