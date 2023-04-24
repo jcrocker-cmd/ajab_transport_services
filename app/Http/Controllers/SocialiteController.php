@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Session;
+use Spatie\Permission\Models\Role;
+
 
 class SocialiteController extends Controller
 {
@@ -23,28 +25,31 @@ class SocialiteController extends Controller
     public function googlecallback(Request $request)
     {
         $userdata = Socialite::driver('google')->stateless()->user();
-        
+    
         // Get the user's profile picture URL
         $pictureUrl = str_replace('s96-c', 's0', $userdata->avatar);
         // Replace "s96-c" with "s0" to get the original size image
-        
-        $user = Signin::where('email', $userdata->email)->where('social_type', 'google')->first();
-        
+    
+        $user = User::where('email', $userdata->email)->where('social_type', 'google')->first();
+    
         if ($user) {
-            $request->session()->put('loginId', $user->id);
+            Auth::login($user);
             return redirect('/mainhome');
         } else {
             $uuid = Str::uuid()->toString();
-            $user = new Signin();
-            $user->first_name = $userdata->user['given_name'];
-            $user->last_name = $userdata->user['family_name'];
-            $user->email = $userdata->email;
-            $user->password = Hash::make($uuid . now());
-            $user->social_type = 'google';
-            $user->picture = $pictureUrl; // Use the modified picture URL
-            $user->save();
-            
-            $request->session()->put('loginId', $user->id);
+            $user = User::create([
+                'first_name' => $userdata->user['given_name'],
+                'last_name' => $userdata->user['family_name'],
+                'email' => $userdata->email,
+                'password' => Hash::make($uuid . now()),
+                'social_type' => 'google',
+                'profile_picture' => $pictureUrl, // Use the modified picture URL
+            ]);
+
+            $clientRole = Role::where('name', 'Client')->first();
+            $user->roles()->attach($clientRole);
+    
+            Auth::login($user);
             return redirect('/mainhome');
         }
     }
@@ -58,25 +63,31 @@ class SocialiteController extends Controller
     {
         $userdata = Socialite::driver('facebook')->stateless()->user();
         // dd($userdata);
-        $user = Signin::where('email', $userdata->email)->where('social_type', 'facebook')->first();
-        if($user)
-        {
-            $request->session()->put('loginId',$user->id);
+
+        // Get the user's profile picture URL
+        // Replace "s96-c" with "s0" to get the original size image
+
+        $user = User::where('email', $userdata->email)->where('social_type', 'facebook')->first();
+
+        if ($user) {
+            Auth::login($user);
             return redirect('/mainhome');
-
-        }
-
-        else{
-
+        } else {
             $uuid = Str::uuid()->toString();
-            $user = new Signin();
-            $user->first_name = $userdata->user['given_name'];
-            $user->last_name = $userdata->user['family_name'];
-            $user->email = $userdata->email;
-            $user->password = Hash::make($uuid.now());
-            $user->social_type = 'facebook';
-            $user->save();
-            $request->session()->put('loginId',$user->id);
+            $pictureUrl = str_replace('s96-c', 's0', $userdata->avatar ?? '');
+            $user = User::create([
+                'first_name' => $userdata->user['given_name'],
+                'last_name' => $userdata->user['family_name'],
+                'email' => $userdata->email,
+                'password' => Hash::make($uuid . now()),
+                'social_type' => 'google',
+                'profile_picture' => $pictureUrl, // Use the modified picture URL
+            ]);
+
+            $clientRole = Role::where('name', 'Client')->first();
+            $user->roles()->attach($clientRole);
+    
+            Auth::login($user);
             return redirect('/mainhome');
         }
     }
@@ -94,9 +105,7 @@ class SocialiteController extends Controller
         if($user)
         {
             Auth::login($user);
-            $request->session()->put('loginId',$user->id);
             return redirect('/mainhome');
-
         }
 
         else{

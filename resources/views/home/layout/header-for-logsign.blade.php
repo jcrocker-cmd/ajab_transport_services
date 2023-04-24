@@ -12,7 +12,7 @@
     </div>
 
     <div class="header-col-2">
-                <li> <a href="/sign-in">Sign up</a></li>
+                <li> <a href="/sign-up">Sign up</a></li>
                 <li> <a href="/log-in">Log in</a></li>
     </div>
 
@@ -41,6 +41,6 @@
 
   <div class="links">
     <a href="/log-in" class=" btn btn-primary">Log In</a>
-    <a href="/sign-in" class="btn btn-success">Sign In</a>
+    <a href="/sign-up" class="btn btn-success">Sign In</a>
   </div>
 </div>

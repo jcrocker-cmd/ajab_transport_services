@@ -27,7 +27,7 @@
       @role(['Super-Admin', 'Admin'])
       <li class="active"><a href="/add" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-cars" style="margin-right: 10px;"></i>   Add Car</a></li>
       @endrole
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
+      <li class=""><a href="/allusers" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
       <li class=""><a href="/bookings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-book" style="margin-right: 13px;"></i>   Bookings</a></li>
       <li class=""><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
@@ -98,15 +98,15 @@
 
           <div class="dropdown">
 
-            @if(Auth::user()->adminpp)
-                <img src="{{ asset('images/adminpp/' . Auth::user()->adminpp) }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
+            @if(Auth::user()->profile_picture)
+                <img src="{{ asset('images/profile_picture/' . Auth::user()->profile_picture) }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
             @else
                 <img src="{{ asset('images/default-user.png') }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
             @endif
 
             <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             @if (Auth::check())
-              {{ Auth::user()->admin_fname }} {{ Auth::user()->admin_lname }}
+            {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}
             @endif
             </button>
             

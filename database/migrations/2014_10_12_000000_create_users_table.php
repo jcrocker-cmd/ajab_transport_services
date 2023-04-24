@@ -15,23 +15,27 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('admin_fname')->nullable();
-            $table->string('admin_mname')->nullable();
-            $table->string('admin_lname')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('admin_no')->nullable();
-            $table->string('admin_bday')->nullable();
-            $table->string('admin_purok')->nullable();
-            $table->string('admin_baranggay')->nullable();
-            $table->string('admin_town')->nullable();
-            $table->string('admin_province')->nullable();
-            $table->string('admin_postal')->nullable();
-            $table->string('admin_fb')->nullable();
-            $table->string('admin_about')->nullable();
-            $table->string('adminpp')->nullable();
+            $table->string('social_type')->nullable();
+            $table->string('provider_name')->nullable();
+            $table->string('provider_id')->nullable();
+            $table->string('con_num')->nullable();
+            $table->string('bday')->nullable();
+            $table->string('purok')->nullable();
+            $table->string('baranggay')->nullable();
+            $table->string('town')->nullable();
+            $table->string('province')->nullable();
+            $table->string('postal')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('about')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->timestamps();
         });
     }

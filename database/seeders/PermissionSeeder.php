@@ -20,6 +20,7 @@ class PermissionSeeder extends Seeder
         $roleSuperAdmin = Role::create(['name' => 'Super-Admin']);
         $roleAdmin = Role::create(['name' => 'Admin']);
         $roleFrontDesk = Role::create(['name' => 'Front-Desk']);
+        $clientUser = Role::create(['name' => 'Client']);
     
         $permissionView = Permission::create(['name' => 'can:view-record']);
         $permissionEdit = Permission::create(['name' => 'can:edit-record']);

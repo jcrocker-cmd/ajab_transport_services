@@ -28,10 +28,20 @@
  <tr>
   <td>
     <div class ="d-flex align-items-center">
-        @if($item->user)
+        <!-- @if($item->user)
             <img src="{{ $item->user->picture ?: asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
         @else
             <img src="{{ asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+        @endif -->
+
+        @if($item->user)
+          @if(file_exists(public_path('images/profile_picture/'.$item->profile_picture)))
+                  <img src="{{ asset('/images/profile_picture/' . $item->profile_picture) }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+              @else
+                  <img src="{{ $item->profile_picture }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+              @endif
+          @else
+              <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
         @endif
 
     <div class="ms-3">

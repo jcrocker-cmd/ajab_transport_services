@@ -2,7 +2,7 @@ $(document).on('click', '.action-view', function(event) {
     event.preventDefault();
     var id = $(this).data('id');
     $.ajax({
-        url: '/account/' + id + '/ajaxview',
+        url: '/booking_view/' + id + '/ajaxview',
         type: 'GET',
         dataType: 'json',
         success: function(response) {

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Signin;
 use Hash;
 use Session;
+use Auth;
 
 
 class LoginController extends Controller
@@ -39,9 +40,7 @@ class LoginController extends Controller
 
    public function logout()
    {
-      if (Session::has('loginId')){
-         Session::pull('loginId');
-         return redirect('/');
-      }
-   }
+      Auth::logout();
+      return redirect('/log-in');
+     }
 }

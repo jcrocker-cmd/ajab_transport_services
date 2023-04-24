@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Ratings;
 
 class AddCar extends Model
 {
@@ -57,4 +58,11 @@ class AddCar extends Model
             ]
         ];
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class, 'car_id');
+    }    
+    
+
 }

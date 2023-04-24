@@ -17,15 +17,15 @@
         </div>
 
         <h6 class="text-center py-3">Sign-up Today!</h6>
-        <form action="/signin" method="post" id="signin_save">
-				@csrf
+        <form action="/create_account_client" method="post">
+		@csrf
         <div class="signin-fname">
-            <input type="text" id="upper" name="fname"  placeholder="First Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('fname')}}">
-            <span class="error-msg">@error('fname') {{$message}} @enderror</span>
+            <input type="text" id="upper" name="first_name"  placeholder="First Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('fname')}}">
+            <span class="error-msg">@error('first_name') {{$message}} @enderror</span>
         </div>
         <div class="signin-lname">
-            <input type="text" id="lower" name="lname"  placeholder="Last Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('lname')}}">
-            <span class="error-msg">@error('lname') {{$message}} @enderror</span>
+            <input type="text" id="lower" name="last_name"  placeholder="Last Name" oninput="this.value = this.value.toUpperCase()" value = "{{old('lname')}}">
+            <span class="error-msg">@error('last_name') {{$message}} @enderror</span>
         </div>
         <div class="signin-email">
             <input type="email" name="email"  placeholder="Email or Username" value = "{{old('email')}}">
@@ -59,7 +59,7 @@
         <button type="submit" class="signin-button" onclick="this.classList.toggle('signin-loader')">
             <span class="button_signin-text">Sign Up</span> 
         </button>
-</form>
+        </form>
         </div>
     </div>
 

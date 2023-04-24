@@ -1,6 +1,9 @@
 
 <section class="all-vehicles-section">
 
+@if (session('status'))
+  <h6 class="alert alert-success my-0" id="myAlert">{{ session('status') }}</h6>
+@endif
 
 
 <div class="pb-2 d-flex justify-content-between px-3 pt-4">
@@ -25,14 +28,21 @@
 <td>
 <div class ="d-flex align-items-center">
   
-@if($item->picture)
-    <img src="{{ $item->picture }}" alt="User Profile Picture" style="height: 45px; width: 45px;" class="rounded-circle">
+@if($item->profile_picture)
+    @if(file_exists(public_path('images/profile_picture/'.$item->profile_picture)))
+        <img src="{{ asset('images/profile_picture/' . $item->profile_picture) }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+    @else
+        <img src="{{ $item->profile_picture }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+    @endif
 @else
-    <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px;" class="rounded-circle">
+    <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
 @endif
 
+
+
+
 <div class="ms-3">
-    <p class="fw-bold mb-1">{{ $item->first_name}} {{ $item->last_name}}</p>
+    <p class="fw-bold mb-1">{{ $item->first_name}} {{ $item->middle_name}} {{ $item->last_name}}</p>
 
 </div>
 </div>

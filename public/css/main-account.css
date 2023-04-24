@@ -15,7 +15,7 @@
     height: 100%;
     width: 100%;
     /* background: url("/images/profile/bg.jpg"); */
-    background: #ccc6c6;
+    background: #7594e2;
     background-size: cover;
     background-repeat: no-repeat;
   	background-position: center;
@@ -268,6 +268,72 @@
     padding: 5px 8px;
     border-radius: 5px;
 }
+
+.rental-top .action-rating
+{
+    background-color: #eab906;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+#ratingsModal .modal-footer button
+{
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+}
+
+.rating-txt label
+{
+   margin-bottom: 8px;
+}
+
+.rating-txt textarea
+{
+    width: 100%;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.rating-title span
+{
+    font-size: 15px;
+}
+
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  
+  .rating input[type="radio"] {
+    display: none;
+  }
+  
+  .rating label {
+    cursor: pointer;
+    font-size: 25px;
+    color: #ddd;
+    margin-right: 5px;
+  }
+  
+  .rating input[type="radio"]:checked ~ label {
+    color: #ffca08;
+  }
+  
+  .rating label i {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .rating input[type="radio"]:checked ~ label i:before {
+    content: "\f005";
+    color: #ffca08;
+  }
+
 .rental-top .action-cancel
 {
     background-color: rgb(230, 196, 61);
@@ -499,3 +565,150 @@
 }
 
 
+
+
+/* ACCOUNT SETTINGS */
+.settings
+{
+    width: 100%;
+}
+
+.settings .settings-col-1 img
+{
+    width: 120px;
+    height: 120px;
+}
+.settings-title
+{
+    border-bottom: 1px solid rgb(159, 155, 155);
+
+}
+
+.settings p , .settings label , .settings input
+{
+    font-size: 14px;
+}
+.settings-row
+{
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+.settings-col-1
+{
+    flex-basis: 30%;
+}
+.settings-col-2
+{
+    flex-basis: 70%;
+}
+
+
+.settings-image , .settings-password , .settings-edit-profile
+{
+    box-shadow: 5px 3px 15px -3px rgba(0, 0, 0, 0.25);
+    width: 100%;
+
+}
+
+.settings input
+{
+    height: 30px;
+}
+
+.settings-image button , .settings-password button , .settings-edit-profile button , .settings span
+{
+    font-size: 13px;
+    height: 30px;
+
+}
+
+.settings img
+{
+    border: 0.5px solid #000;
+}
+
+.edit-profile , .edit-address
+{
+    gap: 20px;
+}
+#togglePassword
+{
+    font-size: 10px;
+}
+
+
+/* ACCOUNT SETTINGS */
+
+@media(max-width: 1258px)
+{
+    .settings-col-1
+    {
+        flex-basis: 50%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 50%;
+    }   
+}
+
+@media(max-width: 1050px)
+{
+    .settings-row
+    {
+        flex-direction: column;
+    }
+    .settings-col-1
+    {
+        flex-basis: 100%;
+    }
+    .settings-col-2
+    {
+        flex-basis: 100%;
+    }   
+}
+
+@media (max-width:805px) {
+
+
+    .settings .settings-col-1 img
+    {
+        width: 90px;
+        height: 90px;
+    }
+    .settings  .settings-col-1 p ,
+    .settings  .settings-col-1 button ,
+    .settings .settings-password .input-group input,
+    .settings .settings-col-2 p,
+    .settings .settings-col-2 label,
+    .settings .settings-col-2 input ,
+    .settings .settings-col-2 textarea,
+    .settings .settings-col-2 button
+    {
+        font-size: 11px;
+    }
+
+    .settings .title
+    {
+        font-size: 14px;
+    }
+
+    .rental-top .buttons,
+    .rental-top .statuses span
+    {
+
+        font-size: 10px;
+    }
+
+
+}
+
+@media(max-width: 635px)
+{
+    .edit-profile , .edit-address
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

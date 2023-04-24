@@ -40,8 +40,16 @@
                 </span>
 
                 <span class="user-profile" onclick="menuToggle();">
-                    <img src="/user.jpg" alt=""
-                    height="45" width="45" class="rounded-circle" id="change-img" style="object-fit: cover;">
+
+                    @if(Auth::user()->profile_picture)
+                    @if(file_exists(public_path('images/profile_picture/'.Auth::user()->profile_picture)))
+                            <img src="{{ asset('/images/profile_picture/' .Auth::user()->profile_picture) }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle" >
+                        @else
+                            <img src="{{ Auth::user()->profile_picture }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+                        @endif
+                    @else
+                        <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+                    @endif
                 </span>
     </div>
 
@@ -49,24 +57,34 @@
     <div class="sub-menu-wrap">
         <div class="sub-menu">
             <div class="user-info">
-                    <div><h5>{{ $data->first_name}} {{ $data->last_name}}</h5></div>
-                    <div><span>{{ $data->email}}</span></div>
+                    <div><h5>            
+                        @if (Auth::check())
+                        {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}
+                        @endif
+                    </h5>
+                    </div>
+                    <div><span>                        
+                        @if (Auth::check())
+                        {{ Auth::user()->email }}
+                        @endif
+                    </span></div>
             </div>
             <hr>
 
-        
-        <a href="/account" class="sub-menu-link">
-            <img src="/images/profile/profile.png">
-            <p>My Profile</p>
-        </a>
-        <a href="#" class="sub-menu-link">
-            <img src="/images/profile/setting.png">
-            <p>My Settings</p>
-        </a>
-        <a href="/logout" class="sub-menu-link">
-            <img src="/images/profile/logout.png">
-            <p>Logout</p>
-        </a>
+        <div class="sub-menu-link-wrapper">
+            <a href="/account" class="sub-menu-link">
+                <span><img src="/images/profile/profile.png"></span>
+                <span class="link">My Profile</span>
+            </a>
+            <a href="#" class="sub-menu-link">
+                <img src="/images/profile/setting.png">
+                <span class="link">My Settings</span>
+            </a>
+            <a href="/logout" class="sub-menu-link">
+                <img src="/images/profile/logout.png">
+                <span class="link">Logout</span>
+            </a>
+        </div>
 
 
 
@@ -88,8 +106,16 @@
         height="45" width="45" class="rounded-circle" id="change-img" style="object-fit: cover;">
     </div>
     <div class="pt-3 user-info">
-        <div><span>{{ $data->first_name}} {{ $data->last_name}}</span></div>
-        <div><span>{{ $data->email}}</span></div>
+        <div><span>                        
+            @if (Auth::check())
+            {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}
+            @endif
+        </span></div>
+        <div><span>
+            @if (Auth::check())
+            {{ Auth::user()->email }} 
+            @endif
+        </span></div>
     </div>
  </div>
 

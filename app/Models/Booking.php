@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AddCar;
-use App\Models\Signin;
+use App\Models\User;
+use App\Models\Ratings;
 
 class Booking extends Model
 {
@@ -26,6 +27,7 @@ class Booking extends Model
         'return_date',
         'return_time',
         'msg',
+        'user_id',
         'car_id',
         'status',
     ];
@@ -37,7 +39,15 @@ class Booking extends Model
 
     public function user()
     {
-        return $this->belongsTo(Signin::class);
+        return $this->belongsTo(User::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
+
+
 
 }

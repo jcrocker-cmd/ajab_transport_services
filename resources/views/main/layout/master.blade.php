@@ -21,8 +21,7 @@
     @yield('script')
     @stack('script')
 
-    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-  <script>
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script><script>
 
     // Enable pusher logging - don't include this in production
     Pusher.logToConsole = true;
@@ -35,6 +34,13 @@
     channel.bind('event-sample', function(data) {
       alert(JSON.stringify(data));
     });
+  </script>
+
+  <script>
+  $(window).on("load",function(){
+      $(".loader-wrapper").delay(1000).fadeIn("slow").fadeOut("slow");
+  });
+  </script>
 
 
 </body>
