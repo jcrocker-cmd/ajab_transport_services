@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@200;300;400;500;700;800&display=swap');
+
 .viewcar-section
 {
     margin-top: 140px;
@@ -30,6 +32,13 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
+.car-info-row .car-info-title h3
+{
+    font-family: 'Asap', sans-serif;
+    font-weight: 800;
+}
+
 .car-info-row
 {
     display: flex;
@@ -143,6 +152,10 @@
 .rating-star .fas
 {
     color: rgb(251, 233, 28);
+}
+.rating-star .far
+{
+    color: rgb(174, 173, 166);
 }
 .overall-ratings
 {

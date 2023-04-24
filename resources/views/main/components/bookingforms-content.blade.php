@@ -30,9 +30,15 @@
 
                     <div class="d-flex renter-info" >
 
+                        <!-- <div style="width: 100%;">
+                            <label class="form-label">Full Name</label>
+                            <input type="hidden" id="name" name="name" placeholder="Ex. Cruz" value="{{ $car_details->id}}">
+                            <span class="text-danger" id="errorname" ></span>
+                        </div> -->
+
                         <div style="width: 100%;">
                             <label class="form-label">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="Ex. Cruz" value="{{ $data->first_name}} {{ $data->last_name}}" onkeyup="javascript:capitalize(this);">
+                            <input type="text" id="name" name="name" placeholder="Ex. Cruz" value="{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }} {{ Auth::user()->last_name }} " onkeyup="javascript:capitalize(this);">
                             <span class="text-danger" id="errorname" ></span>
                         </div>
 
@@ -54,7 +60,7 @@
 
                         <div style="width: 100%;" class="pb-3">
                             <label class="form-label">Contact Email</label>
-                            <input type="email" id="email" name="con_email" placeholder="Enter Email" value="{{ $data->email}}" onkeyup="javascript:capitalize(this);">
+                            <input type="email" id="email" name="con_email" placeholder="Enter Email" value="{{ Auth::user()->email }} " onkeyup="javascript:capitalize(this);">
                             <span class="text-danger" id="erroremail" ></span>
                         </div>
 

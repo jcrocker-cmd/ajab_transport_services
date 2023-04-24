@@ -17,14 +17,7 @@ class AddCarController extends Controller
     public function main_allcars()
     {
         $addcar = AddCar::all();
-
-        $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = Signin::where('id','=',Session::get('loginId'))->first();
-
-        }
-        return view ('main.homepage',compact('data'))->with('addcar', $addcar);
+        return view ('main.homepage',compact('addcar'));
     }
 
     public function addcar_route()
@@ -37,15 +30,9 @@ class AddCarController extends Controller
 
     public function main_viewvehicle($slug)
     {
-        $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = Signin::where('id','=',Session::get('loginId'))->first();
-
-        }
-
         $viewcar = AddCar::where('slug', $slug)->first();
-        return view ('main.viewcar',compact('data'))->with('viewcar', $viewcar);
+        $ratings = $viewcar->ratings()->with('user','booking')->get();
+        return view ('main.viewcar',compact('viewcar','ratings'));
     }
 
     public function db_allvehicles()

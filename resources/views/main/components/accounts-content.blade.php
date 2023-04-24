@@ -1,127 +1,243 @@
 <section class="main-user-account-section">
 
-    <section class="user-account-section">
-        <div class="user-account-wrapper">
-            <img src="{{ $data->picture ?: asset('/images/default-user.png') }}" alt="">
-            <span class="line"></span>
-            <div class="info">
+<div class="user-account-section">
+@if (session('accountstatus'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('accountstatus') }}</h6>
+@endif
 
-                <div class="info-sub-1">
-                    <p>Full Name:<strong style="margin-left: 10px;">{{ $data->first_name}} {{ $data->last_name}}</strong></p>
-                    <p>Email:<strong style="margin-left: 10px;">{{ $data->email}}</strong></p>
-                    <p>Birth-Date:<strong style="margin-left: 10px;">{{ $data->bday}}</strong></p>
-                    <p>Gender:<strong style="margin-left: 10px;">{{ $data->gender}}</strong></p>
+@if (session('successpassword'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('successpassword') }}</h6>
+@endif
+
+@if (session('failpassword'))
+  <h6 class="alert alert-danger my-0" id="myAlert" style="font-size: 14px;">{{ session('failpassword') }}</h6>
+@endif
+
+<section class="settings py-4">
+
+<h5 class="text-white pb-2 title"><strong>Account Settings</strong></h5>
+
+
+
+<div class="settings-row pt-2 d-flex">
+
+
+
+        <div class="settings-col-1">
+
+            <div class="settings-image text-center bg-light px-5 py-4">
+            <form enctype="multipart/form-data" action="/user_adminpp_update" method="post">
+            @csrf
+            @method('put')
+                <div class ="mb-4 settings-profile">
+                    <!-- <img src="{{ url('images/profile_picture/' . Auth::user()->profile_picture) }}"
+                     class="rounded-circle" id="change-img-add" style="object-fit: cover;"> -->
+
+                    @if(Auth::user()->profile_picture)
+                        @if(file_exists(public_path('images/profile_picture/'.Auth::user()->profile_picture)))
+                            <img src="{{ asset('images/profile_picture/' . Auth::user()->profile_picture) }}" alt="User Profile Picture"  class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                        @else
+                            <img src="{{ Auth::user()->profile_picture }}" alt="User Profile Picture" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                        @endif
+                    @else
+                        <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                    @endif
+
+
                 </div>
 
-                <div class="info-sub-2">
-                    <p class="text-white timestamp">Member Since:<strong style="margin-left: 10px;">{{ $data->created_at->format('jS F Y h:i:s A')}}</strong></p>
-                    <p class="text-white timestamp">Last Updated:<strong style="margin-left: 10px;">{{ $data->updated_at->format('jS F Y h:i:s A')}}</strong></p>
+                <div class="">
+                    <p class="fw-bold mb-0">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}</p>
+                    <p class="text-muted mb-0">{{ Auth::user()->roles->pluck('name')->implode(', ') }}</p>
                 </div>
 
-            </div>
-
-            
-        </div>
-
-        <div class="account-settings-buttons">
-                <a href="#" class="btn-edit action-edit-info" data-id="{{ $data->id }}" data-bs-toggle="modal" data-bs-target="#infoModal">
-                    <span><i class="fas fa-pencil"></i></span>
-                    <span>EDIT PROFILE INFORMATION</span>
-                </a>
-
-                <a href="#" class="btn-edit-pass" data-bs-toggle="modal" data-bs-target="#passModal">
-                    <span><i class="fas fa-lock-alt"></i></span>
-                    <span>EDIT PASSWORD</span>
-                </a>
-        </div>
-
-        <!-- PASSWORD -->
-        <div class="modal fade" id="passModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-l">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Old Password:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                <div class="img-button mt-3">
+                    <input type="file" name="profile_picture" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
+                    <button onclick ="addPhoto()" type="button" class="btn btn-primary" id="addphotoBtn">Choose Image</button>
+                    <button type="submit" class="btn btn-success" id="addphotoBtn">Save</button>
                 </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">New Password:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Confirm Password:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                </div>
-                </form>
+            </form>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
-            </div>
-            </div>
-        </div>
-        </div>
+
+    
+
+    
+        <div class="settings-password  mt-4  bg-light">
+
+            <div class="bg-light"><p class="px-2 py-2 settings-title">Edit Password</p></div>
 
 
-        <!-- EDIT INFORMATION -->
-        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-l">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Change Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('account-info-update') }}" method="POST">
+                <form action="/user_password_update" method="post" class="px-3 py-2">
                 @csrf
                 @method('put')
-                <div class="mb-3 d-none">
-                    <label for="recipient-name" class="col-form-label">ID</label>
-                    <input type="text" class="form-control" id="user_id" name="user_id">
-                </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">First Name:</label>
-                    <input type="text" class="form-control" id="edit_fname" name="first_name">
-                </div>
-
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Last Name:</label>
-                    <input type="text" class="form-control" id="edit_lname" name="last_name">
+                <div class="mb-3 old_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="Old Password" id="oldPassword" name="old_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword1" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('old_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('old_password')}}</p>
+                    @endif
                 </div>
 
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="edit_email" name="email">
+                <div class="mb-3 new_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="New Password" id="newPassword" name="new_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword2" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('new_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('new_password')}}</p>
+                    @endif
                 </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Birthdate:</label>
-                    <input type="date" class="form-control" id="edit_bday" name="bday">
+
+                <div class="mb-3 confirm_password">
+                    <div class="input-group">
+                        <input type="password" class="form-control border-right-0" placeholder="Confirm Password" id="confirmPassword" name="confirm_password">
+                        <span class="input-group-text"><i class="far fa-eye" id="togglePassword3" style="cursor: pointer;"></i></span>
+                    </div>
+                    @if($errors->any('confirm_password'))
+                        <p class="my-0 text-danger" style="font-size: 12px;">{{$errors->first('confirm_password')}}</p>
+                    @endif
                 </div>
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Gender:</label>
-                    <select class="form-select" aria-label="Default select example" id="edit_gender" name="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
+
+
+                <div class="mb-2 password-button justify-content-right">
+                <button type="submit" class="btn btn-success" id="default-btn">Update</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-            </form>
-            </div>
+
+                </form>
+            
+
         </div>
         </div>
 
+         <div class="settings-col-2 ">
 
-        
-    </section>
+
+
+
+            <div class="settings-edit-profile bg-light">
+
+                <p class="py-2 px-2 settings-title">Edit Profile</p>
+
+                <p class="px-3 mb-2"><strong>Basic Info</strong></p>
+
+                <form action="/user_info_update" class="px-3" method="post">
+                @csrf
+                @method('put')
+
+                <div class="mb-2 d-flex edit-profile">
+                    
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                        <input type="text" name="first_name" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->first_name }}" onkeyup="javascript:capitalize(this);">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
+                        <input type="text" name="middle_name" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->middle_name }}" onkeyup="javascript:capitalize(this);">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ Auth::user()->last_name }}" onkeyup="javascript:capitalize(this);">
+                    </div>
+
+                </div>
+
+                
+
+                <div class="mb-4 d-flex edit-profile">
+                    
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="example@email.com" value="{{ Auth::user()->email }}">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                        <input type="number" name="con_num" class="form-control" id="exampleFormControlInput1" placeholder="09123456789" value="{{ Auth::user()->con_num }}">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Birth-Date</label>
+                        <input type="date" name="bday" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->bday }}">
+                    </div>
+
+                </div>
+                
+
+                <p class=" mb-2"><strong>Address</strong></p>
+
+                <div class="mb-2 d-flex edit-address">
+                    
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
+                        <input type="text" name="purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ Auth::user()->purok }}" onkeyup="javascript:capitalize(this);">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Baranggay</label>
+                        <input type="text" name="baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ Auth::user()->baranggay }}" onkeyup="javascript:capitalize(this);">
+                    </div>
+                </div>
+
+                
+
+                <div class="mb-2 d-flex edit-address">
+                    
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Town</label>
+                        <input type="text" name="town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion" value="{{ Auth::user()->town }}">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Province</label>
+                        <input type="text" name="province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City" value="{{ Auth::user()->province }}">
+                    </div>
+
+                    <div style="width: 100%;">
+                        <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
+                        <input type="text" name="postal" class="form-control" id="exampleFormControlInput1" placeholder="6001" value="{{ Auth::user()->postal }}">
+                    </div>
+
+                </div>
+
+                <!-- <p class=" mb-0"><strong>Basic Info</strong></p> -->
+
+                    <div class="mb-2">
+                        <label for="exampleFormControlInput1" class="form-label">Facebook Profile URL (Optional)</label>
+                        <input type="text" name="fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile"  value="{{ Auth::user()->fb }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">About Me (Optional)</label>
+                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3" value="{{ Auth::user()->about }}"></textarea>
+                    </div>
+
+                    <div class="pb-3 password-button justify-content-right">
+                        <button type="submit" class="btn btn-success" id="default-btn">Update Information</button>
+                    </div>
+
+
+
+
+                </form>
+
+
+          
+            </div>  
+
+
+        </div>
+
+    
+</div>
+
+</section>
+</div>
+
 
 
     <section class="user-account-section2">
@@ -142,6 +258,10 @@
             <div class="rental-top">
                 <span class="d-flex buttons">
                   <div><button class="action-view" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fas fa-eye"></i> View</button></div>
+                  @if ($booking->status == 'Closed')
+                  <div><button class="action-rating" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#ratingsModal"><i class="fas fa-star"></i> Rate</button></div>
+                  @endif
+
                   @if ($booking->status == 'In progress')
                     <div class="d-flex align-items-center" style="gap: 5px;">
                       <form method="POST" action="/cancel_booking/{{$booking->id}}">
@@ -219,7 +339,7 @@
             <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
             
             <div class="delete-button">
-                <a href="/delete_account/{{ $data->id }}" class="btn-delete" onclick="return confirm(&quot;Are you sure you want to delete your account?&quot;)">
+                <a href="/delete_account/{{ Auth::user()->id }}" class="btn-delete" onclick="return confirm(&quot;Are you sure you want to delete your account?&quot;)">
                     <span><i class="fas fa-trash-alt"></i></span>
                     <span>Delete Account</span>
                 </a>
@@ -233,6 +353,54 @@
 
 
     </section>
+
+
+    <!-- View Modal -->
+<div class="modal fade " id="ratingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="width: 100%;">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Booking</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <form action="/ratings_submit" method="post">
+      @csrf
+      <div class="modal-body">
+
+        <div class="rating-title">
+          <span>Customer's Review</span>
+        </div>
+          
+        <div class="rating">
+          <input type="radio" name="rating" id="star5" value="5" /><label for="star5" title="5 Stars"><i class="fas fa-star"></i></label>
+          <input type="radio" name="rating" id="star4" value="4" /><label for="star4" title="4 Stars"><i class="fas fa-star"></i></label>
+          <input type="radio" name="rating" id="star3" value="3" /><label for="star3" title="3 Stars"><i class="fas fa-star"></i></label>
+          <input type="radio" name="rating" id="star2" value="2" /><label for="star2" title="2 Stars"><i class="fas fa-star"></i></label>
+          <input type="radio" name="rating" id="star1" value="1" /><label for="star1" title="1 Star"><i class="fas fa-star"></i></label>
+        </div>
+
+        <input type="hidden" name="car_id" id="car_id">
+        <input type="hidden" name="booking_id" id="booking_id">
+
+        <div class="rating-txt">
+          <label for="rating">Message</label>
+          <textarea name="rating_msg" id="rating-txt" rows="5" placeholder="Leave a message here"></textarea>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn-warning">Rate</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -380,5 +548,3 @@
 </div>
 
 
-
-</section>

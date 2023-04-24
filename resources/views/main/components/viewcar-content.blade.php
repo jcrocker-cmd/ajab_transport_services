@@ -122,43 +122,71 @@
 
                 <div class="d-flex overall-ratings align-items-center bg-dark rounded-pill">
                 <span>
+                    <!-- <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
-                    <i class="fas fa-star "></i>
-                    <i class="fas fa-star "></i>
-                </span>
+                    <i class="fas fa-star "></i> -->
+                        @for ($i = 1; $i <= round($viewcar->ratings()->avg('rating'), 1); $i++)
+                            <i class="fas fa-star text-warning"></i>
+                        @endfor
+                        @for ($i = round($viewcar->ratings()->avg('rating'), 1) + 1; $i <= 5; $i++)
+                            <i class="far fa-star"></i>
+                        @endfor
 
-                <span class="number text-white">4.9 / 5.0</span>
+
+
+                    <!-- @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= round($viewcar->ratings()->avg('rating'), 0))
+                            <i class="fas fa-star text-warning"></i>
+                        @elseif ($i == round($viewcar->ratings()->avg('rating'), 0) + 0.5)
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        @else
+                            <i class="far fa-star text-secondary"></i>
+                        @endif
+                    @endfor
+                    <span class="ms-2">{{ number_format($viewcar->ratings()->avg('rating'), 1) }}</span> -->
+                </span>
+<!-- 
+                <span class="number text-white">4.9 / 5.0</span> -->
+                <span class="number text-white">{{ round($viewcar->ratings()->avg('rating'), 1) }} / 5.0</span>
                 </div>
+                @if ($ratings)
+                @foreach ($ratings as $rating)
 
                 <div class="d-flex pt-4">
                     <img src="/user.jpg" alt=""
                     style="height: 45px; width: 45px;" class="rounded-circle">
 
                     <div class="ms-3">
-                        <p class="fw-bold mb-2">{{ $viewcar->fname}} {{ $viewcar->mname}} {{ $viewcar->lname}}</p>
+                        <p class="fw-bold mb-2">{{ $rating->booking->name }}</p>
 
 
                         <div class="rating-star pb-3 align-items-center">
                             <span>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                @for ($i = 1; $i <= $rating->rating; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
+                                @for ($i = $rating->rating + 1; $i <= 5; $i++)
+                                    <i class="far fa-star"></i>
+                                @endfor
                             </span>
 
-                            <span>5.0</span>
+                            <span>{{ $rating->rating }}.0</span>
                             
                         </div>
 
-                        <p class="text-muted">Super hassle free experience with Ralph. From booking to pickup and up to the return. Very easy to talk to. Bike is well maintained and problem free! Will surely rent with Ralph again!</p>
-                        <p class="date">Date: {{ $viewcar->created_at}}</p>
+                        <p class="text-muted">{{ $rating->rating_msg }}</p>
+                        <p class="date">Date: {{ $rating->created_at}}</p>
 
                     </div>
                     
                 </div>
+
+                @endforeach
+                @endif
+
+
 
         </section>
 

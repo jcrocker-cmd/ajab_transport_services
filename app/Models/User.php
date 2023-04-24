@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\Ratings;
+
 
 class User extends Authenticatable
 {
@@ -21,19 +23,21 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        'admin_fname',
-        'admin_mname',
-        'admin_lname',
-        'admin_no',
-        'admin_bday',
-        'admin_purok',
-        'admin_baranggay',
-        'admin_town',
-        'admin_province',
-        'admin_postal',
-        'admin_fb',
-        'admin_about',
-        'adminpp',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'con_num',
+        'bday',
+        'purok',
+        'baranggay',
+        'town',
+        'province',
+        'postal',
+        'fb',
+        'about',
+        'gender',
+        'social_type',
+        'profile_picture'
     ];
 
     /**
@@ -60,6 +64,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Oauth::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratings::class);
+    }
+
 
 
 }

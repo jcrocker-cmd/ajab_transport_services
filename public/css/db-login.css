@@ -1,0 +1,186 @@
+/* DASHBOARD LOGIN */
+
+.dashboard-login
+{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    background-color: #4CB3DE;
+    padding: 100px 20px;
+}
+
+.dashboard-login-div
+{
+    font-family: 'Poppins', sans-serif;
+    width: 450px;
+    padding: 60px 35px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    /* box-shadow: 13px 13px 20px #cbced1,    -10px 10px 15px #fff; */
+}
+
+.dashboard-logo
+{
+    width: 150px;
+    text-align: center;
+}
+
+.dashboard-login-title
+{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.fields
+{
+    width: 100%;
+    gap: 20px;
+}
+
+
+.fields label
+{
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+.fields input
+{
+    border: 1px solid #979899;
+    outline: none;
+    background: none;
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+    height: 45px;
+    padding: 10px 10px 10px 10px;
+    background: #fff;
+    border-radius: 5px;
+
+}
+
+.remember-forgot
+{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.remember-forgot a,
+.remember-forgot label
+{
+    font-size: 13px;
+    color: #000;
+    font-weight: 400;
+}
+
+.remember-forgot .checkbox
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.fields i
+{
+    font-size: 16px;
+    margin: 11px 10px 0px 25px;
+    color: #555;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.fields .fa-eye
+{
+    position: absolute;
+    font-size: 14px;
+    margin: 16px 0px 0px 0px;
+    color: #555;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    transition: ease-in-out 0.5s;
+    -webkit-transition: ease-in-out 0.5s;
+    -moz-transition: ease-in-out 0.5s;
+    -ms-transition: ease-in-out 0.5s;
+    -o-transition: ease-in-out 0.5s;
+}
+.admin-email , .admin-password
+{
+    display: flex;
+    flex-direction: column;
+   margin-bottom: 13px;
+
+}
+
+
+.dashboard-login-button
+{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #4CB3DE;
+    box-shadow: 3px 3px 8px #b1b1b1;
+    display: grid;
+    place-content: center;
+}
+
+.loader
+{
+     pointer-events: none;
+     width: 30px;
+     height: 30px;
+     border: 3px solid transparent;
+     border-top-color: #fff;
+     border-radius: 50%;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -ms-border-radius: 50%;
+     -o-border-radius: 50%;
+     animation: loader 0.5s ease infinite;
+     -webkit-animation: loader 0.5s ease infinite;
+}
+
+
+
+@keyframes loader {
+    0%{
+        transform: rotate(0turn);
+        -webkit-transform: rotate(0turn);
+        -moz-transform: rotate(0turn);
+        -ms-transform: rotate(0turn);
+        -o-transform: rotate(0turn);
+    }
+    100%{
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+} 
+}
+
+.loginfail-alert ,
+.alert-danger li 
+{
+    font-size: 12px;
+}

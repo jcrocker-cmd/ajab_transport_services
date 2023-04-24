@@ -16,3 +16,10 @@
     @include('main.assets.script')
 @endsection
 
+
+@push('script')
+    <script src="/js/db-password-showhide.js"></script>
+    <script src="/js/choosefile-btn-add.js"></script>
+    <script src="/js/ajax-ratings.js"></script>
+@endpush
+

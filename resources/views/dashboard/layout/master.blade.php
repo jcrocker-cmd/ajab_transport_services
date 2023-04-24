@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="images/tire.png" type="image/x-icon">
     @yield('styles')
+    @stack('styles')
 </head>
 <body>
     

@@ -27,18 +27,24 @@
             @csrf
             @method('put')
                 <div class ="mb-4 settings-profile">
-                    <img src="{{ url('images/adminpp/' . Auth::user()->adminpp) }}"
-                     class="rounded-circle" id="change-img-add" style="object-fit: cover;">
+                    <!-- <img src="{{ url('images/profile_picture/' . Auth::user()->profile_picture) }}"
+                     class="rounded-circle" id="change-img-add" style="object-fit: cover;"> -->
+
+                        @if(Auth::user()->profile_picture)
+                            <img src="{{ asset('/images/profile_picture/' . Auth::user()->profile_picture) }}" id="change-img-add" class="user_icon rounded-circle" height="42" width="42" style="object-fit: cover;">
+                        @else
+                            <img src="{{ asset('/images/default-user.png') }}" class="user_icon rounded-circle" height="42" width="42" id="change-img-add" style="object-fit: cover;">
+                        @endif
 
                 </div>
 
                 <div class="">
-                    <p class="fw-bold mb-0">{{ Auth::user()->admin_fname }}</p>
+                    <p class="fw-bold mb-0">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}</p>
                     <p class="text-muted mb-0">{{ Auth::user()->roles->pluck('name')->implode(', ') }}</p>
                 </div>
 
                 <div class="img-button mt-3">
-                    <input type="file" name="adminpp" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
+                    <input type="file" name="profile_picture" id="addphotoBtn" accept="image/jpg, image/jpeg, image/png" hidden>
                     <button onclick ="addPhoto()" type="button" class="btn btn-primary" id="addphotoBtn">Choose Image</button>
                     <button type="submit" class="btn btn-success" id="addphotoBtn">Save</button>
                 </div>
@@ -117,17 +123,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                        <input type="text" name="admin_fname" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->admin_fname }}" onkeyup="javascript:capitalize(this);">
+                        <input type="text" name="first_name" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->first_name }}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
-                        <input type="text" name="admin_mname" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->admin_lname }}" onkeyup="javascript:capitalize(this);">
+                        <input type="text" name="middle_name" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->middle_name }}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                        <input type="text" name="admin_lname" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ Auth::user()->admin_mname }}" onkeyup="javascript:capitalize(this);">
+                        <input type="text" name="last_name" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Cruz" value="{{ Auth::user()->last_name }}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                 </div>
@@ -143,12 +149,12 @@
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
-                        <input type="number" name="admin_no" class="form-control" id="exampleFormControlInput1" placeholder="09123456789" value="{{ Auth::user()->admin_no }}">
+                        <input type="number" name="con_num" class="form-control" id="exampleFormControlInput1" placeholder="09123456789" value="{{ Auth::user()->con_num }}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Birth-Date</label>
-                        <input type="date" name="admin_bday" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->admin_bday }}">
+                        <input type="date" name="bday" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->bday }}">
                     </div>
 
                 </div>
@@ -160,12 +166,12 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Purok/Street</label>
-                        <input type="text" name="admin_purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ Auth::user()->admin_purok }}" onkeyup="javascript:capitalize(this);">
+                        <input type="text" name="purok" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Purok 2 / Lot 1 Blk 1" value="{{ Auth::user()->purok }}" onkeyup="javascript:capitalize(this);">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Baranggay</label>
-                        <input type="text" name="admin_baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ Auth::user()->admin_baranggay }}" onkeyup="javascript:capitalize(this);">
+                        <input type="text" name="baranggay" class="form-control" id="exampleFormControlInput1" placeholder="Ex. Salvador" value="{{ Auth::user()->baranggay }}" onkeyup="javascript:capitalize(this);">
                     </div>
                 </div>
 
@@ -175,17 +181,17 @@
                     
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Town</label>
-                        <input type="text" name="admin_town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion" value="{{ Auth::user()->admin_town }}">
+                        <input type="text" name="town" class="form-control" id="exampleFormControlInput1" placeholder="Consolacion" value="{{ Auth::user()->town }}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Province</label>
-                        <input type="text" name="admin_province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City" value="{{ Auth::user()->admin_province }}">
+                        <input type="text" name="province" class="form-control" id="exampleFormControlInput1" placeholder="Cebu City" value="{{ Auth::user()->province }}">
                     </div>
 
                     <div style="width: 100%;">
                         <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-                        <input type="text" name="admin_postal" class="form-control" id="exampleFormControlInput1" placeholder="6001" value="{{ Auth::user()->admin_postal }}">
+                        <input type="text" name="postal" class="form-control" id="exampleFormControlInput1" placeholder="6001" value="{{ Auth::user()->postal }}">
                     </div>
 
                 </div>
@@ -194,12 +200,12 @@
 
                     <div class="mb-2">
                         <label for="exampleFormControlInput1" class="form-label">Facebook Profile URL (Optional)</label>
-                        <input type="text" name="admin_fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile"  value="{{ Auth::user()->admin_fb }}">
+                        <input type="text" name="fb" class="form-control" id="exampleFormControlInput1" placeholder="https://www.facebook.com/myprofile"  value="{{ Auth::user()->fb }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">About Me (Optional)</label>
-                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3" value="{{ Auth::user()->admin_about }}"></textarea>
+                        <textarea class="form-control" name="admin_about" id="exampleFormControlTextarea1" rows="3" value="{{ Auth::user()->about }}"></textarea>
                     </div>
 
                     <div class="pb-3 password-button justify-content-right">

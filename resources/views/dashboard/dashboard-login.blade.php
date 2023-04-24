@@ -11,3 +11,8 @@
 @section('scripts')
     @include('dashboard.assets.script')
 @endsection
+
+
+@push('styles')
+    <link rel="stylesheet" href="/css/db-login.css">
+@endpush

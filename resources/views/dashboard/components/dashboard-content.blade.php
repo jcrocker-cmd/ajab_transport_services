@@ -1,7 +1,7 @@
 <div class="dashboard-content px-3 pt-4">
         <h2 class=""> <strong>
         @if (Auth::check())
-            Welcome, {{ Auth::user()->admin_fname }}!
+            Welcome, {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}!
         @endif
         </strong> ({{ Auth::user()->roles->pluck('name')->implode(', ') }})</h2>
         <p class="text-muted">This is the official dashboard of AJAB Transport Services Website, located in Danglag, Consolacion, Cebu.<br>
@@ -100,10 +100,10 @@
                 <td>
                   <div class ="d-flex align-items-center">
 
-                      @if($item->picture)
-                          <img src="{{ $item->picture }}" alt="User Profile Picture" class="rounded-circle">
+                      @if($item->profile_picture)
+                          <img src="{{ asset('images/profile_picture/' . $item->profile_picture) }}" alt="User Profile Picture" class="rounded-circle">
                       @else
-                          <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" class="rounded-circle">
+                          <img src="{{ asset('images/default-user.png') }}" alt="Default User Profile Picture" class="rounded-circle">
                       @endif
 
                     <div class="ms-3 ">

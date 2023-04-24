@@ -11,19 +11,15 @@ use App\Models\AdminInfo;
 use Mail;
 use Session;
 use DB;
+use Auth;
 
 class BookingformsController extends Controller
 { 
 
     public function booking_route($slug)
     {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = Signin::where('id','=',Session::get('loginId'))->first();}
-        // $viewcar = AddCar::find($id);
         $car_details = AddCar::where('slug', $slug)->first();
-        return view('main.bookingforms', compact('data', 'car_details'));
-        // return view('main.bookingforms',compact('data'))->with('viewcar', $viewcar),'latestAddCar', $latestAddCar;
+        return view('main.bookingforms', compact('car_details'));
     }
 
     public function booking_submit(Request $request, $slug)
@@ -63,11 +59,9 @@ class BookingformsController extends Controller
     
         $data['car_id'] = $car_details->id;
     
-        // Get the user ID from the session data
-        $user_id = null;
-        if (Session::has('loginId')) {
-            $user_id = Session::get('loginId');
-        }
+
+        // Get the authenticated user's ID
+        $user_id = Auth::id();
         $data['user_id'] = $user_id;
     
         // Save data to database

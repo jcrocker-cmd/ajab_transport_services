@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminphotoController;
 use App\Http\Controllers\AdmininfoController;
 use App\Http\Controllers\EmailRequestController;
 use App\Http\Controllers\BookingformsController;
+use App\Http\Controllers\RatingsController;
 
 
 /*
@@ -23,7 +24,7 @@ use App\Http\Controllers\BookingformsController;
 |
 */
 
-Route::post('/signin', [SigninController::class, 'signin_save'])->name('signin.save');
+Route::post('/create_account_client', [SigninController::class, 'create_account_client']);
 Route::post('/checklogin', [LoginController::class,'checklogin']);
 Route::post('/adminchecklogin', [AdmininfoController::class,'adminchecklogin']);
 
@@ -40,10 +41,10 @@ Route::get('/dd', function () {
 Route::middleware(['preventBackHistory'])->group(function () {
 
     Route::middleware(['guest'])->group(function () {
-        Route::get('/dashboard-login', [AdmininfoController::class,'loginroute']); 
+        Route::get('/dashboard-login', [AdmininfoController::class,'loginroute'])->name('dashboard_login');
     });
 
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth','admin'])->group(function () {
 
         Route::get('/dashboard', [AdmininfoController::class,'dashboardroute']);
 
@@ -64,6 +65,9 @@ Route::middleware(['preventBackHistory'])->group(function () {
         // USER MANAGEMENT
         Route::get('/user/management', [AdmininfoController::class,'user_management_route']);
         Route::post('/create-user-role', [AdmininfoController::class,'create_user_role']);
+        Route::get('/view-user-role/{id}/ajaxview', [AdmininfoController::class,'db_dashboard_users_ajaxview']);
+        Route::get('/delete_db_user/{id}', [AdmininfoController::class,'delete_db_user']);
+
 
         // CAR ROUTES
         Route::get('/add', [AddCarController::class,'addcar_route']);
@@ -84,12 +88,11 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/bookings/{id}/ajaxview', [BookingformsController::class,'db_booking_ajaxview']);
         Route::post('/confirm_booking/{id}', [BookingformsController::class, 'confirmBooking'])->name('confirm.booking');
         Route::patch('/decline_booking/{id}', [BookingformsController::class, 'declineBooking']);
-        Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
-
+   
         // CLIENTS ROUTES
         Route::get('/allusers', [UserinfoController::class,'db_allusers']);
         Route::get('/delete_user/{id}', [UserinfoController::class,'db_user_delete']);
-        Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
+        // Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
         Route::get('/user/{id}/ajaxview', [UserinfoController::class,'db_user_ajaxview']);
 
     });
@@ -104,17 +107,19 @@ Route::middleware(['preventBackHistory'])->group(function () {
 // Home Routes
 Route::middleware(['preventBackHistory'])->group(function () {
 
-    Route::get('/', function () {
-        return view('home.homepage');
-    });
+    Route::middleware(['guest'])->group(function () {
+        Route::get('/', function () {
+            return view('home.homepage');
+        });
 
-    Route::post('/email', [EmailRequestController::class, 'sendEmail'])->name('send.email');
+        Route::post('/email', [EmailRequestController::class, 'sendEmail'])->name('send.email');
 
-    Route::middleware(['user-already-loggedin'])->group(function () {
-        Route::get('/log-in', [LoginController::class,'loginroute']);
+        Route::middleware(['user-already-loggedin'])->group(function () {
+            Route::get('/log-in', [LoginController::class,'loginroute'])->name('client_login');
 
-        Route::get('/sign-in', [SigninController::class,'signinroute']);
-        
+            Route::get('/sign-up', [SigninController::class,'signinroute']);
+            
+        });
     });
 
 
@@ -123,19 +128,34 @@ Route::middleware(['preventBackHistory'])->group(function () {
 // Main Routes
 
 
-    Route::middleware(['user-auth-checking'])->group(function () {
+    Route::middleware(['auth','client'])->group(function () {
 
         Route::get('/cars/search', [AddCarController::class,'main_search_rental'])->name('car.search');
 
         Route::get('/mainhome', [AddCarController::class,'main_allcars']);
         Route::get('/mainviewcar/{slug}', [AddCarController::class,'main_viewvehicle']);
 
-        Route::get('/account', [UserinfoController::class,'user_accountroute']);
-        Route::get('/account/{id}/ajaxview', [UserinfoController::class,'user_booking_ajaxview']);
-        Route::get('/account-info/{id}/ajaxedit', [UserinfoController::class,'user_account_ajaxedit']);
-        Route::put('/account-info-update', [UserinfoController::class, 'user_account_info_update'])->name('account-info-update');
 
+        
+        // CLIENTS ROUTES
+        Route::get('/account', [UserinfoController::class,'user_accountroute']);
+        Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
+        // Route::get('/account-info/{id}/ajaxedit', [UserinfoController::class,'user_account_ajaxedit']);
+        // Route::put('/account-info-update', [UserinfoController::class, 'user_account_info_update'])->name('account-info-update');
+        // ADMIN ROUTES
+        Route::put('/user_adminpp_update', [UserinfoController::class,'user_adminpp_update']);
+        Route::put('/user_info_update', [UserinfoController::class,'user_info_update']);
+        Route::put('/user_password_update', [UserinfoController::class,'user_password_update']);
+    
+        // RATINGS
+        Route::get('/ratings/{id}/ajaxview', [RatingsController::class,'user_ratings_modal']);
+        Route::post('/ratings_submit', [RatingsController::class,'submit_rating']);
+
+
+        // BOOKINGS
+        Route::get('/booking_view/{id}/ajaxview', [UserinfoController::class,'user_booking_ajaxview']);
         Route::get('/bookingforms/{slug}', [BookingformsController::class,'booking_route']);
+        Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
         Route::post('/bookingformsubmit/{slug}', [BookingformsController::class,'booking_submit'])->name('book.submit');
     });
 
@@ -158,7 +178,7 @@ Route::get('/auth/apple/redirect', [SocialiteController::class, 'appleredirect']
 Route::get('/auth/apple/callback', [SocialiteController::class, 'applecallback']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();   
 

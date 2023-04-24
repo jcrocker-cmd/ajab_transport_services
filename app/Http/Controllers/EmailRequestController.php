@@ -45,11 +45,6 @@ class EmailRequestController extends Controller
 
     public function db_inquiry()
     {
-        $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();
-        }
         $inquiry = Inquiry::orderByDesc('created_at')->get();
 
         // DAY
@@ -109,7 +104,7 @@ class EmailRequestController extends Controller
         $year_inquiry_counts[] = $inquiries->count;
         }
 
-        return view ('dashboard.inquiry', compact('data', 'day_inquiry_counts', 'week_inquiry_counts', 'month_inquiry_counts','year_inquiry_counts','days', 'weeks', 'months','years','inquiry'));
+        return view ('dashboard.inquiry', compact('day_inquiry_counts', 'week_inquiry_counts', 'month_inquiry_counts','year_inquiry_counts','days', 'weeks', 'months','years','inquiry'));
     }
 
     public function db_inquiry_delete($id)

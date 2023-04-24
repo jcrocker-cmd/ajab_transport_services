@@ -98,15 +98,15 @@
 
           <div class="dropdown">
 
-            @if(Auth::user()->adminpp)
-                <img src="{{ asset('images/adminpp/' . Auth::user()->adminpp) }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
+            @if(Auth::user()->profile_picture)
+                <img src="{{ asset('images/profile_picture/' . Auth::user()->profile_picture) }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
             @else
                 <img src="{{ asset('images/default-user.png') }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
             @endif
 
             <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             @if (Auth::check())
-              {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
+            {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}
             @endif
             </button>
             
@@ -134,3 +134,7 @@
 @section('scripts')
     @include('dashboard.assets.script')
 @endsection
+
+@push('scripts')
+    <script src="/js/ajax-dbusers-view.js"></script>
+@endpush

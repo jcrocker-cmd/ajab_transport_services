@@ -25,7 +25,7 @@
         <h6 class="successdelete-alert">{{ Session::get('successdelete') }}</h6>
         @endif
 
-        <form action="{{url('/checklogin')}}" method="post" id="login-client">
+        <form action="{{ route('login') }}" method="post" >
                 @csrf
         <div class="username">
             <input type="email" name="email"  placeholder="Username"  value ="{{old('email')}}">
@@ -95,7 +95,7 @@
             <div class="line-3">
             </div>
             <div class="link">
-                <p>New member?<br><strong><a href="/sign-in">Sign-up here.</a></strong></p>
+                <p>New member?<br><strong><a href="/sign-up">Sign-up here.</a></strong></p>
             </div>
 
             </div>
