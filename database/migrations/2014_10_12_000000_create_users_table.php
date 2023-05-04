@@ -36,6 +36,7 @@ return new class extends Migration
             $table->string('about')->nullable();
             $table->string('gender')->nullable();
             $table->string('profile_picture')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

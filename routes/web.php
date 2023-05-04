@@ -67,6 +67,8 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::post('/create-user-role', [AdmininfoController::class,'create_user_role']);
         Route::get('/view-user-role/{id}/ajaxview', [AdmininfoController::class,'db_dashboard_users_ajaxview']);
         Route::get('/delete_db_user/{id}', [AdmininfoController::class,'delete_db_user']);
+        Route::get('/edit-user-role/{id}/ajaxedit', [AdmininfoController::class, 'db_dashboard_users_ajaxedit']);
+        Route::put('/update_db_user', [AdmininfoController::class, 'update_db_user']);
 
 
         // CAR ROUTES
@@ -95,6 +97,12 @@ Route::middleware(['preventBackHistory'])->group(function () {
         // Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
         Route::get('/user/{id}/ajaxview', [UserinfoController::class,'db_user_ajaxview']);
 
+        // RATINGS ROUTES
+        Route::get('/allratings', [RatingsController::class,'db_ratings_route']);
+        Route::get('/view_ratings/{id}/ajaxview', [RatingsController::class,'db_ratings_ajaxview']);
+        Route::get('/delete_ratings/{id}', [RatingsController::class,'db_ratings_delete']);
+
+
     });
 
 
@@ -108,9 +116,16 @@ Route::middleware(['preventBackHistory'])->group(function () {
 Route::middleware(['preventBackHistory'])->group(function () {
 
     Route::middleware(['guest'])->group(function () {
-        Route::get('/', function () {
-            return view('home.homepage');
-        });
+        Route::get('/', function () {return view('home.homepage');});
+
+        Route::get('/guest-home', [AddCarController::class,'guest_allcars']);
+        Route::get('/guestviewcar/{slug}', [AddCarController::class,'guest_viewvehicle']);
+        Route::get('/guest-van', [AddCarController::class,'guest_van']);
+        Route::get('/guest-7seaters', [AddCarController::class,'guest_7seaters']);
+        Route::get('/guest-pickup', [AddCarController::class,'guest_pickup']);
+        Route::get('/guest-hatchback', [AddCarController::class,'guest_hatchback']);
+        Route::get('/guest-sedan', [AddCarController::class,'guest_sedan']);
+        Route::get('/cars/guest-search', [AddCarController::class,'guest_search_rental'])->name('car.home-search');
 
         Route::post('/email', [EmailRequestController::class, 'sendEmail'])->name('send.email');
 
@@ -130,18 +145,23 @@ Route::middleware(['preventBackHistory'])->group(function () {
 
     Route::middleware(['auth','client'])->group(function () {
 
-        Route::get('/cars/search', [AddCarController::class,'main_search_rental'])->name('car.search');
-
-        Route::get('/mainhome', [AddCarController::class,'main_allcars']);
         Route::get('/mainviewcar/{slug}', [AddCarController::class,'main_viewvehicle']);
 
+        Route::get('/mainhome', [AddCarController::class,'main_allcars']);
+        Route::get('/van', [AddCarController::class,'main_van']);
+        Route::get('/7seaters', [AddCarController::class,'main_7seaters']);
+        Route::get('/pickup', [AddCarController::class,'main_pickup']);
+        Route::get('/hatchback', [AddCarController::class,'main_hatchback']);
+        Route::get('/sedan', [AddCarController::class,'main_sedan']);
+        Route::get('/cars/search', [AddCarController::class,'main_search_rental'])->name('car.search');
 
         
-        // CLIENTS ROUTES
+        // CLIENTS ROUTES  
         Route::get('/account', [UserinfoController::class,'user_accountroute']);
+        Route::get('/my_bookings', [UserinfoController::class,'user_mybookings_route']);
+        Route::get('/my_ratings', [UserinfoController::class,'user_myratings_route']);
         Route::get('/delete_account/{id}', [UserinfoController::class,'delete_user']);
-        // Route::get('/account-info/{id}/ajaxedit', [UserinfoController::class,'user_account_ajaxedit']);
-        // Route::put('/account-info-update', [UserinfoController::class, 'user_account_info_update'])->name('account-info-update');
+        
         // ADMIN ROUTES
         Route::put('/user_adminpp_update', [UserinfoController::class,'user_adminpp_update']);
         Route::put('/user_info_update', [UserinfoController::class,'user_info_update']);
@@ -150,10 +170,14 @@ Route::middleware(['preventBackHistory'])->group(function () {
         // RATINGS
         Route::get('/ratings/{id}/ajaxview', [RatingsController::class,'user_ratings_modal']);
         Route::post('/ratings_submit', [RatingsController::class,'submit_rating']);
+        Route::get('/user_view_ratings/{id}/ajaxview', [RatingsController::class,'user_ratings_ajaxview']);
+        Route::get('/user_edit_ratings/{id}/ajaxedit', [RatingsController::class,'user_ratings_ajaxedit']);
+        Route::get('/delete_user_ratings/{id}', [RatingsController::class,'user_ratings_delete']);
+        Route::put('/update_ratings', [RatingsController::class, 'user_update_ratings']);
 
 
         // BOOKINGS
-        Route::get('/booking_view/{id}/ajaxview', [UserinfoController::class,'user_booking_ajaxview']);
+        Route::get('/bookingview/{id}/ajaxview', [BookingformsController::class,'user_booking_ajaxview']);
         Route::get('/bookingforms/{slug}', [BookingformsController::class,'booking_route']);
         Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
         Route::post('/bookingformsubmit/{slug}', [BookingformsController::class,'booking_submit'])->name('book.submit');

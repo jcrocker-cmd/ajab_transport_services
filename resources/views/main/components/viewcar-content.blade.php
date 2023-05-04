@@ -14,7 +14,7 @@
     <div class="car-info-row">
 
                     <div class="car-info-title">
-                        <h3><strong> {{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}} </strong></h3>
+                        <h3>{{ $viewcar->brand}} {{ $viewcar->model}} {{ $viewcar->year}}</h3>
                         <hr class="bg-dark">
                     </div>
                     
@@ -28,7 +28,7 @@
                         <i class="fas fa-star"></i>
                     </span>
 
-                    <span>15 Ratings</span>
+                    <span>{{ $ratings->count() }} Ratings</span>
                     
                     </div>
 
@@ -44,14 +44,14 @@
                     </div>
 
                     <div class="viewcarbuttons">
-                        <button type="button" class="btn-addcart">
+                        <!-- <button type="button" class="btn-addcart">
                             <span><i class="far fa-cart-plus"></i></span>
                             <span>ADD TO CART</span>
-                        </button>
+                        </button> -->
 
                         <a href="/bookingforms/{{ $viewcar->slug }}" type="button" class="btn-checkout text-decoration-none">
                             <span><i class="fas fa-caret-right"></i></span>
-                            <span>CHECKOUT</span>
+                            <span>BOOK NOW</span>
                         </a>
                     </div>
                     
@@ -122,41 +122,55 @@
 
                 <div class="d-flex overall-ratings align-items-center bg-dark rounded-pill">
                 <span>
-                    <!-- <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
                     <i class="fas fa-star "></i>
-                    <i class="fas fa-star "></i> -->
-                        @for ($i = 1; $i <= round($viewcar->ratings()->avg('rating'), 1); $i++)
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+
+<!-- 
+                    @php
+                        $averageRating = $viewcar->ratings()->avg('rating');
+                        $wholeStars = floor($averageRating);
+                        $halfStar = false;
+                        if ($averageRating - $wholeStars >= 0.5) {
+                            $halfStar = true;
+                        }
+                    @endphp
+
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $wholeStars)
                             <i class="fas fa-star text-warning"></i>
-                        @endfor
-                        @for ($i = round($viewcar->ratings()->avg('rating'), 1) + 1; $i <= 5; $i++)
-                            <i class="far fa-star"></i>
-                        @endfor
-
-
-
-                    <!-- @for ($i = 1; $i <= 5; $i++)
-                        @if ($i <= round($viewcar->ratings()->avg('rating'), 0))
-                            <i class="fas fa-star text-warning"></i>
-                        @elseif ($i == round($viewcar->ratings()->avg('rating'), 0) + 0.5)
+                        @elseif ($halfStar && $i == $wholeStars + 1)
                             <i class="fas fa-star-half-alt text-warning"></i>
                         @else
                             <i class="far fa-star text-secondary"></i>
                         @endif
-                    @endfor
-                    <span class="ms-2">{{ number_format($viewcar->ratings()->avg('rating'), 1) }}</span> -->
-                </span>
-<!-- 
+                    @endfor -->
+                    </span>
+
+                    <span class="number text-white">{{ number_format($averageRating, 1) }} / 5.0</span>
+
+
+                
+                    <!-- 
                 <span class="number text-white">4.9 / 5.0</span> -->
-                <span class="number text-white">{{ round($viewcar->ratings()->avg('rating'), 1) }} / 5.0</span>
+                <!-- <span class="number text-white">{{ round($viewcar->ratings()->avg('rating'), 1) }} / 5.0</span> -->
                 </div>
                 @if ($ratings)
                 @foreach ($ratings as $rating)
 
                 <div class="d-flex pt-4">
-                    <img src="/user.jpg" alt=""
-                    style="height: 45px; width: 45px;" class="rounded-circle">
+                @if($rating->user->profile_picture)
+                @if(file_exists(public_path('images/profile_picture/'.$rating->user->profile_picture)))
+                        <img src="{{ asset('/images/profile_picture/' . $rating->user->profile_picture) }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+                    @else
+                        <img src="{{ $rating->user->profile_picture }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+                    @endif
+                @else
+                    <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
+                @endif
+
 
                     <div class="ms-3">
                         <p class="fw-bold mb-2">{{ $rating->booking->name }}</p>

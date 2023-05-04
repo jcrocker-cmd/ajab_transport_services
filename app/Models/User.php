@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Ratings;
+use Spatie\Permission\Models\Role;
 
 
 class User extends Authenticatable
@@ -37,7 +38,8 @@ class User extends Authenticatable
         'about',
         'gender',
         'social_type',
-        'profile_picture'
+        'profile_picture',
+        'is_active'
     ];
 
     /**
@@ -69,6 +71,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ratings::class);
     }
+
 
 
 

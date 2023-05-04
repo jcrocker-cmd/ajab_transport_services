@@ -25,7 +25,12 @@ class AdmininfoController extends Controller
 
    public function user_management_route()
    {
-      $view_user = User::all();
+    $view_user = User::with('roles')
+    ->whereHas('roles', function ($query) {
+        $query->whereIn('name', ['Super-Admin', 'Admin', 'Front-Desk']);
+    })
+    ->get();
+
       return view('dashboard.user-management', compact('view_user'));
    }
 
@@ -48,9 +53,11 @@ class AdmininfoController extends Controller
    
        $user->assignRole($role);
    
-       Session::flash('successregister', 'You`ve registered successfully, Try to LOG IN.');
+       Session::flash('status', 'You`ve registered successfully, Try to LOG IN.');
        return redirect('/user/management');
    }
+
+
 
     public function db_user_view(Request $request)
     {
@@ -63,28 +70,41 @@ class AdmininfoController extends Controller
 
    {
     
-    $numberOfUsers = User::count(); // Count the number of rows in the User table
+    $numberOfUsers = User::whereHas('roles', function ($query) {
+        $query->where('name', 'Client');
+    })->count();
+    
     $numberOfBookings = Booking::count(); // Count the number of Bookings
 
     $last24Hours = Carbon::now()->subDay();
-    $allusers = User::where('created_at', '>=', $last24Hours)->orderBy('created_at')->get();
+
+    $allusers = User::with('roles')
+    ->whereHas('roles', function ($query) {
+        $query->whereIn('name', ['Client']);
+    })
+    ->where('created_at', '>=', $last24Hours)
+    ->orderBy('created_at')
+    ->get();
 
     $available = AddCar::where('status', 'Available')->count();
     $rented = AddCar::where('status', 'Rented')->count();
     
 
     $monthly_signins = DB::table('users')
-                     ->select(DB::raw('COUNT(*) as count, MONTH(created_at) as month'))
-                     ->groupBy('month')
-                     ->get();
+    ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+    ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+    ->select(DB::raw('COUNT(*) as count, MONTH(users.created_at) as month'))
+    ->where('roles.name', '=', 'Client')
+    ->groupBy('month')
+    ->get();
 
     $months = [];
     $signins = [];
 
     foreach ($monthly_signins as $signin) {
-        $months[] = date("F", mktime(0, 0, 0, $signin->month, 1));
-        $signins[] = $signin->count;
-    }
+    $months[] = date("F", mktime(0, 0, 0, $signin->month, 1));
+    $signins[] = $signin->count;
+}
 
     return view('dashboard.dashboard', compact('numberOfUsers', 'allusers', 'numberOfBookings', 'months', 'signins', 'available','rented'));
 
@@ -185,6 +205,38 @@ class AdmininfoController extends Controller
         ]);
     }
 
+    public function db_dashboard_users_ajaxedit($id)
+    {
+        $user = User::find($id);
+        return response()->json([
+            'status' => 200,
+            'user' => $user,
+        ]);
+    }
+
+    public function update_db_user(Request $request)
+    {
+        $user_id = $request->input('user_id');
+        $user = User::find($user_id);
+        $user->first_name = $request->input('first_name');
+        $user->middle_name = $request->input('middle_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        
+        $roleId = $request->input('role');
+        $role = Role::findById($roleId);
+        if (!$role) {
+            return redirect('/user/management')->with('failregister', 'Invalid role ID');
+        }
+    
+        $user->syncRoles([$role]);
+    
+        $user->update();
+    
+        Session::flash('status', 'User role updated successfully.');
+        return redirect('/user/management');
+    }
+
     public function delete_db_user($id)
     {
         $delete_user = User::find($id);
@@ -192,6 +244,7 @@ class AdmininfoController extends Controller
         Session::flash('status','You`ve successfully deleted a User!');
         return redirect('/user/management')->with('delete_user', $delete_user); 
     }
+    
 
 
 

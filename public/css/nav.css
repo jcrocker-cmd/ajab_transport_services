@@ -21,7 +21,8 @@ nav{
     align-items: center;
     transition: 0.6s;
     background:	#EEEFF1;  
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     z-index: 1;
     /* gap: 100px; */
     padding-left: 100px;
@@ -66,7 +67,7 @@ nav div li a:hover
 }
 
 nav.sticky{
-    padding: 15px 110px;
+    padding: 20px 110px;
     background: #fff;
 	box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);
 	-webkit-box-shadow: 1px -1px 83px -29px rgba(0,0,0,0.75);

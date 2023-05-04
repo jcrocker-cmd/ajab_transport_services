@@ -30,7 +30,7 @@
 
   <div>
     <a href="#" id="scroll-up-2">Home</a>
-    <a href="#">Features</a>
+    <a href=".featured-section">Features</a>
     <a href="#">About</a>
     <a href=".howitworks">How it Works</a>
     <a href=".contact-us">Contact Us</a>

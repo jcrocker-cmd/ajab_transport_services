@@ -664,14 +664,18 @@ input.purok
     /* MODAL TABLES */
     #viewModal,
     #viewModal thead ,
-    #viewModal tbody
+    #viewModal tbody,
+    #editModal label,
+    #editModal input,
+    #editModal select
     {
         font-size: 14px;
     }
 
     .modal-title,
     .modal-body .created_at ,
-    .modal button
+    .modal button,
+    .modal-footer button
     {
         font-size: 14px;
     }
@@ -943,14 +947,18 @@ input.purok
     /* MODAL TABLES */
     #viewModal,
     #viewModal thead ,
-    #viewModal tbody
+    #viewModal tbody,
+    #editModal label,
+    #editModal input,
+    #editModal select
     {
         font-size: 12px;
     }
 
     .modal-title,
     .modal-body .created_at ,
-    .modal button
+    .modal button,
+    .modal-footer button
     {
         font-size: 13px;
     }

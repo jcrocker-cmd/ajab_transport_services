@@ -1,10 +1,7 @@
-@if (session('successregister'))
-  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('successregister') }}</h6>
+@if (session('status'))
+  <h6 class="alert alert-success my-0" id="myAlert">{{ session('status') }}</h6>
 @endif
 
-@if (session('failregister'))
-  <h6 class="alert alert-danger my-0" id="myAlert" style="font-size: 14px;">{{ session('failregister') }}</h6>
-@endif
 
 <section class="user-management px-3 py-4">
 
@@ -78,6 +75,7 @@
             <th scope="col">User</th>
             <th scope="col">Role</th>
             <th scope="col">Created At</th>
+            <th scope="col">Account Status</th>
             <th scope="col">Actions</th>
             </tr>
             </thead>
@@ -87,22 +85,10 @@
             <td>
                 <div class ="d-flex align-items-center">
                 @if($view_user->profile_picture)
-                    <img src="{{ asset ('/images/profile_picture/' . $view_user->profile_picture) }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+                    <img src="{{ asset ('/images/profile_picture/' . $view_user->profile_picture) }}" alt="" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
                 @else
-                    <img src="{{ asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px;" class="rounded-circle">
+                    <img src="{{ asset('/images/default-user.png') }}" alt="" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
                 @endif
-
-{{-- 
-                @if($view_user->profile_picture)
-                  @if(file_exists(public_path('images/profile_picture/'.$view_user->profile_picture)))
-                          <img src="{{ asset('/images/profile_picture/' . $view_user->profile_picture) }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
-                      @else
-                          <img src="{{ $view_user->profile_picture }}" alt="User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
-                      @endif
-                  @else
-                      <img src="{{ asset('/images/default-user.png') }}" alt="Default User Profile Picture" style="height: 45px; width: 45px; object-fit: cover;" class="rounded-circle">
-                @endif --}}
-
                 <div class="ms-3">
                     <p class="fw-bold mb-1">{{ $view_user->first_name }} {{ $view_user->middle_name }} {{ $view_user->last_name }} </p>
                     <p class="text-muted mb-0">{{ $view_user->email }}</p>
@@ -120,8 +106,17 @@
             <td>
             <p class="fw-bold mb-1">{{ \Carbon\Carbon::parse($view_user->created_at)->format('F d, Y')}}</p>
             </td>
+
+            <td>
+              @if ($view_user->is_active)
+                  <span class="badge bg-success rounded-pill">Active</span>
+              @else
+                  <span class="badge bg-danger rounded-pill">Deactivated</span>
+              @endif
+            </td>
             <td>
             <a href="#" title="View" class="actions action-view"  data-id="{{ $view_user->id }}" data-bs-toggle="modal" data-bs-target="#viewModal"><i class="fa fa-eye" aria-hidden="true"></i></a>
+            <a href="" title="Edit" class="actions action-edit"   data-id="{{ $view_user->id }}" data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa fa-pencil" aria-hidden="true"></i></a>
             <a href="/delete_db_user/{{ $view_user->id }}" title="Delete" onclick="return confirm(&quot;Confirm delete?&quot;)" class="actions action-delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
             </td>
@@ -203,6 +198,77 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- EDIT DASHBOARD USERS -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+    <form action="/update_db_user" method="post" id="edit_user_form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Dashboard Users</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body roles-modal">
+        @csrf
+        @method('put')
+
+          <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">ID:</label>
+              <input type="text" id="user_id" class="form-control" name="user_id">
+            </div>
+
+            <div class="group">
+              <div class="mb-2 input-field">
+                <label for="recipient-name" class="col-form-label">First name:</label>
+                <input type="text" name="first_name" class="form-control" id="edit_fname">
+                <span class="text-danger" id="edit_error_fname"></span>
+              </div>
+
+              <div class="mb-2 input-field">
+                <label for="recipient-name" class="col-form-label">Middle name:</label>
+                <input type="text" name="middle_name" class="form-control" id="edit_mname">
+                <span class="text-danger" id="edit_error_mname"></span>
+              </div>
+
+              <div class="mb-2 input-field">
+                <label for="recipient-name" class="col-form-label">Last name:</label>
+                <input type="text" name="last_name" class="form-control" id="edit_lname">
+                <span class="text-danger" id="edit_error_lname"></span>
+              </div>
+
+              <div class="mb-2 input-field">
+                <label for="recipient-name" class="col-form-label">Username or Email:</label>
+                <input type="text" name="email" class="form-control"  name="email" id="edit_email">
+                <span class="text-danger" id="edit_error_email"></span>
+              </div>
+
+            </div>
+
+            <div class="group">
+              
+
+              <div class="mb-2 input-field">
+              <label class="col-form-label">Roles</label>
+                <select class="form-control" name="role" id="edit_role"> 
+                  <option value="2">Admin</option>
+                  <option value="3">Front-Desk</option>
+                </select>
+                <span class="text-danger" id="edit_error_role"></span>
+              </div>
+              
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="update_user_button">Update</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

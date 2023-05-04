@@ -17,7 +17,7 @@
 <tr>
 <th scope="col">User's Name</th>
 <th scope="col">Email</th>
-<th scope="col">Status</th>
+<th scope="col">Account Status</th>
 <th scope="col">Social Type</th>
 <th scope="col">Actions</th>
 </tr>
@@ -52,9 +52,13 @@
 <p class="text-muted mb-0">{{ $item->email}}</p>
 </td>
 <td>
-    <span class="badge bg-danger rounded-pill">ACTIVE</span>
-    <p class="text-muted">5 Mins ago</p>
+  @if ($item->is_active)
+      <span class="badge bg-success rounded-pill">Active</span>
+  @else
+      <span class="badge bg-danger rounded-pill">Deactivated</span>
+  @endif
 </td>
+
 
 <td>
 <p class="text-uppercase my-0">{{ $item->social_type}}</p>

@@ -259,7 +259,7 @@
     font-size: 12px;
 }
 
-.rental-top .action-view
+.rental-top .action-view-booking
 {
     background-color: rgb(0, 143, 253);
     color: #fff;
@@ -380,10 +380,78 @@
     font-size: 14px;
 }
 
+/* RATINGS */
+
+.myratings-wrapper
+{
+    background-color: #ffffff;
+    color: #000000;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ratings-card
+{
+    display: flex;
+}
+
+.ratings-card .ratings-col-1 img
+{
+    width: 150px;
+    margin-top: 10px;
+}
+.ratings-card .ratings-col-1
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 20%;
+    border: 1px solid #000;
+    /* background-color: #a8a4a4; */
+    padding: 20px;
+
+}
+.ratings-card .ratings-col-2
+{
+    display: flex;
+    flex-basis: 80%;
+    padding: 20px;
+    background-color: #efeeee;
+}
+
+.ratings-col-2 .ratings-buttons
+{
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+
+}
+
+.ratings-card .ratings-col-1 span,
+.ratings-card .ratings-col-2 p,
+.ratings-col-2 .rating-star .fas,
+.ratings-col-2 .rating-star span
+{
+    font-size: 14px;
+}
+
 /* MODAL TABLES */
 #modalTable,
 #modalTable thead ,
-#modalTable tbody
+#modalTable tbody,
+#ratingsModal input,
+#ratingsModal label,
+#ratingsModal span,
+#viewModalRating input,
+#viewModalRating label,
+#editModalRating input,
+#editModalRating label,
+#editModalRating select,
+#editModalRating textarea
 {
     font-size: 14px;
 }
@@ -436,6 +504,15 @@
     justify-content: end;
 }
 
+/* Table */
+.table-responsive,
+#clientTable,
+#clientTable thead ,
+#clientTable tbody 
+{
+    font-size: 13px;
+}
+
 @media (max-width:936px) 
 {
     .rental-mid 
@@ -464,6 +541,19 @@
     
 }
 
+@media (max-width:780px) 
+{
+    .ratings-card
+    {
+        flex-direction: column;
+    }
+    .ratings-card .ratings-col-1 img
+    {
+        width: 120px;
+        margin-top: 10px;
+    }
+}
+
 
 @media (max-width:500px) 
 {
@@ -473,7 +563,13 @@
     .account-settings-buttons .btn-edit-pass ,
     .delete-account-wrapper p, 
     .delete-account-wrapper span,
-    .user-account-section2 .myrental-wrapper h6
+    .user-account-section2 .myrental-wrapper h6,
+    .user-account-section2 .myratings-wrapper h6,
+    .ratings-card .ratings-col-1 span,
+    .ratings-card .ratings-col-2 p,
+    .ratings-col-2 .rating-star .fas,
+    .ratings-col-2 .rating-star span
+
 
     {
         font-size: 11px;
@@ -498,12 +594,14 @@
     }
 
     .delete-account-wrapper h5,
-    .user-account-section2 .myrental-wrapper h5
+    .user-account-section2 .myrental-wrapper h5,
+    .user-account-section2 .myratings-wrapper h5
     {
         font-size: 15px;
     }
 
-    .user-account-section2 .myrental-wrapper .rental-badge
+    .user-account-section2 .myrental-wrapper .rental-badge,
+    .user-account-section2 .myratings-wrapper .rental-badge
 
     {
         font-size: 10px;
@@ -531,6 +629,7 @@
 @media (max-width:400px) 
 {
     .myrental-wrapper ,
+    .myratings-wrapper ,
     .delete-account-wrapper
     {
         padding: 20px 15px;
@@ -543,7 +642,16 @@
     /* MODAL TABLES */
     #modalTable,
     #modalTable thead ,
-    #modalTable tbody
+    #modalTable tbody,
+    #ratingsModal input,
+    #ratingsModal label,
+    #ratingsModal span,
+    #viewModalRating input,
+    #viewModalRating label,
+    #editModalRating input,
+    #editModalRating label,
+    #editModalRating select,
+    #editModalRating textarea
     {
         font-size: 11px;
     }
