@@ -14,11 +14,85 @@ use Artisan;
 
 class AddCarController extends Controller
 {
+
+    // main
+
     public function main_allcars()
     {
         $addcar = AddCar::all();
         return view ('main.homepage',compact('addcar'));
     }
+
+    public function main_van()
+    {
+        $addcar = AddCar::all();
+        return view ('main.van',compact('addcar'));
+    }
+
+    public function main_7seaters()
+    {
+        $addcar = AddCar::all();
+        return view ('main.7seater',compact('addcar'));
+    }
+
+    public function main_pickup()
+    {
+        $addcar = AddCar::all();
+        return view ('main.pickup',compact('addcar'));
+    }
+
+    public function main_hatchback()
+    {
+        $addcar = AddCar::all();
+        return view ('main.hatchback',compact('addcar'));
+    }
+
+    public function main_sedan()
+    {
+        $addcar = AddCar::all();
+        return view ('main.sedan',compact('addcar'));
+    }
+
+    // guest
+
+    public function guest_allcars()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-homepage',compact('addcar'));
+    }
+
+    public function guest_van()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-van',compact('addcar'));
+    }
+
+    public function guest_7seaters()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-7seater',compact('addcar'));
+    }
+
+    public function guest_pickup()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-pickup',compact('addcar'));
+    }
+
+    public function guest_hatchback()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-hatchback',compact('addcar'));
+    }
+
+    public function guest_sedan()
+    {
+        $addcar = AddCar::all();
+        return view ('home.guest-sedan',compact('addcar'));
+    }
+
+
+
 
     public function addcar_route()
     {
@@ -33,6 +107,13 @@ class AddCarController extends Controller
         $viewcar = AddCar::where('slug', $slug)->first();
         $ratings = $viewcar->ratings()->with('user','booking')->get();
         return view ('main.viewcar',compact('viewcar','ratings'));
+    }
+
+    public function guest_viewvehicle($slug)
+    {
+        $viewcar = AddCar::where('slug', $slug)->first();
+        $ratings = $viewcar->ratings()->with('user','booking')->get();
+        return view ('home.guest-viewcar',compact('viewcar','ratings'));
     }
 
     public function db_allvehicles()
@@ -198,5 +279,35 @@ class AddCarController extends Controller
         // Return the search results to the view
         return view('main.search-car', compact('cars', 'searchTerm','data'));
     }
+
+    public function guest_search_rental(Request $request)
+    {
+
+        $data = array();
+        if(Session::has('loginId'))
+        {
+        $data = Signin::where('id','=',Session::get('loginId'))->first();
+
+        }
+
+        // Get the search term from the request
+        $searchTerm = $request->input('search');
+
+
+        // Query the database to search for cars by model or brand
+        $cars = AddCar::where('model', 'like', '%' . $searchTerm . '%')
+        ->orWhere('brand', 'like', '%' . $searchTerm . '%')
+        ->orWhere('year', 'like', '%' . $searchTerm . '%')
+        ->orWhere('transmission', 'like', '%' . $searchTerm . '%')
+        ->orWhere('dailyrate', 'like', '%' . $searchTerm . '%')
+        ->orWhere('weeklyrate', 'like', '%' . $searchTerm . '%')
+        ->orWhere('monthlyrate', 'like', '%' . $searchTerm . '%')
+        ->get();
+
+
+        // Return the search results to the view
+        return view('home.guest-search-car', compact('cars', 'searchTerm','data'));
+    }
+
 
 }

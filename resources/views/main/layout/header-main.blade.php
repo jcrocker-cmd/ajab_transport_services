@@ -76,9 +76,13 @@
                 <span><img src="/images/profile/profile.png"></span>
                 <span class="link">My Profile</span>
             </a>
-            <a href="#" class="sub-menu-link">
+            <a href="/my_bookings" class="sub-menu-link">
                 <img src="/images/profile/setting.png">
-                <span class="link">My Settings</span>
+                <span class="link">My Bookings</span>
+            </a>
+            <a href="/my_ratings" class="sub-menu-link">
+                <img src="/images/profile/setting.png">
+                <span class="link">My Ratings</span>
             </a>
             <a href="/logout" class="sub-menu-link">
                 <img src="/images/profile/logout.png">
@@ -129,7 +133,8 @@
 
   <div>
     <a href="/account">My Account</a>
-    <a href="#">Rental</a>
+    <a href="/my_bookings">My Bookings</a>
+    <a href="/my_ratings">My Ratings</a>
     <a href="/logout">Logout</a>
   </div>
 
@@ -144,10 +149,10 @@
   <hr>
     <div class="car-links-container">
         <a href="/mainhome" class="car-links">All-Cars</a>
-        <a href="/mainhome" class="car-links">Van</a>
-        <a href="/mainhome" class="car-links">Sedan</a>
-        <a href="/mainhome" class="car-links">Pick-Up</a>
-        <a href="/mainhome" class="car-links">7-Seater</a>
-        <a href="/mainhome" class="car-links">Hatchback</a>
+        <a href="/van" class="car-links">Van</a>
+        <a href="/sedan" class="car-links">Sedan</a>
+        <a href="/pickup" class="car-links">Pick-Up</a>
+        <a href="/7seaters" class="car-links">7-Seater</a>
+        <a href="/hatchback" class="car-links">Hatchback</a>
     </div>
 </div>

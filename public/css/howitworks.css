@@ -128,6 +128,40 @@
 }
 
 
+@media (max-width: 500px) {
+  .how-title h2,
+  .how-card h4
+  {
+      font-size: 12px;
+  }
+
+  .how-card p,
+  .how-card a
+  {
+      font-size: 11px;
+  }
+
+  .how-card .fas
+  {
+      font-size: 30px;
+  }
+
+  .how-container .how-card
+  {
+    width: 200px;
+    height: 320px;
+  }
+
+  .how-container .how-card .circle
+  {
+    clip-path: circle(120px at center 0);
+  }
+  #howitworks
+  {
+      padding: 20px 20px;
+  }
+}
+
     
 @media(max-width: 600px)
 {

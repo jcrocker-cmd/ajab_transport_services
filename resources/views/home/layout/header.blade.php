@@ -15,7 +15,7 @@
                 <li> <a href=".howitworks">How it Works</a></li>
                 <li> <a href="">About</a></li>
                 <li> <a href=".contact-us">Contact Us</a></li>
-                <a href="/mainhome" class="bg-primary px-2 py-2 text-white view-rental-btn">View Rental Cars</a>
+                <a href="/guest-home" class="bg-primary px-2 py-2 text-white view-rental-btn">View Rental Cars</a>
     </div>
 
     <div class="header-col-2">
@@ -38,7 +38,7 @@
 
   <div>
     <a href="#" id="scroll-up-2">Home</a>
-    <a href="#">Features</a>
+    <a href=".featured-section">Features</a>
     <a href="#">About</a>
     <a href=".howitworks">How it Works</a>
     <a href=".contact-us">Contact Us</a>

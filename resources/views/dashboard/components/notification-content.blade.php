@@ -11,9 +11,8 @@
 <thead class="bg-light">
 <tr id="notif-head">
   <th scope="col">Person</th>
-  <th scope="col">Description</th>
-  <th scope="col">User Status</th>
-  <th scope="col">Date & Time</th>
+  <th scope="col">Meesage</th>
+  <th scope="col">Craeted at</th>
 </tr>
 </thead>
 <tbody>
@@ -33,14 +32,7 @@
   </td>
   <td> Rented <span class="text-danger">Toyota Vios  for <span>8 days</span></span> owned by <span class="text-primary">John Christian Narbaja</span></td>
   <td>
-    <span class="badge bg-success rounded-pill">ACTIVE</span>
-  </td>
-  <td>
-    <div>
-        <p class="fw-bold mb-1">12-07-22</p>
-        <p class="text-muted mb-0">1 Minute Ago</p>
-
-    </div>
+  January 1, 2020
   </td>
   </tr>
 

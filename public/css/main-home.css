@@ -150,6 +150,11 @@
     color: #fff;
 } */
 
+.no-cars-available
+{
+    font-size: 14px;
+}
+
 @media (max-width:800px) {
     .all-cars-row
     {
@@ -206,12 +211,14 @@
        font-size: 16px;
     }
 
-    .car-col-2 .location
+    .car-col-2 .location,
+    .no-cars-available
     {
        font-size: 10px;
     }
 
-    .car-col-2 .prices span h6
+    .car-col-2 .prices span h6,
+    .all-cars-section .category-title
     {
        font-size: 12px;
     }

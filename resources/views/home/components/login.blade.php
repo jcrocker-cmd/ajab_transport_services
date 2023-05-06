@@ -41,6 +41,18 @@
         </button>
 </form>
 
+        <div class="remember-forgot">
+            <div class="div-1">
+               <div class="checkbox">
+                  <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
+                  <label class="" for="remember"> Remember me</label>
+               </div>
+            </div>
+            <div class="div-2">
+               <a href="{{ route('password.request') }}">Forgot password?</a>
+            </div>
+         </div>
+
         <div class="group-1">
         <div class="line"></div>
         <p>OR</p>

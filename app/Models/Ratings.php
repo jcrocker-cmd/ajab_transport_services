@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\AddCar;
 
 
 class Ratings extends Model
@@ -31,6 +32,13 @@ class Ratings extends Model
     {
         return $this->belongsTo(Booking::class);
     }
+
+    
+    public function car()
+    {
+        return $this->belongsTo(AddCar::class);
+    }
+
 
 
 }

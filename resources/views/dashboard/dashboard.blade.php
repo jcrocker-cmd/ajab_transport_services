@@ -31,6 +31,7 @@
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-hand-holding-usd" style="margin-right: 10px;"></i>   Sales Report</a></li>
       <li class=""><a href="/bookings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-book" style="margin-right: 13px;"></i>   Bookings</a></li>
       <li class=""><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
+      <li class=""><a href="/allratings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-star" style="margin-right: 11px;"></i>   Ratings</a></li>
       @role(['Super-Admin', 'Admin'])
       <li class=""><a href="/user/management" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-user" style="margin-right: 17px;"></i>   User Management</a></li>
       @endrole
@@ -64,7 +65,7 @@
   
   <div class="content">
     
-  <nav class="navbar navbar-expand-lg navbar-light" style="background: #026ba0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
 
     <div class="d-flex justify-content-between d-md-none d-block">
@@ -88,7 +89,7 @@
       </button> -->
     
 
-      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-white"><i class="fal fa-bell"></i>
+      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-dark"><i class="fal fa-bell"></i>
       <span class="nav-notif-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         99+
         <span class="visually-hidden">unread notification</span>
@@ -104,7 +105,7 @@
                 <img src="{{ asset('images/default-user.png') }}" alt="" style="height: 35px; width: 35px; object-fit: cover; border: 0.5px solid #000;" class="rounded-circle">
             @endif
 
-            <button class="btn btn-link dropdown-toggle account-link text-decoration-none text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-link dropdown-toggle account-link text-decoration-none" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             @if (Auth::check())
             {{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}, {{ Auth::user()->last_name }}
             @endif

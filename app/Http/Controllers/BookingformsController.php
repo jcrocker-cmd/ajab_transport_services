@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Signin;
 use App\Models\AddCar;
 use App\Models\AdminInfo;
+use App\Events\CarBooked;
+use Illuminate\Support\Facades\Event;
 use Mail;
 use Session;
 use DB;
@@ -24,7 +26,9 @@ class BookingformsController extends Controller
 
     public function booking_submit(Request $request, $slug)
     {
-        $car_details = AddCar::where('slug', $slug)->first();
+
+
+    $car_details = AddCar::where('slug', $slug)->first();
 
     // Get the file data
     $front_license = $request->file('front_license');
@@ -98,6 +102,9 @@ class BookingformsController extends Controller
         }
     
         $booking->save();
+
+        // Send a notification to Pusher
+        Event::dispatch(new CarBooked($booking));
         
         // Update car status
         $car = AddCar::findOrFail($car_details->id);
@@ -247,6 +254,19 @@ class BookingformsController extends Controller
     {
         $booking = Booking::with('car')->find($id);
         $front_license = asset('images/license/front/' . $booking->front_license);
+        $back_license = asset('images/license/back/' . $booking->back_license);
+        return response()->json([
+            'status' => 200,
+            'booking' => $booking,
+            'front_license' => $front_license,
+            'back_license' => $back_license,
+        ]);
+    }
+
+    public function user_booking_ajaxview($id)
+    {
+        $booking = Booking::with('car')->find($id);
+        $front_license = asset('/images/license/front/' . $booking->front_license);
         $back_license = asset('images/license/back/' . $booking->back_license);
         return response()->json([
             'status' => 200,

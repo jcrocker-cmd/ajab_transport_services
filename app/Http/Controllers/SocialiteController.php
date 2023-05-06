@@ -34,6 +34,9 @@ class SocialiteController extends Controller
     
         if ($user) {
             Auth::login($user);
+            if (!$user->is_active) {
+                $user->update(['is_active' => true]);
+            }
             return redirect('/mainhome');
         } else {
             $uuid = Str::uuid()->toString();

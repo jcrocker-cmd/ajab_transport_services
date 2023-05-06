@@ -21,7 +21,7 @@
             <div class="d-flex">
                <div class="checkbox">
                   <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} />
-                  <label class="" for="loginCheck"> Remember me</label>
+                  <label class="" for="remember"> Remember me</label>
                </div>
             </div>
             <div class="d-flex">

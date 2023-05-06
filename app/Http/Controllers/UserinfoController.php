@@ -7,10 +7,12 @@ use App\Models\Signin;
 use App\Models\AddCar;
 use App\Models\AdminInfo;
 use App\Models\Booking;
+use App\Models\Ratings;
 use Auth;
 use Hash;
 use Session;
 use DB;
+use Spatie\Permission\Models\Role;
 
 use Illuminate\Http\Request;
 
@@ -31,20 +33,45 @@ class UserinfoController extends Controller
     {
         $user = auth()->user();
         $bookings = Booking::with('car')->where('user_id', $user->id)->get();
+        $ratings = Ratings::with('user', 'booking','car')->where('user_id', $user->id)->get();
+        $ratingCount = Ratings::where('user_id', $user->id)->count();
         $bookingCount = $bookings->count();
-        return view('main.account', compact('user', 'bookings', 'bookingCount'));
+        return view('main.account', compact('user', 'bookings','ratings', 'bookingCount','ratingCount'));
     }
 
+    public function user_mybookings_route()
+    {
+        $user = auth()->user();
+        $bookings = Booking::with('car')->where('user_id', $user->id)->get();
+        $bookingCount = $bookings->count();
+        return view('main.my-booking', compact('user', 'bookings','bookingCount'));
+    }
+
+    
+    public function user_myratings_route()
+    {
+        $user = auth()->user();
+        $ratings = Ratings::with('user', 'booking','car')->where('user_id', $user->id)->get();
+        $ratingCount = Ratings::where('user_id', $user->id)->count();
+        return view('main.my-ratings', compact('user', 'ratings','ratingCount'));
+    }
 
 
     public function db_allusers()
     {
-        $data = array();
-        $user = User::orderByDesc('created_at')->get();
+        $user = User::with('roles')
+        ->whereHas('roles', function ($query) {
+            $query->whereIn('name', ['Client']);
+        })
+        ->get();
+        
 
         // DAY
         $daily_users = DB::table('users')
-            ->select(DB::raw('COUNT(*) as count, DATE(created_at) as day'))
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+            ->select(DB::raw('COUNT(*) as count, DATE(users.created_at) as day'))
+            ->where('roles.name', '=', 'Client')
             ->groupBy('day')
             ->get();
 
@@ -59,7 +86,10 @@ class UserinfoController extends Controller
 
         // WEEK
         $weekly_users = DB::table('users')
-            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(created_at) - 1 DAY) as week_start_date'))
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(users.created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(users.created_at) - 1 DAY) as week_start_date'))
+            ->where('roles.name', '=', 'Client')
             ->groupBy('week_start_date')
             ->get();
 
@@ -73,7 +103,10 @@ class UserinfoController extends Controller
 
         // MONTH
         $monthly_users = DB::table('users')
-            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(created_at, "%Y-%m-01")) as month_start_date'))
+            ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+            ->select(DB::raw('COUNT(*) as count, DATE(DATE_FORMAT(users.created_at, "%Y-%m-01")) as month_start_date'))
+            ->where('roles.name', '=', 'Client')
             ->groupBy('month_start_date')
             ->get();
 
@@ -87,7 +120,10 @@ class UserinfoController extends Controller
 
         // YEAR
         $yearly_users = DB::table('users')
-        ->select(DB::raw('COUNT(*) as count, YEAR(created_at) as year'))
+        ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+        ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+        ->select(DB::raw('COUNT(*) as count, YEAR(users.created_at) as year'))
+        ->where('roles.name', '=', 'Client')
         ->groupBy('year')
         ->get();
 
@@ -99,24 +135,39 @@ class UserinfoController extends Controller
         $year_user_counts[] = $users->count;
         }
             
-        return view ('dashboard.viewuser', compact('data', 'day_user_counts', 'week_user_counts', 'month_user_counts','year_user_counts','days', 'weeks', 'months','years','user'));
+        return view ('dashboard.viewuser', compact('day_user_counts', 'week_user_counts', 'month_user_counts','year_user_counts','days', 'weeks', 'months','years','user'));
     }
 
     
+    // public function delete_user()
+    // {
+    //     $user = Auth::user();
+    //     $photoPath = 'images/profile_picture/' . $user->profile_picture;
+    //     if (File::exists($photoPath)) {
+    //         File::delete($photoPath);
+    //     }
+    //     $user->delete();
+
+    //     // Log out the user
+    //     Auth::logout();
+
+    //     // Redirect to the login page with a success message
+    //     Session::flash('successdelete', 'You have successfully deleted your account!');
+    //     return redirect('/log-in');
+    // }
+
+
     public function delete_user()
     {
         $user = Auth::user();
-        $photoPath = 'images/profile_picture/' . $user->profile_picture;
-        if (File::exists($photoPath)) {
-            File::delete($photoPath);
-        }
-        $user->delete();
+        $user->is_active = false; // set the active field to false
+        $user->save(); // save the changes to the database
 
         // Log out the user
         Auth::logout();
 
         // Redirect to the login page with a success message
-        Session::flash('successdelete', 'You have successfully deleted your account!');
+        Session::flash('successdelete', 'You have successfully deactivated your account!');
         return redirect('/log-in');
     }
 
@@ -124,10 +175,18 @@ class UserinfoController extends Controller
     public function db_user_delete($id)
     {
         $user = User::find($id);
-        $user -> delete();
-        Session::flash('status','You`ve successfully deleted a user!');
-        return redirect('/allusers')->with('user', $user); 
+        $user->is_active = false;
+        $user->save();
+
+        // Log out the user if they are the currently authenticated user
+        if (Auth::user() && Auth::user()->id == $id) {
+            Auth::logout();
+        }
+
+        Session::flash('status', 'You have successfully deactivated a user!');
+        return redirect('/allusers')->with('user', $user);
     }
+    
 
     public function db_user_ajaxview($id)
     {
@@ -135,19 +194,6 @@ class UserinfoController extends Controller
         return response()->json([
             'status' => 200,
             'user' => $user,
-        ]);
-    }
-
-    public function user_booking_ajaxview($id)
-    {
-        $booking = Booking::with('car')->find($id);
-        $front_license = asset('/images/license/front/' . $booking->front_license);
-        $back_license = asset('images/license/back/' . $booking->back_license);
-        return response()->json([
-            'status' => 200,
-            'booking' => $booking,
-            'front_license' => $front_license,
-            'back_license' => $back_license,
         ]);
     }
 

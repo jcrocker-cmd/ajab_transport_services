@@ -1,4 +1,4 @@
-<section id="featured-section" style="overflow-x: hidden;">
+<section class="featured-section" id="featured-section" style="overflow-x: hidden;">
     <div class="featured-wrapper">
         <div class="header">
             <div class="lines"></div>
