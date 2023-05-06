@@ -104,7 +104,7 @@ $.validator.addMethod('startdate', function(value, element) {
     });
   
     // validate the form fields before submitting
-    $('#daily_bookingForm').on('submit', function() {
+    $('#weekly_bookingForm').on('submit', function() {
       return validator.form();
     });
   

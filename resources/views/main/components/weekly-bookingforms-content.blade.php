@@ -1,11 +1,11 @@
 <section class="booking-form-section">
     <div class="booking-form-buttons">
 
-        <a href="/bookingforms/{{ $car_details->slug }}"  class="btn-daily button active">
+        <a href="/bookingforms/{{ $car_details->slug }}"  class="btn-daily button">
             <span>DAILY BOOKING FORM</span>
         </a>
 
-        <a href="/weekly_bookingforms/{{ $car_details->slug }}" class="btn-weekly button">
+        <a href="/weekly_bookingforms/{{ $car_details->slug }}" class="btn-weekly button active">
             <span>WEEKLY BOOKING FORM</span>
         </a>
 
@@ -16,7 +16,7 @@
     </div>
 
     <section class="">
-    <form enctype="multipart/form-data" action="{{ url('bookingformsubmit', ['slug' => $car_details->slug]) }}" method="POST" id="daily_bookingForm" class="was-validated">
+    <form enctype="multipart/form-data" action="{{ url('bookingformsubmit', ['slug' => $car_details->slug]) }}" method="POST" id="weekly_bookingForm" class="was-validated">
                   @csrf
 
         <div class="booking-info-section">
@@ -247,7 +247,7 @@
                             <div class="return-date d-flex">
                                 <div>
                                     <label for="">Return Date</label>
-                                    <input type="date" name="return_date" id="returndate">
+                                    <input type="date" name="return_date" id="returndate" readonly="readonly">
                                     <span class="error-message" id="errorrd" ><br></span>
                                 </div>
                                 <div>
@@ -264,7 +264,7 @@
                     <div class="price-info">
 
                         <div class="alert alert-warning text-center" role="alert">
-                        You are using <strong>DAILY RATE</strong> 
+                        You are using <strong>WEEKLY RATE</strong> 
                         </div>
 
                         <div style="width: 100%;" hidden>
@@ -274,7 +274,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">Total Rates</label>
-                            <input type="text" id="total_rates_input" name="total_rates" value="0">
+                            <input type="text" id="total_weeks_input" name="total_rates" value="0">
                         </div>
 
                         <div class="justify-content-between d-flex">
@@ -283,8 +283,8 @@
                         </div>
 
                         <div class="justify-content-between d-flex">
-                            <p>Total Day/s</p>
-                            <p><span id="total_days">0</span></p>
+                            <p>Total Week/s</p>
+                            <input type="text" id="total_days_input" name="total_weeks" placeholder="Enter Address" value="0">
                         </div>
 
                         <div style="width: 100%;" hidden>
@@ -367,7 +367,6 @@
         </div>
         </form>
 
-    </section>    
-    
+    </section>
 
 </section>

@@ -73,47 +73,28 @@ cashbondCheckbox.addEventListener('click', () => {
   }
 });
 
-
-
 // get the start and return date inputs
 const startDateInput = document.getElementById("startdate");
 const returnDateInput = document.getElementById("returndate");
+const totalWeeksInput = document.getElementById("total_weeks_input");
 
 // listen for changes to the date inputs
-startDateInput.addEventListener("change", updateTotalDays);
-returnDateInput.addEventListener("change", updateTotalDays);
+startDateInput.addEventListener("change", updateReturnDate);
+totalWeeksInput.addEventListener("change", updateReturnDate);
 
-function updateTotalDays() {
+function updateReturnDate() {
   const startDate = new Date(startDateInput.value);
-  const returnDate = new Date(returnDateInput.value);
+  const totalWeeks = parseInt(totalWeeksInput.value);
 
-  // calculate the difference in days between the two dates
-  const timeDifference = returnDate.getTime() - startDate.getTime();
-  const totalDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
+  // calculate the return date
+  const returnDate = new Date(startDate.getTime() + (totalWeeks * 7 * 24 * 60 * 60 * 1000));
 
-  // update the value of the Total Days input
-  const totalDaysInput = document.getElementById("total_days_input");
-  totalDaysInput.value = totalDays;
-
-  // update the text content of the <p> element for the total days
-  const totalDaysParagraph = document.getElementById("total_days");
-  totalDaysParagraph.textContent = `${totalDays} Day/s`;
-
-  // calculate the total rate
-  const dailyRateInput = document.getElementById("car_price");
-  const dailyRate = parseFloat(dailyRateInput.value);
-  const totalRate = dailyRate * totalDays;
-
-  // update the text content of the <p> element for the total rate
-  const totalRateParagraph = document.getElementById("total_rates");
-  totalRateParagraph.textContent = `${totalRate.toLocaleString()}`;
-
-  // set the value of the Total Rates input
-  const totalRatesInput = document.getElementById("total_rates_input");
-  totalRatesInput.value = totalRate;
+  // update the value of the Return Date input
+  returnDateInput.value = returnDate.toISOString().substring(0, 10);
 }
 
-
+// call the updateReturnDate function initially to set the return date based on the default start date and total weeks input
+updateReturnDate();
 
 
 
