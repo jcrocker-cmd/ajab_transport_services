@@ -179,6 +179,8 @@ Route::middleware(['preventBackHistory'])->group(function () {
         // BOOKINGS
         Route::get('/bookingview/{id}/ajaxview', [BookingformsController::class,'user_booking_ajaxview']);
         Route::get('/bookingforms/{slug}', [BookingformsController::class,'booking_route']);
+        Route::get('/weekly_bookingforms/{slug}', [BookingformsController::class,'weekly_booking_route']);
+        Route::get('/monthly_bookingforms/{slug}', [BookingformsController::class,'monthly_booking_route']);
         Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
         Route::post('/bookingformsubmit/{slug}', [BookingformsController::class,'booking_submit'])->name('book.submit');
     });

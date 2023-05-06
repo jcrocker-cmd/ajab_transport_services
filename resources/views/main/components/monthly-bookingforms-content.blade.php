@@ -1,7 +1,7 @@
 <section class="booking-form-section">
     <div class="booking-form-buttons">
 
-        <a href="/bookingforms/{{ $car_details->slug }}"  class="btn-daily button active">
+        <a href="/bookingforms/{{ $car_details->slug }}"  class="btn-daily button">
             <span>DAILY BOOKING FORM</span>
         </a>
 
@@ -9,9 +9,9 @@
             <span>WEEKLY BOOKING FORM</span>
         </a>
 
-        <a href="/monthly_bookingforms/{{ $car_details->slug }}" class="btn-monthly button">
+        <a href="/monthly_bookingforms/{{ $car_details->slug }}" class="btn-monthly button active">
             <span>MONTHLY BOOKING FORM</span>
-        </a>
+    </a>
 
     </div>
 
@@ -264,7 +264,7 @@
                     <div class="price-info">
 
                         <div class="alert alert-warning text-center" role="alert">
-                        You are using <strong>DAILY RATE</strong> 
+                        You are using <strong>MONTHLY RATE</strong> 
                         </div>
 
                         <div style="width: 100%;" hidden>
