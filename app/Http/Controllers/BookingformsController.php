@@ -69,6 +69,9 @@ class BookingformsController extends Controller
             'start_time' => $request->start_time,
             'return_date' => $request->return_date,
             'return_time' => $request->return_time,
+            
+            'total_amount_payable' => $request->total_amount_payable,
+
     
             'msg' => $request->msg,
     
@@ -98,6 +101,7 @@ class BookingformsController extends Controller
         $booking->start_time = $data['start_time'];
         $booking->return_date = $data['return_date'];
         $booking->return_time = $data['return_time'];
+        $booking->total_amount_payable = $data['total_amount_payable'];
         $booking->msg = $data['msg'];
         $booking->car_id = $data['car_id'];
         $booking->user_id = $data['user_id'];

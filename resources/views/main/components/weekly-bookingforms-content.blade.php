@@ -269,7 +269,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">Dailyrate</label>
-                            <input type="text" id="car_price" name="total_days" value="{{ $car_details->dailyrate}}">
+                            <input type="text" id="car_price" name="total_days" value="{{ $car_details->weeklyrate}}">
                         </div>
 
                         <div style="width: 100%;" hidden>
@@ -284,12 +284,7 @@
 
                         <div class="justify-content-between d-flex">
                             <p>Total Week/s</p>
-                            <input type="text" id="total_days_input" name="total_weeks" placeholder="Enter Address" value="0">
-                        </div>
-
-                        <div style="width: 100%;" hidden>
-                            <label class="form-label">Total Days</label>
-                            <input type="text" id="total_days_input" name="total_days" placeholder="Enter Address" value="0">
+                            <input type="text" id="total_weeks_input" name="total_weeks" placeholder="Enter Address" value="0">
                         </div>
 
                         <div class="justify-content-between d-flex">

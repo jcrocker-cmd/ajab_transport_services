@@ -65,6 +65,80 @@ class AdmininfoController extends Controller
         return view('dashboard.dashboard', compact('view_user'));
     }
 
+    public function db_route_sales()
+    {
+
+        // DAY
+        $daily_payment = DB::table('bookingform')
+        ->select(DB::raw('SUM(total_amount_payable) as total_sales, DATE(created_at) as day'))
+        ->where('status', '=', 'Closed')
+        ->groupBy('day')
+        ->get();
+
+
+        $days = [];
+        $day_counts = [];
+        
+        foreach ($daily_payment as $payment) {
+            $days[] = date("F j, Y", strtotime($payment->day));
+            $day_counts [] = $payment->total_sales;
+        }
+        
+
+
+        // WEEK
+        $weekly_payment = DB::table('bookingform')
+        ->select(DB::raw('SUM(total_amount_payable) as total_price, DATE(DATE_FORMAT(created_at, "%Y-%m-%d") - INTERVAL DAYOFWEEK(created_at) - 1 DAY) as week_start_date'))
+        ->where('status', 'Closed')
+        ->groupBy('week_start_date')
+        ->get();
+    
+        $weeks = [];
+        $week_counts  = [];
+        
+        foreach ($weekly_payment as $payment) {
+            $weeks[] = 'Week of '.date("F j, Y", strtotime($payment->week_start_date));
+            $week_counts [] = $payment->total_price;
+        }
+    
+
+        // MONTH
+        $monthly_payment = DB::table('bookingform')
+            ->select(DB::raw('SUM(total_amount_payable) as sum, DATE(DATE_FORMAT(created_at, "%Y-%m-01")) as month_start_date'))
+            ->where('status', 'Closed')
+            ->groupBy('month_start_date')
+            ->get();
+
+        $months = [];
+        $month_counts  = [];
+
+        foreach ($monthly_payment as $payment) {
+            $months[] = date("F Y", strtotime($payment->month_start_date));
+            $month_counts [] = $payment->sum;
+        }
+
+
+
+        // YEAR
+        $yearly_payment = DB::table('bookingform')
+        ->select(DB::raw('SUM(total_amount_payable) as total_sales, YEAR(created_at) as year'))
+        ->where('status', 'Closed')
+        ->groupBy('year')
+        ->get();
+    
+        $years = [];
+        $year_counts = [];
+        
+        foreach ($yearly_payment as $payment) {
+            $years[] = $payment->year;
+            $year_counts[] = $payment->total_sales;
+        }
+        
+
+      return view('dashboard.sales', 
+      compact('day_counts', 'week_counts', 'month_counts','year_counts','days', 'weeks', 'months','years',));
+    }
+
 
    public function dashboardroute()
 

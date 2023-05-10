@@ -1,12 +1,13 @@
 @extends('dashboard.layout.master')
 
-@section('title', 'Inquiry Reports')
+@section('title', 'Sales Reports')
 
 @section('styles')
     @include('dashboard.assets.style')
 @endsection
 
 @section('content')
+
     <div class="main-container d-flex">
   <div class="sidebar" id="side_nav">
     <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
@@ -31,10 +32,10 @@
       @endrole
       <li class=""><a href="/allusers" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-users" style="margin-right: 10px;"></i>   Customers</a></li>
       <li class=""><a href="/bookings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-book" style="margin-right: 13px;"></i>   Bookings</a></li>
-      <li class="active"><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
+      <li class=""><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
       <li class=""><a href="/allratings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-star" style="margin-right: 11px;"></i>   Ratings</a></li>
       @role(['Super-Admin', 'Admin'])
-      <li class=""><a href="/sales_report" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-coins" style="margin-right: 9px;"></i>   Sales Report</a></li>
+      <li class="active"><a href="/sales_report" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-coins" style="margin-right: 9px;"></i>   Sales Report</a></li>
       <li class=""><a href="/user/management" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-user" style="margin-right: 17px;"></i>   User Management</a></li>
       @endrole
     </ul>
@@ -45,7 +46,7 @@
     
     <ul class="list-unstyled px-2">
 
-    <li class=""><a href="/settings" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
+    <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
 
       <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
       <span><i class="fal fa-bell" style="margin-right: 10px;"></i>  Notification</span>
@@ -75,7 +76,7 @@
     <button class="btn px-1 py-0 open-btn"><i class="far fa-stream"></i></button>
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style="outline: none; border: none;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -126,7 +127,7 @@
   </nav>
   <div id="dashboard-content">
   
-    @include('dashboard.components.inquiry-content')
+    @include('dashboard.components.sales')
 </div>
 
   </div>
@@ -140,23 +141,21 @@
 
 @push('scripts')
     <script src="/js/moment-library.js"></script>
-    <script src="/js/ajax-inquiry.js"></script>
-
     <script src="/js/chart-library.js"></script>
-    <script src="https://cdn.skypack.dev/date-fns"></script>
+
     <script type="text/javascript">
       var day_labels = {!! json_encode($days) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
-      var day_data = {!! json_encode($day_inquiry_counts) !!};
+      var day_data = {!! json_encode($day_counts) !!};
 
       var week_labels = {!! json_encode($weeks) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
-      var week_data = {!! json_encode($week_inquiry_counts) !!};
+      var week_data = {!! json_encode($week_counts) !!};
 
       var month_labels = {!! json_encode($months) !!}.map(date => new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
-      var month_data = {!! json_encode($month_inquiry_counts) !!};
+      var month_data = {!! json_encode($month_counts) !!};
       
       var year_labels = {!! json_encode($years ) !!}.map(year => new Date(year + '-01-01').toLocaleDateString('en-US', { year: 'numeric' }));
-      var year_data = {!! json_encode($year_inquiry_counts ) !!};
+      var year_data = {!! json_encode($year_counts ) !!};
     </script>
-    <script src="/js/chart-inquiry.js"></script>
+    <script src="/js/chart-sales.js"></script>
 
 @endpush

@@ -1,5 +1,7 @@
 @extends('dashboard.layout.master')
 
+@section('title', 'Edit Car')
+
 @section('styles')
     @include('dashboard.assets.style')
 @endsection
@@ -33,6 +35,7 @@
       <li class=""><a href="/inquiry" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-question" style="margin-right: 17px;"></i>   Inquiry</a></li>
       <li class=""><a href="/allratings" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-star" style="margin-right: 11px;"></i>   Ratings</a></li>
       @role(['Super-Admin', 'Admin'])
+      <li class=""><a href="/sales_report" class="text-decoration-none px-3 py-2 d-block"><i class="fas fa-coins" style="margin-right: 9px;"></i>   Sales Report</a></li>
       <li class=""><a href="/user/management" class="text-decoration-none px-3 py-2 d-block"><i class="far fa-user" style="margin-right: 17px;"></i>   User Management</a></li>
       @endrole
     </ul>

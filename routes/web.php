@@ -102,7 +102,8 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/view_ratings/{id}/ajaxview', [RatingsController::class,'db_ratings_ajaxview']);
         Route::get('/delete_ratings/{id}', [RatingsController::class,'db_ratings_delete']);
 
-
+        // SALES
+        Route::get('/sales_report', [AdmininfoController::class,'db_route_sales']);
     });
 
 
