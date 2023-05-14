@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\AddCar;
 use App\Models\User;
 use App\Models\Ratings;
+use App\Notifications\BookingNotification;
+use Illuminate\Support\Facades\Notification;
+
 
 class Booking extends Model
 {
@@ -31,6 +34,7 @@ class Booking extends Model
         'car_id',
         'status',
         'car_rating',
+        'total_amount_payable',
     ];
 
     public function car()
@@ -47,8 +51,6 @@ class Booking extends Model
     {
         return $this->hasMany(Ratings::class);
     }
-
-
 
 
 }

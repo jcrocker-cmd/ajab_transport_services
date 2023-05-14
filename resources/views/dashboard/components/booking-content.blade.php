@@ -286,7 +286,7 @@
             </tr>
             <tr>
               <td style="padding: 10px;">Total Amount Payable</td>
-              <td style="padding: 10px;">@fat</td>
+              <td style="padding: 10px;"><span id="total_amount_payable"></span></td>
             </tr>
           </tbody>
         </table>

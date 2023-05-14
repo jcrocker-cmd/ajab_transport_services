@@ -8,7 +8,8 @@ use App\Models\AdminInfo;
 use App\Models\Inquiry;
 use Mail;
 use DB;
-// use App\Mail\EmailRequest;
+use App\Models\Admin_Notification;
+
 
 class EmailRequestController extends Controller
 {
@@ -45,6 +46,7 @@ class EmailRequestController extends Controller
 
     public function db_inquiry()
     {
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $inquiry = Inquiry::orderByDesc('created_at')->get();
 
         // DAY
@@ -104,7 +106,7 @@ class EmailRequestController extends Controller
         $year_inquiry_counts[] = $inquiries->count;
         }
 
-        return view ('dashboard.inquiry', compact('day_inquiry_counts', 'week_inquiry_counts', 'month_inquiry_counts','year_inquiry_counts','days', 'weeks', 'months','years','inquiry'));
+        return view ('dashboard.inquiry', compact('notificationsUnread','day_inquiry_counts', 'week_inquiry_counts', 'month_inquiry_counts','year_inquiry_counts','days', 'weeks', 'months','years','inquiry'));
     }
 
     public function db_inquiry_delete($id)

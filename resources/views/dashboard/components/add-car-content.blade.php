@@ -183,17 +183,17 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">First Name</span>
-  <input type="text" aria-label="First name" name="fname" class="form-control" onkeyup="javascript:capitalize(this);" value="{{ Auth::user()->admin_fname }}">
+  <input type="text" aria-label="First name" name="fname" class="form-control" onkeyup="javascript:capitalize(this);" value="{{ Auth::user()->first_name }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Middle Name</span>
-  <input type="text" aria-label="First name" name="mname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_mname }}">
+  <input type="text" aria-label="First name" name="mname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->middle_name }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Last Name</span>
-  <input type="text" aria-label="First name" name="lname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_lname }}">
+  <input type="text" aria-label="First name" name="lname" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->last_name }}">
 </div>
 </div>
 
@@ -209,12 +209,12 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Phone No.</span>
-  <input type="number" aria-label="First name" name="phone" class="form-control"  value="{{ Auth::user()->admin_no }}">
+  <input type="number" aria-label="First name" name="phone" class="form-control"  value="{{ Auth::user()->con_num }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Birth-Date</span>
-  <input type="date" aria-label="First name" name="bday" class="form-control"  value="{{ Auth::user()->admin_bday }}">
+  <input type="date" aria-label="First name" name="bday" class="form-control"  value="{{ Auth::user()->bday }}">
 </div>
 </div>
 
@@ -225,12 +225,12 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Purok/Street</span>
-  <input type="text" aria-label="First name" name="purok" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_purok }}">
+  <input type="text" aria-label="First name" name="purok" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->purok }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Baranggay</span>
-  <input type="text" aria-label="First name" name="baranggay" class="form-control"onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_baranggay }}">
+  <input type="text" aria-label="First name" name="baranggay" class="form-control"onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->baranggay }}">
 </div>
 </div>
 
@@ -239,18 +239,18 @@
 
 <div class="input-group mb-2">
   <span class="input-group-text">Town</span>
-  <input type="text" aria-label="First name" name="town" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_town }}">
+  <input type="text" aria-label="First name" name="town" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->town }}">
 </div>
 
 
 <div class="input-group mb-2">
   <span class="input-group-text">Province</span>
-  <input type="text" aria-label="First name" name="province" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->admin_province }}">
+  <input type="text" aria-label="First name" name="province" class="form-control" onkeyup="javascript:capitalize(this);"  value="{{ Auth::user()->province }}">
 </div>
 
 <div class="input-group mb-2">
   <span class="input-group-text">Postal Code</span>
-  <input type="number" aria-label="First name" name="postal" class="form-control"  value="{{ Auth::user()->admin_postal }}">
+  <input type="number" aria-label="First name" name="postal" class="form-control"  value="{{ Auth::user()->postal }}">
 </div>
 </div>
 
@@ -280,17 +280,17 @@
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Daily Rate</label>
-  <input type="text" name="dailyrate" class="form-control" onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="number" name="dailyrate" class="form-control" >
 </div>
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Weekly Rate</label>
-  <input type="text" name="weeklyrate" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="number" name="weeklyrate" class="form-control ">
 </div>
 
 <div class="mb-2 price">
   <label for="exampleFormControlInput1" class="form-label">Monthly Rate</label>
-  <input type="text" name="monthlyrate" class="form-control " onkeyup="this.value=commaSep(this.value);" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+  <input type="number" name="monthlyrate" class="form-control ">
 </div>
 
 

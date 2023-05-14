@@ -13,7 +13,8 @@ use Hash;
 use Session;
 use DB;
 use Spatie\Permission\Models\Role;
-
+use App\Models\Admin_Notification;
+use App\Models\Client_Notification;
 use Illuminate\Http\Request;
 
 class UserinfoController extends Controller
@@ -31,34 +32,51 @@ class UserinfoController extends Controller
     // }
     public function user_accountroute()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $user = auth()->user();
         $bookings = Booking::with('car')->where('user_id', $user->id)->get();
         $ratings = Ratings::with('user', 'booking','car')->where('user_id', $user->id)->get();
         $ratingCount = Ratings::where('user_id', $user->id)->count();
         $bookingCount = $bookings->count();
-        return view('main.account', compact('user', 'bookings','ratings', 'bookingCount','ratingCount'));
+        return view('main.account', compact('notificationsUnread','user', 'bookings','ratings', 'bookingCount','ratingCount'));
     }
 
     public function user_mybookings_route()
     {
         $user = auth()->user();
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $bookings = Booking::with('car')->where('user_id', $user->id)->get();
         $bookingCount = $bookings->count();
-        return view('main.my-booking', compact('user', 'bookings','bookingCount'));
+        return view('main.my-booking', compact('notificationsUnread','user', 'bookings','bookingCount'));
     }
 
     
     public function user_myratings_route()
     {
         $user = auth()->user();
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $ratings = Ratings::with('user', 'booking','car')->where('user_id', $user->id)->get();
         $ratingCount = Ratings::where('user_id', $user->id)->count();
-        return view('main.my-ratings', compact('user', 'ratings','ratingCount'));
+        return view('main.my-ratings', compact('notificationsUnread','user', 'ratings','ratingCount'));
     }
 
 
     public function db_allusers()
     {
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $user = User::with('roles')
         ->whereHas('roles', function ($query) {
             $query->whereIn('name', ['Client']);
@@ -135,7 +153,7 @@ class UserinfoController extends Controller
         $year_user_counts[] = $users->count;
         }
             
-        return view ('dashboard.viewuser', compact('day_user_counts', 'week_user_counts', 'month_user_counts','year_user_counts','days', 'weeks', 'months','years','user'));
+        return view ('dashboard.viewuser', compact('notificationsUnread','day_user_counts', 'week_user_counts', 'month_user_counts','year_user_counts','days', 'weeks', 'months','years','user'));
     }
 
     

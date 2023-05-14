@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\File;
 use App\Models\Signin;
 use App\Models\User;
 use App\Models\Booking;
-use App\Models\AdminInfo;
+use App\Models\Client_Notification;
 use Artisan;
+use Auth;
+use App\Models\Admin_Notification;
+
 
 class AddCarController extends Controller
 {
@@ -19,38 +22,68 @@ class AddCarController extends Controller
 
     public function main_allcars()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.homepage',compact('addcar'));
+        return view ('main.homepage',compact('addcar','notificationsUnread'));
     }
 
     public function main_van()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.van',compact('addcar'));
+        return view ('main.van',compact('addcar','notificationsUnread'));
     }
 
     public function main_7seaters()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.7seater',compact('addcar'));
+        return view ('main.7seater',compact('addcar','notificationsUnread'));
     }
 
     public function main_pickup()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.pickup',compact('addcar'));
+        return view ('main.pickup',compact('addcar','notificationsUnread'));
     }
 
     public function main_hatchback()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.hatchback',compact('addcar'));
+        return view ('main.hatchback',compact('addcar','notificationsUnread'));
     }
 
     public function main_sedan()
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $addcar = AddCar::all();
-        return view ('main.sedan',compact('addcar'));
+        return view ('main.sedan',compact('addcar','notificationsUnread'));
     }
 
     // guest
@@ -96,17 +129,20 @@ class AddCarController extends Controller
 
     public function addcar_route()
     {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        return view('dashboard.add-car',compact('data'));
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
+        return view('dashboard.add-car',compact('notificationsUnread'));
     }
 
     public function main_viewvehicle($slug)
     {
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
         $viewcar = AddCar::where('slug', $slug)->first();
         $ratings = $viewcar->ratings()->with('user','booking')->get();
-        return view ('main.viewcar',compact('viewcar','ratings'));
+        return view ('main.viewcar',compact('viewcar','ratings','notificationsUnread'));
     }
 
     public function guest_viewvehicle($slug)
@@ -118,17 +154,16 @@ class AddCarController extends Controller
 
     public function db_allvehicles()
     {
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $addcar = AddCar::orderByDesc('created_at')->get();
-        return view ('dashboard.all-vehicles',compact('addcar'));
+        return view ('dashboard.all-vehicles',compact('notificationsUnread','addcar'));
     }
 
     public function db_rentedcars()
     {
         $rented = Booking::with('car')->get();
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        return view('dashboard.rented-cars',compact('data','rented'));
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
+        return view('dashboard.rented-cars',compact('notificationsUnread','rented'));
     }
 
     public function db_rented_ajaxview($id)
@@ -147,28 +182,22 @@ class AddCarController extends Controller
     public function db_availablecars()
     {
         $available = AddCar::all();
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        return view('dashboard.available-cars',compact('data','available'));
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
+        return view('dashboard.available-cars',compact('notificationsUnread','available'));
     }
 
     public function db_viewvehicle($slug)
     {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $addcar = AddCar::where('slug', $slug)->first();
-        return view ('dashboard.viewcar',compact('data'))->with('addcar', $addcar);
+        return view ('dashboard.viewcar',compact('notificationsUnread'))->with('addcar', $addcar);
     }
 
     public function db_editcar($slug)
     {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $editcar = AddCar::where('slug', $slug)->first();
-        return view('dashboard.editcar',compact('data'))->with('editcar', $editcar);
+        return view('dashboard.editcar',compact('notificationsUnread'))->with('editcar', $editcar);
     }
 
     public function db_updatecar(Request $request, $slug)
@@ -229,13 +258,7 @@ class AddCarController extends Controller
     }
 
 
-    public function db_notification()
-    {
-        $data = array();
-        if(Session::has('loginId')){
-        $data = AdminInfo::where('id','=',Session::get('loginId'))->first();}
-        return view ('dashboard.notification',compact('data'));
-    }
+
 
     public function save(Request $request)
     {
@@ -254,12 +277,12 @@ class AddCarController extends Controller
     public function main_search_rental(Request $request)
     {
 
-        $data = array();
-        if(Session::has('loginId'))
-        {
-        $data = Signin::where('id','=',Session::get('loginId'))->first();
+        $user_id = Auth::id();
+    
+        $notificationsUnread = Client_Notification::where('user_id', $user_id)
+            ->whereNull('read_at')
+            ->get();
 
-        }
 
         // Get the search term from the request
         $searchTerm = $request->input('search');
@@ -277,7 +300,7 @@ class AddCarController extends Controller
 
 
         // Return the search results to the view
-        return view('main.search-car', compact('cars', 'searchTerm','data'));
+        return view('main.search-car', compact('cars', 'searchTerm','notificationsUnread'));
     }
 
     public function guest_search_rental(Request $request)

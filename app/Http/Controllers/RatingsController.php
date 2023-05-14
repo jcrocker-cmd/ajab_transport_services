@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Ratings;
 use App\Models\Booking;
 use App\Models\AddCar;
+use App\Models\Admin_Notification;
 use Auth;
 use Session;
 
@@ -15,8 +16,9 @@ class RatingsController extends Controller
 
     public function db_ratings_route()
     {
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
         $ratings = Ratings::with('user', 'booking','car')->get();
-        return view('dashboard.ratings', compact('ratings'));
+        return view('dashboard.ratings', compact('notificationsUnread','ratings'));
     }
     
 

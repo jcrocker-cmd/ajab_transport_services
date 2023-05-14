@@ -5,6 +5,10 @@
   <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('accountstatus') }}</h6>
 @endif
 
+@if (session('status'))
+  <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('status') }}</h6>
+@endif
+
 @if (session('successpassword'))
   <h6 class="alert alert-success my-0" id="myAlert" style="font-size: 14px;">{{ session('successpassword') }}</h6>
 @endif
@@ -309,8 +313,8 @@
                 <div>
                     <!-- <p>Toyota Vios 2017 Manual</p>
                     <p>Daily Booking Form</p> -->
-                    <p>Start: December 02, 2000 10:00 PM</p> 
-                    <p>End: December 02, 2000 12:00 PM</p> 
+                    <p>Start: {{ date('F j, Y', strtotime($booking->start_date)) }}, {{ \Carbon\Carbon::parse($booking->start_time)->format('g:i A') }}</p> 
+                    <p>End: {{ date('F j, Y', strtotime($booking->return_date)) }}, {{ \Carbon\Carbon::parse($booking->return_time)->format('g:i A') }}</p> 
                 </div>
                 </div>
 
@@ -319,7 +323,7 @@
             <hr>
 
             <div class="rental-bottom">
-                <span><strong>Total Amount: ₱ 200,000</strong></span>
+                <span><strong>Total Amount: ₱ {{ number_format($booking->total_amount_payable, 2) }}</strong></span>
             </div>
 
 
@@ -699,7 +703,7 @@
             </tr>
             <tr>
               <td style="padding: 10px;">Total Amount Payable</td>
-              <td style="padding: 10px;">@fat</td>
+              <td style="padding: 10px;"><span id="total_amount_payable"></span></td>
             </tr>
           </tbody>
         </table>

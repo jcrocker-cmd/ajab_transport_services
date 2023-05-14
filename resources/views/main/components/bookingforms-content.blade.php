@@ -338,7 +338,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">Total Amount Payable</label>
-                            <input type="number" id="total_amount_payable_input" name="" >
+                            <input type="number" id="total_amount_payable_input" name="total_amount_payable" >
                         </div>
                         
 

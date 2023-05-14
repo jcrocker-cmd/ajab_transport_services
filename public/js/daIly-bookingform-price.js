@@ -194,8 +194,8 @@ function updateTotalAmountPayable() {
   const deliveryFee = parseFloat(_deliveryFeeInput.value);
   const vat = _cardRadio.checked ? totalRate * 0.0275 : 0;
   const totalAmountPayable = totalRate + cashBond + deliveryFee + vat;
-  _totalAmountPayableInput.value = totalAmountPayable;
-  _totalAmountPayableText.textContent = totalAmountPayable.toLocaleString();
+  _totalAmountPayableInput.value = totalAmountPayable.toFixed(2);
+  _totalAmountPayableText.textContent = totalAmountPayable.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 _cashRadio.addEventListener("change", () => {

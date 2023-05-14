@@ -13,9 +13,15 @@ body
     padding: 0;
 
 }
-.nav-notif , .nav-notif-badge
+.nav-notif
 {
     margin-right: 25px;
+    margin-top: 5px;
+
+}
+.nav-notif-badge
+{
+    margin-right: 20px;
     margin-top: 5px;
 
 }

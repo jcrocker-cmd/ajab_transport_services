@@ -34,9 +34,9 @@
 
                     <div class="car-info-col d-flex">
                         <div class="car-price d-flex">
-                            <h4><sup>₱ </sup>{{ $viewcar->dailyrate}} | Daily</h4>
-                            <h4><sup>₱ </sup>{{ $viewcar->weeklyrate}} | Weekly</h4>
-                            <h4><sup>₱ </sup>{{ $viewcar->monthlyrate}} | Monthly</h4>
+                            <h4><sup>₱ </sup>{{ number_format($viewcar->dailyrate) }} | Daily</h4>
+                            <h4><sup>₱ </sup>{{ number_format($viewcar->weeklyrate) }} | Weekly</h4>
+                            <h4><sup>₱ </sup>{{ number_format($viewcar->monthlyrate) }} | Monthly</h4>
                         </div>
 
                         

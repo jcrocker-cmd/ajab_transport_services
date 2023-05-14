@@ -73,28 +73,62 @@ cashbondCheckbox.addEventListener('click', () => {
   }
 });
 
-// get the start and return date inputs
-const startDateInput = document.getElementById("startdate");
-const returnDateInput = document.getElementById("returndate");
-const totalWeeksInput = document.getElementById("total_weeks_input");
 
-// listen for changes to the date inputs
-startDateInput.addEventListener("change", updateReturnDate);
-totalWeeksInput.addEventListener("change", updateReturnDate);
+
+
+
+
+// Get the start date input element
+const startDateInput = document.getElementById('startdate');
+
+// Get the total weeks input element
+const totalWeeksInput = document.getElementById('total_weeks_select');
+
+// Get the return date input element
+const returnDateInput = document.getElementById('returndate');
+
+// Add event listeners to the start date and total weeks input elements to update the return date
+startDateInput.addEventListener('change', updateReturnDate);
+totalWeeksInput.addEventListener('change', updateReturnDate);
 
 function updateReturnDate() {
+  // Get the selected start date
   const startDate = new Date(startDateInput.value);
+
+  // Get the number of weeks
   const totalWeeks = parseInt(totalWeeksInput.value);
 
-  // calculate the return date
-  const returnDate = new Date(startDate.getTime() + (totalWeeks * 7 * 24 * 60 * 60 * 1000));
-
-  // update the value of the Return Date input
-  returnDateInput.value = returnDate.toISOString().substring(0, 10);
+  // Calculate the return date
+  if (startDate && !isNaN(totalWeeks)) {
+    const returnDate = new Date(startDate.getTime() + totalWeeks * 7 * 24 * 60 * 60 * 1000);
+    const returnDateString = returnDate.toISOString().split('T')[0];
+    returnDateInput.value = returnDateString;
+  }
 }
 
-// call the updateReturnDate function initially to set the return date based on the default start date and total weeks input
-updateReturnDate();
+
+
+// Get the car price and total weeks input elements
+const carPriceInput = document.getElementById('car_price');
+const _totalWeeksInput = document.getElementById('total_weeks_select');
+
+// Get the total rates input and paragraph elements
+const total_RatesInput = document.getElementById('total_rates_input');
+const totalRatesParagraph = document.getElementById('total_rates');
+
+// Listen for changes in the total weeks input
+_totalWeeksInput.addEventListener('change', () => {
+  // Calculate the total rates by multiplying the car price and total weeks
+  const totalWeeks = parseFloat(_totalWeeksInput.value);
+  const carPrice = parseFloat(carPriceInput.value);
+  const totalRates = totalWeeks * carPrice;
+
+  // Update the total rates input and paragraph elements
+  total_RatesInput.value = totalRates;
+  totalRatesParagraph.innerText = `${totalRates.toLocaleString()}`;
+});
+
+
 
 
 
@@ -175,8 +209,8 @@ function updateTotalAmountPayable() {
   const deliveryFee = parseFloat(_deliveryFeeInput.value);
   const vat = _cardRadio.checked ? totalRate * 0.0275 : 0;
   const totalAmountPayable = totalRate + cashBond + deliveryFee + vat;
-  _totalAmountPayableInput.value = totalAmountPayable;
-  _totalAmountPayableText.textContent = totalAmountPayable.toLocaleString();
+  _totalAmountPayableInput.value = totalAmountPayable.toFixed(2);
+  _totalAmountPayableText.textContent = totalAmountPayable.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 _cashRadio.addEventListener("change", () => {
@@ -234,5 +268,10 @@ _return_dateInput.addEventListener("change", () => {
 });
 
 _cashbond.addEventListener("change", () => {
+  updateTotalAmountPayable();
+});
+
+
+_totalWeeksInput.addEventListener("change", () => {
   updateTotalAmountPayable();
 });

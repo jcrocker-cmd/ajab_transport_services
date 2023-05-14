@@ -95,7 +95,8 @@
 .agreement input ,
 .bookingform-sumbit ,
 .sect-2 .car_name,
-.sect-2 .car_price
+.sect-2 .car_price,
+.total_weeks_months
 
 { 
     font-size: 14px;
@@ -407,6 +408,19 @@
     font-size: 14px;
 }
 
+.total_weeks_months
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+.total_weeks_months select
+{
+    outline: none;
+}
+
 .bookingform-sumbit
 {
     width: 100%;
@@ -593,7 +607,8 @@
     .agreement input ,
     .bookingform-sumbit ,
     .sect-2 .car_name,
-    .sect-2 .car_price
+    .sect-2 .car_price,
+    .total_weeks_months
 
     { 
         font-size: 12px;

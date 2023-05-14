@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('start_time')->nullable();
             $table->string('return_date')->nullable();
             $table->string('return_time')->nullable();
+            $table->string('total_amount_payable')->nullable();
             $table->string('msg')->nullable();
             $table->string('car_id')->nullable();
             $table->string('user_id')->nullable();

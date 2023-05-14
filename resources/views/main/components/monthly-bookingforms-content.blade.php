@@ -11,12 +11,12 @@
 
         <a href="/monthly_bookingforms/{{ $car_details->slug }}" class="btn-monthly button active">
             <span>MONTHLY BOOKING FORM</span>
-    </a>
+        </a>
 
     </div>
 
     <section class="">
-    <form enctype="multipart/form-data" action="{{ url('bookingformsubmit', ['slug' => $car_details->slug]) }}" method="POST" id="daily_bookingForm" class="was-validated">
+    <form enctype="multipart/form-data" action="{{ url('monthly_bookingformsubmit', ['slug' => $car_details->slug]) }}" method="POST" id="weekly_bookingForm" class="was-validated">
                   @csrf
 
         <div class="booking-info-section">
@@ -219,7 +219,7 @@
                         <div class="d-flex justify-content-between align-items-center pb-2">
                             <div classs="">
                             <div class="car_name"><strong>{{ $car_details->brand}} {{ $car_details->model}} {{ $car_details->year}}</strong> <span >{{ $car_details->transmission}}</span></div>
-                            <div class="car_price"><strong>₱ {{ $car_details->dailyrate}} / Daily</strong></div>
+                            <div class="car_price"><strong>₱ {{ $car_details->monthlyrate}} / Monthly</strong></div>
                             </div>
                             <div class="car-image">
 
@@ -247,7 +247,7 @@
                             <div class="return-date d-flex">
                                 <div>
                                     <label for="">Return Date</label>
-                                    <input type="date" name="return_date" id="returndate">
+                                    <input type="date" name="return_date" id="returndate" readonly="readonly">
                                     <span class="error-message" id="errorrd" ><br></span>
                                 </div>
                                 <div>
@@ -269,7 +269,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">Dailyrate</label>
-                            <input type="text" id="car_price" name="total_days" value="{{ $car_details->dailyrate}}">
+                            <input type="text" id="car_price" name="" value="{{ $car_details->monthlyrate}}">
                         </div>
 
                         <div style="width: 100%;" hidden>
@@ -282,15 +282,21 @@
                             <p>₱ <span id="total_rates">0</span></p>
                         </div>
 
-                        <div class="justify-content-between d-flex">
-                            <p>Total Day/s</p>
-                            <p><span id="total_days">0</span></p>
+                        <div class="justify-content-between total_weeks_months">
+                            <div><label>Total Month/s</label></div>
+
+                            <div>
+                            <select id="total_months_select" name="total_weeks">
+                                <?php
+                                for ($i = 1; $i <= 20; $i++) {
+                                    echo '<option value="' . $i . '">' . $i . '</option>';
+                                }
+                                ?>
+                            </select>
+                            </div>
+
                         </div>
 
-                        <div style="width: 100%;" hidden>
-                            <label class="form-label">Total Days</label>
-                            <input type="text" id="total_days_input" name="total_days" placeholder="Enter Address" value="0">
-                        </div>
 
                         <div class="justify-content-between d-flex">
                             <p>Cashbond (Fully Refundable)</p>
@@ -322,7 +328,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">VAT</label>
-                            <input type="number" id="vat_input" name="total_days" value="0" data-rules="bail|required|number|between:1,10">
+                            <input type="number" id="vat_input" name="" value="0" data-rules="bail|required|number|between:1,10">
                         </div>
 
 
@@ -338,7 +344,7 @@
 
                         <div style="width: 100%;" hidden>
                             <label class="form-label">Total Amount Payable</label>
-                            <input type="number" id="total_amount_payable_input" name="" >
+                            <input type="number" id="total_amount_payable_input" name="total_amount_payable" >
                         </div>
                         
 
@@ -367,7 +373,6 @@
         </div>
         </form>
 
-    </section>    
-    
+    </section>
 
 </section>
