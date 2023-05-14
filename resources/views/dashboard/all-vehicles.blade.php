@@ -47,11 +47,15 @@
 
     <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fal fa-bars" style="margin-right: 10px;"></i>  Settings</a></li>
 
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-      <span><i class="fal fa-bell" style="margin-right: 10px;"></i>  Notification</span>
-      <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">02</span>
-      </a>
-      </li>
+    <li class="">
+        <a href="/notification" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+            <span><i class="fal fa-bell" style="margin-right: 10px;"></i>Notification</span>
+            @if($notificationsUnread->count() > 0)
+                <span class="bg-danger rounded-pill text-white px-2 py-0 d-flex align-items-center message-notif">{{ $notificationsUnread->count() }}</span>
+            @endif
+        </a>
+    </li>
+
       
     </ul>
 
@@ -91,12 +95,16 @@
       </button> -->
     
 
-      <button type="button" class="btn position-relative nav-notif"><a href="/notification" class="text-decoration-none text-dark"><i class="fal fa-bell"></i>
-      <span class="nav-notif-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        99+
-        <span class="visually-hidden">unread notification</span>
-      </span>
-    </a>
+      <button type="button" class="btn position-relative nav-notif">
+          <a href="/notification" class="text-decoration-none text-dark">
+              <i class="fal fa-bell"></i>
+              @if($notificationsUnread->count() > 0)
+              <span class="nav-notif-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {{ $notificationsUnread->count() }}
+                  <span class="visually-hidden">unread notification</span>
+              </span>
+              @endif
+          </a>
       </button>
 
           <div class="dropdown">

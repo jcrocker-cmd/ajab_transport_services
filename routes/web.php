@@ -11,6 +11,7 @@ use App\Http\Controllers\AdmininfoController;
 use App\Http\Controllers\EmailRequestController;
 use App\Http\Controllers\BookingformsController;
 use App\Http\Controllers\RatingsController;
+use App\Http\Controllers\NotificationController;
 
 
 /*
@@ -55,7 +56,6 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/available', [AddCarController::class,'db_availablecars']);
         Route::get('/all-vehicles', [AddCarController::class,'db_allvehicles']);
         Route::get('/settings', [AdmininfoController::class,'admin_account_settings_route']);
-        Route::get('/notification', [AddCarController::class,'db_notification']);
 
         // ADMIN ROUTES
         Route::put('/adminpp_update', [AdmininfoController::class,'adminpp_update']);
@@ -104,6 +104,12 @@ Route::middleware(['preventBackHistory'])->group(function () {
 
         // SALES
         Route::get('/sales_report', [AdmininfoController::class,'db_route_sales']);
+
+        // NOTIFICATIONS
+        Route::get('/notification', [NotificationController::class,'db_notification']);
+        Route::put('/mark_as_read_admin/{id}', [NotificationController::class, 'markNotificationAsRead_admin']);
+        Route::get('/delete_admin_notification/{id}', [NotificationController::class,'deleteNotification_admin']);        
+        
     });
 
 
@@ -183,7 +189,20 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/weekly_bookingforms/{slug}', [BookingformsController::class,'weekly_booking_route']);
         Route::get('/monthly_bookingforms/{slug}', [BookingformsController::class,'monthly_booking_route']);
         Route::patch('/cancel_booking/{id}', [BookingformsController::class, 'cancelBooking']);
+
         Route::post('/bookingformsubmit/{slug}', [BookingformsController::class,'booking_submit'])->name('book.submit');
+        Route::post('/weekly_bookingformsubmit/{slug}', [BookingformsController::class,'weekly_booking_submit'])->name('weeklybook.submit');
+        Route::post('/monthly_bookingformsubmit/{slug}', [BookingformsController::class,'monthly_booking_submit'])->name('monthlybook.submit');
+
+        Route::get('/success-booking', [BookingformsController::class, 'succes_booking_route']);
+
+        // NOTIFICATION
+        Route::get('/my_notification', [NotificationController::class,'user_notification']);
+        Route::put('/mark_as_read_user/{id}', [NotificationController::class, 'markNotificationAsRead_user']);
+        Route::get('/delete_user_notification/{id}', [NotificationController::class,'deleteNotification_user']);        
+
+
+
     });
 
 Route::get('/logout', [LoginController::class,'logout']);

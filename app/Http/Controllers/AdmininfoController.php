@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin_Notification;
 use Illuminate\Support\Facades\File;
 use App\Models\AdminInfo;
 use App\Models\User;
@@ -25,13 +26,14 @@ class AdmininfoController extends Controller
 
    public function user_management_route()
    {
+    $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
     $view_user = User::with('roles')
     ->whereHas('roles', function ($query) {
         $query->whereIn('name', ['Super-Admin', 'Admin', 'Front-Desk']);
     })
     ->get();
 
-      return view('dashboard.user-management', compact('view_user'));
+      return view('dashboard.user-management', compact('notificationsUnread','view_user'));
    }
 
 
@@ -67,6 +69,8 @@ class AdmininfoController extends Controller
 
     public function db_route_sales()
     {
+
+        $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
 
         // DAY
         $daily_payment = DB::table('bookingform')
@@ -136,13 +140,14 @@ class AdmininfoController extends Controller
         
 
       return view('dashboard.sales', 
-      compact('day_counts', 'week_counts', 'month_counts','year_counts','days', 'weeks', 'months','years',));
+      compact('notificationsUnread','day_counts', 'week_counts', 'month_counts','year_counts','days', 'weeks', 'months','years',));
     }
 
 
    public function dashboardroute()
 
    {
+    $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
     
     $numberOfUsers = User::whereHas('roles', function ($query) {
         $query->where('name', 'Client');
@@ -180,15 +185,16 @@ class AdmininfoController extends Controller
     $signins[] = $signin->count;
 }
 
-    return view('dashboard.dashboard', compact('numberOfUsers', 'allusers', 'numberOfBookings', 'months', 'signins', 'available','rented'));
+    return view('dashboard.dashboard', compact('notificationsUnread','numberOfUsers', 'allusers', 'numberOfBookings', 'months', 'signins', 'available','rented'));
 
     }
 
 
    public function admin_account_settings_route()
    {
+    $notificationsUnread = Admin_Notification::whereNull('read_at')->get();
     $user = Auth::user();
-    return view('dashboard.settings',compact('user'));
+    return view('dashboard.settings',compact('notificationsUnread','user'));
    }
 
 //    function adminchecklogin(Request $request)

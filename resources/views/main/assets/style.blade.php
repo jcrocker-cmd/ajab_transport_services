@@ -9,4 +9,5 @@
 <link rel="stylesheet" href="/css/main-bookingform.css">
 <link rel="stylesheet" href="/css/main-footer.css">
 <link rel="stylesheet" href="/css/preloader.css">
+<link rel="stylesheet" href="/css/success.css">
 

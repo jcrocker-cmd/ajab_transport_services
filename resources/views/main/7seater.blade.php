@@ -39,13 +39,13 @@
 
                                 <p class="location">{{ $item->carlocation}}</p>
 
-                            <div class="d-flex align-items-center prices" style="gap: 10px;">
-                                <span><h6><sup>₱</sup> {{ $item->weeklyrate}} / Weekly</h6></span>
-                                <span><h5>|</h5></span>
-                                <span><h6><sup>₱</sup> {{ $item->monthlyrate}} / Monthly</h6></span>
-                            </div>
+                                <div class="d-flex align-items-center prices" style="gap: 10px;">
+                            <span><h6><sup>₱</sup> {{ number_format($item->weeklyrate) }} / Weekly</h6></span>
+                            <span><h5>|</h5></span>
+                            <span><h6><sup>₱</sup> {{ number_format($item->monthlyrate) }} / Monthly</h6></span>
+                        </div>
 
-                                <h5 class="pt-1 dailyrate"><sup>₱</sup> {{ $item->dailyrate}} | Daily</h5>
+                            <h5 class="pt-1 dailyrate"><sup>₱</sup> {{ number_format($item->dailyrate) }} | Daily</h5>
                     </a>
                             
                             <div class="carbuttons">

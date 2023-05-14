@@ -24,72 +24,72 @@
 @if(count($bookings) > 0)    
 @foreach ($bookings as $booking)
 <div class="rental-card">
-<div class="rental-top">
-    <span class="d-flex buttons">
-      <div><button class="action-view-booking" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#viewModalBooking"><i class="fas fa-eye"></i> View</button></div>
-      @if ($booking->status == 'Closed' && !$booking->car_rating)
-          <div><button class="action-rating" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#ratingsModal"><i class="fas fa-star"></i> Rate</button></div>
-      @endif
+    <div class="rental-top">
+        <span class="d-flex buttons">
+          <div><button class="action-view-booking" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#viewModalBooking"><i class="fas fa-eye"></i> View</button></div>
+          @if ($booking->status == 'Closed' && !$booking->car_rating)
+              <div><button class="action-rating" data-id="{{ $booking->id }}" data-bs-toggle="modal" data-bs-target="#ratingsModal"><i class="fas fa-star"></i> Rate</button></div>
+          @endif
 
-      @if ($booking->status == 'In progress')
-        <div class="d-flex align-items-center" style="gap: 5px;">
-          <form method="POST" action="/cancel_booking/{{$booking->id}}">
-            @csrf
-            @method('PATCH')
-            <input type="hidden" name="booking_id" value="{{ $booking->id }}">
-            <button type="submit" class="action-cancel">Cancel</button>
-          </form>
+          @if ($booking->status == 'In progress')
+            <div class="d-flex align-items-center" style="gap: 5px;">
+              <form method="POST" action="/cancel_booking/{{$booking->id}}">
+                @csrf
+                @method('PATCH')
+                <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                <button type="submit" class="action-cancel">Cancel</button>
+              </form>
+            </div>
+          @endif
+        </span>
+        <span class="statuses">
+            <strong>
+            @if ($booking->status == 'In progress')
+                <span class="badge bg-warning rounded-pill">{{ $booking->status }}</span>
+            @elseif ($booking->status == 'Confirmed')
+                <span class="badge bg-success rounded-pill">{{ $booking->status }}</span>
+            @elseif ($booking->status == 'Declined')
+                <span class="badge bg-secondary rounded-pill">{{ $booking->status }}</span>
+            @elseif ($booking->status == 'Closed')
+                <span class="badge bg-danger rounded-pill">{{ $booking->status }}</span>
+            @elseif ($booking->status == 'Cancelled')
+              <span class="badge bg-info rounded-pill">{{ $booking->status }}</span>
+            @endif
+            </strong>
+        </span>
+    </div>
+
+    <!-- <hr> -->
+
+    <div class="rental-mid">
+        <div>
+            <img src="/images/samplecar.png" alt="">
         </div>
-      @endif
-    </span>
-    <span class="statuses">
-        <strong>
-        @if ($booking->status == 'In progress')
-            <span class="badge bg-warning rounded-pill">{{ $booking->status }}</span>
-        @elseif ($booking->status == 'Confirmed')
-            <span class="badge bg-success rounded-pill">{{ $booking->status }}</span>
-        @elseif ($booking->status == 'Declined')
-            <span class="badge bg-secondary rounded-pill">{{ $booking->status }}</span>
-        @elseif ($booking->status == 'Closed')
-            <span class="badge bg-danger rounded-pill">{{ $booking->status }}</span>
-        @elseif ($booking->status == 'Cancelled')
-          <span class="badge bg-info rounded-pill">{{ $booking->status }}</span>
-        @endif
-        </strong>
-    </span>
-</div>
 
-<!-- <hr> -->
+        <div class="group">
+        <div>
+            <p>{{ $booking->car->brand }} {{ $booking->car->model }} {{ $booking->car->year }} {{ $booking->car->transmission }}</p>
+            <p>Daily Booking Form</p>
+            <!-- <p>Start: {{ $booking->start_date }} {{ $booking->start_time }}</p> 
+            <p>End: {{ $booking->return_date }} {{ $booking->return_time }}</p>  -->
+        </div>
 
-<div class="rental-mid">
-    <div>
-        <img src="/images/samplecar.png" alt="">
+        
+        <div>
+            <!-- <p>Toyota Vios 2017 Manual</p>
+            <p>Daily Booking Form</p> -->
+            <p>Start: {{ date('F j, Y', strtotime($booking->start_date)) }}, {{ \Carbon\Carbon::parse($booking->start_time)->format('g:i A') }}</p> 
+            <p>End: {{ date('F j, Y', strtotime($booking->return_date)) }}, {{ \Carbon\Carbon::parse($booking->return_time)->format('g:i A') }}</p> 
+        </div>
+        </div>
+
     </div>
 
-    <div class="group">
-    <div>
-        <p>{{ $booking->car->brand }} {{ $booking->car->model }} {{ $booking->car->year }} {{ $booking->car->transmission }}</p>
-        <p>Daily Booking Form</p>
-        <!-- <p>Start: {{ $booking->start_date }} {{ $booking->start_time }}</p> 
-        <p>End: {{ $booking->return_date }} {{ $booking->return_time }}</p>  -->
+    <hr>
+
+    <div class="rental-bottom">
+        <span><strong>Total Amount: ₱ {{ number_format($booking->total_amount_payable, 2) }}</strong></span>
     </div>
-
-    
-    <div>
-        <!-- <p>Toyota Vios 2017 Manual</p>
-        <p>Daily Booking Form</p> -->
-        <p>Start: December 02, 2000 10:00 PM</p> 
-        <p>End: December 02, 2000 12:00 PM</p> 
-    </div>
-    </div>
-
-</div>
-
-<hr>
-
-<div class="rental-bottom">
-    <span><strong>Total Amount: ₱ 200,000</strong></span>
-</div>
 
 
 </div>
@@ -276,7 +276,7 @@
             </tr>
             <tr>
               <td style="padding: 10px;">Total Amount Payable</td>
-              <td style="padding: 10px;">@fat</td>
+              <td style="padding: 10px;"><span id="total_amount_payable"></span></td>
             </tr>
           </tbody>
         </table>

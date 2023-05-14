@@ -2,7 +2,7 @@
 <header id="header">
      <nav>
      <div class="header-col-1 ">
-        <a href="/" class="brand"><img src="/images/LOGO.png" class="logo"></a>
+        <a href="/mainhome" class="brand"><img src="/images/LOGO.png" class="logo"></a>
        
                 <h2>|</h2>
                 <div class="search-bar">
@@ -33,11 +33,15 @@
                 </span>
 
                 <span>
-                    <button type="button" class="icon-button">
+                    <a href="/my_notification" type="button" class="icon-button" title="Notifications">
                     <span><i class="fas fa-bell"></i></span>
-                    <span class="icon-button__badge">2</span>
-                    </button>
+                    @if($notificationsUnread->count() > 0)
+                    <span class="icon-button__badge">{{ $notificationsUnread->count() }}</span>
+                    @endif
+                    </a>
                 </span>
+
+
 
                 <span class="user-profile" onclick="menuToggle();">
 
@@ -80,6 +84,12 @@
                 <img src="/images/profile/setting.png">
                 <span class="link">My Bookings</span>
             </a>
+
+            <a href="/my_notification" class="sub-menu-link">
+                <img src="/images/profile/setting.png">
+                <span class="link">My Notifications</span>
+            </a>
+
             <a href="/my_ratings" class="sub-menu-link">
                 <img src="/images/profile/setting.png">
                 <span class="link">My Ratings</span>
@@ -88,6 +98,9 @@
                 <img src="/images/profile/logout.png">
                 <span class="link">Logout</span>
             </a>
+
+
+            
         </div>
 
 
@@ -135,6 +148,7 @@
     <a href="/account">My Account</a>
     <a href="/my_bookings">My Bookings</a>
     <a href="/my_ratings">My Ratings</a>
+    <a href="/my_notification">My Notifications</a>
     <a href="/logout">Logout</a>
   </div>
 
