@@ -26,10 +26,8 @@
     
     <!-- <script src="/js/parsley.js"></script> -->
     
-    <script src="/js/daIly-bookingform-validation.js"></script>
-    <script src="/js/weekly-bookingform-validation.js"></script>
+    <script src="/js/daily-bookingform-validation.js"></script>
     <script src="/js/daily-bookingform-price.js"></script>
-    <script src="/js/weekly-bookingform-price.js"></script>
     <script src="/js/moment-library.js"></script>
     <script src="/js/ajax-user-booking.js"></script>
 

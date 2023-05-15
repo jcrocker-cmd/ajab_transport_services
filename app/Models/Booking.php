@@ -29,6 +29,7 @@ class Booking extends Model
         'start_time',
         'return_date',
         'return_time',
+        'form_type',
         'msg',
         'user_id',
         'car_id',

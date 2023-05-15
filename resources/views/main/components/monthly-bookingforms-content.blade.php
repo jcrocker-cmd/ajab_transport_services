@@ -219,7 +219,7 @@
                         <div class="d-flex justify-content-between align-items-center pb-2">
                             <div classs="">
                             <div class="car_name"><strong>{{ $car_details->brand}} {{ $car_details->model}} {{ $car_details->year}}</strong> <span >{{ $car_details->transmission}}</span></div>
-                            <div class="car_price"><strong>₱ {{ $car_details->monthlyrate}} / Monthly</strong></div>
+                            <div class="car_price"><strong>₱ {{ number_format($car_details->monthlyrate) }} / Monthly</strong></div>
                             </div>
                             <div class="car-image">
 

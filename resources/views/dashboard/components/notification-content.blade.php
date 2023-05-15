@@ -42,7 +42,7 @@
           </div>
         </div>
       </td>
-      <td>{{ $item->message}}</td>
+      <td>{{ $item->message}} ({{ $item->booking->form_type}})</td>
       <td>
         <div>
           <p class="fw-bold mb-1">{{ $item->car->brand }} {{ $item->car->model }} {{ $item->car->year }} </p>

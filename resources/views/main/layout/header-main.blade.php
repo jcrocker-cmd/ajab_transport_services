@@ -25,12 +25,12 @@
                     </button>
                 </span> -->
 
-                <span>
+                <!-- <span>
                     <button type="button" class="icon-button">
                     <span><i class="fas fa-shopping-cart"></i></span>
                     <span class="icon-button__badge">2</span>
                     </button>
-                </span>
+                </span> -->
 
                 <span>
                     <a href="/my_notification" type="button" class="icon-button" title="Notifications">

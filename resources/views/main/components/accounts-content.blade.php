@@ -441,8 +441,8 @@
           <input type="radio" name="rating" id="star1" value="1" /><label for="star1" title="1 Star"><i class="fas fa-star"></i></label>
         </div>
 
-        <input type="hidden" name="car_id" id="car_id">
-        <input type="hidden" name="booking_id" id="booking_id">
+        <input type="text" name="car_id" id="car_id" hidden>
+        <input type="text" name="booking_id" id="booking_id" hidden>
 
         <div class="rating-txt">
           <label for="rating">Message</label>
@@ -686,6 +686,10 @@
               <td style="padding: 10px;">Mode of Delivery</td>
               <td style="padding: 10px;"><span id="mode_del"></span></td>
             </tr>
+            <tr>
+              <td style="padding: 10px;">Form Type</td>
+              <td style="padding: 10px;"><span id="form_type"></span></td>
+            </tr>
           </tbody>
 
 
@@ -703,7 +707,7 @@
             </tr>
             <tr>
               <td style="padding: 10px;">Total Amount Payable</td>
-              <td style="padding: 10px;"><span id="total_amount_payable"></span></td>
+              <td style="padding: 10px;">₱ <span id="total_amount_payable"></span></td>
             </tr>
           </tbody>
         </table>

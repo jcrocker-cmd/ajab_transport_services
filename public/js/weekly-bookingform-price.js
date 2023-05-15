@@ -16,7 +16,7 @@ deliveryOptions.forEach(option => {
     const totalPriceElement = document.getElementById('delivery_fee_value');
     const currentPrice = parseFloat(totalPriceElement.innerText);
     const newPrice = currentPrice - previousOptionValue + parseFloat(selectedOptionValue);
-    totalPriceElement.innerText = newPrice;
+    totalPriceElement.innerText = newPrice.toFixed(2);
 
     // Update the input field value as well
     const deliveryFeeInputElement = document.getElementById('delivery_fee_value_input');
@@ -46,7 +46,7 @@ cashbondCheckbox.addEventListener('click', () => {
     const cashbondAmountElement = document.getElementById('cashbondAmount');
     const currentCashbondAmount = parseFloat(cashbondAmountElement.innerText);
     const newCashbondAmount = currentCashbondAmount + cashbondValue;
-    cashbondAmountElement.innerText = newCashbondAmount;
+    cashbondAmountElement.innerText = newCashbondAmount.toFixed(2);
 
     // Update the cashbond input value as well
     const cashbondInputElement = document.getElementById('cashbondAmount_input');
@@ -87,27 +87,6 @@ const totalWeeksInput = document.getElementById('total_weeks_select');
 // Get the return date input element
 const returnDateInput = document.getElementById('returndate');
 
-// Add event listeners to the start date and total weeks input elements to update the return date
-startDateInput.addEventListener('change', updateReturnDate);
-totalWeeksInput.addEventListener('change', updateReturnDate);
-
-function updateReturnDate() {
-  // Get the selected start date
-  const startDate = new Date(startDateInput.value);
-
-  // Get the number of weeks
-  const totalWeeks = parseInt(totalWeeksInput.value);
-
-  // Calculate the return date
-  if (startDate && !isNaN(totalWeeks)) {
-    const returnDate = new Date(startDate.getTime() + totalWeeks * 7 * 24 * 60 * 60 * 1000);
-    const returnDateString = returnDate.toISOString().split('T')[0];
-    returnDateInput.value = returnDateString;
-  }
-}
-
-
-
 // Get the car price and total weeks input elements
 const carPriceInput = document.getElementById('car_price');
 const _totalWeeksInput = document.getElementById('total_weeks_select');
@@ -116,17 +95,32 @@ const _totalWeeksInput = document.getElementById('total_weeks_select');
 const total_RatesInput = document.getElementById('total_rates_input');
 const totalRatesParagraph = document.getElementById('total_rates');
 
-// Listen for changes in the total weeks input
-_totalWeeksInput.addEventListener('change', () => {
-  // Calculate the total rates by multiplying the car price and total weeks
+// Add event listeners to the start date and total weeks input elements to update the return date and total rates
+startDateInput.addEventListener('change', updateReturnDateAndTotalRates);
+totalWeeksInput.addEventListener('change', updateReturnDateAndTotalRates);
+_totalWeeksInput.addEventListener('change', updateReturnDateAndTotalRates);
+carPriceInput.addEventListener('change', updateReturnDateAndTotalRates);
+
+function updateReturnDateAndTotalRates() {
+  // Get the selected start date
+  const startDate = new Date(startDateInput.value);
+
+  // Get the number of weeks and car price
   const totalWeeks = parseFloat(_totalWeeksInput.value);
   const carPrice = parseFloat(carPriceInput.value);
-  const totalRates = totalWeeks * carPrice;
 
-  // Update the total rates input and paragraph elements
-  total_RatesInput.value = totalRates;
-  totalRatesParagraph.innerText = `${totalRates.toLocaleString()}`;
-});
+  // Calculate the return date and total rates
+  if (startDate && !isNaN(totalWeeks) && !isNaN(carPrice)) {
+    const returnDate = new Date(startDate.getTime() + totalWeeks * 7 * 24 * 60 * 60 * 1000);
+    const returnDateString = returnDate.toISOString().split('T')[0];
+    const totalRates = totalWeeks * carPrice;
+    
+    // Update the return date, total rates input, and paragraph elements
+    returnDateInput.value = returnDateString;
+    total_RatesInput.value = totalRates;
+    totalRatesParagraph.innerText = `${totalRates.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
+  }
+}
 
 
 
@@ -183,6 +177,11 @@ start_dateInput.addEventListener("change", () => {
 return_dateInput.addEventListener("change", () => {
   calculateVat();
 });
+
+totalWeeksInput.addEventListener("change", () => {
+  calculateVat();
+});
+
 
 
 const _cashRadio = document.getElementById("pay1");

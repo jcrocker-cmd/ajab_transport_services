@@ -46,9 +46,10 @@ class RatingsController extends Controller
         
         // Check if user has already rated this booking
         $booking = Booking::find($booking_id);
-        if ($booking->already_rated) {
+        if ($booking->car_rating === true) {
             return back()->with('error', 'You have already rated this car for this booking.');
         }
+
         
         $rating = new Ratings;
         $rating->rating = $request->input('rating');
