@@ -66,29 +66,29 @@
     <div class="text-white"><h4>Enter Credentials</h4></div>
   </div>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>To get started, simply enter your login credentials or create a new account to access our services and enjoy a seamless booking experience.</p>
     <a href="#">Read More</a>
   </div>
 </div>
 
 <div class="how-card" id="howcard-2">
   <div class="circle">
-    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-calendar-alt fa-3x"></i></div>
-    <div class="text-white"><h4>Pick a Date</h4></div>
+    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-bookmark fa-3x"></i></div>
+    <div class="text-white"><h4>Book a Car</h4></div>
   </div>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Once you're logged in, browse through our available cars and select the one that suits your preferences.</p>
     <a href="#">Read More</a>
   </div>
 </div>
 
 <div class="how-card" id="howcard-3">
   <div class="circle">
-    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-bookmark fa-3x"></i></div>
-    <div class="text-white"><h4>Book a Car</h4></div>
+    <div class="text-center text-white pb-3 card-logo"><i class="fas fa-check fa-3x"></i></div>
+    <div class="text-white"><h4>Confirmation </h4></div>
   </div>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>After booking a car, The owner will then get in touch with you to discuss further details, and any other necessary arrangements.</p>
     <a href="#">Read More</a>
   </div>
 </div>

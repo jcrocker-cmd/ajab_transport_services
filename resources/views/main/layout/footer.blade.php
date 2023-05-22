@@ -7,9 +7,10 @@
         
         <div class="footer-col">
             <h3>OFFICE<div class="under-line"><span></span></div></h3>
-            <p>ITPL Road <br>
-            Whitefield, Bangalore <br>
-            Salvador, Sierra Bullones</p>
+            <p>Sitio Plaza Nivel Hills <br>
+            Back of Marcopolo Residences,<br>
+            Towe 3, Apas, Cebu City, 6000 Cebu
+            </p>
             <p class="email-id">narbajajcgmail.com</p>
             <p >+63 912 772 5518</p>
         </div>
@@ -17,11 +18,12 @@
         <div class="footer-col">
             <h3>LINKS<div class="under-line"><span></span></div></h3>
             
-            <li><a href="#">Home</a></li>
-            <li><a href=".howitworks">How It Works</a></li>
-            <li><a href="">Features</a></li>
-            <li><a href="">About</a></li>
-            <li><a href=".contactus">Contact Us</a></li>
+            <li> <a href="/mainhome">All Cars</a></li>
+            <li> <a href="/van">Van</a></li>
+            <li> <a href="/pickup">Pick-up</a></li>
+            <li> <a href="/7seaters">7 Seaters</a></li>
+            <li> <a href="/sedan">Sedan</a></li>
+            <li> <a href="/hatchback">Hatchback</a></li>
            
 
         </div>
@@ -34,7 +36,7 @@
             </form>
 
             <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
+            <a href="https://web.facebook.com/AJABcarental"><i class="fab fa-facebook-f"></i></a>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-pinterest"></i>
             </div>

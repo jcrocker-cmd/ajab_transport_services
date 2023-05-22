@@ -26,8 +26,8 @@ class AdmininfoSeeder extends Seeder
                 'first_name' => 'Johnny Boy',
                 'middle_name' => 'Narbaja',
                 'last_name' => 'Narbaja',
-                'email' => 'sample@gmail.com',
-                'password' => Hash::make('aug151973'),
+                'email' => 'admin@ajab.com',
+                'password' => Hash::make('12345678'),
                 'con_num' => '09127725518',
                 'bday' => '2022-11-01',
                 'purok' => 'Purok 2',
@@ -37,7 +37,6 @@ class AdmininfoSeeder extends Seeder
                 'postal' => '6320',
                 'fb' => 'John',
                 'about' => 'John',
-                'profile_picture' => 'default-user.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

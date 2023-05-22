@@ -136,6 +136,7 @@ class BookingformsController extends Controller
         $booking->car_id = $data['car_id'];
         $booking->user_id = $data['user_id'];
         $booking->status = 'In progress';
+        $booking->form_type = 'Daily Booking Form';
     
         if ($front_license) {
             $front_license_name = time() . '_' . $front_license->getClientOriginalName();
@@ -248,6 +249,8 @@ class BookingformsController extends Controller
         $booking->car_id = $data['car_id'];
         $booking->user_id = $data['user_id'];
         $booking->status = 'In progress';
+        $booking->form_type = 'Weekly Booking Form';
+
     
         if ($front_license) {
             $front_license_name = time() . '_' . $front_license->getClientOriginalName();
@@ -361,6 +364,8 @@ class BookingformsController extends Controller
         $booking->car_id = $data['car_id'];
         $booking->user_id = $data['user_id'];
         $booking->status = 'In progress';
+        $booking->form_type = 'Monthly Booking Form';
+
     
         if ($front_license) {
             $front_license_name = time() . '_' . $front_license->getClientOriginalName();

@@ -29,6 +29,6 @@
     <script src="/js/monthly-bookingform-validation.js"></script>
     <script src="/js/monthly-bookingform-price.js"></script>
     <script src="/js/moment-library.js"></script>
-    <script src="/js/ajax-user-booking.js"></script>
+    <!-- <script src="/js/ajax-user-booking.js"></script> -->
 
 @endpush

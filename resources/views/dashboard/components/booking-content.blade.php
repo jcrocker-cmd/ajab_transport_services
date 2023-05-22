@@ -269,6 +269,10 @@
               <td style="padding: 10px;">Mode of Delivery</td>
               <td style="padding: 10px;"><span id="mode_del"></span></td>
             </tr>
+            <tr>
+              <td style="padding: 10px;">Form Type</td>
+              <td style="padding: 10px;"><span id="form_type"></span></td>
+            </tr>
           </tbody>
 
 
@@ -286,7 +290,7 @@
             </tr>
             <tr>
               <td style="padding: 10px;">Total Amount Payable</td>
-              <td style="padding: 10px;"><span id="total_amount_payable"></span></td>
+              <td style="padding: 10px;">₱ <span id="total_amount_payable"></span></td>
             </tr>
           </tbody>
         </table>

@@ -16,7 +16,7 @@ deliveryOptions.forEach(option => {
     const totalPriceElement = document.getElementById('delivery_fee_value');
     const currentPrice = parseFloat(totalPriceElement.innerText);
     const newPrice = currentPrice - previousOptionValue + parseFloat(selectedOptionValue);
-    totalPriceElement.innerText = newPrice;
+    totalPriceElement.innerText = newPrice.toFixed(2);
 
     // Update the input field value as well
     const deliveryFeeInputElement = document.getElementById('delivery_fee_value_input');
@@ -46,7 +46,7 @@ cashbondCheckbox.addEventListener('click', () => {
     const cashbondAmountElement = document.getElementById('cashbondAmount');
     const currentCashbondAmount = parseFloat(cashbondAmountElement.innerText);
     const newCashbondAmount = currentCashbondAmount + cashbondValue;
-    cashbondAmountElement.innerText = newCashbondAmount;
+    cashbondAmountElement.innerText = newCashbondAmount.toFixed(2);
 
     // Update the cashbond input value as well
     const cashbondInputElement = document.getElementById('cashbondAmount_input');
@@ -106,11 +106,11 @@ function updateTotalDays() {
 
   // update the text content of the <p> element for the total rate
   const totalRateParagraph = document.getElementById("total_rates");
-  totalRateParagraph.textContent = `${totalRate.toLocaleString()}`;
+  totalRateParagraph.textContent = `${totalRate.toFixed(2).toLocaleString()}`;
 
   // set the value of the Total Rates input
   const totalRatesInput = document.getElementById("total_rates_input");
-  totalRatesInput.value = totalRate;
+  totalRatesInput.value = totalRate.toFixed(2);
 }
 
 
@@ -132,8 +132,8 @@ function calculateVat() {
   if (cardRadio.checked) {
     vat = totalRate * 0.0275;
   }
-  vatParagraph.textContent = `${vat.toLocaleString()}`;
-  vatInput.value = vat;
+  vatParagraph.textContent = `${vat.toFixed(2).toLocaleString()}`;
+  vatInput.value = vat.toFixed(2);
 }
 
 

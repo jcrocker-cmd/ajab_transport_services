@@ -12,6 +12,7 @@ $(document).on('click', '.action-view', function(event) {
             $('#con_email').text(response.booking.con_email);
             $('#mode_del').text(response.booking.mode_del);
             $('#payment').text(response.booking.payment);
+            $('#form_type').text(response.booking.form_type);
             $('#total_amount_payable').text(new Intl.NumberFormat().format(response.booking.total_amount_payable));
 
             $('#view_front_license img').attr('src', response.front_license);

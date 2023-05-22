@@ -123,7 +123,6 @@ Route::middleware(['preventBackHistory'])->group(function () {
 Route::middleware(['preventBackHistory'])->group(function () {
 
     Route::middleware(['guest'])->group(function () {
-        Route::get('/', function () {return view('home.homepage');});
 
         Route::get('/guest-home', [AddCarController::class,'guest_allcars']);
         Route::get('/guestviewcar/{slug}', [AddCarController::class,'guest_viewvehicle']);
@@ -223,6 +222,11 @@ Route::get('/auth/facebook/callback', [SocialiteController::class, 'facebookcall
 Route::get('/auth/apple/redirect', [SocialiteController::class, 'appleredirect']);
 Route::get('/auth/apple/callback', [SocialiteController::class, 'applecallback']);
 Auth::routes();
+
+Route::get('/', function () {return view('home.homepage');});
+Route::get('/home', function () {return view('home.homepage');});
+
+
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

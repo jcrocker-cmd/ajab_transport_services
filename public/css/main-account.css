@@ -454,6 +454,8 @@
 #editModalRating textarea
 {
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .modal-title,
@@ -462,6 +464,8 @@
 .modal-content 
 {
     font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 

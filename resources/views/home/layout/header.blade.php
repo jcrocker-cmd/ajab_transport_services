@@ -11,9 +11,9 @@
 
     <div class="header-col-middle">
                 <li> <a href="#" id="scroll-up-2">Home</a></li>
-                <li> <a href="">Features</a></li>
+                <li> <a href=".featured-section">Features</a></li>
                 <li> <a href=".howitworks">How it Works</a></li>
-                <li> <a href="">About</a></li>
+                <!-- <li> <a href="">About</a></li> -->
                 <li> <a href=".contact-us">Contact Us</a></li>
                 <a href="/guest-home" class="bg-primary px-2 py-2 text-white view-rental-btn">View Rental Cars</a>
     </div>
