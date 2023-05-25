@@ -1,5 +1,7 @@
 @extends('home.layout.master')
 
+@section('title', 'AJAB Car Rental | Home')
+
 @section('styles')
     @include('home.assets.bootstrapcss')
     @include('home.assets.style')

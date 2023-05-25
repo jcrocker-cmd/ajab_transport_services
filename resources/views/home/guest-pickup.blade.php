@@ -1,5 +1,7 @@
 @extends('home.layout.master')
 
+@section('title', 'Car Rental | Pick-up')
+
 @section('styles')
     @include('home.assets.bootstrapcss')
     @include('home.assets.style')

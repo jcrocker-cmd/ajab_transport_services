@@ -70,27 +70,18 @@
 </div>
 
 <div class="mb-2">
-<label for="exampleFormControlInput1" class="form-label">Year</label>
-<select class="form-select " name="year" aria-label="Default select example" id="vehicle-info">
+  <label for="exampleFormControlInput1" class="form-label">Year</label>
+  <select class="form-select" name="year" aria-label="Default select example" id="vehicle-info">
     <option selected>Pick a Year</option>
-    <option value="2006">2006</option>
-    <option value="2007">2007</option>
-    <option value="2008">2008</option>
-    <option value="2009">2009</option>
-    <option value="2010">2010</option>
-    <option value="2011">2011</option>
-    <option value="2012">2012</option>
-    <option value="2013">2013</option>
-    <option value="2014">2014</option>
-    <option value="2015">2015</option>
-    <option value="2016">2016</option>
-    <option value="2017">2017</option>
-    <option value="2018">2018</option>
-    <option value="2019">2019</option>
-    <option value="2020">2020</option>
-    <option value="2021">2021</option>
-</select>
+    <?php
+      $currentYear = date("Y");
+      for ($year = 2006; $year <= $currentYear; $year++) {
+        echo "<option value='$year'>$year</option>";
+      }
+    ?>
+  </select>
 </div>
+
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Plate No.</label>

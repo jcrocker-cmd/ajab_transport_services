@@ -21,6 +21,6 @@ class ClientMiddleware
             return $next($request);
         }
 
-        return redirect('/mainhome');
+        return redirect('home');
     }
 }

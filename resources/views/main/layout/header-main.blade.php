@@ -2,7 +2,7 @@
 <header id="header">
      <nav>
      <div class="header-col-1 ">
-        <a href="/mainhome" class="brand"><img src="/images/LOGO.png" class="logo"></a>
+        <a href="home" class="brand"><img src="/images/LOGO.webp" class="logo"></a>
        
                 <h2>|</h2>
                 <div class="search-bar">
@@ -155,14 +155,14 @@
   <hr>
 
   <div>
-    <a href="/mainhome">Home</a>
-    <a href="/mainhome">All-Cars</a>
+    <a href="home">Home</a>
+    <a href="home">All-Cars</a>
     <a href="/">Contact Us</a>
   </div>
 
   <hr>
     <div class="car-links-container">
-        <a href="/mainhome" class="car-links">All-Cars</a>
+        <a href="home" class="car-links">All-Cars</a>
         <a href="/van" class="car-links">Van</a>
         <a href="/sedan" class="car-links">Sedan</a>
         <a href="/pickup" class="car-links">Pick-Up</a>

@@ -2,7 +2,7 @@
 <header id="header">
      <nav>
      <div class="header-col-1 ">
-        <a href="/" class="brand"><img src="/images/LOGO.png" class="logo"></a>
+        <a href="/" class="brand"><img src="/images/LOGO.webp" class="logo"></a>
        
                 <h2>|</h2>
                 <div class="search-bar">

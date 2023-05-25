@@ -46,7 +46,7 @@ class LoginController extends Controller
             return redirect('/dashboard');
         } elseif ($user->hasRole('Client')) {
             $user->update(['is_active' => true]); // Update the is_active attribute
-            return redirect('/mainhome');
+            return redirect('home');
         }
     }
 }

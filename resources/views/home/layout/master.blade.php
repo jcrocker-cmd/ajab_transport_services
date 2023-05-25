@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJAB Car Rental</title>
+    <title>@yield('title')</title>
     <link rel="shortcut icon" href="images/tire.png" type="image/x-icon">
     @yield('styles')
 </head>
@@ -23,7 +23,7 @@
 <!-- PRELOADER -->
 
 <div class="loader-wrapper" id="loads">
-    <a href="/" class="brand"><img src="/images/LOGO.png" class="preloader_logo pb-2"></a>
+    <a href="/" class="brand"><img src="/images/LOGO.webp" class="preloader_logo pb-2"></a>
     <div class="linePreloader"></div>
 </div>
 
@@ -49,16 +49,11 @@ $(window).on("load",function(){
 
 
 
-<script>
-var chatbox = document.getElementById('fb-customer-chat');
-chatbox.setAttribute("page_id", "1057071350970751");
-chatbox.setAttribute("attribution", "biz_inbox");
-</script>
 
 
 <script>
   var chatbox = document.getElementById('fb-customer-chat');
-  chatbox.setAttribute("page_id", "1057071350970751");
+  chatbox.setAttribute("page_id", "122087324217539");
   chatbox.setAttribute("attribution", "biz_inbox");
 </script>
 
@@ -79,7 +74,6 @@ chatbox.setAttribute("attribution", "biz_inbox");
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
-
 </body>
 
 </html>
