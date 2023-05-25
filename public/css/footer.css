@@ -82,7 +82,8 @@ footer
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
 }
-.footer-col-form .fas
+.footer-col-form .fas,
+.footer-col-form .fab
 {
     font-size: 18px;
     margin-right: 10px;
@@ -103,7 +104,8 @@ footer
     cursor: pointer;
     color: #ccc;
 }
-.social-icons .fab
+.social-icons .fab,
+.social-icons .fas
 {
     height: 40px;
     width: 40px;

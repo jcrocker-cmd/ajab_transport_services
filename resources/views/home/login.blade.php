@@ -1,5 +1,7 @@
 @extends('home.layout.master')
 
+@section('title', 'AJAB | Login')
+
 @section('styles')
     @include('home.assets.style')
 @endsection

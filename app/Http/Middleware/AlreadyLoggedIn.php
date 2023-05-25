@@ -18,7 +18,7 @@ class AlreadyLoggedIn
     {
         if(Session()->has('loginId') && (url('/log-in')==$request->url() || url('/sign-in')==$request->url()))
         {
-            return redirect('/mainhome');
+            return redirect('home');
         }
         return $next($request);
     }

@@ -10,7 +10,7 @@
         
         <div class="featured-row-1">
             <div class="featured-col-1">
-                <img src="/images/samplecar2.png" alt="" srcset="">
+                <img src="/images/samplecar2.webp" alt="" srcset="">
             </div>
             <div class="featured-col-2">
                 <div class="car-title-wrapper">
@@ -49,13 +49,13 @@
             </div>
             <div class="featured-col-2">
 
-                <img src="/images/van.png" alt="" srcset="">
+                <img src="/images/van.webp" alt="" srcset="">
             </div>
         </div>
 
         <div class="featured-row-1">
             <div class="featured-col-1">
-                <img src="/images/7.png" alt="" srcset="">
+                <img src="/images/7.webp" alt="" srcset="">
             </div>
             <div class="featured-col-2">
                 <div class="car-title-wrapper">
@@ -94,14 +94,14 @@
             </div>
             <div class="featured-col-2">
 
-                <img src="/images/sedan.png" alt="" srcset="">
+                <img src="/images/sedan.webp" alt="" srcset="">
             </div>
         </div>
 
         
         <div class="featured-row-1">
             <div class="featured-col-1">
-                <img src="/images/wigo.png" alt="" srcset="">
+                <img src="/images/wigo.webp" alt="" srcset="">
             </div>
             <div class="featured-col-2">
                 <div class="car-title-wrapper">

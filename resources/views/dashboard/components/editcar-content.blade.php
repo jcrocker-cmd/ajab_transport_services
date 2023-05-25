@@ -55,26 +55,19 @@
 </div>
 
 <div class="mb-2">
-<label for="exampleFormControlInput1" class="form-label">Year</label>
-<select class="form-select"  name="year" aria-label="Default select example" id="vehicle-info">
-    <option value="2006" @if ($editcar->year == '2006') selected @endif>2006</option>
-    <option value="2007" @if ($editcar->year == '2007') selected @endif>2007</option>
-    <option value="2008" @if ($editcar->year == '2008') selected @endif>2008</option>
-    <option value="2009" @if ($editcar->year == '2009') selected @endif>2009</option>
-    <option value="2010" @if ($editcar->year == '2010') selected @endif>2010</option>
-    <option value="2011" @if ($editcar->year == '2011') selected @endif>2011</option>
-    <option value="2012" @if ($editcar->year == '2012') selected @endif>2012</option>
-    <option value="2013" @if ($editcar->year == '2013') selected @endif>2013</option>
-    <option value="2014" @if ($editcar->year == '2014') selected @endif>2014</option>
-    <option value="2015" @if ($editcar->year == '2015') selected @endif>2015</option>
-    <option value="2016" @if ($editcar->year == '2016') selected @endif>2016</option>
-    <option value="2017" @if ($editcar->year == '2017') selected @endif>2017</option>
-    <option value="2018" @if ($editcar->year == '2018') selected @endif>2018</option>
-    <option value="2019" @if ($editcar->year == '2019') selected @endif>2019</option>
-    <option value="2020" @if ($editcar->year == '2020') selected @endif>2020</option>
-    <option value="2021" @if ($editcar->year == '2021') selected @endif>2021</option>
-</select>
+  <label for="exampleFormControlInput1" class="form-label">Year</label>
+  <select class="form-select" name="year" aria-label="Default select example" id="vehicle-info">
+    <option selected>Pick a Year</option>
+    @php
+      $currentYear = date("Y");
+    @endphp
+    @for ($year = 2006; $year <= $currentYear; $year++)
+      <option value="{{ $year }}" @if ($editcar->year == $year) selected @endif>{{ $year }}</option>
+    @endfor
+  </select>
 </div>
+
+
 
 <div class="mb-2">
   <label for="exampleFormControlInput1" class="form-label">Plate No.</label>

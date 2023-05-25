@@ -1,5 +1,7 @@
 @extends('home.layout.master')
 
+@section('title', 'AJAB | Signin')
+
 @section('styles')
     @include('home.assets.style')
     @include('home.assets.bootstrapcss')

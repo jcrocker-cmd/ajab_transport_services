@@ -37,7 +37,7 @@ class SocialiteController extends Controller
             if (!$user->is_active) {
                 $user->update(['is_active' => true]);
             }
-            return redirect('/mainhome');
+            return redirect('home');
         } else {
             $uuid = Str::uuid()->toString();
             $user = User::create([
@@ -53,7 +53,7 @@ class SocialiteController extends Controller
             $user->roles()->attach($clientRole);
     
             Auth::login($user);
-            return redirect('/mainhome');
+            return redirect('home');
         }
     }
     
@@ -74,7 +74,7 @@ class SocialiteController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect('/mainhome');
+            return redirect('home');
         } else {
             $uuid = Str::uuid()->toString();
             $pictureUrl = str_replace('s96-c', 's0', $userdata->avatar ?? '');
@@ -91,7 +91,7 @@ class SocialiteController extends Controller
             $user->roles()->attach($clientRole);
     
             Auth::login($user);
-            return redirect('/mainhome');
+            return redirect('home');
         }
     }
 
@@ -108,7 +108,7 @@ class SocialiteController extends Controller
         if($user)
         {
             Auth::login($user);
-            return redirect('/mainhome');
+            return redirect('home');
         }
 
         else{
@@ -122,7 +122,7 @@ class SocialiteController extends Controller
             $user->social_type = 'google';
             $user->save();
             $request->session()->put('loginId',$user->id);
-            return redirect('/mainhome');
+            return redirect('home');
         }
     }
 

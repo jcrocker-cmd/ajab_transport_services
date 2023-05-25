@@ -153,7 +153,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
 
         Route::get('/mainviewcar/{slug}', [AddCarController::class,'main_viewvehicle']);
 
-        Route::get('/mainhome', [AddCarController::class,'main_allcars']);
+        Route::get('home', [AddCarController::class,'main_allcars']);
         Route::get('/van', [AddCarController::class,'main_van']);
         Route::get('/7seaters', [AddCarController::class,'main_7seaters']);
         Route::get('/pickup', [AddCarController::class,'main_pickup']);
@@ -224,7 +224,6 @@ Route::get('/auth/apple/callback', [SocialiteController::class, 'applecallback']
 Auth::routes();
 
 Route::get('/', function () {return view('home.homepage');});
-Route::get('/home', function () {return view('home.homepage');});
 
 
 

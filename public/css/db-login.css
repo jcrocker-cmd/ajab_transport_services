@@ -184,3 +184,41 @@
 {
     font-size: 12px;
 }
+
+@media(max-width: 600px)
+{
+    .dashboard-logo
+    {
+        width: 100px;
+
+    }
+
+    .dashboard-login-title
+    {
+        font-size: 13px;
+    }
+
+    .fields label,
+    .fields input,
+    .dashboard-login-button
+
+
+    {
+        font-size: 12px;
+    }
+    
+    .remember-forgot a,
+    .remember-forgot label
+    {
+        font-size: 11px;
+    }
+    .dashboard-login-div
+
+    {
+        padding: 40px 20px;
+
+    }
+
+
+}
+

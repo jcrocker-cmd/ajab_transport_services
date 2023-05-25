@@ -28,7 +28,7 @@ class LoginController extends Controller
      if ($user) {
         if(Hash::check($request->password,$user->password)){
             $request->session()->put('loginId',$user->id);
-            return redirect('/mainhome');
+            return redirect('home');
         }else{
          return back()->with('loginfail','This password doesn`t match!')->withInput();
         }

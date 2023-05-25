@@ -30,7 +30,7 @@ class ResetPasswordController extends Controller
         if (auth()->user()->hasAnyRole(['Super-Admin','Admin','Front-Desk'])) {
             return '/dashboard';
         } else {
-            return '/mainhome';
+            return 'home';
         }
     }
 }

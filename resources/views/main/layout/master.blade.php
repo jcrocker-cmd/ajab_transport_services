@@ -12,10 +12,18 @@
 </head>
 <body>
 
+<!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+
 <!-- PRELOADER -->
 
 <div class="loader-wrapper" id="loads">
-    <a href="/" class="brand"><img src="/images/LOGO.png" class="preloader_logo pb-2"></a>
+    <a href="/" class="brand"><img src="/images/LOGO.webp" class="preloader_logo pb-2"></a>
     <div class="linePreloader"></div>
 </div>
 
@@ -60,6 +68,37 @@
       $(".loader-wrapper").delay(1000).fadeIn("slow").fadeOut("slow");
   });
   </script>
+
+<script>
+var chatbox = document.getElementById('fb-customer-chat');
+chatbox.setAttribute("page_id", "1057071350970751");
+chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "122087324217539");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v16.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
 
 </body>

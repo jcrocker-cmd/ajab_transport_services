@@ -1,5 +1,7 @@
 @extends('dashboard.layout.master')
 
+@section('title', 'Dashboard Login')
+
 @section('styles')
     @include('dashboard.assets.style')
 @endsection
