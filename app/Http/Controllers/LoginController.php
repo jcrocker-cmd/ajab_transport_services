@@ -17,26 +17,6 @@ class LoginController extends Controller
       return view('home.login');
    }
 
-    function checklogin(Request $request)
-    {
-     $this->validate($request, [
-      'email'   => 'required|email',
-      'password'  => 'required|alphaNum|min:8'
-     ]);
-
-     $user = Signin::where('email','=',$request->email)->first();
-     if ($user) {
-        if(Hash::check($request->password,$user->password)){
-            $request->session()->put('loginId',$user->id);
-            return redirect('home');
-        }else{
-         return back()->with('loginfail','This password doesn`t match!')->withInput();
-        }
-     } else {
-        return back()->with('loginfail','This email doesn`t exist!')->withInput();
-     }
-     
-   }
 
    public function logout()
    {
