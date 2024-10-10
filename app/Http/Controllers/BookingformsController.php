@@ -166,7 +166,7 @@ class BookingformsController extends Controller
         $car->save();
     
         // Send email notification
-        Mail::send('main.daily-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
+        Mail::queue('main.daily-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
             $message->to('johnchristian.narbaja@bisu.edu.ph');
             $message->subject('Daily Booking Form');
             $message->attach('images/license/front/' . $front_license_name, ['as' => $front_license_name]);
@@ -281,7 +281,7 @@ class BookingformsController extends Controller
         $car->save();
     
         // Send email notification
-        Mail::send('main.weekly-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
+        Mail::queue('main.weekly-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
             $message->to('johnchristian.narbaja@bisu.edu.ph');
             $message->subject('Weekly Booking Form');
             $message->attach('images/license/front/' . $front_license_name, ['as' => $front_license_name]);
@@ -396,7 +396,7 @@ class BookingformsController extends Controller
         $car->save();
     
         // Send email notification
-        Mail::send('main.monthly-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
+        Mail::queue('main.monthly-email-template', ['data' => $data], function($message) use ($data,$front_license_name, $back_license_name) {
             $message->to('johnchristian.narbaja@bisu.edu.ph');
             $message->subject('Monthly Booking Form');
             $message->attach('images/license/front/' . $front_license_name, ['as' => $front_license_name]);

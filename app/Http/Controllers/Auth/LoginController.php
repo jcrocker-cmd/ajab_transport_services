@@ -40,13 +40,31 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // protected function authenticated(Request $request, $user)
+    // {
+    //     if ($user->hasAnyRole(['Super-Admin','Admin','Front-Desk'])) {
+    //         return redirect('/dashboard');
+    //     } elseif ($user->hasRole('Client')) {
+    //         $user->update(['is_active' => true]); // Update the is_active attribute
+    //         return redirect('home');
+    //     }
+    // }
+
     protected function authenticated(Request $request, $user)
     {
-        if ($user->hasAnyRole(['Super-Admin','Admin','Front-Desk'])) {
+        // Check if the user's email is verified
+        if (!$user->hasVerifiedEmail()) {
+            // Redirect the user to the email verification page if not verified
+            return redirect()->route('auth.verify');
+        }
+
+        // Check for roles and redirect based on user role
+        if ($user->hasAnyRole(['Super-Admin', 'Admin', 'Front-Desk'])) {
             return redirect('/dashboard');
         } elseif ($user->hasRole('Client')) {
             $user->update(['is_active' => true]); // Update the is_active attribute
             return redirect('home');
         }
     }
+
 }

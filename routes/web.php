@@ -45,7 +45,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
         Route::get('/dashboard-login', [AdmininfoController::class,'loginroute'])->name('dashboard_login');
     });
 
-    Route::middleware(['auth','admin'])->group(function () {
+    Route::middleware(['auth','admin','verified','verified.redirect'])->group(function () {
 
         Route::get('/dashboard', [AdmininfoController::class,'dashboardroute']);
 
@@ -122,7 +122,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
 // Home Routes
 Route::middleware(['preventBackHistory'])->group(function () {
 
-    Route::middleware(['guest'])->group(function () {
+    Route::middleware(['guest.middleware'])->group(function () {
 
         Route::get('/guest-home', [AddCarController::class,'guest_allcars']);
         Route::get('/guestviewcar/{slug}', [AddCarController::class,'guest_viewvehicle']);
@@ -149,7 +149,7 @@ Route::middleware(['preventBackHistory'])->group(function () {
 // Main Routes
 
 
-    Route::middleware(['auth','client'])->group(function () {
+    Route::middleware(['auth','verified','client', 'verified.redirect'])->group(function () {
 
         Route::get('/mainviewcar/{slug}', [AddCarController::class,'main_viewvehicle']);
 
@@ -229,7 +229,13 @@ Route::get('/', function () {return view('home.homepage');});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();   
+// Auth::routes();   
+Auth::routes(['verify' => true]);
+
+Route::get('email/verify', function () {
+    return view('auth.verify'); // Make sure this path points to your actual Blade file
+})->middleware('auth')->name('auth.verify');
+
 
 Route::get('/welcome', function () {
     return view('home.welcome');

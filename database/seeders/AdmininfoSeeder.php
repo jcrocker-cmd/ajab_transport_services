@@ -23,10 +23,10 @@ class AdmininfoSeeder extends Seeder
     {
 
             $user = User::create([
-                'first_name' => 'Johnny Boy',
-                'middle_name' => 'Narbaja',
+                'first_name' => 'John Christian',
+                'middle_name' => 'B.',
                 'last_name' => 'Narbaja',
-                'email' => 'admin@ajab.com',
+                'email' => 'ondoijan@gmail.com',
                 'password' => Hash::make('12345678'),
                 'con_num' => '09127725518',
                 'bday' => '2022-11-01',
