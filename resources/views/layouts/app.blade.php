@@ -16,12 +16,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/db_forgotpassword.css">
+    <link rel="stylesheet" href="/css/verification.css">
     <link rel="stylesheet" href="/css/db_resetpassword.css">
     <link rel="stylesheet" href="/css/reset-pm.css">
 
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
         <main style="

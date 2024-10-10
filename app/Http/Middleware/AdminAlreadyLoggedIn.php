@@ -16,10 +16,12 @@ class AdminAlreadyLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Session()->has('loginId') && (url('/dashboard-login')==$request->url()))
-        {
+        // Check if the user is authenticated
+        if (Auth::check() && $request->is('dashboard-login')) {
+            // Redirect authenticated users to the dashboard if they attempt to access the login page
             return redirect('/dashboard');
         }
+
         return $next($request);
     }
 }
