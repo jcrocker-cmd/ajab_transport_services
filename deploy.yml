@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.UBUNTU_SERVER_SSH_USERNAME }} # Update this to your server's SSH username
           password: ${{ secrets.UBUNTU_SERVER_SSH_PASSWORD }} # Update this to your server's SSH password
           script: |
-            docker pull johnnote/ajab-car-rental:latest # Updated image name
+            docker pull johnnote/ajab-car-rental:latest
             cd /var/www/mywebsite.com/ajab-car-rental
             docker-compose down
             docker-compose up -d
