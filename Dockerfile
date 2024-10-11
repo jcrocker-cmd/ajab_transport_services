@@ -1,11 +1,19 @@
 # Use the official PHP 8.1 image as the base image
 FROM php:8.0-fpm
 
-# Install system dependencies and PHP extensions
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends \
+FROM php:8.1-fpm
+
+# Update and install packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https \
     ca-certificates \
+    git \
+    unzip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install additional PHP extensions
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
@@ -14,11 +22,10 @@ RUN apt-get update && apt-get upgrade -y && \
     libicu-dev \
     libonig-dev \
     libxml2-dev \
-    git \
-    unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd pdo pdo_mysql zip intl opcache mbstring bcmath \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
