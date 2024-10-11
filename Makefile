@@ -7,6 +7,8 @@ env:
 	cp .env.example .env
 up:
 	./vendor/bin/sail up -d
+rebuild:
+	./vendor/bin/sail up --build -d
 recache:
 	./vendor/bin/sail artisan config:cache
 restart:
@@ -15,12 +17,14 @@ stop:
 	./vendor/bin/sail stop
 migrate:
 	./vendor/bin/sail php artisan migrate
+fresh:
+	./vendor/bin/sail php artisan migrate:fresh
 down:
 	./vendor/bin/sail down
 keygen:
 	./vendor/bin/sail php artisan key:generate
 seed:
-	./vendor/bin/sail php artisan db:seed --class=AdmininfoSeeder && ./vendor/bin/sail php artisan db:seed --class=UserSeeder
+	./vendor/bin/sail php artisan db:seed --class=PermissionSeeder && ./vendor/bin/sail php artisan db:seed --class=AdmininfoSeeder
 # init:
 # 	make env
 # 	make up
