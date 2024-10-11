@@ -1,2 +1,35 @@
-@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css);
-/* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"> */
+/* resources/css/app.css */
+@import 'bootstrap';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Import all CSS files */
+@import 'contactus.css';
+@import 'dashboard.css';
+@import 'db_forgotpassword.css';
+@import 'db_resetpassword.css';
+@import 'db-login.css';
+@import 'featured.css';
+@import 'footer.css';
+@import 'footer2.css';
+@import 'guest-nav.css';
+@import 'homepage.css';
+@import 'howitworks.css';
+@import 'login.css';
+@import 'main-account.css';
+@import 'main-bookingform.css';
+@import 'main-footer.css';
+@import 'main-home.css';
+@import 'main-nav-2.css';
+@import 'main-nav.css';
+@import 'main-notif.css';
+@import 'main-viewcar.css';
+@import 'mediaquery.css';
+@import 'nav.css';
+@import 'preloader.css';
+@import 'reset-pm.css';
+@import 'scrollbar.css';
+@import 'scrollbarsmall.css';
+@import 'scrollup.css';
+@import 'signin.css';
+@import 'success.css';
+@import 'verification.css';
