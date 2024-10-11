@@ -2,7 +2,10 @@
 FROM php:8.1-fpm
 
 # Install system dependencies and PHP extensions
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+    apt-transport-https \
+    ca-certificates \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
@@ -13,8 +16,9 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     git \
     unzip \
-&& docker-php-ext-configure gd --with-freetype --with-jpeg \
-&& docker-php-ext-install gd pdo pdo_mysql zip intl opcache mbstring bcmath
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql zip intl opcache mbstring bcmath \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
