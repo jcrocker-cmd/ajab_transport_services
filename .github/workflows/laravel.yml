@@ -21,15 +21,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-          
+
       - name: Build and Push Docker image
         run: docker buildx build --platform linux/amd64 --tag johnnote/ajab-car-rental:latest --push .
 
 
       - name: Generate APP_KEY
         run: |
-          docker run --rm -v $(pwd):/var/www/html -w /var/www/html johnnote/ajab-car-rental:latest ./vendor/bin/sail php artisan key:generate
-
+          docker run --rm -v $(pwd):/var/www/html -w /var/www/html johnnote/ajab-car-rental:latest php artisan key:generate
+          
       - name: Deploy to Ubuntu Server
         uses: appleboy/ssh-action@v1.0.3
         with:
