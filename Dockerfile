@@ -28,17 +28,16 @@ COPY composer.json composer.lock ./
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install Composer dependencies as root to avoid permission issues later
-RUN composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+# Install Composer dependencies with increased memory limit and as root user to avoid permissions issues
+USER root
+RUN php -d memory_limit=-1 /usr/local/bin/composer install --no-dev --optimize-autoloader --prefer-dist -vvv
+USER www-data
 
 # Now copy the rest of the application code into the container
 COPY . /var/www/html
 
 # Set proper permissions for the application files
 RUN chown -R www-data:www-data /var/www/html
-
-# Switch to the www-data user for security reasons
-USER www-data
 
 # Expose port 9000 for PHP-FPM
 EXPOSE 9000
