@@ -36,7 +36,7 @@ RUN composer diagnose
 
 # Install Composer dependencies with increased memory limit and as root user to avoid permissions issues
 USER root
-RUN php -d memory_limit=-1 /usr/local/bin/composer install --no-dev --optimize-autoloader --prefer-dist --ignore-platform-reqs -vvv
+RUN php -d memory_limit=-1 /usr/local/bin/composer install --no-dev --optimize-autoloader --prefer-dist --ignore-platform-reqs -vvv || true
 USER www-data
 
 # Now copy the rest of the application code into the container

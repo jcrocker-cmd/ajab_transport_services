@@ -40,6 +40,4 @@ jobs:
             docker pull johnnote/ajab-car-rental:latest
             cd /var/www/mywebsite.com/ajab-car-rental
             docker-compose down
-            docker-compose up -d
-            ./vendor/bin/sail php artisan migrate
-            ./vendor/bin/sail php artisan config:cache
+            make init
