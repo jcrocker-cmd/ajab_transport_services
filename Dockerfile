@@ -22,31 +22,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
+# Set working directory
 WORKDIR /var/www/html
 
-# Copy Composer files separately to leverage Docker caching
-COPY composer.json composer.lock ./
+# Copy the application code
+COPY . .
+
+# Set proper permissions before running Composer
+RUN chown -R www-data:www-data /var/www/html
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Diagnose Composer issues before attempting installation
-RUN composer diagnose
-
-# Install Composer dependencies with increased memory limit and as root user to avoid permissions issues
-USER root
-RUN php -d memory_limit=-1 /usr/local/bin/composer install --no-dev --optimize-autoloader --prefer-dist --ignore-platform-reqs -vvv || true
+# Switch to the www-data user to avoid permission issues during Composer install
 USER www-data
 
-# Now copy the rest of the application code into the container
-COPY . /var/www/html
+# Increase memory limit and run composer install with no dev dependencies
+RUN php -d memory_limit=-1 /usr/local/bin/composer install --no-dev --optimize-autoloader -vvv || true
 
-# Set proper permissions for the application files
-RUN chown -R www-data:www-data /var/www/html
-
-# Expose port 9000 for PHP-FPM
-EXPOSE 9000
+# Expose port 80
+EXPOSE 80
 
 # Start PHP-FPM server
 CMD ["php-fpm"]
